@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Orcamento" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="257"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataSetVeiculo">
+		<field name="orcamentoSeguro" class="java.lang.String"/>
+		<field name="veiculoModelo" class="iseg.app.model.VeiculoModelo"/>
+		<field name="anoFabricacao" class="java.lang.String"/>
+		<field name="anoModelo" class="java.lang.String"/>
+		<field name="tipoCombustivel" class="iseg.app.model.DominioEsp"/>
+		<field name="nroPlaca" class="java.lang.String"/>
+		<field name="observacao" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataSetCoberturasServicos">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="coluna" class="java.lang.String">
+			<fieldDescription><![CDATA[coluna]]></fieldDescription>
+		</field>
+		<field name="conteudo" class="java.lang.Object">
+			<fieldDescription><![CDATA[conteudo]]></fieldDescription>
+		</field>
+		<field name="linha" class="java.lang.String">
+			<fieldDescription><![CDATA[linha]]></fieldDescription>
+		</field>
+		<field name="sequencia" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="dataSetFormaPagamento">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="coluna" class="java.lang.String">
+			<fieldDescription><![CDATA[coluna]]></fieldDescription>
+		</field>
+		<field name="conteudo" class="java.lang.Object">
+			<fieldDescription><![CDATA[conteudo]]></fieldDescription>
+		</field>
+		<field name="linha" class="java.lang.String">
+			<fieldDescription><![CDATA[linha]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="dataSetParcelas">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="formaPagamento" class="java.lang.Integer">
+			<fieldDescription><![CDATA[formaPagamento]]></fieldDescription>
+		</field>
+		<field name="id" class="java.lang.Long">
+			<fieldDescription><![CDATA[id]]></fieldDescription>
+		</field>
+		<field name="isSelected" class="java.lang.Boolean">
+			<fieldDescription><![CDATA[isSelected]]></fieldDescription>
+		</field>
+		<field name="orcamentoFranquias" class="iseg.app.model.OrcamentoFranquias">
+			<fieldDescription><![CDATA[orcamentoFranquias]]></fieldDescription>
+		</field>
+		<field name="qtdParcelaCarne" class="java.lang.Integer">
+			<fieldDescription><![CDATA[qtdParcelaCarne]]></fieldDescription>
+		</field>
+		<field name="qtdParcelaCheque" class="java.lang.Integer">
+			<fieldDescription><![CDATA[qtdParcelaCheque]]></fieldDescription>
+		</field>
+		<field name="qtdParcelaCredito" class="java.lang.Integer">
+			<fieldDescription><![CDATA[qtdParcelaCredito]]></fieldDescription>
+		</field>
+		<field name="qtdParcelaDebito" class="java.lang.Integer">
+			<fieldDescription><![CDATA[qtdParcelaDebito]]></fieldDescription>
+		</field>
+		<field name="qtdParcelas" class="java.lang.Integer">
+			<fieldDescription><![CDATA[qtdParcelas]]></fieldDescription>
+		</field>
+		<field name="valorParcelaCarne" class="java.lang.Double">
+			<fieldDescription><![CDATA[valorParcelaCarne]]></fieldDescription>
+		</field>
+		<field name="valorParcelaCheque" class="java.lang.Double">
+			<fieldDescription><![CDATA[valorParcelaCheque]]></fieldDescription>
+		</field>
+		<field name="valorParcelaCredito" class="java.lang.Double">
+			<fieldDescription><![CDATA[valorParcelaCredito]]></fieldDescription>
+		</field>
+		<field name="valorParcelaDebito" class="java.lang.Double">
+			<fieldDescription><![CDATA[valorParcelaDebito]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="dataSetFranquias">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="coluna" class="java.lang.String">
+			<fieldDescription><![CDATA[coluna]]></fieldDescription>
+		</field>
+		<field name="conteudo" class="java.lang.Object">
+			<fieldDescription><![CDATA[conteudo]]></fieldDescription>
+		</field>
+		<field name="linha" class="java.lang.String">
+			<fieldDescription><![CDATA[linha]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="IMAGEM_DIR" class="java.lang.String"/>
+	<parameter name="IMAGEM_FILE" class="java.lang.String"/>
+	<parameter name="NOME_CORRETORA" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ENDERECO_CORRETORA" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="EMAIL_CORRETORA" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="copyright" class="java.lang.String">
+		<defaultValueExpression><![CDATA["i9 Tecnologia - iseg.net.br"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Projetos\\david\\workspace\\iseg\\srcReport\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="nomeBanco" class="java.lang.String"/>
+	<field name="nroBanco" class="java.lang.Long"/>
+	<field name="codigoAgencia" class="java.lang.String"/>
+	<field name="contaCorrente" class="java.lang.Long"/>
+	<field name="contaDigito" class="java.lang.String"/>
+	<field name="inicioVigencia" class="java.util.Date"/>
+	<field name="terminoVigencia" class="java.util.Date"/>
+	<field name="numero" class="java.lang.Long"/>
+	<field name="titularCcorrente" class="java.lang.String"/>
+	<field name="cliente" class="iseg.app.model.Pessoa"/>
+	<field name="dataOrcamento" class="java.util.Date"/>
+	<field name="corretora" class="iseg.app.model.Corretora"/>
+	<field name="grupoDeVenda" class="iseg.app.model.GrupoDeVenda"/>
+	<field name="produtor" class="iseg.app.model.Produtor"/>
+	<field name="ramo" class="iseg.app.model.Ramo"/>
+	<field name="usuario" class="iseg.app.model.Usuario"/>
+	<field name="situacao" class="java.lang.String"/>
+	<field name="clienteNome" class="java.lang.String"/>
+	<field name="cpfOuCnpj" class="iseg.app.conversion.CpfCnpj"/>
+	<field name="fator" class="java.lang.String"/>
+	<field name="isGeneric" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="telefoneAlternativo" class="java.lang.String"/>
+	<field name="telefoneCelular" class="java.lang.String"/>
+	<field name="telefonePreferencial" class="java.lang.String"/>
+	<field name="referenciaPessoal" class="java.lang.String"/>
+	<field name="cnh" class="java.lang.String"/>
+	<field name="data1aHabilitacao" class="java.util.Date"/>
+	<field name="dataNascimento" class="java.util.Date"/>
+	<field name="estadoCivil" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="cliCondutorPrincipal" class="java.lang.String"/>
+	<field name="tipoPessoa" class="java.lang.String"/>
+	<field name="outraProfissao" class="java.lang.String"/>
+	<field name="profissao" class="iseg.app.model.Profissao"/>
+	<field name="orcamentoSeguro" class="iseg.app.model.OrcamentoSeguro"/>
+	<field name="tipoCobertura" class="iseg.app.model.TipoCobertura"/>
+	<field name="proposta" class="iseg.app.model.Proposta"/>
+	<field name="automovelOrcamentoCollection" class="java.util.List"/>
+	<field name="condutoresCollection" class="java.util.List"/>
+	<field name="orcamentoSeguradoraCollection" class="java.util.Collection"/>
+	<field name="orcamentoCoberturaIsegCollection" class="java.util.List"/>
+	<field name="orcamentoServicosIsegCollection" class="java.util.List"/>
+	<field name="respostaPerfilCollection" class="java.util.List"/>
+	<field name="orcamentoCollection" class="java.util.Collection"/>
+	<field name="orcamentoSeguradoraCoberturaCollection" class="java.util.Collection"/>
+	<field name="orcamentoSeguradoraServicoCollection" class="java.util.Collection"/>
+	<field name="formaPagamentoFranquiasCollection" class="java.util.Collection"/>
+	<field name="franquiasCollection" class="java.util.Collection"/>
+	<field name="premiosCollection" class="java.util.Collection"/>
+	<field name="dataValidade" class="java.util.Date"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="100" width="555" height="696"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-2" stretchType="RelativeToTallestObject" mode="Opaque" x="465" y="793" width="80" height="8" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="DejaVu Sans" size="5" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{copyright}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band height="96" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="18" width="244" height="11"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora}.getNome()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="29" width="244" height="11"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora}.getEnderecoCollection().get(0).getLogradouro() + "," + $F{corretora}.getEnderecoCollection().get(0).getNumero()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="40" width="135" height="11"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora}.getEnderecoCollection().get(0).getCidade()+" - "+$F{corretora}.getEnderecoCollection().get(0).getUf()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="54" width="212" height="11"/>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora}.getTelefonePreferencial() + "\n" + $F{corretora}.getTelefoneAlternativo()+"teste"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="54" width="29" height="11"/>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fone:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="65" width="29" height="11"/>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[E-Mail]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="65" width="212" height="11"/>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora}.getEmail()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="76" width="212" height="11"/>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora}.getSiteHomePage()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="76" width="29" height="11"/>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Site]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="91" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<image hAlign="Right" vAlign="Middle">
+				<reportElement key="image-1" x="0" y="18" width="107" height="55"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+				<imageExpression class="java.lang.String"><![CDATA[$P{IMAGEM_DIR}+$P{IMAGEM_FILE}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="421" y="29" width="59" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Emissão:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="480" y="29" width="74" height="11"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{dataOrcamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="421" y="40" width="59" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Validade:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="480" y="40" width="74" height="11"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{dataValidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="421" y="18" width="59" height="11"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="18" width="74" height="11"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ORÇAMENTO SEGURO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<rectangle>
+				<reportElement x="449" y="23" width="106" height="23"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="23" width="449" height="23"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="23" width="449" height="23"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente}.getNome()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="23" width="106" height="11"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente}.getTelefonePreferencial()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="35" width="106" height="11"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente}.getTelefoneAlternativo()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="63" width="449" height="17"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="80" width="555" height="17"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="63" width="435" height="17"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Veículo Segurado]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="80" width="449" height="17"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataSetVeiculo">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{automovelOrcamentoCollection})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="17" width="449">
+						<textField>
+							<reportElement x="0" y="0" width="435" height="17"/>
+							<box leftPadding="2"/>
+							<textElement verticalAlignment="Middle">
+								<font size="8"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{veiculoModelo}.getFabricante().getNome()+" "+$F{veiculoModelo}.getDescricao() + " "+$F{anoFabricacao}+ "/" + $F{anoModelo} + " "+ $F{tipoCombustivel}.getValor() + " Placa: "+ $F{nroPlaca}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<rectangle>
+				<reportElement x="449" y="63" width="106" height="17"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="449" y="63" width="106" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de Cobertura]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="449" y="80" width="106" height="17"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="449" y="80" width="106" height="17"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tipoCobertura}.getDescricao()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="0" width="449" height="23"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="449" y="0" width="106" height="11"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente}.getTelefonePreferencial()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="449" height="23"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produtor}.getPessoa().getNome()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="449" y="0" width="106" height="23"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="449" y="12" width="106" height="11"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produtor}.getPessoa().getTelefoneAlternativo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="1" width="106" height="11"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produtor}.getPessoa().getTelefonePreferencial()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="24" height="7"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Produtor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="24" height="7"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="0" width="24" height="7"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Telefones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="23" width="24" height="7"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Telefones:]]></text>
+			</staticText>
+		</band>
+		<band height="52">
+			<crosstab>
+				<reportElement key="coberturas" mode="Transparent" x="0" y="14" width="555" height="38"/>
+				<crosstabDataset>
+					<dataset>
+						<datasetRun subDataset="dataSetCoberturasServicos">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{orcamentoSeguradoraCoberturaCollection})]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+				</crosstabDataset>
+				<crosstabHeaderCell>
+					<cellContents mode="Opaque">
+						<staticText>
+							<reportElement x="0" y="0" width="89" height="20"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="8" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Coberturas]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="sequencia" width="0">
+					<bucket>
+						<bucketExpression class="java.lang.Integer"><![CDATA[$F{sequencia}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Transparent">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="18"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.Integer"><![CDATA[$V{sequencia}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="coberturaOuServico" width="89">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{linha}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Transparent">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement style="Crosstab Data Text" x="2" y="0" width="87" height="18"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="6"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{coberturaOuServico}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="seguradora" height="20">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{coluna}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Transparent">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="93" height="20"/>
+								<textElement verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{seguradora}.substring(1)]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="premioMeasure" class="java.lang.Object" calculation="First">
+					<measureExpression><![CDATA[$F{conteudo}]]></measureExpression>
+				</measure>
+				<crosstabCell width="93" height="18">
+					<cellContents mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="93" height="18"/>
+							<box rightPadding="2"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font size="6"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$V{premioMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="coberturaOuServico">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="seguradora">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="coberturaOuServico" columnTotalGroup="seguradora">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="sequencia">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="sequencia" columnTotalGroup="seguradora">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" forecolor="#000000" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Coberturas e Serviços]]></text>
+			</staticText>
+		</band>
+		<band height="39">
+			<crosstab>
+				<reportElement key="servicos" mode="Transparent" x="0" y="0" width="555" height="39"/>
+				<crosstabDataset>
+					<dataset>
+						<datasetRun subDataset="dataSetCoberturasServicos">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{orcamentoSeguradoraServicoCollection})]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+				</crosstabDataset>
+				<crosstabHeaderCell>
+					<cellContents mode="Opaque">
+						<staticText>
+							<reportElement x="0" y="0" width="89" height="20"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="8" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Serviços]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="coberturaOuServico" width="89">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{linha}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Transparent">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement style="Crosstab Data Text" x="2" y="0" width="87" height="18"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="6"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{coberturaOuServico}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="seguradora" height="20">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{coluna}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Transparent">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="91" height="20"/>
+								<textElement verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{seguradora}.substring(1)]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="premioMeasure" class="java.lang.Object" calculation="First">
+					<measureExpression><![CDATA[$F{conteudo}]]></measureExpression>
+				</measure>
+				<crosstabCell width="93" height="18">
+					<cellContents mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="91" height="18"/>
+							<textElement verticalAlignment="Middle">
+								<font size="6"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$V{premioMeasure} != null? $V{premioMeasure} : "NAO"]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="coberturaOuServico">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="seguradora">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="coberturaOuServico" columnTotalGroup="seguradora">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+		<band height="57">
+			<subreport>
+				<reportElement x="0" y="14" width="555" height="43"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{franquiasCollection})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "subreportCustoSeguro.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" forecolor="#000000" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Preços e Franquias]]></text>
+			</staticText>
+		</band>
+		<band height="43">
+			<crosstab>
+				<reportElement mode="Transparent" x="0" y="14" width="555" height="29"/>
+				<crosstabDataset>
+					<dataset>
+						<datasetRun subDataset="dataSetFormaPagamento">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{formaPagamentoFranquiasCollection})]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+				</crosstabDataset>
+				<crosstabHeaderCell>
+					<cellContents mode="Opaque">
+						<staticText>
+							<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="89" height="13"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="8" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Tipo de franquia]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="franquiaDescricao" width="89">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{linha}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Transparent">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement style="Crosstab Data Text" x="2" y="0" width="87" height="14"/>
+								<textElement verticalAlignment="Middle">
+									<font size="6"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{franquiaDescricao}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="seguradora" height="13">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{coluna}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Transparent">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="91" height="13"/>
+								<textElement verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{seguradora}.substring(1)]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="parcelasOrcamentoListMeasure" class="java.lang.Object">
+					<measureExpression><![CDATA[$F{conteudo}]]></measureExpression>
+				</measure>
+				<crosstabCell width="93" height="14">
+					<cellContents mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="91" height="14"/>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font size="6"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$V{parcelasOrcamentoListMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="franquiaDescricao">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="seguradora">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="franquiaDescricao" columnTotalGroup="seguradora">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" forecolor="#000000" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Forma de Pagamento]]></text>
+			</staticText>
+		</band>
+		<band height="29">
+			<componentElement>
+				<reportElement x="0" y="0" width="555" height="29"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataSetVeiculo">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{automovelOrcamentoCollection})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="29" width="555">
+						<staticText>
+							<reportElement x="0" y="0" width="55" height="11"/>
+							<box topPadding="2" leftPadding="2"/>
+							<textElement>
+								<font size="6" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Observações:]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement x="0" y="11" width="555" height="18"/>
+							<box topPadding="2" leftPadding="2"/>
+							<textElement>
+								<font size="8"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{observacao}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

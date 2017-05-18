@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelPedidoSeguroAutomovelList" pageWidth="568" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="568" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="3.630000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="PROPOSTA_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	automovel.id,
+	automovel.numero_item,
+	automovel.ano_fabricacao,
+	automovel.ano_modelo,
+	automovel.codigo_fipe,
+	automovel.nro_placa,
+	automovel.renavan,
+	automovel.nro_chassis,
+	automovel.cor_predominante,
+	automovel.regiao_tarifacao,
+	COALESCE(modelo.descricao, automovel.modelo_nome) as modelo_veiculo,
+	COALESCE(marca.nome, marca2.nome) as marca_veiculo,
+	categoriaVeiculo.valor as categoria_veiculo,
+	tipoCombustivel.valor as tipo_combustivel,
+	rastreadorIseg.descricao as rastreador_iseg,
+	bloqueadorIseg.descricao as bloqueador_iseg,
+	automovel.outro_rastreador as outro_rastreador,
+	automovel.outro_bloqueador as outro_bloqueador
+FROM PROPOSTA_AUTOMOVEL proposta_automovel
+	INNER JOIN AUTOMOVEL automovel ON proposta_automovel.automovel_id = automovel.id
+	LEFT JOIN VEICULO_MODELO modelo on modelo.id = automovel.modelo_veiculo_id
+	LEFT JOIN FABRICANTE marca on marca.id = modelo.fabricante_id
+	LEFT JOIN FABRICANTE marca2 on marca2.id = automovel.fabricante_id
+	LEFT JOIN DOMINIO_ESP categoriaVeiculo on categoriaVeiculo.id = automovel.CATEGORIA_VEICULO_ID
+	LEFT JOIN DOMINIO_ESP tipoCombustivel on tipoCombustivel.id = automovel.tipo_combustivel_id
+	LEFT JOIN RASTREADOR_ISEG rastreadorIseg on rastreadorIseg.id = automovel.rastreador_iseg_id
+	LEFT JOIN BLOQUEADOR_ISEG bloqueadorIseg on bloqueadorIseg.id = automovel.bloqueador_iseg_id
+WHERE
+	proposta_automovel.proposta_id = $P{PROPOSTA_ID}
+	AND proposta_automovel.proposta_id <> proposta_automovel.proposta_original_id
+	AND (automovel.fabricante_id is not null OR marca.nome is not null OR modelo.descricao is not null)
+	AND proposta_automovel.data_exclusao is null
+ORDER BY
+	proposta_automovel.proposta_id
+	,automovel.numero_item]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="numero_item" class="java.lang.Integer"/>
+	<field name="ano_fabricacao" class="java.lang.String"/>
+	<field name="ano_modelo" class="java.lang.String"/>
+	<field name="codigo_fipe" class="java.lang.String"/>
+	<field name="nro_placa" class="java.lang.String"/>
+	<field name="renavan" class="java.lang.String"/>
+	<field name="nro_chassis" class="java.lang.String"/>
+	<field name="cor_predominante" class="java.lang.String"/>
+	<field name="regiao_tarifacao" class="java.lang.String"/>
+	<field name="modelo_veiculo" class="java.lang.String"/>
+	<field name="marca_veiculo" class="java.lang.String"/>
+	<field name="categoria_veiculo" class="java.lang.String"/>
+	<field name="tipo_combustivel" class="java.lang.String"/>
+	<field name="rastreador_iseg" class="java.lang.String"/>
+	<field name="bloqueador_iseg" class="java.lang.String"/>
+	<field name="outro_rastreador" class="java.lang.String"/>
+	<field name="outro_bloqueador" class="java.lang.String"/>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="568" height="11" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["DESCRIÇÃO DO VEÍCULO" +
+(($F{numero_item}==null) ? "" : " - ITEM " + $F{numero_item}.toString())]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="frame" positionType="Float" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="11" width="568" height="49"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<rectangle>
+					<reportElement mode="Transparent" x="0" y="32" width="284" height="16"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="284" y="32" width="284" height="16"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="0" y="0" width="139" height="16"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement key="staticText-152" mode="Transparent" x="0" y="0" width="55" height="6"/>
+					<box topPadding="1" leftPadding="1">
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Marca]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-152" mode="Transparent" x="285" y="32" width="244" height="6"/>
+					<box topPadding="1" leftPadding="1">
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Bloqueador]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-152" mode="Transparent" x="0" y="32" width="283" height="6"/>
+					<box topPadding="1" leftPadding="1">
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Rastreador]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-124" x="285" y="37" width="283" height="11"/>
+					<box leftPadding="3" rightPadding="3">
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($F{bloqueador_iseg} == null || $F{bloqueador_iseg} == "") ? $F{outro_bloqueador} : $F{bloqueador_iseg}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-124" x="0" y="37" width="283" height="11"/>
+					<box leftPadding="3" rightPadding="3">
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($F{rastreador_iseg} == null || $F{rastreador_iseg} == "") ? $F{outro_rastreador} :  $F{rastreador_iseg}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<rectangle>
+				<reportElement mode="Transparent" x="139" y="11" width="299" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="139" y="11" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="438" y="11" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Combustível]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="438" y="11" width="80" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="518" y="11" width="50" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="518" y="11" width="50" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Ano / Modelo]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="16" width="139" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{marca_veiculo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="139" y="16" width="299" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{codigo_fipe} != null) ? "(" + $F{codigo_fipe} + ") " + $F{modelo_veiculo} : $F{modelo_veiculo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="438" y="16" width="80" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tipo_combustivel}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="518" y="16" width="50" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[(($F{ano_fabricacao} == null) ? "" : $F{ano_fabricacao}) +
+" / " +
+(($F{ano_modelo} == null) ? "" : $F{ano_modelo})]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="27" width="45" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="27" width="45" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="45" y="27" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Chassi]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="45" y="27" width="94" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="32" width="45" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nro_placa}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="45" y="32" width="94" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nro_chassis}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="139" y="27" width="60" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="139" y="27" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Renavam]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="199" y="27" width="85" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="199" y="27" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cor]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="27" width="121" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="27" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Região]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="405" y="27" width="163" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="405" y="27" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Carroceria / Carga]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="139" y="32" width="60" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{renavan}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="199" y="32" width="85" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cor_predominante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="283" y="32" width="121" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{regiao_tarifacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="405" y="32" width="163" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{categoria_veiculo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

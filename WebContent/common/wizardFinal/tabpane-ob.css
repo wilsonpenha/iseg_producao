@@ -1,0 +1,453 @@
+ .seccion_intro .dynamic-tab-pane-control .tab-pane .tabpane-main {
+  display: block;
+  position: relative;
+  width: 100%; /* width needed weird IE bug */
+  height: 229px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-row {
+  display: block;
+  z-index: 1;
+  white-space: nowrap;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-row .tab .tabpane-main {
+  position: relative;
+  display: inline;
+  float: left;
+  width: 109px;
+  height: 23px;
+  background-image: url("../img-corp/tabpane/tab-off.gif");
+  overflow: hidden;
+  cursor: Default;
+  margin: 7px 1px 0px 0px;
+  padding: 6px 0px 0px 0px;
+  z-index: 1;
+  font: 12px verdana;
+  white-space: nowrap;
+  text-align: center;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-row .tab.selected .tabpane-main{
+  width: 109px !important;
+  height: 25px !important;
+  background-image: url("../img-corp/tabpane/tab-on.gif") !important;
+  background-repeat: no-repeat;
+  border-bottom-width: 0;
+  z-index: 3;
+  padding-top: 9px;
+  margin: 0px 1px 0px 0px;
+  font: 12px verdana;
+  color: #666666;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-row .tab.hover .tabpane-main {
+  width: 109px;
+  height: 23px;
+  background-image: url("../img-corp/tabpane/tab-off.gif");
+  background-repeat: no-repeat;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main {
+  display: block;
+  width: 663px;
+  height: 194px;
+  clear: both;
+  border: 1px #D2D2D2 solid;
+  background: #FFFFFF;
+  z-index: 2;
+  position: relative;
+  top: -3px;
+  font: 12px verdana;
+  color: Black;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-top {
+  width: 663px;
+  height: 26px;
+  background-image: url("../img-corp/tabpane/box-back.gif");
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-top .right {
+  float: right;
+  margin-top: -1px;
+  margin-right: -1px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-top .left {
+  float: left;
+  margin-top: -1px;
+  margin-left: -1px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle {
+  height: 158px;
+  margin-left: 14px;
+  margin-right: 14px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .left {
+  float: left;
+  width: 145px;
+  height: 137px;
+  margin-top: 15px;
+  margin-right: 15px;
+ }
+
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .left .banner {
+  width: 145px;
+  height: 50px;
+  background: transparent url("../img-corp/tabpane/bg-but-tab.gif") no-repeat scroll 0% 0%;
+  margin-bottom: 12px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .left .banner .text {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #51990F;
+  padding: 17px 0px 0px 53px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .left a {
+  text-decoration: none;
+  color: #499E05;
+  cursor: hand;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .left a:hover {
+  color: #000000;
+ }
+
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .left .bottom {
+  margin-top: 12px;
+ }
+
+ .section-main .left-colum .banner-left .banner {
+  width: 145px;
+  height: 50px;
+  background: transparent url("../img-corp/tabpane/bg-but-tab.gif") no-repeat scroll 0% 0%;
+  margin-bottom: 14px;
+ }
+
+ .section-main .left-colum .banner-left .banner .text {
+  font-weight: bold;
+  color: #51990F;
+  padding: 14px 0px 0px 50px;
+ }
+
+ .section-main .left-colum .banner-left a {
+  text-decoration: none;
+  color: #499E05;
+  cursor: hand;
+ }
+
+ .section-main .left-colum .banner-left a:hover {
+  color: #000000;
+ }
+
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .middle .users {
+  float: left;
+  width: 390px;
+  height: 152px;
+  vertical-align: middle;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .middle .partners {
+  float: left;
+  width: 390px;
+  height: 130px;
+  margin-top: 22px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .middle .partners-es {
+  float: left;
+  width: 390px;
+  height: 137px;
+  margin-top: 15px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .middle .developers {
+  float: left;
+  width: 390px;
+  height: 130px;
+  margin-top: 22px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .middle .title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #499E05;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .middle .text {
+  font-size: 11px;
+  line-height: 14px;
+  padding-top: 7px;
+  text-align: justify;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-middle .right {
+  float: right;
+  width: 70px;
+  height: 70px;
+  margin-top: 3px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-bottom {
+  height: 10px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-bottom .right {
+  float: right;
+  margin-top: 1px;
+  margin-right: -1px;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-page .main .tabpane-bottom .left {
+  float: left;
+  margin-top: 1px;
+  margin-left: -1px;
+ }
+
+
+ .seccion_intro .dynamic-tab-pane-control .tab-row .tab.selected a.tabpane .tabpane-main {
+  font-size: 12px;
+  font-weight: bold;
+  color: #444444;
+  text-decoration: none;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-row .tab a .tabpane-main {
+  font-size: 12px;
+  font-weight: bold;
+  color: #499E05;
+  text-decoration: none;
+ }
+
+ .seccion_intro .dynamic-tab-pane-control .tab-row .tab a.tabpane:hover .tabpane-main {
+  color: #444444;
+ }
+
+/* Events and Training */
+
+ .events {
+  display: block;
+  float: right;
+  width: 213px;
+  height: 222px;
+  font-size: 10px;
+  margin-bottom: 14px;
+ }
+
+ .events .dynamic-tab-pane-control {
+  width: 213px;
+  height: 222px;
+ }
+
+
+ .events .dynamic-tab-pane-control .tab-pane .tabpane-events {
+  position: relative;
+  width: 100%; /* width needed weird IE bug */
+  width: 213px;
+  height: 222px;
+}
+
+ .events .dynamic-tab-pane-control .tab-row {
+  display: block;
+  z-index: 1;
+  white-space: nowrap;
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab {
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab .tabpane-events {
+  display: inline;
+  position: relative;
+  float: left;
+  width: 0px;
+  overflow: hidden;
+  cursor: Default;
+  z-index: 2;
+  white-space: nowrap;
+  margin-top: 200px;
+  margin-left: 9px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab .tabpane-events .arrow {
+  display: inline;
+  padding-right: 1px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab.selected .tabpane-events {
+  display: none;
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab.selected a.tabpane .tabpane-events {
+  font-weight: normal;
+  color: #000000;
+  text-decoration: none;
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab.hover .tabpane-events {
+  width: 90px;
+  background-repeat: no-repeat;
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab a .tabpane-events {
+  font-weight: normal;
+  color: #499E05;
+  text-decoration: none;
+ }
+
+ .events .dynamic-tab-pane-control .tab-row .tab a.tabpane:hover .tabpane-events {
+  color: #000000;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page {
+  height: 214px;
+  width: 212px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event {
+  position: relative;
+  top: -204px;
+  width: 214px;
+  height: 214px;
+  clear: both;
+  z-index: 1;
+  color: Black;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .event_element {
+  display: block;
+  float: left;
+  width: 188px;
+  margin-right: 15px;
+  margin-left: 9px;
+  margin-top: 7px;
+  padding-bottom: 10px;
+  border-bottom: 1px #CCCCCC dashed;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .page {
+  width: 195px;
+  text-align: right;
+  padding-right: 15px;
+  margin-bottom: 4px;
+  border-left: 1px #CCCCCC solid;
+  border-right: 1px #CCCCCC solid;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .top-border {
+  width: 211px;
+  height: 9px;
+  border-top: 1px #CCCCCC solid;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .top-border .right {
+  float: right;
+  margin-top: -1px;
+  margin-right: -1px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .top-border .left {
+  float: left;
+  margin-top: -1px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main {
+  width: 210px;
+  height: 182px;
+  border-left: 1px #CCCCCC solid;
+  border-right: 1px #CCCCCC solid;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .title {
+  font-weight: bold;
+  color: #444444;
+  padding-bottom: 3px;
+  margin: 0px 7px 5px 9px;
+  border-bottom: 1px #DDDDDD solid;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .event_element .time {
+  float: left;
+  width: 40px;
+  height: 33px;
+  font-weight: bold;
+  text-align: center;
+  background-image: url("../img-corp/icon/fecha-modulo-events.gif");
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .event_element .time .month {
+  color: #FFFFFF;
+  margin-top: 1px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .event_element .time .date {
+  color: #F2A615;
+  margin-top: 5px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .event_element .time_training {
+  float: left;
+  width: 40px;
+  height: 33px;
+  font-weight: bold;
+  text-align: center;
+  background-image: url("../img-corp/icon/fecha-modulo-training.gif");
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .event_element .time_training .month {
+  color: #FFFFFF;
+  margin-top: 1px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .event_element .time_training .date {
+  color: #5DA91F;
+  margin-top: 5px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .main .event_element .event_text {
+  float: left;
+  width: 138px;
+  line-height: 15px;
+  margin: 3px 0px 0px 10px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event a {
+  display: block;
+  position: relative;
+  top: -1px;
+  font-weight: normal;
+  color: #499E05;
+  text-decoration: none;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event a:hover {
+  color: #000000;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .bottom-border {
+  position: relative;
+  top: -3px;
+  width: 211px;
+  height: 8px;
+  border-bottom: 1px #CCCCCC solid;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .bottom-border .right {
+  float: right;
+  margin-top: -1px;
+  margin-right: -1px;
+ }
+
+ .events .dynamic-tab-pane-control .tab-page .event .bottom-border .left {
+  float: left;
+  margin-top: -1px;
+ }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="automovel" extends="struts2" namespace="/automovel">
+		<action name="displayList" method="lista" class="automovelAction">
+			<result type="tiles" name="success">automovel.displayList</result>
+			<result type="tiles" name="error">automovel.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="automovelAction">
+			<result type="tiles" name="success">automovel.displayList</result>
+			<result type="tiles" name="error">automovel.displayList</result>
+		</action>
+
+		<action name="excluir" class="automovelAction" method="excluir">
+			<result type="tiles" name="success">automovel.displayList</result>
+			<result type="tiles" name="error">automovel.displayList</result>
+		</action>
+
+		<action name="salvarLista" class="automovelAction" method="salvarLista">
+			<result type="tiles" name="input">automovel.displayList</result>
+			<result type="tiles" name="success">automovel.displayList</result>
+			<result type="tiles" name="error">automovel.update</result>
+		</action>
+
+		<action name="salvarNovo" class="automovelAction" method="salvarNovo">
+			<result type="tiles" name="input">automovel.insert</result>
+			<result type="tiles" name="success">automovel.insert</result>
+			<result type="tiles" name="error">automovel.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="automovelAction" method="salvarEditar">
+			<result type="tiles" name="input">automovel.update</result>
+			<result type="tiles" name="success">automovel.update</result>
+			<result type="tiles" name="error">automovel.update</result>
+		</action>
+
+		<action name="novo" class="automovelAction" method="novo">
+			<result type="tiles" name="success">automovel.insert</result>
+			<result type="tiles" name="error">automovel.insert</result>
+		</action>
+
+		<action name="editar" class="automovelAction" method="editar">
+			<result type="tiles" name="success">automovel.update</result>
+			<result type="tiles" name="error">automovel.update</result>
+		</action>
+
+		<action name="visualizar" class="automovelAction" method="visualizar">
+			<result type="tiles" name="success">automovel.view</result>
+			<result type="tiles" name="error">automovel.view</result>
+		</action>
+		
+		<action name="getModeloVeiculo" class="automovelAction" method="getModeloVeiculoList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getModeloVeiculoList</param>
+			</interceptor-ref>
+			<result>/WEB-INF/jsp/automovel/comboListModeloVeiculo.jsp</result>
+		</action>
+	</package>
+</struts>

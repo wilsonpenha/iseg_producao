@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="perfil" extends="struts2" namespace="/perfil">
+		<action name="displayList" method="lista" class="perfilAction">
+			<result type="tiles" name="success">perfil.displayList</result>
+			<result type="tiles" name="error">perfil.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="perfilAction">
+			<result type="tiles" name="success">perfil.displayList</result>
+			<result type="tiles" name="error">perfil.displayList</result>
+		</action>
+		
+		<action name="excluir" class="perfilAction" method="excluir">
+			<result type="tiles" name="success">perfil.displayList</result>
+			<result type="tiles" name="error">perfil.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="perfilAction" method="salvarLista">
+			<result type="tiles" name="input">perfil.displayList</result>
+			<result type="tiles" name="success">perfil.displayList</result>
+			<result type="tiles" name="error">perfil.update</result>
+		</action>
+		<action name="salvarNovo" class="perfilAction" method="salvarNovo">
+			<result type="tiles" name="input">perfil.insert</result>
+			<result type="tiles" name="success">perfil.insert</result>
+			<result type="tiles" name="error">perfil.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="perfilAction" method="salvarEditar">
+			<result type="tiles" name="input">perfil.update</result>
+			<result type="tiles" name="success">perfil.update</result>
+			<result type="tiles" name="error">perfil.update</result>
+		</action>
+
+		<action name="novo" class="perfilAction" method="novo">
+			<result type="tiles" name="success">perfil.insert</result>
+			<result type="tiles" name="error">perfil.insert</result>
+		</action>
+
+		<action name="editar" class="perfilAction" method="editar">
+			<result type="tiles" name="success">perfil.update</result>
+			<result type="tiles" name="error">perfil.update</result>
+		</action>
+
+		<action name="inserirPergunta" class="perfilAction" method="inserirPergunta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirPergunta</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/perfil/listaPerguntas.jsp</result>
+			<result name="input">/WEB-INF/jsp/perfil/listaPerguntas.jsp</result>
+			<result name="error">/WEB-INF/jsp/perfil/listaPerguntas.jsp</result>
+		</action>
+		<action name="excluirPergunta" class="perfilAction" method="excluirPergunta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirPergunta</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/perfil/listaPerguntas.jsp</result>
+			<result name="input">/WEB-INF/jsp/perfil/listaPerguntas.jsp</result>
+			<result name="error">/WEB-INF/jsp/perfil/listaPerguntas.jsp</result>
+		</action>	
+		<action name="editarPergunta" class="perfilAction" method="editarPergunta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarPergunta</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/perfil/dadosPergunta.jsp</result>
+			<result name="input">/WEB-INF/jsp/perfil/dadosPergunta.jsp</result>
+			<result name="error">/WEB-INF/jsp/perfil/dadosPergunta.jsp</result>
+		</action>		
+
+	</package>
+</struts>

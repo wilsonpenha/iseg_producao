@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="privilegio" extends="struts2" namespace="/privilegio">
+		<action name="displayList" method="lista" class="privilegioAction">
+			<result type="tiles" name="none">privilegio.insert</result>
+			<result type="tiles" name="input">privilegio.update</result>
+			<result type="tiles" name="success">privilegio.displayList</result>
+			<result type="tiles" name="error">privilegio.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="privilegioAction">
+			<result type="tiles">privilegio.displayList</result>
+			<result type="tiles" name="error">privilegio.displayList</result>
+		</action>
+		
+		<action name="excluir" class="privilegioAction" method="excluir">
+			<result type="tiles">privilegio.displayList</result>
+			<result type="tiles" name="error">privilegio.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="privilegioAction" method="salvarLista">
+			<result type="tiles" name="none">privilegio.insert</result>
+			<result type="tiles" name="input">privilegio.update</result>
+			<result type="tiles" name="success">privilegio.displayList</result>
+			<result type="tiles" name="error">privilegio.displayList</result>
+		</action>
+		<action name="salvarNovo" class="privilegioAction" method="salvarNovo">
+			<result type="tiles" name="input">privilegio.insert</result>
+			<result type="tiles" name="success">privilegio.insert</result>
+			<result type="tiles" name="error">privilegio.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="privilegioAction" method="salvarEditar">
+			<result type="tiles" name="input">privilegio.update</result>
+			<result type="tiles" name="success">privilegio.update</result>
+			<result type="tiles" name="error">privilegio.update</result>
+		</action>
+
+		<action name="novo" class="privilegioAction" method="novo">
+			<result type="tiles" name="success">privilegio.insert</result>
+			<result type="tiles" name="error">privilegio.insert</result>
+		</action>
+
+		<action name="editar" class="privilegioAction" method="editar">
+			<result type="tiles" name="success">privilegio.update</result>
+			<result type="tiles" name="error">privilegio.update</result>
+		</action>
+
+		<action name="menuList" method="listaMenus" class="privilegioAction">
+			<result name="success">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+			<result name="error">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+			<result name="input">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+		</action>
+
+		<action name="efetivarPrivilegios" method="efetivarPrivilegios" class="privilegioAction">
+			<result name="success">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+			<result name="error">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+			<result name="input">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+		</action>
+
+		<action name="checkMenuRole" class="privilegioAction" method="checkMenuRole">
+			<result name="success">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+		</action>
+
+		<action name="checkAcaoRole" class="privilegioAction" method="checkAcaoRole">
+			<result name="success">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+		</action>
+	</package>
+</struts>

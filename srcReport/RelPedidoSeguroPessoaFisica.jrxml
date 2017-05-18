@@ -1,0 +1,1165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelPedidoSeguroPessoaFisica" pageWidth="568" pageHeight="842" columnWidth="568" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="PROPOSTA_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new Long(370)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEM_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEM_FILE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["logo_iSeg.png"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	tipoProposta.sigla AS "TIPO_PROPOSTA",
+	proposta.nome_vistoriadora AS "VISTORIADORA_OUTRA",
+	vistoriadora.nome AS "VISTORIADORA",
+	proposta.data_vistoria AS "DATA_VISTORIA",
+	proposta.nro_vistoria AS "NRO_VISTORIA",
+	proposta.nome_vistoriador AS "NOME_VISTORIADOR",
+	proposta.numero AS "NUMERO",
+	proposta.fator AS "FATOR",
+	ramo.nome AS "NOME_RAMO",
+	substring(pessoaSeguradora.nome,1,40)||'/'||CASE WHEN seguradora.telefone_0800 is not null THEN seguradora.telefone_0800 ELSE 'NI' END AS "SEGURADORA_NOME",
+	pessoaVistoriadora.nome AS "VISTORIADORA_NOME",
+	pessoaCliente.nome AS "CLIENTE_NOME",
+	pessoaCliente.referencia_pessoal AS "CLIENTE_REFERENCIA",
+	pessoaCliente.cpf_ou_cnpj AS "CLIENTE_CPF_CNPJ",
+	pessoaCliente.email AS "CLIENTE_EMAIL",
+	pessoaCliente.telefone_celular AS "CLIENTE_TELEFONE_CELULAR",
+	pessoaCliente.telefone_preferencial as "CLIENTE_TELEFONE_PREFERENCIAL",
+	pessoaCliente.telefone_alternativo as "CLIENTE_TELEFONE_ALTERNATIVO",
+	pessoaFisicaCliente.rg AS "CLIENTE_RG",
+	pessoaFisicaCliente.orgao_emissor AS "CLIENTE_RG_ORGAO_EMISSOR",
+	pessoaFisicaCliente.data_emissao AS "CLIENTE_RG_DATA_EMISSAO",
+	pessoaFisicaCliente.cnh AS "CLIENTE_CNH",
+	pessoaFisicaCliente.data_nascimento AS "CLIENTE_DATA_NASCIMENTO",
+	pessoaFisicaCliente.telefone_recados AS "CLIENTE_TELEFONE_RECADOS",
+	pessoaFisicaCliente.sexo AS "CLIENTE_SEXO",
+	enderecoResidencial.logradouro AS "END_RESID_LOGRADOURO",
+	enderecoResidencial.numero AS "END_RESID_NUMERO",
+	enderecoResidencial.complemento AS "END_RESID_COMPLEMENTO",
+	enderecoResidencial.bairro AS "END_RESID_BAIRRO",
+	enderecoResidencial.cidade AS "END_RESID_CIDADE",
+	enderecoResidencial.uf AS "END_RESID_UF",
+	enderecoResidencial.cep AS "END_RESID_CEP",
+	enderecoResidencial.telefone AS "END_RESID_TEL",
+	enderecoComercial.logradouro AS "END_COMER_LOGRADOURO",
+	enderecoComercial.numero AS "END_COMER_NUMERO",
+	enderecoComercial.complemento AS "END_COMER_COMPLEMENTO",
+	enderecoComercial.bairro AS "END_COMER_BAIRRO",
+	enderecoComercial.cidade AS "END_COMER_CIDADE",
+	enderecoComercial.uf AS "END_COMER_UF",
+	enderecoComercial.cep AS "END_COMER_CEP",
+	enderecoComercial.telefone AS "END_COMER_TEL",
+	enderecoComercial.fax AS "END_COMER_FAX",
+	grupoDeVenda.nome_do_grupo||' / '||CASE WHEN produtorGerente.telefone_celular is null THEN 'NI' ELSE produtorGerente.telefone_celular END AS "GRUPO_DE_VENDA_NOME",
+	seguradora.telefone_0800 AS "SEGURADORA_CONTATO"
+FROM PROPOSTA proposta
+	LEFT JOIN RAMO ramo ON ramo.id = proposta.ramo_id
+	LEFT JOIN PESSOA pessoaVistoriadora ON pessoaVistoriadora.id = proposta.vistoriadora_id
+	LEFT JOIN PESSOA pessoaSeguradora ON pessoaSeguradora.id = proposta.seguradora_id
+	LEFT JOIN PESSOA pessoaCliente ON pessoaCliente.id = proposta.cliente_id
+	LEFT JOIN PESSOA_FISICA pessoaFisicaCliente ON pessoaFisicaCliente.id = proposta.cliente_id
+	LEFT JOIN PROPOSTA_ENDERECO enderecoResidencial ON enderecoResidencial.proposta_id = proposta.id and LOWER(enderecoResidencial.tipo_endereco) = 'r'
+	LEFT JOIN PROPOSTA_ENDERECO enderecoComercial ON enderecoComercial.proposta_id = proposta.id and LOWER(enderecoComercial.tipo_endereco) = 'c'
+	LEFT JOIN GRUPO_DE_VENDA grupoDeVenda ON grupoDeVenda.id = proposta.grupo_de_venda_id
+	LEFT JOIN PESSOA produtorGerente ON produtorGerente.id = grupoDeVenda.produtor_gerente_id
+	LEFT JOIN SEGURADORA seguradora ON seguradora.id = proposta.seguradora_id
+	LEFT JOIN PESSOA vistoriadora ON vistoriadora.id = proposta.vistoriadora_id
+	LEFT JOIN TIPO_PROPOSTA tipoProposta ON tipoProposta.id = proposta.tipo_proposta
+WHERE
+	proposta.id = $P{PROPOSTA_ID}]]>
+	</queryString>
+	<field name="TIPO_PROPOSTA" class="java.lang.String"/>
+	<field name="VISTORIADORA_OUTRA" class="java.lang.String"/>
+	<field name="VISTORIADORA" class="java.lang.String"/>
+	<field name="DATA_VISTORIA" class="java.sql.Date"/>
+	<field name="NRO_VISTORIA" class="java.lang.String"/>
+	<field name="NOME_VISTORIADOR" class="java.lang.String"/>
+	<field name="NUMERO" class="java.lang.Long"/>
+	<field name="FATOR" class="java.lang.Double"/>
+	<field name="NOME_RAMO" class="java.lang.String"/>
+	<field name="SEGURADORA_NOME" class="java.lang.String"/>
+	<field name="VISTORIADORA_NOME" class="java.lang.String"/>
+	<field name="CLIENTE_NOME" class="java.lang.String"/>
+	<field name="CLIENTE_REFERENCIA" class="java.lang.String"/>
+	<field name="CLIENTE_CPF_CNPJ" class="java.lang.String"/>
+	<field name="CLIENTE_EMAIL" class="java.lang.String"/>
+	<field name="CLIENTE_TELEFONE_CELULAR" class="java.lang.String"/>
+	<field name="CLIENTE_TELEFONE_PREFERENCIAL" class="java.lang.String"/>
+	<field name="CLIENTE_TELEFONE_ALTERNATIVO" class="java.lang.String"/>
+	<field name="CLIENTE_RG" class="java.lang.String"/>
+	<field name="CLIENTE_RG_ORGAO_EMISSOR" class="java.lang.String"/>
+	<field name="CLIENTE_RG_DATA_EMISSAO" class="java.sql.Date"/>
+	<field name="CLIENTE_CNH" class="java.lang.String"/>
+	<field name="CLIENTE_DATA_NASCIMENTO" class="java.sql.Date"/>
+	<field name="CLIENTE_TELEFONE_RECADOS" class="java.lang.String"/>
+	<field name="CLIENTE_SEXO" class="java.lang.String"/>
+	<field name="END_RESID_LOGRADOURO" class="java.lang.String"/>
+	<field name="END_RESID_NUMERO" class="java.lang.String"/>
+	<field name="END_RESID_COMPLEMENTO" class="java.lang.String"/>
+	<field name="END_RESID_BAIRRO" class="java.lang.String"/>
+	<field name="END_RESID_CIDADE" class="java.lang.String"/>
+	<field name="END_RESID_UF" class="java.lang.String"/>
+	<field name="END_RESID_CEP" class="java.lang.String"/>
+	<field name="END_RESID_TEL" class="java.lang.String"/>
+	<field name="END_COMER_LOGRADOURO" class="java.lang.String"/>
+	<field name="END_COMER_NUMERO" class="java.lang.String"/>
+	<field name="END_COMER_COMPLEMENTO" class="java.lang.String"/>
+	<field name="END_COMER_BAIRRO" class="java.lang.String"/>
+	<field name="END_COMER_CIDADE" class="java.lang.String"/>
+	<field name="END_COMER_UF" class="java.lang.String"/>
+	<field name="END_COMER_CEP" class="java.lang.String"/>
+	<field name="END_COMER_TEL" class="java.lang.String"/>
+	<field name="END_COMER_FAX" class="java.lang.String"/>
+	<field name="GRUPO_DE_VENDA_NOME" class="java.lang.String"/>
+	<field name="SEGURADORA_CONTATO" class="java.lang.String"/>
+	<pageHeader>
+		<band height="186" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Transparent" x="324" y="44" width="244" height="11"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="58" width="284" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-125" x="20" y="22" width="65" height="11"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_SEXO}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="426" y="90" width="81" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-123" x="284" y="95" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_CNH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="426" y="90" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Identidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-151" mode="Transparent" x="284" y="58" width="29" height="6" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="DejaVu Sans" size="4" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Produtor]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="85" y="0" width="142" height="55"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-129" x="145" y="22" width="82" height="11"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NOME_VISTORIADOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="58" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Seguradora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-157" x="85" y="0" width="142" height="11"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[VISTORIA]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-132" x="324" y="20" width="244" height="24"/>
+				<box>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[new DecimalFormat("##0").format(new BigDecimal(($F{FATOR}==null || $F{FATOR}.equals("")) ? "0" : $F{FATOR}.toString().replace(",",".")))+"/"+$F{NUMERO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-160" x="85" y="33" width="60" height="11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Nº Solicitação:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-130" x="145" y="33" width="82" height="11"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NRO_VISTORIA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-128" x="145" y="11" width="82" height="11"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{VISTORIADORA}==null) ? $F{VISTORIADORA_OUTRA} : $F{VISTORIADORA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-164" x="324" y="44" width="39" height="11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Ramo:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-131" x="145" y="44" width="82" height="11"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{DATA_VISTORIA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-163" x="324" y="0" width="244" height="20"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PEDIDO DE SEGURO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-133" x="363" y="44" width="205" height="11"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NOME_RAMO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-123" x="284" y="63" width="284" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{GRUPO_DE_VENDA_NOME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="74" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Segurado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-154" x="0" y="11" width="20" height="11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Tipo:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="79" width="284" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_NOME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="74" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Referência]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="74" width="284" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-123" x="284" y="79" width="284" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_REFERENCIA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="90" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="95" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_CPF_CNPJ}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="58" width="284" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-124" x="142" y="95" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{CLIENTE_DATA_NASCIMENTO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="284" y="175" width="284" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="63" width="284" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SEGURADORA_NOME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-126" mode="Transparent" x="20" y="11" width="65" height="11" backcolor="#FFFFFF"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{TIPO_PROPOSTA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-158" x="85" y="11" width="60" height="11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Prestadora:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="90" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="212" y="122" width="72" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-123" x="426" y="95" width="81" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{CLIENTE_RG} == null) ? "" : ($F{CLIENTE_RG} +
+(($F{CLIENTE_RG_ORGAO_EMISSOR} == null) ? "" : " - " + $F{CLIENTE_RG_ORGAO_EMISSOR}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-159" x="85" y="22" width="60" height="11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Atendente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="142" y="90" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="90" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CNH]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="142" y="90" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-155" x="0" y="22" width="20" height="11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Sexo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="507" y="90" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data Expedição]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="507" y="90" width="61" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-124" x="507" y="95" width="61" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{CLIENTE_RG_DATA_EMISSAO}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="106" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="106" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="142" y="106" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="142" y="106" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Fone Principal]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="106" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="106" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Fone Alternativo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="426" y="106" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="426" y="106" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="111" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_TELEFONE_CELULAR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="142" y="111" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_TELEFONE_PREFERENCIAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="284" y="111" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_TELEFONE_ALTERNATIVO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="426" y="111" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_FAX}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="122" width="85" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Endereço Residencial - Logradouro]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="90" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="212" y="122" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Número]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="142" y="154" width="20" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="127" width="212" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_RESID_LOGRADOURO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="212" y="127" width="72" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_RESID_NUMERO}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="138" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="138" width="85" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Complemento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="142" y="138" width="85" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Bairro]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="122" width="212" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="143" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_RESID_COMPLEMENTO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="142" y="143" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_RESID_BAIRRO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="154" width="42" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="142" y="138" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="142" y="154" width="15" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="154" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="162" y="154" width="122" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="162" y="154" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="159" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_RESID_CIDADE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="141" y="159" width="21" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_RESID_UF}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="162" y="159" width="122" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_RESID_CEP}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="154" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="426" y="154" width="20" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="138" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="426" y="138" width="142" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="122" width="212" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="496" y="122" width="72" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="122" width="85" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Endereço Comercial - Logradouro]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="446" y="154" width="122" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="138" width="85" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Complemento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="426" y="154" width="20" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="154" width="42" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="496" y="122" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="426" y="138" width="85" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Bairro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="446" y="154" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="284" y="127" width="212" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_LOGRADOURO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="496" y="127" width="72" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_NUMERO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="284" y="143" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_COMPLEMENTO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="426" y="143" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_BAIRRO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="284" y="159" width="142" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_CIDADE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="426" y="159" width="21" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_UF}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="446" y="159" width="122" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{END_COMER_CEP}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="170" width="284" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="0" y="170" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-124" x="0" y="175" width="284" height="11"/>
+				<box leftPadding="3" rightPadding="3">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CLIENTE_EMAIL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-152" mode="Transparent" x="284" y="170" width="55" height="6"/>
+				<box topPadding="1" leftPadding="1">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="4" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Homepage]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="284" y="170" width="284" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-161" x="85" y="44" width="60" height="11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="74" width="284" height="16"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement key="image-1" x="227" y="0" width="97" height="55"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<imageExpression class="java.lang.String"><![CDATA[$P{IMAGEM_DIR}+$P{IMAGEM_FILE}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement mode="Transparent" x="324" y="0" width="244" height="55"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="85" height="55"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</pageHeader>
+</jasperReport>

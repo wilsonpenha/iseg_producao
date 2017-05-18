@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="RelResumoRenovacoes"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="AllSectionsNoDetail"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="PERIODO_INICIO" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="PERIODO_TERMINO" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="DATA_PROPOSTA_INICIO" isForPrompting="false" class="java.util.Date">
+		<defaultValueExpression ><![CDATA[new Date("01/01/1900")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_PROPOSTA_TERMINO" isForPrompting="false" class="java.util.Date">
+		<defaultValueExpression ><![CDATA[new Date("01/01/1900")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INICIO_INICIO_VIGENCIA" isForPrompting="false" class="java.util.Date">
+		<defaultValueExpression ><![CDATA[new Date("01/01/1900")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_INICIO_VIGENCIA" isForPrompting="false" class="java.util.Date">
+		<defaultValueExpression ><![CDATA[new Date("01/01/1900")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INICIO_TERMINO_VIGENCIA" isForPrompting="false" class="java.util.Date">
+		<defaultValueExpression ><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_TERMINO_VIGENCIA" isForPrompting="false" class="java.util.Date">
+		<defaultValueExpression ><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RAMO_ID" isForPrompting="false" class="java.lang.Long">
+		<defaultValueExpression ><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SEGURADORA_ID" isForPrompting="false" class="java.lang.Long">
+		<defaultValueExpression ><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRODUTOR_ID" isForPrompting="false" class="java.lang.Long">
+		<defaultValueExpression ><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CLIENTE_ID" isForPrompting="false" class="java.lang.Long">
+		<defaultValueExpression ><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GRUPO_VENDA_ID" isForPrompting="false" class="java.lang.Long">
+		<defaultValueExpression ><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORA_ID" isForPrompting="false" class="java.lang.Long">
+		<defaultValueExpression ><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<queryString><![CDATA[SELECT
+     	pt.DATA_PROPOSTA AS data_proposta,
+     	pt.NUMERO AS proposta_numero,
+	pt.DATA_TRANSMISSAO, 
+     	pt.NRO_APOLICE AS NUMAPOLICE,
+     	cl.nome AS cliente_nome,
+     	cl.CPF_OU_CNPJ,
+     	cl.TELEFONE_PREFERENCIAL,
+     	cl.TELEFONE_CELULAR,
+     	pt.seguradora_id AS IDSEGURADORA,
+     	pj.razao_social AS SEGURADORA,
+     	pt.INICIO_VIGENCIA AS inicio_vigencia,
+     	pt.TERMINO_VIGENCIA AS termino_vigencia,
+     	r.NOME AS RAMO,
+     	pt.PREMIO_LIQUIDO AS PREMIOLIQUIDO,
+     	pt.FATOR,
+     	C.NOME AS CORRETORA_NOME,
+     	sum(pt.PREMIO_TOTAL) AS PREMIOTOTAL,	
+     	sum(pt.VALOR_COMISSAO)AS COMISSAO
+FROM  	proposta pt INNER JOIN ramo r ON pt.ramo_id = r.id
+     	LEFT JOIN seguradora s ON pt.seguradora_id = s.id
+     	LEFT JOIN pessoa cl ON pt.cliente_id = cl.id
+     	LEFT JOIN condicao_pagamento cp ON pt.condicao_pagamento_id = cp.id
+     	LEFT JOIN PRODUTOR PRODUTOR ON pt.produtor_id = PRODUTOR.ID
+	LEFT JOIN GRUPO_DE_VENDA gv ON gv.id = pt.grupo_de_venda_id
+     	LEFT JOIN pessoa C ON pt.CORRETORA_ID = C.ID
+     	LEFT JOIN pessoa_juridica pj ON s.id = pj.id
+WHERE (($P{CORRETORA_ID} = '-1') OR pt.corretora_id = $P{CORRETORA_ID}) AND
+      (to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_PROPOSTA_INICIO} OR pt.DATA_PROPOSTA >= $P{DATA_PROPOSTA_INICIO}) AND 
+      (to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_PROPOSTA_TERMINO} OR pt.DATA_PROPOSTA <= $P{DATA_PROPOSTA_TERMINO}) AND
+      (to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_INICIO_VIGENCIA}  OR pt.inicio_vigencia >= $P{INICIO_INICIO_VIGENCIA}) AND
+      (to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_INICIO_VIGENCIA} OR pt.inicio_vigencia <= $P{FIM_INICIO_VIGENCIA}) AND
+      (to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_TERMINO_VIGENCIA}  OR pt.termino_vigencia >= $P{INICIO_TERMINO_VIGENCIA}) AND
+      (to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_TERMINO_VIGENCIA} OR pt.termino_vigencia <= $P{FIM_TERMINO_VIGENCIA})
+ 	AND (pt.TERMINO_VIGENCIA <= $P{PERIODO_TERMINO} AND pt.TERMINO_VIGENCIA >= $P{PERIODO_INICIO}) 
+	AND (($P{RAMO_ID}  = '-1') OR r.id = $P{RAMO_ID})
+	AND (($P{PRODUTOR_ID} = '-1') OR PRODUTOR.ID = $P{PRODUTOR_ID})
+ 	AND (($P{CLIENTE_ID} ='-1' ) OR cl.id = $P{CLIENTE_ID})
+ 	AND (($P{SEGURADORA_ID} = '-1') OR pt.seguradora_id = $P{SEGURADORA_ID})
+ 	AND (($P{GRUPO_VENDA_ID} = '-1') OR GV.id = $P{GRUPO_VENDA_ID})
+GROUP BY
+     	pt.DATA_PROPOSTA,
+     	pt.NUMERO,
+	pt.DATA_TRANSMISSAO,
+     	pt.NRO_APOLICE,
+     	pt.seguradora_id,
+     	pt.PREMIO_LIQUIDO,
+     	pt.FATOR,
+     	pt.TERMINO_VIGENCIA,
+     	pt.INICIO_VIGENCIA,
+     	cl.TELEFONE_PREFERENCIAL,
+     	cl.TELEFONE_CELULAR,
+     	cl.nome,
+     	cl.CPF_OU_CNPJ, 
+     	pj.razao_social,
+     	r.NOME,
+     	C.NOME]]></queryString>
+
+	<field name="data_proposta" class="java.sql.Date"/>
+	<field name="proposta_numero" class="java.lang.Long"/>
+	<field name="data_transmissao" class="java.sql.Date"/>
+	<field name="numapolice" class="java.lang.String"/>
+	<field name="cliente_nome" class="java.lang.String"/>
+	<field name="cpf_ou_cnpj" class="java.lang.String"/>
+	<field name="telefone_preferencial" class="java.lang.String"/>
+	<field name="telefone_celular" class="java.lang.String"/>
+	<field name="idseguradora" class="java.lang.Long"/>
+	<field name="seguradora" class="java.lang.String"/>
+	<field name="inicio_vigencia" class="java.sql.Date"/>
+	<field name="termino_vigencia" class="java.sql.Date"/>
+	<field name="ramo" class="java.lang.String"/>
+	<field name="premioliquido" class="java.lang.Double"/>
+	<field name="fator" class="java.lang.Double"/>
+	<field name="corretora_nome" class="java.lang.String"/>
+	<field name="premiototal" class="java.lang.Double"/>
+	<field name="comissao" class="java.lang.Double"/>
+
+	<sortField name="proposta_numero" />
+	<sortField name="cliente_nome" />
+	<sortField name="data_transmissao" />
+	<sortField name="inicio_vigencia" />
+	<sortField name="termino_vigencia" />
+
+	<variable name="TOTAL_PRODUCAO" class="java.lang.Integer" resetType="Report" calculation="Count">
+		<variableExpression><![CDATA[$F{proposta_numero}]]></variableExpression>
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="61"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="1"
+						y="29"
+						width="168"
+						height="15"
+						key="textField-1"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{seguradora}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="1"
+						y="13"
+						width="123"
+						height="15"
+						key="staticText-1"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Administração de seguros:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="173"
+						y="10"
+						width="188"
+						height="18"
+						key="staticText-2"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Resumo de Renovações.]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="488"
+						y="1"
+						width="47"
+						height="11"
+						key="textField-2"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="7"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Página: "+$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="447"
+						y="14"
+						width="88"
+						height="12"
+						key="textField-3"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="7"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[new Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="1"
+						y="45"
+						width="43"
+						height="15"
+						key="staticText-14"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Periodo.:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="44"
+						y="45"
+						width="53"
+						height="15"
+						key="textField-16"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{PERIODO_INICIO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="98"
+						y="45"
+						width="15"
+						height="15"
+						key="staticText-15"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[a]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="114"
+						y="45"
+						width="53"
+						height="15"
+						key="textField-17"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{PERIODO_TERMINO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="27"  isSplitAllowed="true" >
+				<rectangle>
+					<reportElement
+						mode="Opaque"
+						x="0"
+						y="2"
+						width="535"
+						height="24"
+						backcolor="#CCCCCC"
+						key="rectangle-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="2"
+						y="7"
+						width="47"
+						height="15"
+						key="staticText-3"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Vencimento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="51"
+						y="3"
+						width="35"
+						height="22"
+						key="staticText-5"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Nº Apólice]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="90"
+						y="7"
+						width="40"
+						height="15"
+						key="staticText-6"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Segurado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="229"
+						y="7"
+						width="32"
+						height="15"
+						key="staticText-7"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[CIA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="321"
+						y="7"
+						width="31"
+						height="14"
+						key="staticText-8"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Ramo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="424"
+						y="6"
+						width="24"
+						height="15"
+						key="staticText-9"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Fone ]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="21"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="1"
+						y="1"
+						width="44"
+						height="15"
+						key="textField-7"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{termino_vigencia}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="49"
+						y="0"
+						width="37"
+						height="15"
+						key="textField-8"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{numapolice}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="321"
+						y="1"
+						width="90"
+						height="13"
+						key="textField-10"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{ramo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="89"
+						y="1"
+						width="129"
+						height="14"
+						key="textField-11"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="219"
+						y="1"
+						width="101"
+						height="13"
+						key="textField-13"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{seguradora}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="421"
+						y="1"
+						width="50"
+						height="20"
+						key="textField-14"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{telefone_preferencial}+"     "+$F{telefone_celular}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="1"
+						y="20"
+						width="534"
+						height="0"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="19"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="1"
+						y="3"
+						width="75"
+						height="15"
+						key="staticText-13"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Total de Produção:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="77"
+						y="3"
+						width="19"
+						height="15"
+						key="textField-15"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{TOTAL_PRODUCAO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</summary>
+</jasperReport>

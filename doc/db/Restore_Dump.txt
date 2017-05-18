@@ -1,0 +1,25 @@
+RESTORE
+cd \Program Files (x86)\pgAdmin III\1.14
+psql -h localhost -U postgres -d iseg -f "C:\Temp\iseg.dmp"
+
+RESTORE BACKUP ISEG NA LOCAWEB
+psql -h localhost -U postgres -d trial -f "\backup\Tue\iseg.dmp"
+
+
+BACKUP
+--Tabelas específicas  (database cep, schema "cep", tabelas log*)
+pg_dump -h localhost -U postgres -t cep.log* cep > c:\temp\cep.dmp
+
+pg_dump -h localhost -U postgres -t nome.cpfnomes* nome > c:\temp\nome.dmp
+
+
+COPIAR ARQUIVOS ENTRE OS SITES (UOLHOST -> LOCAWEB)
+cd /apps/iseg/webapps
+scp iseg.war root@186.202.121.222:/apps/trial/webapps/
+
+COPIA ARQUIVO iseg.dmp PARA A RAIZ DO SERVIDOR 192.168.0.4
+cd /backup/gaveta/Backup/iseg/base_uol/
+tar -zcf iseg_dmp.tar iseg.dmp
+scp iseg_dmp.tar root@192.168.0.4:/
+tar -zxvf iseg_dmp.tar
+psql -h localhost -U postgres -d iseg -f "iseg.dmp"

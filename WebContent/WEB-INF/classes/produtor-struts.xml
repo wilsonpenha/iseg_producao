@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="produtor" extends="struts2" namespace="/produtor">
+		<action name="displayList" method="lista" class="produtorAction">
+			<result type="tiles" name="none">produtor.insert</result>
+			<result type="tiles" name="input">produtor.update</result>
+			<result type="tiles" name="success">produtor.displayList</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="produtorAction">
+			<result type="tiles" name="success">produtor.displayList</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+		</action>
+		
+		<action name="excluir" class="produtorAction" method="excluir">
+			<result type="tiles" name="success">produtor.displayList</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="produtorAction" method="salvarLista">
+			<result type="tiles" name="input">produtor.displayList</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+			<result type="tiles" name="success">produtor.displayList</result>
+			<result type="tiles" name="errorPFInsert">produtor.insertPF</result>
+			<result type="tiles" name="errorPJInsert">produtor.insertPJ</result>
+			<result type="tiles" name="errorPF">produtor.updatePF</result>
+			<result type="tiles" name="errorPJ">produtor.updatePJ</result>
+		</action>
+		<action name="salvarNovo" class="produtorAction" method="salvarNovo">
+			<result type="tiles" name="input">produtor.displayList</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+			<result type="tiles" name="successPF">produtor.insertPF</result>
+			<result type="tiles" name="successPJ">produtor.insertPJ</result>
+			<result type="tiles" name="errorPFInsert">produtor.insertPF</result>
+			<result type="tiles" name="errorPJInsert">produtor.insertPJ</result>
+			<result type="tiles" name="errorPF">produtor.updatePF</result>
+			<result type="tiles" name="errorPJ">produtor.updatePJ</result>
+		</action>
+
+		<action name="salvarEditar" class="produtorAction" method="salvarEditar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">salvarEditar</param>
+			</interceptor-ref>
+			<result type="tiles" name="input">produtor.displayList</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+			<result type="tiles" name="successPF">produtor.updatePF</result>
+			<result type="tiles" name="successPJ">produtor.updatePJ</result>
+			<result type="tiles" name="errorPFInsert">produtor.insertPF</result>
+			<result type="tiles" name="errorPJInsert">produtor.insertPJ</result>
+			<result type="tiles" name="errorPF">produtor.updatePF</result>
+			<result type="tiles" name="errorPJ">produtor.updatePJ</result>
+		</action>
+
+		<action name="novo" class="produtorAction" method="novo">
+			<result type="tiles" name="successPF">produtor.insertPF</result>
+			<result type="tiles" name="successPJ">produtor.insertPJ</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+		</action>
+
+		<action name="editar" class="produtorAction" method="editar">
+			<result type="tiles" name="successPF">produtor.updatePF</result>
+			<result type="tiles" name="successPJ">produtor.updatePJ</result>
+			<result type="tiles" name="error">produtor.displayList</result>
+		</action>
+
+		<action name="getDadosPessoaFisica" class="produtorAction" method="getDadosPessoaFisica">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosPessoaFisica</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/produtor/dadosProdutorPF.jsp</result>
+			<result name="input">/WEB-INF/jsp/produtor/dadosProdutorPF.jsp</result>
+			<result name="error">/WEB-INF/jsp/produtor/dadosProdutorPF.jsp</result>
+		</action>
+
+		<action name="getDadosPessoaJuridica" class="produtorAction" method="getDadosPessoaJuridica">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosPessoaJuridica</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/produtor/dadosProdutorPJ.jsp</result>
+			<result name="input">/WEB-INF/jsp/produtor/dadosProdutorPJ.jsp</result>
+			<result name="error">/WEB-INF/jsp/produtor/dadosProdutorPJ.jsp</result>
+		</action>
+	</package>
+</struts>

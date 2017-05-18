@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sinistro" extends="struts2" namespace="/sinistro">
+
+		<result-types> 
+			<result-type name="myStream"  default="false" class="iseg.utils.CustomStreamResult"/>
+		</result-types>
+
+		<action name="displayList" method="lista" class="sinistroAction">
+			<result>/WEB-INF/jsp/sinistro/displayList.jsp</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="sinistroAction">
+			<result name="input">/WEB-INF/jsp/sinistro/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/sinistro/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/displayListResult.jsp</result>
+		</action>
+
+		<action name="editar" class="sinistroAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="sinistroAction" method="excluir">
+			<result name="input">/WEB-INF/jsp/sinistro/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/sinistro/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/displayListResult.jsp</result>
+		</action>
+		
+		<action name="excluirSinistro" class="sinistroAction" method="excluir">
+			<result name="input">/WEB-INF/jsp/sinistro/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/sinistro/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/displayList.jsp</result>
+		</action>
+
+		<action name="novo" class="sinistroAction" method="novo">
+			<result name="input">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+			<result name="success">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+		</action>
+
+		<action name="pesquisaSinistro" class="sinistroAction" method="lista">
+			<result>/WEB-INF/jsp/sinistro/displayListResult.jsp</result>
+		</action>
+
+		<action name="pesquisaPropostaForm" class="sinistroAction">
+			<result>/WEB-INF/jsp/sinistro/pesquisaProposta.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="sinistroAction" method="listaProposta">
+			<result>/WEB-INF/jsp/sinistro/pesquisaPropostaResult.jsp</result>
+		</action>
+
+		<action name="salvarEditar" class="sinistroAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/sinistro/tabPane1.jsp</result>
+			<result name="success">/WEB-INF/jsp/sinistro/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/tabPane1.jsp</result>
+		</action>
+
+		<action name="getDadosCliente" class="sinistroAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/dadosCliente.jsp</result>
+		</action>
+
+		<action name="inserirTerceiroEnvolvido" class="sinistroAction" method="inserirTerceiroEnvolvido">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirTerceiroEnvolvido</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/listaTerceiros.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaTerceiros.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaTerceiros.jsp</result>
+		</action>
+
+		<action name="editarTerceiroEnvolvido" class="sinistroAction" method="editarTerceiroEnvolvido">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarTerceiroEnvolvido</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/dadosTerceiroEnvolvido.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/dadosTerceiroEnvolvido.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/dadosTerceiroEnvolvido.jsp</result>
+		</action>
+
+		<action name="excluirTerceiroEnvolvido" class="sinistroAction" method="excluirTerceiroEnvolvido">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirTerceiroEnvolvido</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/listaTerceiros.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaTerceiros.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaTerceiros.jsp</result>
+		</action>
+		
+		<action name="showDadosTerceiroEnvolvido" class="sinistroAction" method="showDadosTerceiroEnvolvido">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/showDadosTerceiroEnvolvido.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/showDadosTerceiroEnvolvido.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/showDadosTerceiroEnvolvido.jsp</result>
+		</action>
+		
+		<action name="inserirAcompanhamento" class="sinistroAction" method="inserirAcompanhamento">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirAcompanhamento</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/listaAcompanhamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaAcompanhamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaAcompanhamento.jsp</result>
+		</action>
+
+		<action name="editarAcompanhamento" class="sinistroAction" method="editarAcompanhamento">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarAcompanhamento</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/dadosAcompanhamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/dadosAcompanhamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/dadosAcompanhamento.jsp</result>
+		</action>
+
+		<action name="excluirAcompanhamento" class="sinistroAction" method="excluirAcompanhamento">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirAcompanhamento</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/listaAcompanhamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaAcompanhamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaAcompanhamento.jsp</result>
+		</action>
+		
+		<action name="inserirIndenizacao" class="sinistroAction" method="inserirIndenizacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirIndenizacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/listaIndenizacao.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaIndenizacao.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaIndenizacao.jsp</result>
+		</action>
+
+		<action name="editarIndenizacao" class="sinistroAction" method="editarIndenizacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarIndenizacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/dadosIndenizacao.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/dadosIndenizacao.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/dadosIndenizacao.jsp</result>
+		</action>
+
+		<action name="excluirIndenizacao" class="sinistroAction" method="excluirIndenizacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirIndenizacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/listaIndenizacao.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaIndenizacao.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaIndenizacao.jsp</result>
+		</action>
+
+		<action name="carregaEnderecoOficina" class="sinistroAction" method="carregaEnderecoOficina">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">carregaEnderecoOficina</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/enderecoOficina.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/enderecoOficina.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/enderecoOficina.jsp</result>
+		</action>
+		
+		<action name="inserirAnexo" class="sinistroAction" method="inserirAnexo">
+			<result name="success">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+		</action>
+
+		<action name="editarAnexo" class="sinistroAction" method="editarAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/dadosAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/dadosAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/dadosAnexo.jsp</result>
+		</action>
+
+		<action name="excluirAnexo" class="sinistroAction" method="excluirAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+		</action>
+
+		<action name="preparaMostrarAnexo" class="sinistroAction" method="preparaMostrarAnexo">
+			<result name="popup" type="tiles">mostrar.anexo</result>
+			<result name="success">/WEB-INF/jsp/sinistro/mostrarAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/mostrarAnexo.jsp</result>
+		</action>
+
+		<action name="mostrarAnexo" class="sinistroAction" method="mostrarAnexo">
+			<result name="success" type="stream">
+				<param name="contentType">${sinistroAnexo.contentType}</param>  
+				<param name="inputName">sinistroAnexo.anexoStream</param>  
+				<param name="contentDisposition">attachment;filename="${sinistroAnexo.nome}"</param> 
+				<param name="bufferSize">1024</param>  
+			</result>
+		</action>
+
+		<action name="mostrarMiniaturaAnexo" class="sinistroAction" method="mostrarAnexo">
+			<result name="success" type="myStream">
+				<param name="contentType">${sinistroAnexo.contentType}</param>  
+				<param name="inputName">sinistroAnexo.anexoMiniaturaStream</param>  
+				<param name="contentDisposition">${sinistroAnexo.nome}</param>  
+				<param name="bufferSize">1024</param>  
+			</result>
+			<result name="input">/WEB-INF/jsp/sinistro/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/mostrarAnexo.jsp</result>
+		</action>
+		
+		<action name="mostrarGalleryAnexo" class="sinistroAction" method="mostrarAnexo">
+			<result name="success" type="myStream">
+				<param name="contentType">${sinistroAnexo.contentType}</param>  
+				<param name="inputName">sinistroAnexo.anexoGalleryStream</param>  
+				<param name="contentDisposition">${sinistroAnexo.nome}</param>  
+				<param name="bufferSize">1024</param>  
+			</result>
+			<result name="input">/WEB-INF/jsp/sinistro/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/mostrarAnexo.jsp</result>
+		</action>
+		
+		<action name="carregarAnexos" class="sinistroAction" method="carregarAnexos">
+			<result name="success">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/listaAnexo.jsp</result>
+		</action>
+		
+	</package>
+</struts>

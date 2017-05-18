@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="pessoaJuridica" extends="struts2" namespace="/pessoaJuridica">
+		<action name="displayList" method="lista" class="pessoaJuridicaAction">
+			<result type="chain" name="pessoa">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/pessoa</param>
+			</result>
+			<result type="tiles" name="input">pessoaJuridica.update</result>
+			<result type="tiles" name="error">pessoaJuridica.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="pessoaJuridicaAction">
+			<result type="tiles" name="success">pessoaJuridica.displayList</result>
+			<result type="tiles" name="error">pessoaJuridica.displayList</result>
+		</action>
+		
+		<action name="excluir" class="pessoaJuridicaAction" method="excluir">
+			<result type="tiles" name="success">pessoaJuridica.displayList</result>
+			<result type="tiles" name="error">pessoaJuridica.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="pessoaJuridicaAction" method="salvarLista">
+			<result type="chain" name="pessoa">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/pessoa</param>
+			</result>
+			<result type="tiles" name="input">pessoaJuridica.update</result>
+			<result type="tiles" name="error">pessoaJuridica.update</result>
+			<result type="tiles" name="errorInsert">pessoaJuridica.insert</result>
+		</action>
+		<action name="salvarNovo" class="pessoaJuridicaAction" method="salvarNovo">
+			<result type="tiles" name="input">pessoaJuridica.insert</result>
+			<result type="tiles" name="success">pessoaJuridica.insert</result>
+			<result type="tiles" name="error">pessoaJuridica.insert</result>
+			<result type="tiles" name="errorInsert">pessoaJuridica.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="pessoaJuridicaAction" method="salvarEditar">
+			<result type="tiles" name="input">pessoaJuridica.update</result>
+			<result type="tiles" name="success">pessoaJuridica.update</result>
+			<result type="tiles" name="error">pessoaJuridica.update</result>
+			<result type="tiles" name="errorInsert">pessoaJuridica.insert</result>
+		</action>
+
+		<action name="novo" class="pessoaJuridicaAction" method="novo">
+			<result type="tiles" name="success">pessoaJuridica.insert</result>
+			<result type="tiles" name="error">pessoaJuridica.insert</result>
+		</action>
+
+		<action name="editar" class="pessoaJuridicaAction" method="editar">
+			<result type="tiles" name="success">pessoaJuridica.update</result>
+			<result type="tiles" name="error">pessoaJuridica.update</result>
+		</action>
+	</package>
+</struts>

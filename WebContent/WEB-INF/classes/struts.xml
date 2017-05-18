@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.configuration.xml.reload" value="false" />
+	<constant name="struts.url.includeParams" value="none" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.extension" value="action,," /> 
+	<constant name="struts.serve.static" value="true" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.freemarker.templatesCache" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.multipart.maxSize" value="10000000" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.i18n.reload" value="false" />
+
+	<!-- Yhis section is used as template -->
+	<package name="struts2" extends="struts-default" namespace="/struts2">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+
+		<!--<interceptors>
+			<interceptor name="redirectMessage" class="iseg.app.interceptor.RedirectMessageInterceptor" />
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="redirectMessage" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>-->
+
+		<interceptors>
+			<interceptor-stack name="default">
+				<!-- paramsPrepareParamsStack -->
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				
+				<interceptor-ref name="token">
+					<param name="includeMethods">efetivarBaixa, fecharLote, gerarLoteEstorno, copiarLote</param>
+				</interceptor-ref>
+				<interceptor-ref name="validation">
+					<param name="validateAnnotatedMethodOnly">true</param>
+					<param name="excludeMethods">input,back,cancel</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">input,back,cancel</param>
+				</interceptor-ref>
+
+				<!-- coloca as mensagens de validaçăo no valueStack -->
+				<interceptor-ref name="store" />
+
+				<!-- interceptor-ref name="execAndWait" class="net.sf.hibernate.SessionFactory.OpenSessionExecuteAndWaitInterceptor"> 
+					<param name="delay">1000</param> <param name="delaySleepInterval">50</param> 
+					</interceptor-ref -->
+
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="default" />
+
+		<global-results>
+			<result name="report" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">${format}</param>
+				<param name="parse">true</param>
+			</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="iseg.app.exception.GenericException" result="error" />
+		</global-exception-mappings>
+
+	</package>
+
+	<package name="logout" extends="struts2" namespace="/logout">
+		<action name="showLogin" class="iseg.app.action.LoginAction" method="closeSession">
+			<result name="success" type="redirect">/login/doLogin.action</result>
+			<result name="input" type="redirect">/login/doLogin.action</result>
+		</action>
+	</package>
+
+	<package name="login" extends="struts2" namespace="/login">
+		<action name="doLogin" class="iseg.app.action.LoginAction">
+			<result type="tiles" name="success">frameSet.page</result>
+			<result type="tiles" name="input">frameSet.page</result>
+			<result type="tiles" name="error">login.page</result>
+		</action>
+
+		<action name="alterarSenha" class="iseg.app.action.LoginAction"
+			method="alterarSenha">
+			<result name="success">/WEB-INF/jsp/statusAlterarSenha.jsp</result>
+			<result name="error">/WEB-INF/jsp/statusAlterarSenha.jsp</result>
+		</action>
+
+		<action name="showMenu" method="doLogin" class="iseg.app.action.LoginAction">
+			<result type="tiles" name="success">menu.page</result>
+			<result name="error">/WEB-INF/jsp/logout.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="iseg.app.action.LoginAction">
+			<result type="tiles" name="success">home.page</result>
+			<result type="tiles" name="input">home.page</result>
+		</action>
+		
+		<action name="showHome" method="showHome" class="iseg.app.action.LoginAction">
+			<result type="tiles" name="success">home.page</result>
+			<result type="tiles" name="input">home.page</result>
+		</action>
+		<action name="checkMenuRole" class="iseg.app.action.LoginAction"
+			method="checkMenuRole">
+			<result name="success">/WEB-INF/jsp/privilegio/menuList.jsp</result>
+		</action>
+	</package>
+	<package name="objectLookup" extends="struts2" namespace="/objlookup">
+		<action name="getSeguradorasByRamo" class="objectLookupAction" method="getSeguradorasByRamo">
+			<result name="success">/WEB-INF/jsp/proposta/comboSeguradoras.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/comboSeguradoras.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+		<action name="getRamosBySubRamo" class="objectLookupAction" method="getRamosBySubRamo">
+			<result name="success">/WEB-INF/jsp/proposta/comboRamos.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/comboRamos.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+		<action name="getRamosBySubRamoLote" class="objectLookupAction" method="getRamosBySubRamo">
+			<result name="success">/WEB-INF/jsp/borderoComissao/comboRamos.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/comboRamos.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/displayList.jsp</result>
+		</action>
+		<action name="getSubRamosByRamo" class="objectLookupAction" method="getRamosBySubRamo">
+			<result name="success">/WEB-INF/jsp/coberturas/comboRamos.jsp</result>
+			<result name="input">/WEB-INF/jsp/coberturas/comboRamos.jsp</result>
+			<result name="error">/WEB-INF/jsp/coberturas/displayList.jsp</result>
+		</action>
+		<action name="getProdutorList" class="objectLookupAction"
+			method="getProdutorList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getUsuarioList" class="objectLookupAction"
+			method="getUsuarioList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getPessoaList" class="objectLookupAction" method="getPessoaList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getPessoaByCpfOuCnpj" class="objectLookupAction"
+			method="getPessoaByCpfOuCnpj">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getPessoaSmsList" class="objectLookupAction" method="getPessoaSmsList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getPessoaSmsByCpfOuCnpj" class="objectLookupAction" method="getPessoaSmsByCpfOuCnpj">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getVistoriadoraList" class="objectLookupAction"
+			method="getVistoriadoraList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getClienteListByNome" class="objectLookupAction"
+			method="getClienteListByNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getClienteListByCpfCnpj" class="objectLookupAction"
+			method="getClienteListByCpfCnpj">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getPessoasByNomeTodos" class="objectLookupAction"
+			method="getPessoasByNomeTodos">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getPessoasByCpfOuCnpjTodos" class="objectLookupAction"
+			method="getPessoasByCpfOuCnpjTodos">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getSeguradoListByCpf" class="objectLookupAction"
+			method="getSeguradoListByCpf">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getSeguradoListByNome" class="objectLookupAction"
+			method="getSeguradoListByNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getSeguradoraByNome" class="objectLookupAction"
+			method="getSeguradoraByNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getProfissaoByNome" class="objectLookupAction"
+			method="getProfissaoByNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getDadosCliente" class="objectLookupAction"
+			method="getDadosCliente">
+			<result>/WEB-INF/jsp/proposta/dadosCliente.jsp</result>
+		</action>
+		<action name="getClientePFListByNome" class="objectLookupAction"
+			method="getClientePFListByNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getClienteListByCpf" class="objectLookupAction"
+			method="getClienteListByCpf">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getClientePJListByNome" class="objectLookupAction"
+			method="getClientePJListByNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getClienteListByCnpj" class="objectLookupAction"
+			method="getClienteListByCnpj">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getModeloVeiculoList" class="objectLookupAction"
+			method="getModeloVeiculoList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getComissoesPorNomeSeguradoList" class="objectLookupAction"
+			method="getComissoesPorNomeSeguradoList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getComissoesPorNroApoliceList" class="objectLookupAction"
+			method="getComissoesPorNroApoliceList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getSeguradoraBySeguradoNome" class="objectLookupAction"
+			method="getSeguradoraBySeguradoNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		
+		<action name="getMarcaList" class="objectLookupAction" method="getMarcaList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getCorList" class="objectLookupAction" method="getCorList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getEscolaridade" class="objectLookupAction" method="getEscolaridade">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getCepOrCidadeList" class="objectLookupAction"
+			method="getCepOrCidadeList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getItemSeguradoList" class="objectLookupAction"
+			method="getItemSeguradoList">
+			<result>/WEB-INF/jsp/proposta/itensSegurados.jsp</result>
+		</action>
+		<action name="ufList" class="bairroAction" method="getUfList">
+			<result type="freemarker">/ajax/options.ftl</result>
+		</action>
+
+		<action name="cidadesUfList" class="bairroAction" method="getCidadeUfList">
+			<result type="freemarker">/ajax/options.ftl</result>
+		</action>
+
+		<action name="bairrosCidadeList" class="objectLookupAction"
+			method="getBairrosCidadeList">
+			<result type="freemarker">/ajax/options.ftl</result>
+		</action>
+
+		<action name="getPropostaList" class="objectLookupAction"
+			method="getPropostaList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getOficinaList" class="objectLookupAction"
+			method="getOficinaList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getCorretorasListByNome" class="objectLookupAction"
+			method="getCorretorasListByNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getPropostaByNroApolice" class="objectLookupAction"
+			method="getPropostaByNroApolice">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getPropostaByCpf" class="objectLookupAction"
+			method="getPropostaByCpf">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getPropostaByCnpj" class="objectLookupAction"
+			method="getPropostaByCnpj">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getPropostaByNomePf" class="objectLookupAction"
+			method="getPropostaByNomePf">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getPropostaByNomePj" class="objectLookupAction"
+			method="getPropostaByNomePj">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		
+		<action name="getBancoByCodigoOrNome" class="objectLookupAction" method="getBancoByCodigoOrNome">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<!-- action referentes a endereço -->
+		<action name="getCepList" class="objectLookupAction" method="getCepList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getCidadeList" class="objectLookupAction" method="getCidadeList">
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="getEnderecoCepAC" class="objectLookupAction"
+			method="getEnderecoCepAC">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getEnderecoCepAC</param>
+			</interceptor-ref>
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+		<action name="getEnderecoEstadoSiglaAC" class="objectLookupAction"
+			method="getEnderecoEstadoSiglaAC">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getEnderecoEstadoSiglaAC</param>
+			</interceptor-ref>
+			<result type="freemarker">/ajax/autoCompleteResult.ftl</result>
+		</action>
+
+		<action name="enderecoUfList" class="enderecoAction" method="getUfList">
+			<result type="freemarker">/ajax/options.ftl</result>
+		</action>
+		<action name="enderecoCidadesUfList" class="enderecoAction"
+			method="getCidadeUfList">
+			<result type="freemarker">/ajax/options.ftl</result>
+		</action>
+		<action name="enderecoBairrosCidadeList" class="enderecoAction"
+			method="getBairrosCidadeList">
+			<result type="freemarker">/ajax/options.ftl</result>
+		</action>
+		
+	</package>
+
+	<include file="reports-struts.xml" />
+	<include file="repasseComissao-struts.xml" />
+	<include file="borderoComissao-struts.xml" />
+	<include file="propostaVidaEmpresarial-struts.xml" />
+	<include file="propostaVidaIndividual-struts.xml" />
+	<include file="sinistro-struts.xml" />
+	<include file="preparaSinistro-struts.xml" />
+	<include file="propostaComissao-struts.xml" />
+	<include file="preparaBaixaDeComissao-struts.xml" />
+	<include file="proposta-struts.xml" />
+	<include file="propostaWizard-struts.xml" />
+	<include file="propostaRiscosDiversos-struts.xml" />
+	<include file="propostaImoveis-struts.xml" />
+	<include file="propostaImoveisFatura-struts.xml" />
+	<include file="propostaTransportes-struts.xml" />
+	<include file="comissionadoProposta-struts.xml" />
+	<include file="dominio-struts.xml" />
+	<include file="automovel-struts.xml" />
+	<include file="condutor-struts.xml" />
+	<include file="uf-struts.xml" />
+	<include file="cidade-struts.xml" />
+	<include file="ramo-struts.xml" />
+	<include file="endosso-struts.xml" />
+	<include file="corretora-struts.xml" />
+	<include file="vistoriadora-struts.xml" />
+	<include file="coberturas-struts.xml" />
+	<include file="servicos-struts.xml" />
+	<include file="perfil-struts.xml" />
+	<include file="seguradora-struts.xml" />
+	<include file="endereco-struts.xml" />
+	<include file="condicaoPagamento-struts.xml" />
+	<include file="grupoDeVenda-struts.xml" />
+	<include file="usuario-struts.xml" />
+	<include file="menu-struts.xml" />
+	<include file="privilegio-struts.xml" />
+	<include file="gerenciarCorretora-struts.xml" />
+	<include file="banco-struts.xml" />
+	<include file="contaCorrente-struts.xml" />
+	<include file="produtor-struts.xml" />
+	<include file="pessoaFisica-struts.xml" />
+	<include file="pessoaJuridica-struts.xml" />
+	<include file="pessoa-struts.xml" />
+	<include file="dependentes-struts.xml" />
+	<include file="dominioEsp-struts.xml" />
+	<include file="oficina-struts.xml" />
+	<include file="questionarioPosVenda-struts.xml" />
+	<include file="posVenda-struts.xml" />
+	<include file="protocolo-struts.xml" />
+	<include file="smsEventos-struts.xml" />
+	<include file="smsEventosCorretora-struts.xml" />
+	<include file="smsTelefonesProdutor-struts.xml" />
+	<include file="smsConsoleEnvio-struts.xml" />
+	<include file="corretoraTipoLancamento-struts.xml" />
+	<include file="orcamentoSegAuto-struts.xml" />
+	<include file="orcamentoSeguro-struts.xml" />
+	<include file="orcamentoCorretora-struts.xml" />
+	<include file="processarIntegracao-struts.xml" />
+</struts>

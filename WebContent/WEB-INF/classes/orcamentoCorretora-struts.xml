@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="orcamentoCorretora" extends="struts2" namespace="/orcamentoCorretora">
+		<action name="displayList" method="lista" class="orcamentoCorretoraAction">
+			<result type="tiles" name="input">orcamentoCorretora.update</result>
+			<result type="tiles" name="success">orcamentoCorretora.update</result>
+			<result type="tiles" name="error">orcamentoCorretora.update</result>
+		</action>
+		
+		<action name="modeloMansagem" method="lista" class="orcamentoCorretoraAction">
+			<result type="tiles" name="input">orcamentoCorretora.modeloMansagem</result>
+			<result type="tiles" name="success">orcamentoCorretora.modeloMansagem</result>
+			<result type="tiles" name="error">orcamentoCorretora.modeloMansagem</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="orcamentoCorretoraAction">
+			<result type="tiles" name="input">orcamentoCorretora.displayList</result>
+			<result type="tiles" name="success">orcamentoCorretora.displayList</result>
+			<result type="tiles" name="error">orcamentoCorretora.displayList</result>
+		</action>
+		
+		<action name="excluir" class="orcamentoCorretoraAction" method="excluir">
+			<result type="tiles" name="input">orcamentoCorretora.displayList</result>
+			<result type="tiles" name="success">orcamentoCorretora.displayList</result>
+			<result type="tiles" name="error">orcamentoCorretora.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="orcamentoCorretoraAction" method="salvarLista">
+			<result type="tiles" name="input">orcamentoCorretora.update</result>
+			<result type="tiles" name="success">orcamentoCorretora.displayList</result>
+			<result type="tiles" name="error">orcamentoCorretora.update</result>
+		</action>
+
+		<action name="salvarNovo" class="orcamentoCorretoraAction" method="salvarNovo">
+			<result type="tiles" name="input">orcamentoCorretora.update</result>
+			<result type="tiles" name="success">orcamentoCorretora.update</result>
+			<result type="tiles" name="error">orcamentoCorretora.update</result>
+		</action>
+
+		<action name="salvarEditar" class="orcamentoCorretoraAction" method="salvarEditar">
+			<result type="tiles" name="input">orcamentoCorretora.update</result>
+			<result type="tiles" name="success">orcamentoCorretora.update</result>
+			<result type="tiles" name="error">orcamentoCorretora.update</result>
+		</action>
+
+		<action name="novo" class="orcamentoCorretoraAction" method="novo">
+			<result type="tiles" name="success">orcamentoCorretora.update</result>
+			<result type="tiles" name="error">orcamentoCorretora.displayList</result>
+		</action>
+
+		<action name="editar" class="orcamentoCorretoraAction" method="editar">
+			<result type="tiles" name="success">orcamentoCorretora.update</result>
+			<result type="tiles" name="input">orcamentoCorretora.displayList</result>
+			<result type="tiles" name="error">orcamentoCorretora.displayList</result>
+		</action>
+		
+		<action name="inserirCoberturaIseg" class="orcamentoCorretoraAction" method="inserirCoberturaIseg">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCoberturaIseg</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaCoberturas.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaCoberturas.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaCoberturas.jsp</result>
+		</action>
+		
+		<action name="inserirServicoIseg" class="orcamentoCorretoraAction" method="inserirServicoIseg">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirServicoIseg</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaServicos.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaServicos.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaServicos.jsp</result>
+		</action>
+		
+		<action name="inserirSeguradorasPreferenciais" class="orcamentoCorretoraAction" method="inserirSeguradorasPreferenciais">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirSeguradorasPreferenciais</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaSeguradoras.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaSeguradoras.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaSeguradoras.jsp</result>
+		</action>
+		
+		<action name="inserirTemplateEmail" class="orcamentoCorretoraAction" method="inserirTemplateMensagem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirTemplateMensagem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaTemplateEmail.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaTemplateEmail.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaTemplateEmail.jsp</result>
+		</action>
+		
+		<action name="inserirTemplateSms" class="orcamentoCorretoraAction" method="inserirTemplateMensagem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirTemplateMensagem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaTemplateSms.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaTemplateSms.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaTemplateSms.jsp</result>
+		</action>
+		
+		<action name="excluirCoberturaIseg" class="orcamentoCorretoraAction" method="excluirCoberturaIseg">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirCoberturaIseg</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaCoberturas.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaCoberturas.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaCoberturas.jsp</result>
+		</action>
+		
+		<action name="excluirServicoIseg" class="orcamentoCorretoraAction" method="excluirServicoIseg">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirServicoIseg</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaServicos.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaServicos.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaServicos.jsp</result>
+		</action>
+		
+		<action name="excluirSeguradorasPreferenciais" class="orcamentoCorretoraAction" method="excluirSeguradorasPreferenciais">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirSeguradorasPreferenciais</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaSeguradoras.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaSeguradoras.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaSeguradoras.jsp</result>
+		</action>
+		
+		<action name="excluirTemplateEmail" class="orcamentoCorretoraAction" method="excluirTemplateMensagem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirTemplateMensagem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaTemplateEmail.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaTemplateEmail.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaTemplateEmail.jsp</result>
+		</action>
+		
+		<action name="excluirTemplateSms" class="orcamentoCorretoraAction" method="excluirTemplateMensagem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirTemplateMensagem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/listaTemplateSms.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/listaTemplateSms.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/listaTemplateSms.jsp</result>
+		</action>
+		
+		<action name="editarCoberturaIseg" class="orcamentoCorretoraAction" method="editarCoberturaIseg">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarCoberturaIseg</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/modalAddCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/modalAddCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/modalAddCobertura.jsp</result>
+		</action>
+		
+		<action name="editarSeguradora" class="orcamentoCorretoraAction" method="editarSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/modalAddSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/modalAddSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/modalAddSeguradora.jsp</result>
+		</action>
+		
+		<action name="editarTemplateEmail" class="orcamentoCorretoraAction" method="editarTemplateMensagem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarTemplateMensagem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/modalAddTemplateEmail.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/modalAddTemplateEmail.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/modalAddTemplateEmail.jsp</result>
+		</action>
+		
+		<action name="editarTemplateSms" class="orcamentoCorretoraAction" method="editarTemplateMensagem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarTemplateMensagem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoCorretora/modalAddTemplateSms.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoCorretora/modalAddTemplateSms.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoCorretora/modalAddTemplateSms.jsp</result>
+		</action>
+	</package>
+</struts>

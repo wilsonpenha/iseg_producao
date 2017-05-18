@@ -1,0 +1,358 @@
+/*
+ *************************************************************************
+ * The contents of this file are subject to the Openbravo  Public  License
+ * Version  1.0  (the  "License"),  being   the  Mozilla   Public  License
+ * Version 1.1  with a permitted attribution clause; you may not  use this
+ * file except in compliance with the License. You  may  obtain  a copy of
+ * the License at http://www.openbravo.com/legal/license.html 
+ * Software distributed under the License  is  distributed  on  an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific  language  governing  rights  and  limitations
+ * under the License. 
+ * The Original Code is Openbravo ERP. 
+ * The Initial Developer of the Original Code is Openbravo SL 
+ * All portions are Copyright (C) 2007 Openbravo SL 
+ * All Rights Reserved. 
+ * Contributor(s):  ______________________________________.
+ ************************************************************************
+*/
+
+
+.Menu_Client_bg {
+  background-color: #505050;
+}
+
+.Menu_Client_child_bg {
+  background-color: #E8E8E8;
+}
+
+.Menu_Client_bg_left {
+  width: 8px;
+  background-color: #505050;
+}
+
+.Menu_Client_bg_right {
+  width: 8px;
+  background-color: #505050;
+}
+
+#Menu_Client {
+  font-family: tahoma, arial, helvetica, sans-serif;
+  font-size:	8pt;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#Menu_Client table{
+  font-family: tahoma, arial, helvetica, sans-serif;
+  font-size: 8pt;
+  border: 0px none;
+  margin: 0px;
+  vertical-align: middle;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#folderCell1_153 .Menu_Client_Button_BigIcon_folderOpened {
+  background: url(applicationManagement.png) no-repeat center center;
+}
+
+#folderCell1_155 .Menu_Client_Button_BigIcon_folder {
+  background: url(generalSetup.png) no-repeat center center;
+}
+
+#folderCell1_155 .Menu_Client_Button_BigIcon_folderOpened {
+  background: url(generalSetup.png) no-repeat center center;
+}
+
+.Menu_Client_Button_BigIcon_folder {
+  background: url(iconPackageClosed.png) no-repeat center center;
+}
+
+.Menu_Client_Button_BigIcon_folderOpened {
+  background: url(iconPackageOpened.png) no-repeat center center;
+}
+
+.Menu_Client_Button_BigIcon_favourites {
+  background: url(iconFavourites.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.Menu_Client_Button_Icon_folder {
+  background: url(iconFolderClosed.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_folderOpened{
+  background: url(iconFolderOpened.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_folderWithoutChildren{
+  background: url(iconFolderClosed.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_folderOpenedWithoutChildren{
+  background: url(iconFolderOpened.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_child{
+  background: url(iconElement.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childProcesses {
+  background: url(iconProcess.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childTasks {
+  background: url(iconTask.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childReports {
+  background: url(iconReport.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childWindows{
+	
+  background: url(iconAutoForm.png) no-repeat left center;
+}
+
+.Menu_Client_Button_Icon_childForms {
+  /*background: url(iconConfigForm.png) no-repeat center center;*/
+  background: url(iconProcess.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childWorkFlow {
+  background: url(iconWorkflow.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childWorkBench {
+  background: url(/isegJPA/common/web/skins/Default/Menu/Client/iconWorkbench.gif) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childInfo {
+  background: url(iconInfo.png) no-repeat center center;
+}
+
+.Menu_Client_Button_Icon_childExternalLink {
+  background: url(iconExternalLink.png) no-repeat center center;
+}
+
+/*****************************************************************/
+/*                              CSS                              *
+/*****************************************************************/
+
+/* Estilos para o Menu Fechado */
+
+tr.Menu {
+	height: 24px;
+	color: #FFFFFF;
+	background: url(bigbutton.normal.png) repeat-x;
+	background-color: #292929;
+	font-weight: normal;
+}
+
+tr.Menu td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o Menu Fechado Hover */
+
+tr.Menu_Hover {
+	height: 24px;
+	background: url(bigbutton.rollover.png) repeat-x;
+	background-color: #dbdbdb;
+	color: #333333;
+	font-weight: bold;
+}
+
+tr.Menu_Hover td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o Menu Fechado Active*/
+
+tr.Menu_Active {
+	height: 24px;
+	background: url(bigbutton.pressed.png) repeat-x;
+	background-color: #292929;
+	color: #333333;
+	font-weight: bold;
+}
+
+tr.Menu_Active td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o Menu Aberto */
+
+tr.MenuOpened {
+	height: 24px;
+	background: url(bigbutton.selected.png) repeat-x;
+	background-color: #cecece;
+	color: #333333;
+	font-weight: bold;
+}
+
+tr.MenuOpened td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o Menu Aberto Hover */
+
+tr.MenuOpened_Hover {
+	height: 24px;
+	background: url(bigbutton.rollover.png) repeat-x;
+	background-color: #dbdbdb;
+	color: #333333;
+	font-weight: bold;
+}
+
+tr.MenuOpened_Hover td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o Menu Aberto Active */
+
+tr.MenuOpened_Active {
+	height: 24px;
+	background: url(bigbutton.pressed.png) repeat-x;
+	background-color: #dbdbdb;
+	color: #333333;
+	font-weight: bold;
+}
+
+tr.MenuOpened_Active td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o SubMenu */
+
+tr.SubMenu {
+	height: 24px;
+  	font-weight: normal;
+	background-color: #E8E8E8;
+}
+
+tr.SubMenu td img{
+  margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o SubMenu */
+
+tr.SubMenu_Hover {
+	height: 24px;
+	font-weight: normal;	
+	background-color: #D4D4D4;
+	color: #333333;
+}
+
+tr.SubMenu_Hover td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o Item de Menu */
+
+tr.ItemMenu {
+	height: 24px;
+  	font-weight: normal;
+	background-color: #E8E8E8;
+}
+
+tr.ItemMenu td img{
+  margin: 0px 6px 0px 4px;
+}
+
+/* Estilos para o Item de Menu */
+
+tr.ItemMenu_Hover {
+	height: 24px;
+	font-weight: normal;	
+	background-color: #D4D4D4;
+	color: #333333;
+}
+
+tr.ItemMenu_Hover td img{
+	margin: 0px 6px 0px 4px;
+}
+
+/**/
+
+.Nivel2 {
+	margin: 0px 6px 0px 14px;
+}
+
+/******/
+/*
+ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: block;
+}
+
+li {
+	height: 24px;
+	min-height: 24px;
+	color: #FFFFFF;
+	font-weight: normal;
+	font-family: tahoma, arial, helvetica, sans-serif;
+	font-size: 8pt;
+	cursor: pointer;
+	text-align: left;
+	text-indent: 5px;
+	display: block;
+}
+
+li img{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-top: 2px;
+}
+
+ul#menu li {
+	background: url(bigbutton.normal.png) repeat-x;
+}
+
+ul#menu li.Hover {
+	background: url(bigbutton.rollover.png) repeat-x;
+	color: #333333;
+	font-weight: bold;
+}
+
+ul#menu li.Active {
+	background: url(bigbutton.pressed.png) repeat-x;
+	color: #333333;
+	font-weight: bold;
+}
+
+ul#menu li.Opened {
+	background: url(bigbutton.selected.png) repeat-x;
+	color: #333333;
+	font-weight: bold;
+}
+
+ul#menu li ul li {
+	display: block;
+	color: #000000;
+	background: none;
+	background-color: #E8E8E8;
+}
+
+ul#menu li ul li.Hover {
+	background: none;
+	background-color: #D4D4D4;
+	color: #333333;
+	font-weight: normal;
+}
+
+ul#menu li ul li.Active {
+	background: none;
+	background-color: #D4D4D4;
+	color: #333333;
+	font-weight: normal;
+}*/

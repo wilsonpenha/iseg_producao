@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="servicos" extends="struts2" namespace="/servicos">
+		<action name="displayList" method="lista" class="servicosAction">
+			<result type="tiles" name="success">servicos.displayList</result>
+			<result type="tiles" name="error">servicos.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="servicosAction">
+			<result type="tiles" name="success">servicos.displayList</result>
+			<result type="tiles" name="error">servicos.displayList</result>
+		</action>
+
+		<action name="excluir" class="servicosAction" method="excluir">
+			<result type="tiles" name="success">servicos.displayList</result>
+			<result type="tiles" name="error">servicos.displayList</result>
+		</action>
+ 
+		<action name="salvarLista" class="servicosAction" method="salvarLista">
+			<result type="tiles" name="input">servicos.displayList</result>
+			<result type="tiles" name="success">servicos.displayList</result>
+			<result type="tiles" name="error">servicos.update</result>
+		</action>
+
+		<action name="salvarNovo" class="servicosAction" method="salvarNovo">
+			<result type="tiles" name="input">servicos.insert</result>
+			<result type="tiles" name="success">servicos.insert</result>
+			<result type="tiles" name="error">servicos.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="servicosAction" method="salvarEditar">
+			<result type="tiles" name="input">servicos.update</result>
+			<result type="tiles" name="success">servicos.update</result>
+			<result type="tiles" name="error">servicos.update</result>
+		</action>
+
+		<action name="novo" class="servicosAction" method="novo">
+			<result type="tiles" name="success">servicos.insert</result>
+			<result type="tiles" name="error">servicos.displayList</result>
+		</action>
+
+		<action name="editar" class="servicosAction" method="editar">
+			<result type="tiles" name="success">servicos.update</result>
+			<result type="tiles" name="error">servicos.displayList</result>
+		</action>
+	</package>
+</struts>

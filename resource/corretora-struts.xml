@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="corretora" extends="struts2" namespace="/corretora">
+		<action name="displayList" method="lista" class="corretoraAction">
+			<result type="tiles" name="success">corretora.displayList</result>
+			<result type="tiles" name="error">corretora.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="corretoraAction">
+			<result type="tiles" name="success">corretora.displayList</result>
+			<result type="tiles" name="error">corretora.displayList</result>
+		</action>
+		
+		<action name="excluir" class="corretoraAction" method="excluir">
+			<result type="tiles" name="success">corretora.displayList</result>
+			<result type="tiles" name="error">corretora.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="corretoraAction" method="salvarLista">
+			<result type="tiles" name="input">corretora.displayList</result>
+			<result type="tiles" name="success">corretora.displayList</result>
+			<result type="tiles" name="error">corretora.update</result>
+			<result type="tiles" name="errorInsert">corretora.insert</result>
+		</action>
+		<action name="salvarNovo" class="corretoraAction" method="novo">
+			<result type="tiles" name="input">corretora.displayList</result>
+			<result type="tiles" name="success">corretora.displayList</result>
+			<result type="tiles" name="error">corretora.update</result>
+		</action>
+
+		<action name="salvarEditar" class="corretoraAction" method="salvarEditar">
+			<result type="tiles" name="input">corretora.update</result>
+			<result type="tiles" name="success">corretora.update</result>
+			<result type="tiles" name="error">corretora.update</result>
+		</action>
+
+		<action name="novo" class="corretoraAction" method="novo">
+			<result type="tiles" name="success">corretora.insert</result>
+			<result type="tiles" name="error">corretora.displayList</result>
+		</action>
+
+		<action name="editar" class="corretoraAction" method="editar">
+			<result type="tiles" name="success">corretora.update</result>
+			<result type="tiles" name="error">corretora.update</result>
+		</action>
+
+		<action name="alterarCorretoraEmUso" class="corretoraAction" method="alterarCorretoraEmUso">
+			<result type="freemarker">/ajax/options.ftl</result>
+		</action>
+	</package>
+</struts>

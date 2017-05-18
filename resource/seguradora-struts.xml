@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="seguradora" extends="struts2" namespace="/seguradora">
+		<action name="displayList" method="lista" class="seguradoraAction">
+			<result type="tiles" name="success">seguradora.displayList</result>
+			<result type="tiles" name="error">seguradora.displayList</result>
+		</action> 
+
+		<action name="lista*" method="{1}" class="seguradoraAction">
+			<result type="tiles" name="success">seguradora.displayList</result>
+			<result type="tiles" name="error">seguradora.displayList</result>
+		</action>
+		
+		<action name="excluir" class="seguradoraAction" method="excluir">
+			<result type="tiles" name="success">seguradora.displayList</result>
+			<result type="tiles" name="error">seguradora.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="seguradoraAction" method="salvarLista">
+			<result type="tiles" name="input">seguradora.displayList</result>
+			<result type="tiles" name="success">seguradora.displayList</result>
+			<result type="tiles" name="error">seguradora.update</result>
+			<result type="tiles" name="errorInsert">seguradora.insert</result>
+		</action>
+		<action name="salvarNovo" class="seguradoraAction" method="salvarNovo">
+			<result type="tiles" name="input">seguradora.insert</result>
+			<result type="tiles" name="success">seguradora.insert</result>
+			<result type="tiles" name="error">seguradora.insert</result>
+			<result type="tiles" name="errorInsert">seguradora.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="seguradoraAction" method="salvarEditar">
+			<result type="tiles" name="input">seguradora.update</result>
+			<result type="tiles" name="success">seguradora.update</result>
+			<result type="tiles" name="error">seguradora.update</result>
+			<result type="tiles" name="errorInsert">seguradora.insert</result>
+		</action>
+
+		<action name="novo" class="seguradoraAction" method="novo">
+			<result type="tiles" name="success">seguradora.insert</result>
+			<result type="tiles" name="error">seguradora.displayList</result>
+		</action>
+
+		<action name="editar" class="seguradoraAction" method="editar">
+			<result type="tiles" name="success">seguradora.update</result>
+			<result type="tiles" name="error">seguradora.update</result>
+		</action>
+	</package>
+</struts>

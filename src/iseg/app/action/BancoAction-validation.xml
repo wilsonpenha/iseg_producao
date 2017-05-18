@@ -1,0 +1,32 @@
+<!--
+ Description: Project iseg
+ Company....: Atlas
+ Version....: 0.1
+ Last change: 6/24/2008
+-->
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+   
+<!--  START SNIPPET: BancoAction - Validators --><validators>
+	<field name="banco.razaoSocial">
+        <field-validator type="required">
+            <message>O campo Nro do Banco é de preenchimento obrigatorio!</message>
+        </field-validator>
+    </field>    <field name="banco.nroBanco">        <field-validator type="required">            <message>O campo Nro do Banco é de preenchimento obrigatorio!</message>        </field-validator>    </field>    <field name="banco.nome">        <field-validator type="required">            <message>O campo Nome é de preenchimento obrigatorio!</message>        </field-validator>    </field>
+    <field name="banco.cpfOuCnpj">
+        <field-validator type="required">
+           	<message>O campo CNPJ é de preenchimento obrigatorio!</message>
+        </field-validator>
+    </field>
+    <field name="banco.atividadeComercial.id">
+    	<field-validator type="required">
+    		<message>O Campo Atividade Comercial é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    
+    </validators>
+
+<!--
+ Atlas, 2008
+-->

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="menu" extends="struts2" namespace="/menu">
+		<action name="displayList" method="lista" class="menuAction">
+			<result name="success">/WEB-INF/jsp/menu/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/menu/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/menu/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="menuAction">
+			<result type="tiles">menu.displayList</result>
+			<result type="tiles" name="error">menu.displayList</result>
+		</action>
+		
+		<action name="excluir" class="menuAction" method="excluir">
+			<result type="tiles" name="input">menu.update</result>
+			<result type="tiles" name="success">menu.update</result>
+			<result type="tiles" name="error">menu.update</result>
+		</action>
+		
+		<action name="salvarLista" class="menuAction" method="salvarLista">
+			<result type="tiles" name="none">menu.insert</result>
+			<result type="tiles" name="input">menu.update</result>
+			<result name="success">/WEB-INF/jsp/menu/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/menu/displayList.jsp</result>
+		</action>
+
+		<action name="salvarNovo" class="menuAction" method="salvarNovo">
+			<result type="tiles" name="input">menu.insert</result>
+			<result type="tiles" name="success">menu.insert</result>
+			<result type="tiles" name="error">menu.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="menuAction" method="salvarEditar">
+			<result type="tiles" name="input">menu.update</result>
+			<result type="tiles" name="success">menu.update</result>
+			<result type="tiles" name="error">menu.update</result>
+		</action>
+
+		<action name="novo" class="menuAction" method="novo">
+			<result type="tiles" name="success">menu.insert</result>
+			<result type="tiles" name="error">menu.insert</result>
+			<result type="tiles" name="input">menu.update</result>
+		</action>
+
+		<action name="editar" class="menuAction" method="editar">
+			<result type="tiles" name="success">menu.update</result>
+			<result type="tiles" name="error">menu.update</result>
+			<result type="tiles" name="input">menu.update</result>
+		</action>
+
+		<action name="novoBotao" class="menuAction" method="novoBotao">
+			<result type="tiles" name="success">menuBotao.insert</result>
+			<result type="tiles" name="error">menuBotao.insert</result>
+			<result type="tiles" name="input">menuBotao.update</result>
+		</action>
+
+		<action name="editarBotao" class="menuAction" method="editarBotao">
+			<result type="tiles" name="success">menuBotao.update</result>
+			<result type="tiles" name="error">menuBotao.update</result>
+			<result type="tiles" name="input">menuBotao.update</result>
+		</action>
+
+		<action name="salvarBotao" class="menuAction" method="salvarBotao">
+			<result type="tiles" name="input">menu.update</result>
+			<result type="tiles" name="success">menu.update</result>
+			<result type="tiles" name="error">menu.update</result>
+		</action>
+	</package>
+</struts>

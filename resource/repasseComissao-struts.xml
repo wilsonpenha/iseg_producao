@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="repasseComissao" extends="struts2" namespace="/repasseComissao">
+
+		<action name="displayListQuitacao" class="repasseComissaoAction">
+			<result name="input">/WEB-INF/jsp/repasseComissao/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/repasseComissao/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/repasseComissao/displayList.jsp</result>
+		</action>
+
+		<action name="listaquitacao" method="quitacao" class="repasseComissaoAction">
+			<result name="input">/WEB-INF/jsp/repasseComissao/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/repasseComissao/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/repasseComissao/displayList.jsp</result>
+		</action>
+
+		<action name="efetivarQuitacao" method="efetivarQuitacao" class="repasseComissaoAction">
+			<result name="input">/WEB-INF/jsp/repasseComissao/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/repasseComissao/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/repasseComissao/displayList.jsp</result>
+		</action>
+
+		<action name="relatorioRepasse" method="relatorio" class="repasseComissaoAction">
+		    <result type="tiles" name="success">repasse.relatorios</result>
+		    <result type="tiles" name="input">repasse.relatorios</result>
+			<result type="tiles" name="error">repasse.relatorios</result>
+		</action>
+		
+		<action name="displayList" method="lista" class="repasseComissaoAction">
+			<result name="input">/WEB-INF/jsp/lancamentoRepasse/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/lancamentoRepasse/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/lancamentoRepasse/displayList.jsp</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="repasseComissaoAction">
+			<result name="input">/WEB-INF/jsp/lancamentoRepasse/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/lancamentoRepasse/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/lancamentoRepasse/displayList.jsp</result>
+		</action>
+
+		<action name="salvarLista" class="repasseComissaoAction" method="salvarLista">
+			<result name="input">/WEB-INF/jsp/lancamentoRepasse/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/lancamentoRepasse/displayList.jsp</result>
+			<result type="tiles" name="error">repasseComissao.update</result>
+			<result type="tiles" name="errorInsert">repasseComissao.insert</result>
+		</action>
+
+		<action name="salvarNovo" class="repasseComissaoAction" method="salvarNovo">
+			<result type="tiles" name="input">repasseComissao.update</result>
+			<result type="tiles" name="success">repasseComissao.insert</result>
+			<result type="tiles" name="error">repasseComissao.update</result>
+			<result type="tiles" name="errorInsert">repasseComissao.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="repasseComissaoAction" method="salvarEditar">
+			<result type="tiles" name="input">repasseComissao.update</result>
+			<result type="tiles" name="success">repasseComissao.update</result>
+			<result type="tiles" name="error">repasseComissao.update</result>
+		</action>
+
+		<action name="novo" class="repasseComissaoAction" method="novo">
+			<result type="tiles" name="input">repasseComissao.insert</result>
+			<result type="tiles" name="success">repasseComissao.insert</result>
+			<result type="tiles" name="error">repasseComissao.insert</result>
+		</action>
+
+		<action name="editar" class="repasseComissaoAction" method="editar">
+			<result type="tiles" name="input">repasseComissao.update</result>
+			<result type="tiles" name="success">repasseComissao.update</result>
+			<result type="tiles" name="error">repasseComissao.update</result>
+		</action>
+	</package>
+</struts>

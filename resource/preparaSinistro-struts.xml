@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="preparaSinistro" extends="struts2" namespace="/preSinistro">
+
+		<action name="pesquisaPropostaForm" method="lista" class="preparaSinistroAction">
+			<result>/WEB-INF/jsp/sinistro/pesquisaProposta.jsp</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="preparaSinistroAction">
+			<result name="input">/WEB-INF/jsp/sinistro/pesquisaPropostaResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/sinistro/pesquisaPropostaResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/pesquisaPropostaResult.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="preparaSinistroAction" method="lista">
+			<result>/WEB-INF/jsp/sinistro/pesquisaPropostaResult.jsp</result>
+		</action>
+
+		<action name="getProposta" class="preparaSinistroAction" method="find">
+			<result>/WEB-INF/jsp/sinistro/viewProposta.jsp</result>
+		</action>
+
+		<action name="editar" class="sinistroAction" method="novo">
+			<result name="input">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+			<result name="success">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/sinistro/sinistroWizard.jsp</result>
+		</action>
+	</package>
+</struts>

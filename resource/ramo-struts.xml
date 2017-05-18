@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="ramo" extends="struts2" namespace="/ramo">
+		<action name="displayList" method="lista" class="ramoAction">
+			<result type="tiles" name="success">ramo.displayList</result>
+			<result type="tiles" name="error">ramo.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="ramoAction">
+			<result type="tiles" name="success">ramo.displayList</result>
+			<result type="tiles" name="error">ramo.displayList</result>
+		</action>
+		
+		<action name="excluir" class="ramoAction" method="excluir">
+			<result type="tiles" name="success">ramo.displayList</result>
+			<result type="tiles" name="error">ramo.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="ramoAction" method="salvarLista">
+			<result type="tiles" name="input">ramo.displayList</result>
+			<result type="tiles" name="success">ramo.displayList</result>
+			<result type="tiles" name="error">ramo.update</result>
+		</action>
+
+		<action name="salvarNovo" class="ramoAction" method="salvarNovo">
+			<result type="tiles" name="input">ramo.insert</result>
+			<result type="tiles" name="success">ramo.insert</result>
+			<result type="tiles" name="error">ramo.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="ramoAction" method="salvarEditar">
+			<result type="tiles" name="input">ramo.update</result>
+			<result type="tiles" name="success">ramo.update</result>
+			<result type="tiles" name="error">ramo.update</result>
+		</action>
+
+		<action name="novo" class="ramoAction" method="novo">
+			<result type="tiles" name="success">ramo.insert</result>
+			<result type="tiles" name="error">ramo.insert</result>
+		</action>
+
+		<action name="editar" class="ramoAction" method="editar">
+			<result type="tiles" name="success">ramo.update</result>
+			<result type="tiles" name="error">ramo.update</result>
+		</action>
+	</package>
+</struts>

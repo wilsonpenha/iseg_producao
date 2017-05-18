@@ -1,0 +1,61 @@
+<!--
+ Description: Project iseg
+ Company....: Atlas
+ Version....: 0.1
+ Last change: 6/24/2008
+-->
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+   
+<!--  START SNIPPET: ProdutorAction - Validators --><validators>
+  <field name="produtor.nome">
+        <field-validator type="required">
+            <message>O campo Nome é de preenchimento obrigatório!</message>
+        </field-validator>
+    </field>
+    <field name="produtor.situacao">        <field-validator type="required">            <message>O campo Situacao é de preenchimento obrigatório!</message>        </field-validator>    </field>
+    <field name="produtor.corretora.id">
+    	<field-validator type="required">
+    	<message>O campo Corretora é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    <field name="produtor.enderecoCollection[0].bairro">
+        <field-validator type="required">
+            <message>O campo Bairro é de preenchimento obrigatorio!</message>
+        </field-validator>
+    </field>
+    <field name="produtor.enderecoCollection[0].tipoEndereco">
+        <field-validator type="required">
+            <message>O campo Tipo de Endereco é de preenchimento obrigatório!</message>
+        </field-validator>
+    </field>
+    <field name="produtor.enderecoCollection[0].uf">
+    	<field-validator type="required">
+    		<message>O campo UF é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    <field name="produtor.enderecoCollection[0].cidade">
+    	<field-validator type="required">
+    		<message>O campo Cidade é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    <field name="produtor.enderecoCollection[0].cep.valor">
+    	<field-validator type="required">
+    		<message>O campo Cep é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    <field name="produtor.enderecoCollection[0].tipoEndereco">
+        <field-validator type="required">
+            <message>O campo Tipo de Endereco é de preenchimento obrigatório!</message>
+        </field-validator>
+    </field>
+    <field name="produtor.enderecoCollection[0].numero">
+    	<field-validator type="required">
+    		<message>O campo Número é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field></validators>
+
+<!--
+ Atlas, 2008
+-->

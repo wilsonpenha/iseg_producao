@@ -1,0 +1,6 @@
+#
+# Parametros de corretora
+#
+
+idCorretora=8050
+jndiName=jdbc/apoliseg

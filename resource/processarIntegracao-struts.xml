@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="processarIntegracao" extends="struts2" namespace="/processarIntegracao">
+		
+		<result-types> 
+			<result-type name="myStream"  default="false" class="iseg.utils.CustomStreamResult"/>
+		</result-types>
+		
+		<action name="displayList" method="lista" class="processarIntegracaoAction">
+			<result type="tiles">processarIntegracao.displayList</result>
+		</action>
+		
+		<action name="integracaoLote" method="lista" class="processarIntegracaoAction">
+			<result type="tiles">processarIntegracao.integracaoLote</result>
+		</action>
+
+		<action name="imporarEdiImportacaoAnexo" class="processarIntegracaoAction" method="imporarEdiImportacaoAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">imporarEdiImportacaoAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/integracao/lotesImportacaoList.jsp</result>
+			<result name="input">/WEB-INF/jsp/integracao/lotesImportacaoList.jsp</result>
+			<result name="error">/WEB-INF/jsp/integracao/lotesImportacaoList.jsp</result>
+		</action>
+		
+		<action name="atualizarSituacaoLotesImportacao" class="processarIntegracaoAction" method="atualizarSituacaoLotesImportacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">atualizarSituacaoLotesImportacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/integracao/lotesImportacaoList.jsp</result>
+			<result name="input">/WEB-INF/jsp/integracao/lotesImportacaoList.jsp</result>
+			<result name="error">/WEB-INF/jsp/integracao/lotesImportacaoList.jsp</result>
+		</action>
+		
+	</package>
+</struts>

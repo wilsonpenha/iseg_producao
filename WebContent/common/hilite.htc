@@ -1,0 +1,31 @@
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="Hilite()" />
+<PUBLIC:ATTACH EVENT="onmouseout"  ONEVENT="Restore()" />
+<PUBLIC:ATTACH EVENT="onclick"  ONEVENT="Click()" />
+
+<SCRIPT LANGUAGE="JScript">
+var normalClass;
+
+function Hilite(){
+	if (event.srcElement == element){
+		normalClass = className;
+		if (className.indexOf("off")==-1)
+			className = "hilite";
+	}
+}
+
+function Restore(){
+	if (event.srcElement == element)
+		className = normalClass;
+}
+
+function Click(){
+	if (event.srcElement == element){
+		if (event.srcElement.action){
+			Restore();
+			return eval(event.srcElement.action);
+		} else {
+			return false;
+		}
+	}
+}
+</SCRIPT>

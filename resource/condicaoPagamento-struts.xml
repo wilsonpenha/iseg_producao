@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="condicaoPagamento" extends="struts2" namespace="/condicaoPagamento">
+		<action name="displayList" method="lista" class="condicaoPagamentoAction">
+			<result type="tiles" name="success">condicaoPagamento.displayList</result>
+			<result type="tiles" name="error">condicaoPagamento.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="condicaoPagamentoAction">
+			<result type="tiles" name="success">condicaoPagamento.displayList</result>
+			<result type="tiles" name="error">condicaoPagamento.displayList</result>
+		</action>
+		
+		<action name="excluir" class="condicaoPagamentoAction" method="excluir">
+			<result type="tiles" name="success">condicaoPagamento.displayList</result>
+			<result type="tiles" name="error">condicaoPagamento.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="condicaoPagamentoAction" method="salvarLista">
+			<result type="tiles" name="input">condicaoPagamento.displayList</result>
+			<result type="tiles" name="success">condicaoPagamento.displayList</result>
+			<result type="tiles" name="error">condicaoPagamento.update</result>
+		</action>
+
+		<action name="salvarNovo" class="condicaoPagamentoAction" method="salvarNovo">
+			<result type="tiles" name="input">condicaoPagamento.insert</result>
+			<result type="tiles" name="success">condicaoPagamento.insert</result>
+			<result type="tiles" name="error">condicaoPagamento.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="condicaoPagamentoAction" method="salvarEditar">
+			<result type="tiles" name="input">condicaoPagamento.update</result>
+			<result type="tiles" name="success">condicaoPagamento.update</result>
+			<result type="tiles" name="error">condicaoPagamento.update</result>
+		</action>
+
+		<action name="novo" class="condicaoPagamentoAction" method="novo">
+			<result type="tiles" name="success">condicaoPagamento.insert</result>
+			<result type="tiles" name="error">condicaoPagamento.insert</result>
+		</action>
+
+		<action name="editar" class="condicaoPagamentoAction" method="editar">
+			<result type="tiles" name="success">condicaoPagamento.update</result>
+			<result type="tiles" name="error">condicaoPagamento.update</result>
+		</action>
+	</package>
+</struts>

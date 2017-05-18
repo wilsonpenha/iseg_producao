@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+           http://www.springframework.org/schema/tx   
+           http://www.springframework.org/schema/tx/spring-tx-2.0.xsd   
+           http://www.springframework.org/schema/context   
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/task
+           http://www.springframework.org/schema/task/spring-task-3.0.xsd"> 
+
+	<bean id="isegDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/iseg" />
+	</bean>
+	
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="punit" />
+		<property name="dataSource" ref="isegDataSource" />
+		<property name="jpaVendorAdapter">
+			<bean id="jpaAdapter"
+				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="true"/>
+				<property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
+			</bean>
+		</property>
+		<!--
+		<property name="jpaPropertyMap">
+          <map>
+            <entry key="hibernate.ejb.interceptor" value="iseg.app.interceptor.AuditLogInterceptor">
+            </entry>
+          </map>
+        </property>
+	--></bean>
+
+      <tx:advice id="txAdvice" transaction-manager="transactionManager">
+      <!-- the transactional semantics... -->
+            <tx:attributes>
+                  <!-- all methods starting with 'find' are read-only -->
+                  <tx:method name="find*" read-only="true"/>
+                  <!-- all methods starting with 'get' are read-only -->
+                  <tx:method name="get*" read-only="true"/>
+                  <!-- other methods use the default transaction settings (see below) -->
+                  <tx:method name="*" propagation="REQUIRED" />
+            </tx:attributes>
+      </tx:advice>
+ 
+<!--  <aop:config>
+            <aop:pointcut id="allActionMethods" expression="execution(* *.*.action.*(..))"/>
+            <aop:advisor advice-ref="txAdvice" pointcut-ref="allActionMethods"/>
+      </aop:config>
+ -->
+      <aop:config>
+            <aop:pointcut id="allServicesMethods" expression="execution(* *.*.business.*(..))"/>
+            <aop:advisor advice-ref="txAdvice" pointcut-ref="allServicesMethods"/>
+      </aop:config>
+    
+    
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />  
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+ 	<task:scheduler id="scheduler" pool-size="5"/>
+ 	<task:annotation-driven scheduler="scheduler"/>
+	
+    <context:component-scan base-package="iseg.app.*,iseg.utils.*" />
+
+    <!-- 
+ 	<bean id="SMSAgente" class="iseg.app.smsagent.SMSAgente" init-method="init">
+		<constructor-arg ref="smsEventosCorretoraService"/>
+	</bean>
+
+	<bean class="org.springframework.web.context.support.ServletContextAttributeExporter">
+        <property name="attributes">
+            <map>
+                <entry key="servletContext">
+                    <ref local="SMSAgente" />
+                </entry>
+            </map>
+        </property> 
+    </bean>
+
+ 	<bean id="SMSAgenteEventos" class="iseg.app.smsagent.SMSAgenteEventos" init-method="init">
+		<constructor-arg ref="smsEventosCorretoraService"/>
+	</bean>
+
+	<bean class="org.springframework.web.context.support.ServletContextAttributeExporter">
+        <property name="attributes">
+            <map>
+                <entry key="servletContext">
+                    <ref local="SMSAgenteEventos" />
+                </entry>
+            </map>
+        </property> 
+    </bean>
+	-->
+
+	<bean class="org.springframework.web.context.support.ServletContextAttributeExporter">
+	  <property name="attributes">
+	    <map>
+	      <entry key="service">
+	        <ref bean="propostaService"/>
+	      </entry>
+	    </map>
+	  </property>
+	</bean>
+
+	<bean id="orcamentoSeguroService" class="iseg.app.business.OrcamentoSeguroServiceImpl"/>
+	<bean id="orcamentoSeguroAction" scope="prototype" class="iseg.app.action.OrcamentoSeguroAction">
+		<constructor-arg ref="orcamentoSeguroService" />
+	</bean>
+	
+	<bean id="orcamentoSegAutoService" class="iseg.app.business.OrcamentoSegAutoServiceImpl"/>
+	<bean id="orcamentoSegAutoAction" scope="prototype" class="iseg.app.action.OrcamentoSegAutoAction">
+		<constructor-arg ref="orcamentoSegAutoService" />
+	</bean>
+	
+	<bean id="orcamentoCorretoraService" class="iseg.app.business.OrcamentoCorretoraServiceImpl" />
+	<bean id="orcamentoCorretoraAction" scope="prototype" class="iseg.app.action.OrcamentoCorretoraAction">
+		<constructor-arg ref="orcamentoCorretoraService" />
+	</bean>
+	
+<!--	<bean id="pobjectService" class="iseg.app.business.AuditLogRecordServiceImpl"/>-->
+<!--	<bean id="auditLogService" class="iseg.app.business.AuditLogRecordServiceImpl">-->
+<!--		<constructor-arg ref="pobjectService" />-->
+<!--	</bean>-->
+	
+	<bean id="objectLookupService" class="iseg.app.business.ObjectLookupServiceImpl" />
+	<bean id="objectLookupAction" scope="prototype" class="iseg.app.action.ObjectLookupAction">
+		<constructor-arg ref="objectLookupService" />
+	</bean>
+
+	<bean id="propostaComissaoService" class="iseg.app.business.PropostaComissaoServiceImpl" />
+	<bean id="propostaWizardService" class="iseg.app.business.PropostaWizardServiceImpl" />
+
+	<bean id="propostaWizardAction" scope="prototype" class="iseg.app.action.PropostaWizardAction">
+		<constructor-arg ref="propostaWizardService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="propostaRiscosDiversosService" class="iseg.app.business.PropostaRiscosDiversosServiceImpl" />
+	<bean id="propostaRiscosDiversosAction" scope="prototype" class="iseg.app.action.PropostaRiscosDiversosAction">
+		<constructor-arg ref="propostaRiscosDiversosService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean> 
+
+	<bean id="propostaTransportes" class="iseg.app.business.PropostaTransportesServiceImpl" />
+	<bean id="propostaTransportesAction" scope="prototype" class="iseg.app.action.PropostaTransportesAction">
+		<constructor-arg ref="propostaTransportes" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="propostaImoveisService" class="iseg.app.business.PropostaImoveisServiceImpl" />
+	<bean id="propostaImoveisAction" scope="prototype" class="iseg.app.action.PropostaImoveisAction">
+		<constructor-arg ref="propostaImoveisService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="propostaVidaEmpresarialService" class="iseg.app.business.PropostaVidaEmpresarialServiceImpl" />
+	<bean id="propostaVidaEmpresarialAction" scope="prototype" class="iseg.app.action.PropostaVidaEmpresarialAction">
+		<constructor-arg ref="propostaVidaEmpresarialService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="propostaVidaIndividualService" class="iseg.app.business.PropostaVidaIndividualServiceImpl" />
+	<bean id="propostaVidaIndividualAction" scope="prototype" class="iseg.app.action.PropostaVidaIndividualAction">
+		<constructor-arg ref="propostaVidaIndividualService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="propostaService" class="iseg.app.business.PropostaServiceImpl" />
+	<bean id="propostaAction" scope="prototype" class="iseg.app.action.PropostaAction">
+		<constructor-arg ref="propostaService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="preparaSinistroAction" scope="prototype"
+		class="iseg.app.action.PreparaSinistroAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+
+	<bean id="corretoraTipoLancamentoService" class="iseg.app.business.CorretoraTipoLancamentoServiceImpl" />
+	<bean id="corretoraTipoLancamentoAction" scope="prototype" class="iseg.app.action.CorretoraTipoLancamentoAction">
+		<constructor-arg ref="corretoraTipoLancamentoService" />
+	</bean>
+
+	<bean id="sinistroService" class="iseg.app.business.SinistroServiceImpl" />
+	<bean id="sinistroAction" scope="prototype" class="iseg.app.action.SinistroAction">
+		<constructor-arg ref="sinistroService" />
+	</bean>
+
+	<bean id="dominioService" class="iseg.app.business.DominioServiceImpl" />
+	<bean id="dominioAction" scope="prototype" class="iseg.app.action.DominioAction">
+		<constructor-arg ref="dominioService" />
+	</bean>
+
+	<bean id="pessoaService" class="iseg.app.business.PessoaServiceImpl" />
+	<bean id="pessoaAction" scope="prototype" class="iseg.app.action.PessoaAction">
+		<constructor-arg ref="pessoaService" />
+	</bean>
+
+	<bean id="corretoraService" class="iseg.app.business.CorretoraServiceImpl" />
+	<bean id="corretoraAction" scope="prototype" class="iseg.app.action.CorretoraAction">
+		<constructor-arg ref="corretoraService" />
+	</bean>
+
+	<bean id="automovelService" class="iseg.app.business.AutomovelServiceImpl" />
+	<bean id="automovelAction" scope="prototype" class="iseg.app.action.AutomovelAction">
+		<constructor-arg ref="automovelService" />
+	</bean>
+
+	<bean id="condutorService" class="iseg.app.business.CondutorServiceImpl" />
+	<bean id="condutorAction" scope="prototype" class="iseg.app.action.CondutorAction">
+		<constructor-arg ref="condutorService" />
+	</bean>
+	
+	<bean id="ufService" class="iseg.app.business.UfServiceImpl"/>
+	<bean id="ufAction" scope="prototype" class="iseg.app.action.UfAction">
+		<constructor-arg ref="ufService" />
+	</bean>
+	
+	<bean id="cidadeService" class="iseg.app.business.CidadeServiceImpl"/>
+	<bean id="cidadeAction" scope="prototype" class="iseg.app.action.CidadeAction">
+		<constructor-arg ref="cidadeService"/>
+	</bean>
+	
+	<!-- 
+	<bean id="bairroService" class="iseg.app.business.BairroServiceImpl"/>
+	<bean id="bairroAction" scope="prototype" class="iseg.app.action.BairroAction">
+		<constructor-arg ref="bairroService"/>
+	</bean>
+	 -->
+	 
+	<bean id="ramoService" class="iseg.app.business.RamoServiceImpl"/>
+	<bean id="ramoAction" scope="prototype" class="iseg.app.action.RamoAction">
+		<constructor-arg ref="ramoService"/>
+	</bean>
+	
+	<bean id="endossoService" class="iseg.app.business.EndossoServiceImpl"/>
+	<bean id="endossoAction" scope="prototype" class="iseg.app.action.EndossoAction">
+		<constructor-arg ref="endossoService"/>
+	</bean>
+	
+	<bean id="questionarioPosVendaService" class="iseg.app.business.QuestionarioPosVendaServiceImpl"/>
+	<bean id="questionarioPosVendaAction" scope="prototype" class="iseg.app.action.QuestionarioPosVendaAction">
+		<constructor-arg ref="questionarioPosVendaService"/>
+	</bean>
+	
+	<bean id="coberturasService" class="iseg.app.business.CoberturasServiceImpl"/>
+	<bean id="coberturasAction" scope="prototype" class="iseg.app.action.CoberturasAction">
+		<constructor-arg ref="coberturasService"/>
+	</bean>
+	
+	<bean id="servicosService" class="iseg.app.business.ServicosServiceImpl"/>
+	<bean id="servicosAction" scope="prototype" class="iseg.app.action.ServicosAction">
+		<constructor-arg ref="servicosService"/>
+	</bean>
+	
+	<bean id="vistoriadoraService" class="iseg.app.business.VistoriadoraServiceImpl"/>
+	<bean id="vistoriadoraAction" scope="prototype" class="iseg.app.action.VistoriadoraAction">
+		<constructor-arg ref="vistoriadoraService"/>
+	</bean>
+	
+	<bean id="seguradoraService" class="iseg.app.business.SeguradoraServiceImpl"/>
+	<bean id="seguradoraAction" scope="prototype" class="iseg.app.action.SeguradoraAction">
+		<constructor-arg ref="seguradoraService"/>
+	</bean>
+	
+	<bean id="oficinaService" class="iseg.app.business.OficinaServiceImpl"/>
+	<bean id="oficinaAction" scope="prototype" class="iseg.app.action.OficinaAction">
+		<constructor-arg ref="oficinaService"/>
+	</bean>
+
+	<bean id="perfilService" class="iseg.app.business.PerfilServiceImpl"/>
+	<bean id="perfilAction" scope="prototype" class="iseg.app.action.PerfilAction">
+		<constructor-arg ref="perfilService"/>
+	</bean>
+
+	<bean id="condicaoPagamentoService" class="iseg.app.business.CondicaoPagamentoServiceImpl"/>
+	<bean id="condicaoPagamentoAction" scope="prototype" class="iseg.app.action.CondicaoPagamentoAction">
+		<constructor-arg ref="condicaoPagamentoService"/>
+	</bean>
+
+	<bean id="enderecoService" class="iseg.app.business.EnderecoServiceImpl"/>
+	<bean id="enderecoAction" scope="prototype" class="iseg.app.action.EnderecoAction">
+		<constructor-arg ref="enderecoService"/>
+	</bean>
+
+	<bean id="grupoDeVendaService" class="iseg.app.business.GrupoDeVendaServiceImpl" />
+	<bean id="grupoDeVendaAction" scope="prototype" class="iseg.app.action.GrupoDeVendaAction">
+		<constructor-arg ref="grupoDeVendaService" />
+	</bean>
+
+	<bean id="usuarioService" class="iseg.app.business.UsuarioServiceImpl" />
+	<bean id="usuarioAction" scope="prototype" class="iseg.app.action.UsuarioAction">
+		<constructor-arg ref="usuarioService" />
+	</bean>
+
+	<bean id="loginAction" scope="prototype" class="iseg.app.action.LoginAction">
+		<constructor-arg ref="usuarioService" />
+		<constructor-arg ref="posVendaService" />
+	</bean>
+	
+	<bean id="contaCorrenteService" class="iseg.app.business.ContaCorrenteServiceImpl" />
+	<bean id="contaCorrenteAction" scope="prototype" class="iseg.app.action.ContaCorrenteAction">
+		<constructor-arg ref="contaCorrenteService"/>
+	</bean>
+
+	<bean id="produtorService" class="iseg.app.business.ProdutorServiceImpl" />
+	<bean id="produtorAction" scope="prototype" class="iseg.app.action.ProdutorAction">
+		<constructor-arg ref="produtorService"/>
+	</bean>
+	
+	<bean id="pessoaFisicaService" class="iseg.app.business.PessoaFisicaServiceImpl"/>
+	<bean id="pessoaFisicaAction" scope="prototype" class="iseg.app.action.PessoaFisicaAction">
+		<constructor-arg ref="pessoaFisicaService"/>
+	</bean>
+	
+	<bean id="dependentesService" class="iseg.app.business.DependentesServiceImpl"/>
+	<bean id="dependentesAction" scope="prototype" class="iseg.app.action.DependentesAction">
+		<constructor-arg ref="dependentesService"/>
+	</bean>
+	
+	<bean id="pessoaJuridicaService" class="iseg.app.business.PessoaJuridicaServiceImpl"/>
+	<bean id="pessoaJuridicaAction" scope="prototype" class="iseg.app.action.PessoaJuridicaAction">
+		<constructor-arg ref="pessoaJuridicaService"/>
+	</bean>
+
+	<bean id="propostaComissaoAction" scope="prototype" class="iseg.app.action.PropostaComissaoAction">
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+	
+	<bean id="aniversarianteReportAction" scope="prototype" class="iseg.app.report.AniversarianteReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	
+	<bean id="marcaModeloReportAction" scope="prototype" class="iseg.app.report.MarcaModeloReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	
+	<bean id="comissoesAReceberERecebidasReportAction" scope="prototype" class="iseg.app.report.ComissoesAReceberERecebidasReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+
+	<bean id="apoliceParaBaixaAction" scope="prototype" class="iseg.app.report.ApoliceParaBaixaReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+
+	<bean id="repasseComissaoService" class="iseg.app.business.RepasseComissaoServiceImpl"/>
+	<bean id="repasseComissaoAction" scope="prototype" class="iseg.app.action.RepasseComissaoAction">
+		<constructor-arg ref="repasseComissaoService" />
+	</bean>
+
+	<bean id="preparaBaixaDeComissaoAction" scope="prototype"
+		class="iseg.app.action.PreparaBaixaDeComissaoAction">
+		<constructor-arg ref="propostaService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="borderoComissaoService" class="iseg.app.business.BorderoComissaoServiceImpl" />
+	<bean id="borderoComissaoAction" scope="prototype" class="iseg.app.action.BorderoComissaoAction">
+		<constructor-arg ref="borderoComissaoService" />
+		<constructor-arg ref="propostaComissaoService" />
+	</bean>
+
+	<bean id="comissionadoPropostaService" class="iseg.app.business.ComissionadoPropostaServiceImpl" />
+	<bean id="comissionadoPropostaAction" scope="prototype" class="iseg.app.action.ComissionadoPropostaAction">
+		<constructor-arg ref="comissionadoPropostaService" />
+		<constructor-arg ref="propostaService" />
+	</bean>
+
+	<bean id="menuService" class="iseg.app.business.MenuServiceImpl" />
+	<bean id="menuAction" scope="prototype" class="iseg.app.action.MenuAction">
+		<constructor-arg ref="menuService" />
+	</bean>
+
+	<bean id="roleService" class="iseg.app.business.RoleServiceImpl" />
+	<bean id="privilegioAction" scope="prototype" class="iseg.app.action.PrivilegioAction">
+		<constructor-arg ref="roleService" />
+	</bean>
+
+	<bean id="gerenciarCorretoraService" class="iseg.app.business.CorretoraServiceImpl" />
+	<bean id="gerenciarCorretoraAction" scope="prototype" class="iseg.app.action.GerenciarCorretoraAction">
+		<constructor-arg ref="gerenciarCorretoraService" />
+	</bean>
+
+	<bean id="dominioEspService" class="iseg.app.business.DominioEspServiceImpl"/>
+	<bean id="dominioEspAction" scope="prototype" class="iseg.app.action.DominioEspAction">
+		<constructor-arg ref="dominioEspService" />
+	</bean>
+
+	<bean id="posVendaService" class="iseg.app.business.PosVendaServiceImpl"/>
+	<bean id="posVendaAction" scope="prototype" class="iseg.app.action.PosVendaAction">
+		<constructor-arg ref="posVendaService" />
+	</bean>
+
+	<bean id="smsEventosService" class="iseg.app.business.SmsEventosServiceImpl" />
+	<bean id="smsEventosAction" scope="prototype" class="iseg.app.action.SmsEventosAction">
+		<constructor-arg ref="smsEventosService" />
+	</bean>
+
+	<bean id="smsEventosCorretoraService" class="iseg.app.business.SmsEventosCorretoraServiceImpl" />
+	<bean id="smsEventosCorretoraAction" scope="prototype" class="iseg.app.action.SmsEventosCorretoraAction">
+		<constructor-arg ref="smsEventosCorretoraService" />
+	</bean>
+
+	<bean id="smsTelefonesProdutorService" class="iseg.app.business.SmsTelefonesProdutorServiceImpl" />
+	<bean id="smsTelefonesProdutorAction" scope="prototype" class="iseg.app.action.SmsTelefonesProdutorAction">
+		<constructor-arg ref="smsTelefonesProdutorService" />
+	</bean>
+
+	<bean id="smsConsoleEnvioAction" scope="prototype" class="iseg.app.action.SmsConsoleEnvioAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+
+	<bean id="jasperReportAction" scope="prototype" class="iseg.app.report.JasperReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="rankingReportAction" scope="prototype" class="iseg.app.report.RankingReportAction">
+		<constructor-arg ref="propostaService" /> 
+	</bean>
+	<bean id="mixDeVendasReportAction" scope="prototype" class="iseg.app.report.MixDeVendasReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="comissoesReportAction" scope="prototype" class="iseg.app.report.ComissoesReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="comparativoMensalReportAction" scope="prototype" class="iseg.app.report.ComparativoMensalReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="repasseReportAction" scope="prototype" class="iseg.app.report.RepasseReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="protocoloReportAction" scope="prototype" class="iseg.app.report.ProtocoloReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="propostaReportAction" scope="prototype" class="iseg.app.report.PropostaReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="lotesComissaoReportAction" scope="prototype" class="iseg.app.report.LotesComissaoReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="envelopeReportAction" scope="prototype" class="iseg.app.report.EnvelopeReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	<bean id="apoliceParaRenovacaoReportAction" scope="prototype" class="iseg.app.report.ApoliceParaRenovacaoReportAction">
+		<constructor-arg ref="propostaService" />
+	</bean>
+	
+	<bean id="processarIntegracaoService" class="iseg.app.business.ProcessarIntegracaoServiceImpl" />
+	<bean id="processarIntegracaoAction" scope="prototype" class="iseg.app.action.ProcessarIntegracaoAction">
+		<constructor-arg ref="processarIntegracaoService" />
+	</bean>
+	
+</beans>

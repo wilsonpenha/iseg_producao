@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="propostaImoveis" extends="struts2" namespace="/propostaImoveis">
+
+		<action name="displayList" method="execute" class="propostaImoveisAction">
+			<result name="success">/WEB-INF/jsp/propostaImoveis/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="propostaImoveisAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo,lista,next,previous,last</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/displayListResult.jsp</result>
+			<result name="edicao">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+		</action>
+
+		<action name="iniciar" class="propostaImoveisAction" method="execute">
+			<result>/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+		</action>
+ 
+		<action name="editar" class="propostaImoveisAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+		</action>
+ 
+		<action name="endossoRenovacao" class="propostaImoveisAction" method="endossoRenovacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">endossoRenovacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+		</action>
+ 
+		<action name="novo" class="propostaImoveisAction" method="novo">
+			<result name="success">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="propostaImoveisAction" method="excluir">
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="cancelarProposta" class="propostaImoveisAction" method="cancelarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">cancelarProposta</param>
+			</interceptor-ref>
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="salvarEditar" class="propostaImoveisAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaImoveis/tabPane${currentTab}.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/tabPane${currentTab}.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/tabPane${currentTab}.jsp</result>
+		</action>
+
+		<action name="gerarParcelas" class="propostaImoveisAction" method="gerarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">gerarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="propostaImoveisAction" method="lista">
+			<result name="success">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+		</action>
+
+		<action name="vistoriadoraPorSeguradora" class="propostaImoveisAction" method="getVistoriadoraBySeguradoraList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getVistoriadoraBySeguradoraList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/comboListVistoriadora.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/comboListVistoriadora.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/comboListVistoriadora.jsp</result>
+		</action>
+
+		<action name="condPagtoPorSeguradora" class="propostaImoveisAction" method="getCondPagtoPorSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getCondPagtoPorSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/comboListCondPagto.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/comboListCondPagto.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/comboListCondPagto.jsp</result>
+		</action>
+
+		<action name="propostaImoveisModeloVeiculo" class="propostaImoveisAction" method="getModeloVeiculoList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getModeloVeiculoList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/comboListModeloVeiculo.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/comboListModeloVeiculo.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/comboListModeloVeiculo.jsp</result>
+		</action>
+
+		<action name="propostaImoveisDadosCliente" class="propostaImoveisAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/dadosCliente.jsp</result>
+		</action>
+
+		<action name="efetivarProposta" class="propostaImoveisAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/propostaImoveis.jsp</result>
+		</action>
+
+		<action name="novoDadosClienteForm" class="propostaImoveisAction" method="novoDadosClienteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosClienteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="alterarGrupoVenda" class="propostaImoveisAction" method="alterarGrupoVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/dadosComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/dadosComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/dadosComissao.jsp</result>
+		</action>
+
+		<action name="inserirCobertura" class="propostaImoveisAction" method="inserirCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/rowImovelCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/rowImovelCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/rowImovelCobertura.jsp</result>
+		</action>
+
+		<action name="novoItem" class="propostaImoveisAction" method="novoItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+		</action>
+
+		<action name="editarImovel" class="propostaImoveisAction" method="editarImovel">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarImovel</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+		</action>
+
+		<action name="removerItem" class="propostaImoveisAction" method="removerItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removerItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaImoveis/tabPane1.jsp</result>
+		</action>
+
+	</package>
+</struts>

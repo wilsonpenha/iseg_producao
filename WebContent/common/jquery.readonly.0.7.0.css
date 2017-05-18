@@ -1,0 +1,7 @@
+.readonly_overlay070{
+  -moz-opacity: 0.6; 
+  opacity: 0.3; 
+  filter: alpha(opacity=60);
+  padding: 0pt !IMPORTANT;
+  margin: 0pt !IMPORTANT;
+}

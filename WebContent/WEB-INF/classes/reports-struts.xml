@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="report" extends="struts2" namespace="/report">
+		<action name="runjasper" class="propostaReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+
+		<action name="gerarEnvelopeReport" class="envelopeReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+
+		<action name="compMensalProdutor" class="comparativoMensalReportAction" method="compMensalProdutor">
+			<result type="tiles" name="success">compMensalProdutor.relatorios</result>
+			<result type="tiles" name="input">compMensalProdutor.relatorios</result>
+			<result type="tiles" name="error">compMensalProdutor.relatorios</result>
+		</action>
+
+		<action name="compMensalCorretora" class="comparativoMensalReportAction" method="compMensalCorretora">
+			<result type="tiles" name="success">compMensalCorretora.relatorios</result>
+			<result type="tiles" name="input">compMensalCorretora.relatorios</result>
+			<result type="tiles" name="error">compMensalCorretora.relatorios</result>
+		</action>
+
+		<action name="ranking" class="rankingReportAction">
+			<result type="tiles" name="success">ranking.relatorios</result>
+			<result type="tiles" name="input">ranking.relatorios</result>
+			<result type="tiles" name="error">ranking.relatorios</result>
+		</action>
+
+		<action name="mixDeVendas" class="mixDeVendasReportAction">
+			<result type="tiles" name="success">ranking.relatorios</result>
+			<result type="tiles" name="input">ranking.relatorios</result>
+			<result type="tiles" name="error">ranking.relatorios</result>
+		</action>
+		
+		<action name="apoliceParaRenovacao" class="apoliceParaRenovacaoReportAction">
+			<result type="tiles" name="success">apoliceParaRenovacao.relatorios</result>
+			<result type="tiles" name="input">apoliceParaRenovacao.relatorios</result>
+			<result type="tiles" name="error">apoliceParaRenovacao.relatorios</result>
+		</action>
+		
+		<action name="aniversariante" method="relatorio" class="aniversarianteReportAction">
+			<result type="tiles" name="success">aniversariante.relatorios</result>
+			<result type="tiles" name="input">aniversariante.relatorios</result>
+			<result type="tiles" name="error">aniversariante.relatorios</result>
+		</action>
+		
+		<action name="marcaModelo" method="relatorio" class="marcaModeloReportAction">
+			<result type="tiles" name="success">marcaModelo.relatorios</result>
+			<result type="tiles" name="input">marcaModelo.relatorios</result>
+			<result type="tiles" name="error">marcaModelo.relatorios</result>
+		</action>
+
+		<action name="apoliceParaBaixa" method="relatorio" class="apoliceParaBaixaAction">
+		    <result type="tiles" name="success">apolice.relatorios</result>
+		    <result type="tiles" name="input">apolice.relatorios</result>
+			<result type="tiles" name="error">apolice.relatorios</result>
+		</action>		
+	</package>
+	
+	<package name="jasperreportRenovacao" namespace="/jasperreportRenovacao"
+		extends="struts2">
+		<action name="runjasper" class="apoliceParaRenovacaoReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="jasperreportAniversariante" namespace="/jasperreportAniversariante"
+		extends="struts2">
+		<action name="runjasper" class="aniversarianteReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="jasperreportMarcaModelo" namespace="/jasperreportMarcaModelo"
+		extends="struts2">
+		<action name="runjasper" class="marcaModeloReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="jasperreportApoliceParaBaixa" namespace="/jasperreportApoliceParaBaixa"
+		extends="struts2">
+		<action name="runjasper" class="apoliceParaBaixaAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="jasperreport" namespace="/jasperreport" extends="struts2">
+		<action name="runjasper" class="jasperReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="jasperreportComissoes" namespace="/jasperreportComissoes"
+		extends="struts2">
+		<action name="runjasper" class="comissoesReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+		<action name="loteLancamentoReport" class="lotesComissaoReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+		<action name="runComissoesAReceberERecebidas" class="comissoesAReceberERecebidasReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="jasperreportProtocolo" namespace="/jasperreportProtocolo"
+		extends="struts2">
+		<action name="protocoloReport" class="protocoloReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="jasperreportRepasse" namespace="/jasperreportRepasse"
+		extends="struts2">
+		<action name="runjasper" class="repasseReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="jasperreportCompMensal" namespace="/jasperreportCompMensal"
+		extends="struts2">
+		<action name="runjasper" class="comparativoMensalReportAction">
+			<result name="success" type="jasper">
+				<param name="location">${jasperName}</param>
+				<param name="dataSource">${dataSource}</param>
+				<param name="reportParameters">${parameters}</param>
+				<param name="connection">${connection}</param>
+				<param name="format">PDF</param>
+				<param name="parse">true</param>
+			</result>
+		</action>
+	</package>
+</struts>

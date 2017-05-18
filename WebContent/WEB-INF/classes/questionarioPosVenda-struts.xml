@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="questionarioPosVenda" extends="struts2" namespace="/questionarioPosVenda">
+		<action name="displayList" method="lista" class="questionarioPosVendaAction">
+			<result type="tiles" name="success">questionarioPosVenda.displayList</result>
+			<result type="tiles" name="error">questionarioPosVenda.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="questionarioPosVendaAction">
+			<result type="tiles" name="success">questionarioPosVenda.displayList</result>
+			<result type="tiles" name="error">questionarioPosVenda.displayList</result>
+		</action>
+		
+		<action name="excluir" class="questionarioPosVendaAction" method="excluir">
+			<result type="tiles" name="success">questionarioPosVenda.displayList</result>
+			<result type="tiles" name="error">questionarioPosVenda.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="questionarioPosVendaAction" method="salvarLista">
+			<result type="tiles" name="input">questionarioPosVenda.displayList</result>
+			<result type="tiles" name="success">questionarioPosVenda.displayList</result>
+			<result type="tiles" name="error">questionarioPosVenda.update</result>
+		</action>
+
+		<action name="salvarNovo" class="questionarioPosVendaAction" method="salvarNovo">
+			<result type="tiles" name="input">questionarioPosVenda.insert</result>
+			<result type="tiles" name="success">questionarioPosVenda.insert</result>
+			<result type="tiles" name="error">questionarioPosVenda.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="questionarioPosVendaAction" method="salvarEditar">
+			<result type="tiles" name="input">questionarioPosVenda.update</result>
+			<result type="tiles" name="success">questionarioPosVenda.update</result>
+			<result type="tiles" name="error">questionarioPosVenda.update</result>
+		</action>
+
+		<action name="novo" class="questionarioPosVendaAction" method="novo">
+			<result type="tiles" name="success">questionarioPosVenda.insert</result>
+			<result type="tiles" name="error">questionarioPosVenda.insert</result>
+		</action>
+
+		<action name="editar" class="questionarioPosVendaAction" method="editar">
+			<result type="tiles" name="success">questionarioPosVenda.update</result>
+			<result type="tiles" name="error">questionarioPosVenda.update</result>
+		</action>
+	</package>
+</struts>

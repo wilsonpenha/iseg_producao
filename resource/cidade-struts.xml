@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cidade" extends="struts2" namespace="/cidade">
+		<action name="displayList" method="lista" class="cidadeAction">
+			<result type="tiles" name="success">cidade.displayList</result>
+			<result type="tiles" name="error">cidade.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="cidadeAction">
+			<result type="tiles" name="success">cidade.displayList</result>
+			<result type="tiles" name="error">cidade.displayList</result>
+		</action>
+		
+		<action name="excluir" class="cidadeAction" method="excluir">
+			<result type="tiles" name="success">cidade.displayList</result>
+			<result type="tiles" name="error">cidade.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="cidadeAction" method="salvarLista">
+			<result type="tiles" name="input">cidade.displayList</result>
+			<result type="tiles" name="success">cidade.displayList</result>
+			<result type="tiles" name="error">cidade.update</result>
+		</action>
+		<action name="salvarNovo" class="cidadeAction" method="salvarNovo">
+			<result type="tiles" name="input">cidade.insert</result>
+			<result type="tiles" name="success">cidade.insert</result>
+			<result type="tiles" name="error">cidade.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="cidadeAction" method="salvarEditar">
+			<result type="tiles" name="input">cidade.update</result>
+			<result type="tiles" name="success">cidade.update</result>
+			<result type="tiles" name="error">cidade.update</result>
+		</action>
+
+		<action name="novo" class="cidadeAction" method="novo">
+			<result type="tiles" name="success">cidade.insert</result>
+			<result type="tiles" name="error">cidade.insert</result>
+		</action>
+
+		<action name="editar" class="cidadeAction" method="editar">
+			<result type="tiles" name="success">cidade.update</result>
+			<result type="tiles" name="error">cidade.update</result>
+		</action>
+		
+		<action name="novoPopup"  class="cidadeAction" method="novo">
+			<result type="tiles" name="success">cidade.popup</result>
+			<result type="tiles" name="error">cidade.popup</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,29 @@
+cd \Projeto\Java\Workspace\iseg-producao
+\Java\jdk1.6.0_23\bin\wsimport.exe -Xauthfile auth -d src_tmp -s src https://treina.spc.org.br/spc/remoting/ws/consulta/consultaWebService?WSDL
+
+Incluir a anotação abaixo na classe sitpass.ws.usuariositpass.WSUsuarioSitpassService
+@org.springframework.stereotype.Service
+
+
+Importa um certificado local, para um keystore file (ks):
+\java\jdk1.6.0_23\bin\keytool -import -file spc_org_br.der -keystore spc_org_br.ks
+\java\jdk1.6.0_23\bin\keytool -importcert -keystore "spc_org_br.ks" -trustcacerts -alias "treina.spc.org.br" -file spc_org_br.der
+
+
+\java\jdk1.6.0_23\bin\keytool -import -alias spc_org_br -keystore C:\Java\jdk1.6.0_23\jre\lib\security -file spc_org_br.der
+
+--Lista os certificados
+keytool -list -v -keystore /path/to/cacerts  > java_cacerts.txt
+
+-Djavax.net.ssl.trustStore=C:\Projeto\Java\Workspace\iseg-producao\spc_org_br.ks -Djavax.net.ssl.trustStorePassword=123456
+
+--Instalando certificados no linux
+http://felipeferreira.net/?p=974
+
+
+\java\jdk1.6.0_23\bin\keytool -importcert -keystore "spc_org_br.ks" -trustcacerts -alias "servicos.spc.org.br" -file spc_org_br.cer
+\java\jdk1.6.0_23\bin\keytool -importcert -keystore "spc_org_br.ks" -trustcacerts -alias "treina.spc.org.br" -file treina.cer
+
+
+
+

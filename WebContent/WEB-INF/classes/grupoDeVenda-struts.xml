@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="grupoDeVenda" extends="struts2" namespace="/grupoDeVenda">
+
+		<action name="displayList" method="lista" class="grupoDeVendaAction">
+			<result type="tiles" name="success">grupoDeVenda.displayList</result>
+			<result type="tiles" name="error">grupoDeVenda.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="grupoDeVendaAction">
+			<result type="tiles" name="success">grupoDeVenda.displayList</result>
+			<result type="tiles" name="error">grupoDeVenda.displayList</result>
+		</action>
+
+		<action name="excluir" class="grupoDeVendaAction" method="excluir">
+			<result type="tiles" name="success">grupoDeVenda.displayList</result>
+			<result type="tiles" name="error">grupoDeVenda.displayList</result>
+		</action>
+ 
+		<action name="salvarLista" class="grupoDeVendaAction" method="salvarLista">
+			<result type="tiles" name="input">grupoDeVenda.displayList</result>
+			<result type="tiles" name="success">grupoDeVenda.displayList</result>
+			<result type="tiles" name="error">grupoDeVenda.update</result>
+		</action>
+
+		<action name="salvarNovo" class="grupoDeVendaAction" method="salvarNovo">
+			<result type="tiles" name="input">grupoDeVenda.insert</result>
+			<result type="tiles" name="success">grupoDeVenda.insert</result>
+			<result type="tiles" name="error">grupoDeVenda.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="grupoDeVendaAction" method="salvarEditar">
+			<result type="tiles" name="input">grupoDeVenda.update</result>
+			<result type="tiles" name="success">grupoDeVenda.update</result>
+			<result type="tiles" name="error">grupoDeVenda.update</result>
+		</action>
+
+		<action name="novo" class="grupoDeVendaAction" method="novo">
+			<result type="tiles" name="success">grupoDeVenda.insert</result>
+			<result type="tiles" name="error">grupoDeVenda.insert</result>
+		</action>
+
+		<action name="editar" class="grupoDeVendaAction" method="editar">
+			<result type="tiles" name="input">grupoDeVenda.update</result>
+			<result type="tiles" name="success">grupoDeVenda.update</result>
+			<result type="tiles" name="error">grupoDeVenda.update</result>
+		</action>
+
+		<action name="listaUsuariosPosVenda" method="listaUsuariosPosVenda" class="grupoDeVendaAction">
+			<result type="tiles" name="success">gerenciamentoPosVenda.displayList</result>
+			<result type="tiles" name="error">gerenciamentoPosVenda.displayList</result>
+		</action>
+
+		<action name="inserirProdutor" class="grupoDeVendaAction" method="inserirProdutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirProdutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/grupoDeVenda/listaProdutores.jsp</result>
+			<result name="input">/WEB-INF/jsp/grupoDeVenda/listaProdutores.jsp</result>
+			<result name="error">/WEB-INF/jsp/grupoDeVenda/listaProdutores.jsp</result>
+		</action>
+
+		<action name="excluirProdutor" class="grupoDeVendaAction" method="excluirProdutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirProdutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/grupoDeVenda/listaProdutores.jsp</result>
+			<result name="input">/WEB-INF/jsp/grupoDeVenda/listaProdutores.jsp</result>
+			<result name="error">/WEB-INF/jsp/grupoDeVenda/listaProdutores.jsp</result>
+		</action>
+
+		<action name="inserirOperador" class="grupoDeVendaAction" method="inserirOperador">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirOperador</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/gerenciamentoPosVenda/listaOperadores.jsp</result>
+			<result name="input">/WEB-INF/jsp/gerenciamentoPosVenda/listaOperadores.jsp</result>
+			<result name="error">/WEB-INF/jsp/gerenciamentoPosVenda/listaOperadores.jsp</result>
+		</action>
+
+		<action name="excluirOperador" class="grupoDeVendaAction" method="excluirOperador">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirOperador</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/gerenciamentoPosVenda/listaOperadores.jsp</result>
+			<result name="input">/WEB-INF/jsp/gerenciamentoPosVenda/listaOperadores.jsp</result>
+			<result name="error">/WEB-INF/jsp/gerenciamentoPosVenda/listaOperadores.jsp</result>
+		</action>
+
+		<action name="inserirObservador" class="grupoDeVendaAction" method="inserirObservador">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirObservador</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/gerenciamentoPosVenda/listaObservadores.jsp</result>
+			<result name="input">/WEB-INF/jsp/gerenciamentoPosVenda/listaObservadores.jsp</result>
+			<result name="error">/WEB-INF/jsp/gerenciamentoPosVenda/listaObservadores.jsp</result>
+		</action>
+
+		<action name="excluirObservador" class="grupoDeVendaAction" method="excluirObservador">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirObservador</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/gerenciamentoPosVenda/listaObservadores.jsp</result>
+			<result name="input">/WEB-INF/jsp/gerenciamentoPosVenda/listaObservadores.jsp</result>
+			<result name="error">/WEB-INF/jsp/gerenciamentoPosVenda/listaObservadores.jsp</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,798 @@
+<atom:entry xml:lang="en-US" xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:wplc="http://www.ibm.com/wplc/atom/1.0" xmlns:age="http://purl.org/atompub/age/1.0"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cvi="http://w3.ibm.com/xmlns/ibmww/sw/cvi/search"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3.org/2005/Atom http://w3.ibm.com/standards/xml/ibmww/com/atom/Atom.xsd http://www.ibm.com/wplc/atom/1.0 http://w3.ibm.com/standards/xml/ibmww/com/atom/WplcAtomExtensions.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd http://w3.ibm.com/xmlns/ibmww/sw/cvi/search http://w3.ibm.com/standards/xml/ibmww/sw/cvi/search/CVISearchCommonData.xsd">
+	<atom:author>
+		<atom:name>Christian Quadrado</atom:name>
+		<atom:email>christian.quadrado@fr.ibm.com</atom:email>
+	</atom:author>
+	<atom:category term="ContentSourceType/salessupportinformation"
+		scheme="com.ibm.wplc.taxonomy://feature_taxonomy" label="salessupportinformation" />
+	<atom:id>0GLOS-7Y5DGG</atom:id>
+	<atom:title>Systèmes Technologiques d'Echange et de Traitement
+	</atom:title>
+	<atom:link rel="alternate" type="text/html"
+		href="https://w3-03.sso.ibm.com/sales/support/ShowDoc.wss?docid=0GLOS-7Y5DGG&amp;infotype=CR&amp;infosubtype=NA" />
+	<atom:published>2009-12-27T00:00:00-00:00</atom:published>
+	<atom:rights>2008 IBM Corporation, All Rights Reserved
+	</atom:rights>
+	<atom:source>salessupportinformation
+	</atom:source>
+	<atom:updated>2011-05-18T00:00:00-00:00</atom:updated>
+	<atom:summary type="xhtml" xml:lang="en-US">
+		<div xmlns="http://www.w3.org/1999/xhtml">A French provider of infrastructure services to the
+			European payment industry optimizes the quality of its service
+			offerings when it engages IBM Global Technology Services -
+			maintenance and technical support to provide comprehensive hardware
+			and software support for its IT infrastructure, especiall</div>
+	</atom:summary>
+	<wplc:action do="update" />
+	<atom:content>
+		<cvi:primaryKey>salessupportinformation</cvi:primaryKey>
+		<cvi:keywords>Reference</cvi:keywords>
+		<cvi:commonFacets>
+			<cvi:trustedSources>
+				<cvi:trustedSource>salessupportinformation</cvi:trustedSource>
+			</cvi:trustedSources>
+			<cvi:geographies>
+				<cvi:geography>EW</cvi:geography>
+			</cvi:geographies>
+			<cvi:industries>
+				<cvi:industry>S</cvi:industry>
+			</cvi:industries>
+			<cvi:languages>
+				<cvi:language>en</cvi:language>
+			</cvi:languages>
+			<cvi:salesAssets>
+				<cvi:salesAsset>C0</cvi:salesAsset>
+				<cvi:salesAsset>CRR</cvi:salesAsset>
+			</cvi:salesAssets>
+			<cvi:offeringClassifications>
+				<cvi:offeringClassification>ICFXX</cvi:offeringClassification>
+				<cvi:offeringClassification>SVJ00</cvi:offeringClassification>
+				<cvi:offeringClassification>SVJC0</cvi:offeringClassification>
+				<cvi:offeringClassification>SVS00</cvi:offeringClassification>
+				<cvi:offeringClassification>SVU65</cvi:offeringClassification>
+				<cvi:offeringClassification>SVU66</cvi:offeringClassification>
+				<cvi:offeringClassification>SVU67</cvi:offeringClassification>
+				<cvi:offeringClassification>CSA1100</cvi:offeringClassification>
+				<cvi:offeringClassification>CSA1102</cvi:offeringClassification>
+			</cvi:offeringClassifications>
+		</cvi:commonFacets>
+		<cvi:indexableBody type="xhtml" xml:lang="en-US">
+			<div xmlns="http://www.w3.org/1999/xhtml" />
+		</cvi:indexableBody>
+		<cvi:originalDocument type="xhtml" xml:lang="en-US">
+			<NotificationName>Update_ssicr_0glos-7y5dgg.processed</NotificationName>
+			<DocumentId>0GLOS-7Y5DGG</DocumentId>
+			<IntHtmlGenXslt />
+			<Send2FTP>Y</Send2FTP>
+			<NotificationContent>gg/0glos-7y5dgg#A#I</NotificationContent>
+			<OINStatus>A</OINStatus>
+			<SSIWEBURL>https://w3-03.sso.ibm.com/sales/support/ShowDoc.wss?docid=0GLOS-7Y5DGG&amp;infotype=CR&amp;infosubtype=NA</SSIWEBURL>
+			<NonConfAttachNames />
+			<LANGLocale>en</LANGLocale>
+			<ClascodeSol>ICFXX CSA1100 CSA1102</ClascodeSol>
+			<ClascodeHwd />
+			<ClascodeSw />
+			<ClascodeSer>SVJ00 SVJC0 SVS00 SVU65 SVU66 SVU67</ClascodeSer>
+			<ClascodeOE />
+			<ClascodeFin />
+			<ClasCodeBrands />
+			<ClasCode>ICFXX SVJ00 SVJC0 SVS00 SVU65 SVU66 SVU67 CSA1100
+				CSA1102</ClasCode>
+			<CLASWORD>Financial Markets Strategic Industry
+				Transformation Services Financial Markets Services Integrated
+				Technology Services Maintenance and Technical Support Services IBM
+				Hardware Maintenance Services IBM Software Support Services
+				Financial Markets Financial Market Data Management Financial Markets
+				Strategic Industry Transformation Services Financial Markets
+				Services Integrated Technology Services Maintenance and Technical
+				Support Services IBM Hardware Maintenance Services IBM Software
+				Support Services Financial Markets Financial Market Data Management
+				Financial Markets Strategic Industry Transformation Services
+				Financial Markets Services Integrated Technology Services
+				Maintenance and Technical Support Services IBM Hardware Maintenance
+				Services IBM Software Support Services Financial Markets Financial
+				Market Data Management</CLASWORD>
+			<Keywords>Reference</Keywords>
+			<AllProducts>
+				<textlist>
+					<text>FSS: FM - Financial Market Data Management</text>
+					<text>GTS Maintenance &amp; Technical Support: Hardware
+						Maintenance</text>
+					<text>GTS Maintenance &amp; Technical Support: Software Support</text>
+				</textlist>
+			</AllProducts>
+			<AllproductsText>FSS: FM - Financial Market Data Management; GTS
+				Maintenance &amp; Technical Support: Hardware Maintenance; GTS
+				Maintenance &amp; Technical Support: Software Support; Business
+				Continuity; Express; Selected Business Solution (sBS); Automation;
+				Systems &amp; Network Management</AllproductsText>
+			<Audience>IB</Audience>
+			<AuthorEmail>christian.quadrado@fr.ibm.com</AuthorEmail>
+			<AuthorName>Quadrado, Christian</AuthorName>
+			<Recommended>0</Recommended>
+			<Contact>Christian Quadrado</Contact>
+			<ContactInternet>christian.quadrado@fr.ibm.com</ContactInternet>
+			<ContactPhone>33-1-5875-3663</ContactPhone>
+			<ContactProfs>Christian Quadrado/France/IBM@IBMFR</ContactProfs>
+			<ContentIdentifier>CRMD.CRDB.CR.CG100</ContentIdentifier>
+			<PubDate>20091227T000000</PubDate>
+			<CurrencyDate>20110518</CurrencyDate>
+			<CRAS_BPChannel>
+				<text />
+			</CRAS_BPChannel>
+			<CRAS_BusSize>
+				<textlist>
+					<text>Integrated/Aligned Account</text>
+				</textlist>
+			</CRAS_BusSize>
+			<CRAS_Competitors>
+				<textlist>
+					<text>All Competitors</text>
+					<text>HP Hewlett-Packard Ltd</text>
+				</textlist>
+			</CRAS_Competitors>
+			<CRAS_ExtMat>
+				<text>0</text>
+			</CRAS_ExtMat>
+			<CRAS_FocusArea>
+				<textlist>
+					<text>Business Continuity</text>
+					<text>Express</text>
+					<text>Selected Business Solution (sBS)</text>
+					<text>Automation</text>
+					<text>Systems &amp; Network Management</text>
+				</textlist>
+			</CRAS_FocusArea>
+			<CRAS_GeoDisplay>
+				<text>Southwest Europe IOT, France</text>
+			</CRAS_GeoDisplay>
+			<CRAS_Hardware>
+				<text />
+			</CRAS_Hardware>
+			<CRAS_IndSolution>
+				<textlist>
+					<text>All Solutions</text>
+					<text>FSS: FM - Financial Market Data Management</text>
+				</textlist>
+			</CRAS_IndSolution>
+			<CRAS_ISVs>
+				<text />
+			</CRAS_ISVs>
+			<CRAS_Marketing>
+				<text>0</text>
+			</CRAS_Marketing>
+			<CRAS_Multimedia>
+				<text>0</text>
+			</CRAS_Multimedia>
+			<CRAS_OnDemand>
+				<text />
+			</CRAS_OnDemand>
+			<CRAS_OtherHWSW>
+				<text />
+			</CRAS_OtherHWSW>
+			<CRAS_RefType>
+				<textlist>
+					<text>Client Phone Call</text>
+					<text>Talk to Broadcast Media (TV/Radio)</text>
+					<text>Talk to Consultant/Analyst</text>
+					<text>Talk to Press (Press Article/Press Release)</text>
+				</textlist>
+			</CRAS_RefType>
+			<CRAS_Services>
+				<textlist>
+					<text>All Services</text>
+					<text>GTS</text>
+					<text>GTS Maintenance &amp; Technical Support: Hardware
+						Maintenance</text>
+					<text>GTS Maintenance &amp; Technical Support: Software Support</text>
+				</textlist>
+			</CRAS_Services>
+			<CRAS_SMB>
+				<textlist>
+					<text>IBM Global Technology Services - Maintenance &amp;
+						Technical Support Services</text>
+					<text>GTS</text>
+				</textlist>
+			</CRAS_SMB>
+			<CRAS_Software>
+				<text />
+			</CRAS_Software>
+			<CRAS_Winback>
+				<text />
+			</CRAS_Winback>
+			<CTVWCODE>AE AG AI AL AM AN AO AR AT AU AW AZ BA BB BD BE BF BG BH
+				BI BJ BM BN BO BR BS BW BY CA CD CF CH CI CL CM CN CO CR CV CY CZ DE
+				DJ DK DM DO DZ EC EE EG ER ES ET FI FR GA GB GD GE GH GL GM GN GQ GR
+				GT GW GY HK HN HR HU ID IE IL IN IS IT JM JO JP KE KG KN KR KW KY KZ
+				LB LC LK LR LS LT LU LV MA MD ME MK ML MN MO MR MS MT MU MW MX MY MZ
+				NA NE NG NI NL NO NZ OM PA PE PH PK PL PT PY QA RO RS RU RW SA SC SD
+				SE SG SI SK SL SN SR ST SV SY SZ TC TD TG TH TM TN TR TT TW TZ UA UG
+				US UY UZ VC VE VG VN YE ZA ZM ZW</CTVWCODE>
+			<Infotype>CR</Infotype>
+			<IsDocConfidential>0</IsDocConfidential>
+			<Doctype>Client reference</Doctype>
+			<HTMLFID>0GLOS-7Y5DGG</HTMLFID>
+			<HITTITLE>Systèmes Technologiques d'Echange et de Traitement</HITTITLE>
+			<IndustryText>Financial Markets</IndustryText>
+			<InfosubType>NA</InfosubType>
+			<Language>English (U.S.)</Language>
+			<LANGCODE>en</LANGCODE>
+			<CLNGCODE>US</CLNGCODE>
+			<META_DCRights />
+			<META_Keywords>IBM Global Technology Services - Maintenance &amp;
+				Technical Support Services Financial MarketsBusiness Continuity
+				Express Selected Business Solution (sBS) Automation Systems &amp;
+				Network Management Systèmes Technologiques d'Echange et de
+				Traitement</META_Keywords>
+			<Provider />
+			<PrimSynKey>CustomerRefs</PrimSynKey>
+			<PvtMetaData1>
+				<textlist>
+					<text>France IMT</text>
+				</textlist>
+			</PvtMetaData1>
+			<PvtMetaData2>
+				<text />
+			</PvtMetaData2>
+			<RegnViewCode>AFR</RegnViewCode>
+			<SecSynKey>crdb</SecSynKey>
+			<SKPAudience>NCD</SKPAudience>
+			<SKPComCode>HP</SKPComCode>
+			<SKPCompWord>HP Hewlett-Packard Ltd</SKPCompWord>
+			<SKPCSCode>IA</SKPCSCode>
+			<SKPCity>FR</SKPCity>
+			<SKPCTYWORD>
+				<text>France</text>
+			</SKPCTYWORD>
+			<SKPDocCode>C0 CRR</SKPDocCode>
+			<SKPGeo>EW</SKPGeo>
+			<SKPGEOWORD>
+				<text>Southwest Europe IOT</text>
+			</SKPGEOWORD>
+			<SKPIndGlob>S</SKPIndGlob>
+			<SKPLOC>EW 3F FR</SKPLOC>
+			<SKPRGn>3F</SKPRGn>
+			<SKPRGNWORD>
+				<textlist>
+					<text>France IMT</text>
+				</textlist>
+			</SKPRGNWORD>
+			<SKPSSMSteps>ST03 ST04 ST05</SKPSSMSteps>
+			<SKPSSMWORD>
+				<textlist>
+					<text>UNDERSTAND the client business and need</text>
+					<text>EXPLORE options and approach</text>
+					<text>DEVELOP and agree to client solution</text>
+				</textlist>
+			</SKPSSMWORD>
+			<SKPTopicCode />
+			<SKPTopicWord>
+				<text />
+			</SKPTopicWord>
+			<SDBID>CR01</SDBID>
+			<Summary>A French provider of infrastructure services to the
+				European payment industry optimizes the quality of its service
+				offerings when it engages IBM Global Technology Services -
+				maintenance and technical support to provide comprehensive hardware
+				and software support for its IT infrastructure, especiall</Summary>
+			<Supplier>CR1</Supplier>
+			<Title>Systèmes Technologiques d'Echange et de Traitement</Title>
+			<DocumentStatus>A</DocumentStatus>
+			<ExpireDate>2015-05-18</ExpireDate>
+			<ContentInfo>Infotype=CR:InfosubType=NA:LoadDate=20110518:ContentIdentifier=CRMD.CRDB.CR.CG100:DocType=Client
+				reference:DocumentStatus=A</ContentInfo>
+			<SYN_KEY>B182258G49943S63</SYN_KEY>
+			<CONTENT_TYPE>CC_SSICR1</CONTENT_TYPE>
+			<AttachmentList>
+				<nonConfidentialAttachments>
+					<attachment>
+						<attachmentName />
+						<attachmentSize>KB</attachmentSize>
+						<attachmentDate>//</attachmentDate>
+						<attachmentText />
+						<attachmentURL>ftp://submit.boulder.ibm.com/sales/ssi/ecm/gg/0glos-7y5dgg/</attachmentURL>
+					</attachment>
+				</nonConfidentialAttachments>
+			</AttachmentList>
+			<MEMBERSHIPLEVEL>
+				<text>city=Paris</text>
+			</MEMBERSHIPLEVEL>
+			<search1>
+				<text>1 Yes w3.ncs.ibm.com myviews no CRDB6B96 1.0 274A
+					SW_TO_dmt,SW_TV_auto,SW_TV_sm,SW_WS_sc,SW_WS_sc7,SW_WS_sc1, DB2 Web
+					Query Tool for Multiplatforms,Tivoli Service Request Manager;Tivoli
+					Asset Management for IT;Tivoli Enterprise Console;Tivoli
+					Monitoring;Tivoli NetView;Tivoli Workload Scheduler,Tivoli Storage
+					Manager;Tivoli Storage Manager for System Backup and
+					Recovery,WebSphere Application Server,WebSphere Message Broker for
+					Multiplatforms;WebSphere MQ,WebSphere Transformation Extender for
+					Message Broker,
+					HW_PS_pr,HW_PS_prOS,HW_SH_disk,HW_SH_tape,HW_p5_pr,HW_p5_op, Power
+					520 Express,Power Systems running AIX,Storage: DS8300,,System p:
+					System p5,System p: System p running AIX, SV_MTS_mts, GTS
+					Maintenance &amp;amp; Technical Support: Hardware Maintenance;GTS
+					Maintenance &amp;amp; Technical Support: Software Support,
+					IS_FSS_markets, FSS: FM - Financial Market Data Management, Planned
+					end date 12/2011 STET_Referencement.pdf 1 Yes 0 no Query String =
+					EditDocument&amp;amp;Seq=1&amp;amp;errX3
+					/ibmref.nsf/$All/3a587e16d8ca06998525767900346d00?EditDocument&amp;amp;Seq=1&amp;amp;errX3
+					Converted to Reference Done Done Done FSS: FM - Financial Market
+					Data Management 805174 757604 0GLOS-7Y5DGG Classified ICFXX SVJ00
+					SVJC0 SVS00 SVU65 SVU66 SVU67 No V 1 N/A Done 852568E1:005E4B20
+					Submission Reference N/A
+					http://w3-01.ibm.com/sales\references\crdb\ibmref.nsf/allbydocid/0GLOS-7Y5DGG?opendocument
+					Michel Morvan/France/IBM@IBMFR GTS Maintenance &amp;amp; Technical
+					Support: Hardware Maintenance GTS Maintenance &amp;amp; Technical
+					Support: Software Support FSS: FM - Financial Market Data
+					Management FSS: FM - Financial Market Data Management GTS
+					Maintenance &amp;amp; Technical Support: Hardware Maintenance GTS
+					Maintenance &amp;amp; Technical Support: Software Support
+					3A587E16D8CA06998525767900346D00 blank blanK blank blank blank
+					Submit SubmitPage1 0 Reference Info submit Tier1 Gerald
+					Tran/France/IBM@IBMFR Financial Services Sector IBM Global
+					Technology Services - Maintenance &amp;amp; Technical Support
+					Services Other Not Found Integrated/Aligned Account IBM Global
+					Technology Services - Maintenance &amp;amp; Technical Support
+					Services GTS 0 Systèmes Technologiques d'Echange et de Traitement
+					0GLOS-7Y5DGG Published IBM Global Technology Services - Maintenance
+					&amp;amp; Technical Support Services GTS IA DR ST03 ST04 ST05
+					UNDERSTAND the client business and need EXPLORE options and
+					approach DEVELOP and agree to client solution CustomerRefs crdb 0 0
+					2009 2011 Offerings/Services/Solutions SK C0 CRR Southwest Europe
+					IOT Paris 12KY-WUICP9 France Financial Markets No Systèmes
+					Technologiques d'Echange et de Traitement is a leading provider of
+					infrastructure services to the European payment industry. The
+					company processes all payment instruments including cards, ATMs,
+					credit transfers, direct debits and checks. On a peak day the
+					company’s next-generation CORE platform processes over 120 million
+					payments for a total annual volume in excess of 13 billion
+					payments. As a Systemically Important Payment System (SIPS) under
+					euro system criteria, Systèmes Technologiques d'Echange et de
+					Traitement operates under central bank oversight and complies with
+					the core principles set by the BIS and Eurosystem for SIPS. EW
+					Southwest Europe IOT 3F France IMT FR France EW 3F FR S Financial
+					Markets A French provider of infrastructure services to the
+					European payment industry optimizes the quality of its service
+					offerings when it engages IBM Global Technology Services -
+					maintenance and technical support to provide comprehensive hardware
+					and software support for its IT infrastructure, especially its IBM
+					System p5 servers and storage area network (SAN) architecture
+					Business Continuity Express Selected Business Solution (sBS)
+					Automation Systems &amp;amp; Network Management Systèmes
+					Technologiques d'Echange et de Traitement is in charge of daily
+					compensation between banks. In fact, financial exchanges between
+					banks must be done before a certain hour, otherwise fees are
+					demanded for the delay. Consequently, the company must provide a
+					reliable service to its banking clients, while guaranteeing high
+					confidentiality as it is required in the banking industry. Moving
+					forward, Systèmes Technologiques d'Echange et de Traitement needed
+					to adopt a comprehensive maintenance solution to ensure the
+					high-quality and continuous operation of its IT infrastructure.
+					Systèmes Technologiques d'Echange et de Traitement engaged IBM
+					Global Technology Services - maintenance and technical support to
+					provide comprehensive hardware and software support for its IT
+					infrastructure, especially its IBM System p5 servers and storage
+					area network (SAN) architecture. The IBM maintenance and technical
+					support contract provides 24/7 maintenance services with a
+					four-hour response time guarantee. Systèmes Technologiques
+					d'Echange et de Traitement’s new contract with IBM maintenance and
+					technical support successfully:- Optimizes the company’s quality of
+					services by avoiding possible hardware or operating system
+					incidents- Provides high reactivity, notably due to the possibility
+					of resolving technical issues within four hours- Delivers
+					best-practices consulting for its operating system environment. No
+					01/2007 12/2011 787000 787000 HP Hewlett-Packard Ltd No No HP H0 HP
+					Hewlett-Packard Ltd IBM Global Technology Services - Maintenance
+					&amp;amp; Technical Support Services Financial Markets GTS
+					Maintenance &amp;amp; Technical Support: Hardware Maintenance GTS
+					Maintenance &amp;amp; Technical Support: Software Support FSS: FM -
+					Financial Market Data Management CSA1100 CSA1102 ICFXX SVJ00 SVJC0
+					SVS00 SVU65 SVU66 SVU67 CSA1100 CSA1102 Yes Growth Markets Unit
+					TUYET-ANH.DUONG@fr.ibm.com Tuyet Anh Duong/France/IBM@IBMFR
+					002232706 Tuyet Anh France Duong Apprentie Marketing GTS Global
+					Technology Services 33-1-5875-1778 801778 Lhoste, Christine
+					christine_lhoste@fr.ibm.com Christine Lhoste/France/IBM@IBMFR Yes
+					Growth Markets Unit christian.quadrado@fr.ibm.com Christian
+					Quadrado/France/IBM@IBMFR 058750706 Christian France Quadrado Sales
+					Specialist / Maintenance and Technical Support Services / GB
+					Finance Insurance Pharmacy Government Global Technology Services
+					33-1-5875-3663 Chabrier, Marie Noelle mn_chabrier@fr.ibm.com Marie
+					Noelle Chabrier/France/IBM@IBMFR Yes MMORVAN@fr.ibm.com Michel
+					Morvan/France/IBM@IBMFR 028918706 Michel France Morvan Service
+					Manager Global Technology Services 33-1-4941-7604 Bredillard,
+					Christophe cbredillard@fr.ibm.com Christophe
+					Bredillard/France/IBM@IBMFR Client Phone Call Talk to Broadcast
+					Media (TV/Radio) Talk to Consultant/Analyst Talk to Press (Press
+					Article/Press Release) No Please do not use this reference without
+					the previous agreement of the sales representative. No No No IBM
+					Global Technology Services - Maintenance &amp;amp; Technical
+					Support Services Financial Markets IBM Global Technology Services -
+					Maintenance &amp;amp; Technical Support Services Financial Markets
+					not yet not yet No [OIViennaEditors] [DBDesigner] GTS GTS
+					Maintenance &amp;amp; Technical Support: Hardware Maintenance GTS
+					Maintenance &amp;amp; Technical Support: Software Support FSS: FM -
+					Financial Market Data Management FSS: FM - Financial Market Data
+					Management Systèmes Technologiques d'Echange et de Traitement
+					France Southwest Europe IOT S &amp;lt;meta name="IBM.Industry"
+					scheme="IBM_IndustryTaxonomy" content="S" /&amp;gt; Client Phone
+					Call; Talk to Broadcast Media (TV/Radio); Talk to
+					Consultant/Analyst; Talk to Press (Press Article/Press Release) No
+					GL7Y5DGG</text>
+			</search1>
+			<search2>
+				<text />
+			</search2>
+			<search3>
+				<text />
+			</search3>
+			<search4>
+				<text />
+			</search4>
+			<search5>
+				<text />
+			</search5>
+			<LoadDate>20110518T130548</LoadDate>
+			<DisplayHTML>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML
+				4.01
+				Transitional//EN"&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Systèmes
+				Technologiques d'Echange et de Traitement&lt;/title&gt;&lt;script
+				language="JavaScript" type="text/javascript"&gt;&lt;!--
+				document._domino_target = "_self";function _doClick(v, o, t) { var
+				returnValue = false; var
+				url="/sales/references/crdb/ibmref.nsf/SSI/0GLOS-7Y5DGG?OpenDocument&amp;TabGo=SSI&amp;Click="
+				+ v; if (o.href != null) { o.href = url; returnValue = true; } else
+				{ if (t == null) t = document._domino_target; window.open(url, t); }
+				return returnValue;}// --&gt;&lt;/script&gt;&lt;script
+				language="JavaScript" type="text/javascript"&gt;&lt;!-- //
+				--&gt;&lt;/script&gt;&lt;script language="JavaScript"
+				type="text/javascript"&gt;&lt;!-- // --Used for the
+				UsageLink-----------------------------------function submitPopup(
+				passurl ) { enterCalled = true; window.name = "lp_parent"; var url =
+				passurl var hWnd =
+				window.open(url,"Popup_Help","width=770,height=750,resizable=yes,scrollbars=yes");
+				if (hWnd != null) { if (hWnd.opener == null) { hWnd.opener = self;
+				window.name = "home"; hWnd.location.href=url; } }}//
+				-----------------------------------------------------------------------//
+				--&gt;&lt;/script&gt;&lt;/head&gt;&lt;body text="#000000"
+				bgcolor="#FFFFFF"&gt;&lt;form action=""&gt;&lt;!-- start content
+				--&gt; &lt;!--&lt;div id="content"&gt; --&gt;&lt;!-- &lt;h1
+				class="access"&gt;Start of main content&lt;/h1&gt; --&gt;&lt;!--
+				start content head --&gt;&lt;!-- &lt;div id="content-head"&gt;
+				--&gt;&lt;!-- &lt;div class="hrule-dots"&gt;&amp;nbsp;&lt;/div&gt;
+				--&gt;&lt;!-- &lt;/div&gt; --&gt; &lt;!-- stop content head --&gt;
+				&lt;!-- start main content --&gt;&lt;!-- &lt;div
+				id="content-main"&gt; --&gt;&lt;table border="0" cellspacing="1"
+				cellpadding="0" width="100%"
+				style="margin-top:2em;"&gt;&lt;tr&gt;&lt;td colspan="2"
+				&gt;&lt;br&gt;&lt;link rel="stylesheet" type="text/css"
+				href="/sales/references/crdb/jscript/ieStyle.css"/&gt;&lt;font
+				size="2" face="Verdana"&gt;&lt;br&gt;&lt;/font&gt;&lt;link
+				rel="stylesheet" type="text/css"
+				href="http://w3.ibm.com/ui/v8/css/v4-screen.css" /&gt;&lt;link
+				rel="stylesheet" type="text/css"
+				src="/sales/references/crdb/ibmref.nsf/crdb.css?OpenPage&amp;dummy=.css"/
+				&gt; &lt;style type="text/css" media="all"&gt;&lt;/style&gt;&lt;!--
+				print stylesheet MUST follow imported stylesheets --&gt;&lt;link
+				rel="stylesheet" type="text/css" media="print"
+				href="http://w3.ibm.com/ui/v8/css/print.css" /&gt;&lt;meta
+				http-equiv="Content-Type" content="text/html;
+				charset=iso-8859-1"/&gt;&lt;meta name="description" content=" A
+				French provider of infrastructure services to the European payment
+				industry optimizes the quality of its service offerings when it
+				engages IBM Global Technology Services - maintenance and technical
+				support to provide comprehensive hardware and software support for
+				its IT infrastructure, especially its IBM System p5 servers and
+				storage area network (SAN) architecture" /&gt;&lt;meta
+				name="Keywords" content="Reference, Systèmes Technologiques
+				d'Echange et de Traitement, FSS: FM - Financial Market Data
+				Management; GTS Maintenance &amp; Technical Support: Hardware
+				Maintenance; GTS Maintenance &amp; Technical Support: Software
+				Support, IBM Worldwide Client Reference Information, Business
+				Continuity, Express, Selected Business Solution (sBS), Automation,
+				Systems &amp; Network Management"/&gt;&lt;meta name="owner"
+				content="CRDB/Endicott/IBM@IBMUS" /&gt;&lt;meta name="DC.language"
+				scheme="rfc1766" content="en-us" /&gt;&lt;meta name="DC.date"
+				scheme="iso-8601" content="2011-5-18" /&gt;&lt;meta
+				name="IBM.Effective" scheme="W3CDTF" content="2009-12-27"
+				/&gt;&lt;meta http-equiv="PICS-Label" content='(PICS-1.1
+				"http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1
+				oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s
+				0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000
+				1))'/&gt;&lt;meta name="Abstract" content=" A French provider of
+				infrastructure services to the European payment industry optimizes
+				the quality of its service offerings when it engages IBM Global
+				Technology Services - maintenance and technical support to provide
+				comprehensive hardware and software support for its IT
+				infrastructure, especially its IBM System p5 servers and storage
+				area network (SAN) architecture" /&gt;&lt;meta name="DC.Rights"
+				content="Copyright (c) 1996, 2004 by IBM Corporation" /&gt;&lt;font
+				size="2" face="Arial"&gt; &lt;/font&gt;&lt;meta name="security"
+				content="internal use only" /&gt;&lt;meta name="copyright"
+				content="copyright (c) 1996, 2004 IBM Corporation" /&gt;&lt;meta
+				name="source" content="Domino R6" /&gt;&lt;meta name="Robots"
+				content="index,follow"/&gt;&lt;meta name="IBM.Country"
+				content="ZZ"/&gt; &lt;meta name="feedback"
+				content="crdb@us.ibm.com"/&gt;&lt;meta name="title"
+				content="Systèmes Technologiques d'Echange et de
+				Traitement"/&gt;&lt;meta name="IBM.Industry"
+				scheme="IBM_IndustryTaxonomy" content="S" /&gt;&lt;meta
+				name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="ZZ999"
+				/&gt;&lt;meta name="format" content="text/xhtml" /&gt;&lt;meta
+				name="DC.Publisher" content="IBM Corporation" /&gt;&lt;meta
+				name="IBM.WTMSite" content="E065" /&gt;&lt;meta
+				name="IBM.WTMCategory" content="SN:DOC:CLR:CR"
+				/&gt;&lt;br&gt;&lt;h1&gt; Systèmes Technologiques d'Echange et de
+				Traitement&lt;/h1&gt;&lt;h3&gt;IBM Client Reference&lt;/h3&gt;&lt;p
+				id="date-stamp"&gt;Published 27 Dec
+				2009&amp;nbsp;&amp;nbsp;&amp;nbsp; Last updated/reviewed 18 May
+				2011&lt;/p&gt; &lt;div
+				class="hrule-dots"&gt;&amp;nbsp;&lt;/div&gt;&lt;table
+				class="basic-table" cellspacing="1" cellpadding="0" width="100%"
+				style="margin-top:2em;"&gt; &lt;tr
+				style="background-color:#fff;"&gt;&lt;td&gt;&lt;small&gt;&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#SolutionSynopsis" title="Jump to
+				section"&gt;Solution synopsis&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a
+				href="#Clientinformation" title="Jump to section"&gt;Client
+				information&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a
+				href="#specialhandling" title="Jump to section"&gt;Special handling
+				instructions&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a
+				href="#businessneed" title="Jump to section"&gt;Business
+				need&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a
+				href="#solutioninformation" title="Jump to section"&gt;Solution
+				implementation&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a
+				href="#benefitinformation" title="Jump to section"&gt;Benefit of the
+				solution&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;&lt;/small&gt;&lt;/td&gt;&lt;td&gt;&lt;small&gt;&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#Contact" title="Jump to section"&gt;Contact
+				information&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
+				href="#Customerdeliverable" title="Jump to section"&gt;Client
+				printable version&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
+				href="#adddetails" title="Jump to section"&gt;Additional reference
+				details&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#QandA"
+				title="Jump to section"&gt;Request to use this
+				reference&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#QandA"
+				title="Jump to section"&gt;Ask a question about this
+				reference&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h2
+				id="SolutionSynopsis" class="bar-blue-med"&gt;Solution
+				synopsis&lt;/h2&gt;&lt;br&gt;&lt;small&gt;A French provider of
+				infrastructure services to the European payment industry optimizes
+				the quality of its service offerings when it engages IBM Global
+				Technology Services - maintenance and technical support to provide
+				comprehensive hardware and software support for its IT
+				infrastructure, especially its IBM System p5 servers and storage
+				area network (SAN) architecture
+				&lt;/small&gt;&lt;p&gt;&lt;small&gt;&lt;a href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;h2 id="Clientinformation"
+				class="bar-blue-med"&gt;Client information&lt;/h2&gt; &lt;table
+				width="100%" border="0" cellpadding="3" cellspacing="1"&gt; &lt;tr
+				align="center"&gt;&lt;small&gt; &lt;th
+				width="25%"&gt;&lt;small&gt;&lt;div align="left"&gt;Client
+				name:&lt;/div&gt;&lt;/small&gt;&lt;/th&gt;&lt;th
+				width="25%"&gt;&lt;small&gt;&lt;div
+				align="left"&gt;Location:&lt;/div&gt;&lt;/small&gt;&lt;/th&gt;
+				&lt;/small&gt;&lt;/tr&gt;&lt;tr
+				align="center"&gt;&lt;small&gt;&lt;td
+				width="25%"&gt;&lt;small&gt;&lt;div align="left"&gt;Systèmes
+				Technologiques d'Echange et de
+				Traitement&lt;/div&gt;&lt;/small&gt;&lt;/td&gt;&lt;td
+				width="25%"&gt;&lt;small&gt;&lt;div
+				align="left"&gt;Paris&amp;nbsp;France&lt;/div&gt;&lt;/small&gt;&lt;/td&gt;&lt;/small&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4" &gt;&lt;small&gt;&lt;strong&gt;Industry:&lt;/strong&gt;
+				&lt;font size="1" face="Verdana"&gt;Financial Markets&lt;/font&gt;
+				&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;Focus area:&lt;/strong&gt;
+				&lt;font size="1" face="Verdana"&gt;Business Continuity, Express,
+				Selected Business Solution (sBS), Automation, Systems &amp;amp;
+				Network
+				Management&lt;/font&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;Integrated/Aligned
+				Account&lt;/strong&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;Geography/IOT/GMU:&lt;/strong&gt;
+				&lt;font size="1" face="Verdana"&gt;Southwest Europe
+				IOT&lt;/font&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;Region/IMT/GMT:&lt;/strong&gt;
+				&lt;font size="1" face="Verdana"&gt;France
+				IMT&lt;/font&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;Client
+				background:&lt;/strong&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;small&gt;Systèmes
+				Technologiques d'Echange et de Traitement is a leading provider of
+				infrastructure services to the European payment industry. The
+				company processes all payment instruments including cards, ATMs,
+				credit transfers, direct debits and checks. On a peak day the
+				company&amp;#8217;s next-generation CORE platform processes over 120
+				million payments for a total annual volume in excess of 13 billion
+				payments. As a Systemically Important Payment System (SIPS) under
+				euro system criteria, Systèmes Technologiques d'Echange et de
+				Traitement operates under central bank oversight and complies with
+				the core principles set by the BIS and Eurosystem for
+				SIPS.&lt;/small&gt;&lt;table width="100%" border="0" cellpadding="3"
+				cellspacing="1"&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;URL:&lt;/strong&gt;
+				&lt;font
+				size="2"&gt;N/A&lt;/font&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;Project
+				start:&lt;/strong&gt;
+				01/2007&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				colspan="4"&gt;&lt;small&gt;&lt;strong&gt;Project
+				end:&lt;/strong&gt;
+				12/2011&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;h2 id="specialhandling"
+				class="bar-blue-med"&gt;Special handling
+				instructions&lt;/h2&gt;&lt;p&gt;&lt;small&gt; Please do not use this
+				reference without the previous agreement of the sales
+				representative.&lt;br /&gt;&lt;br /&gt;The client has agreed to be a
+				reference for sales situations. The status of any installation or
+				implementation can change, so you should always contact the Primary
+				Contact or Additional Contact named in the reference prior to
+				discussing it with your client. &lt;br /&gt;&lt;br /&gt;Any public
+				use, such as in marketing materials, on WWW sites, in press
+				articles, etc., requires specific approval from the client. It is
+				the responsibility of the person or any organization planning to use
+				this reference to make sure that this is done. The IBM
+				representative will, as appropriate, contact the client for review.
+				You should not contact the client directly.
+				&lt;/small&gt;&lt;/p&gt;&lt;h2 id="businessneed"
+				class="bar-blue-med"&gt;Business
+				need&lt;/h2&gt;&lt;p&gt;&lt;small&gt;Systèmes Technologiques
+				d'Echange et de Traitement is in charge of daily compensation
+				between banks. In fact, financial exchanges between banks must be
+				done before a certain hour, otherwise fees are demanded for the
+				delay. Consequently, the company must provide a reliable service to
+				its banking clients, while guaranteeing high confidentiality as it
+				is required in the banking industry. Moving forward, Systèmes
+				Technologiques d'Echange et de Traitement needed to adopt a
+				comprehensive maintenance solution to ensure the high-quality and
+				continuous operation of its IT
+				infrastructure.&lt;/small&gt;&lt;/p&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;h2 id="solutioninformation"
+				class="bar-blue-med"&gt;Solution
+				implementation&lt;/h2&gt;&lt;p&gt;&lt;small&gt;Systèmes
+				Technologiques d'Echange et de Traitement engaged IBM Global
+				Technology Services - maintenance and technical support to provide
+				comprehensive hardware and software support for its IT
+				infrastructure, especially its IBM System p5 servers and storage
+				area network (SAN) architecture. The IBM maintenance and technical
+				support contract provides 24/7 maintenance services with a four-hour
+				response time
+				guarantee.&lt;/small&gt;&lt;/p&gt;&lt;!----&gt;&lt;!----&gt;&lt;!----&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;h2 id="benefitinformation"
+				class="bar-blue-med"&gt;Benefit of the
+				solution&lt;/h2&gt;&lt;p&gt;&lt;small&gt;Systèmes Technologiques
+				d'Echange et de Traitement&amp;#8217;s new contract with IBM
+				maintenance and technical support successfully:&lt;br /&gt;-
+				Optimizes the company&amp;#8217;s quality of services by avoiding
+				possible hardware or operating system incidents&lt;br /&gt;-
+				Provides high reactivity, notably due to the possibility of
+				resolving technical issues within four hours&lt;br /&gt;- Delivers
+				best-practices consulting for its operating system
+				environment.&lt;/small&gt;&lt;/p&gt;&lt;h3&gt;&lt;small&gt;Solutions/Offerings
+				&lt;/small&gt;&lt;/h3&gt;&lt;h3&gt;&lt;small&gt;Services:&lt;/small&gt;&lt;/h3&gt;&lt;p&gt;&lt;small&gt;
+				IBM Global Technology Services - Maintenance &amp; Technical Support
+				Services: GTS Maintenance &amp; Technical Support: Hardware
+				Maintenance; GTS Maintenance &amp; Technical Support: Software
+				Support &lt;/small&gt;&lt;/p&gt;&lt;h3&gt;&lt;small&gt;Industry
+				Solutions:&lt;/small&gt;&lt;/h3&gt;&lt;p&gt;&lt;small&gt; FSS: FM -
+				Financial Market Data Management
+				&lt;/small&gt;&lt;/p&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;h2 id="Contact"
+				class="bar-blue-med"&gt;Contact
+				information&lt;/h2&gt;&lt;p&gt;&lt;h3&gt;&lt;small&gt;Primary
+				contact
+				information:&lt;/small&gt;&lt;/h3&gt;&lt;/p&gt;&lt;small&gt;Christian
+				Quadrado &lt;/small&gt;&lt;/br&gt;&lt;small&gt;Sales Specialist /
+				Maintenance and Technical Support Services / GB Finance Insurance
+				Pharmacy Government&lt;/small&gt;&lt;/br&gt;&lt;small&gt;Global
+				Technology
+				Services&lt;/small&gt;&lt;/br&gt;&lt;small&gt;France&lt;/small&gt;&lt;/br&gt;&lt;small&gt;Telephone:
+				33-1-5875-3663&lt;/small&gt;&lt;/br&gt;&lt;small&gt;&lt;a
+				href=http://w3.ibm.com/bluepages/simpleSearch.wss?searchBy=Internet+address&amp;location=All+locations&amp;searchFor=christian.quadrado@fr.ibm.com&gt;Christian
+				Quadrado/France/IBM@IBMFR&lt;/a&gt;&lt;/small&gt;&lt;/br&gt;&lt;small&gt;&lt;a
+				href=mailto:christian.quadrado@fr.ibm.com&gt;christian.quadrado@fr.ibm.com&lt;/a&gt;&lt;/small&gt;&lt;/br&gt;&lt;p&gt;&lt;h3&gt;&lt;small&gt;Additional
+				contact
+				information:&lt;/small&gt;&lt;/h3&gt;&lt;/p&gt;&lt;small&gt;Michel
+				Morvan&lt;/small&gt;&lt;/br&gt;&lt;small&gt;Service
+				Manager&lt;/small&gt;&lt;/br&gt;&lt;small&gt;Global Technology
+				Services&lt;/small&gt;&lt;/br&gt;&lt;small&gt;France&lt;/small&gt;&lt;/br&gt;&lt;small&gt;Telephone:
+				33-1-4941-7604&lt;/small&gt;&lt;/br&gt;&lt;small&gt;&lt;a
+				href=http://w3.ibm.com/bluepages/simpleSearch.wss?searchBy=Internet+address&amp;location=All+locations&amp;searchFor=MMORVAN@fr.ibm.com&gt;Michel
+				Morvan/France/IBM@IBMFR&lt;/a&gt;&lt;/small&gt;&lt;/br&gt;&lt;small&gt;&lt;a
+				href=mailto:MMORVAN@fr.ibm.com&gt;MMORVAN@fr.ibm.com&lt;/a&gt;&lt;/small&gt;&lt;/br&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;h2 id="Customerdeliverable"
+				class="bar-blue-med"&gt;Client printable
+				version&lt;/h2&gt;&amp;nbsp&lt;small&gt;&lt;Table&gt;&lt;TD&gt;&lt;small&gt;&lt;b&gt;&lt;a
+				href="http://w3.ibm.com/sales/ssi/ecm/gg/0glos-7y5dgg/nfd/index.html"&gt;View
+				client printable version&lt;/a&gt; (Approval from reference contact
+				needed for external
+				use)&lt;/b&gt;&lt;/small&gt;&lt;/TD&gt;&lt;/Table&gt;&lt;/small&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;!-- OIACCESS DOWNLOADABLE
+				FORMATS STARTS HERE --&gt;&lt;!-- OIACCESS DOWNLOADABLE FORMATS ENDS
+				HERE --&gt;&lt;h2 id="adddetails" class="bar-blue-med"&gt;Additional
+				reference details&lt;/h2&gt;&lt;table width="100%" border="0"
+				cellpadding="0" cellspacing="0"&gt;&lt;tr&gt;&lt;td width =
+				"25%"&gt;&lt;strong&gt;&lt;p&gt;&lt;small&gt;Services Revenue: (in
+				US
+				$)&lt;/small&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;table border="0" cellspacing="0"
+				cellpadding="0"&gt;&lt;tr valign="top"&gt;&lt;td
+				width="964"&gt;&lt;small&gt; $787,000
+				&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;strong&gt;&lt;p&gt;&lt;small&gt;Total Contract
+				Revenue: (in US
+				$)&lt;/small&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;table border="0" cellspacing="0"
+				cellpadding="0"&gt;&lt;tr valign="top"&gt;&lt;td
+				width="964"&gt;&lt;small&gt; $787,000
+				&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width =
+				"25%"&gt;&lt;strong&gt;&lt;p&gt;&lt;small&gt;Competition:&lt;/small&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/class&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;table border="0" cellspacing="0"
+				cellpadding="0"&gt;&lt;tr valign="top"&gt;&lt;td
+				width="989"&gt;&lt;small&gt; HP Hewlett-Packard Ltd
+				&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;strong&gt;&lt;p&gt;&lt;small&gt;Competitive
+				winback:&lt;/small&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/class&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;table border="0" cellspacing="0"
+				cellpadding="0"&gt;&lt;tr valign="top"&gt;&lt;td
+				width="964"&gt;&lt;small&gt; No
+				&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;strong&gt;&lt;p&gt;&lt;small&gt;Reference
+				type:&lt;/small&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/class&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+				width = "25%"&gt;&lt;table border="0" cellspacing="0"
+				cellpadding="0"&gt;&lt;tr valign="top"&gt;&lt;td
+				width="989"&gt;&lt;small&gt;&lt;u&gt;The following reference uses
+				are ones which the client was willing to do at the time of
+				publication. This may or may not reflect the current
+				situation.&lt;/u&gt;&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr
+				valign="top"&gt;&lt;td width="989"&gt;&lt;small&gt; Client Phone
+				Call, Talk to Broadcast Media (TV/Radio), Talk to
+				Consultant/Analyst, Talk to Press (Press Article/Press Release)
+				&lt;/small&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr valign="top"&gt;&lt;td
+				width="989"&gt;&lt;P&gt;&lt;small&gt;Please be aware that in some
+				countries English may not be the language of choice for
+				communications. Contact with the reference client may require use of
+				another language and/or translation. You should take advice from the
+				IBM contact named in the reference before contacting the client.
+				&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;&lt;b&gt;&lt;font
+				size="1" face="Arial"&gt;
+				&lt;/font&gt;&lt;/b&gt;&amp;nbsp;&lt;b&gt;&lt;font size="2"
+				face="Arial"&gt; &lt;/font&gt;&lt;/b&gt;&amp;nbsp;&lt;b&gt;&lt;font
+				size="2" face="Arial"&gt;
+				&lt;/font&gt;&lt;/b&gt;&amp;nbsp;&lt;b&gt;&lt;font size="2"
+				face="Arial"&gt;
+				&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;h2 id="QandA"
+				class="bar-blue-med"&gt;Request to use or ask a question (English
+				language)&lt;/h2&gt;&lt;p&gt;&lt;small&gt;The &lt;a
+				href="Javascript:submitPopup('http://w3-01.ibm.com/sales/references/crdb/ibmref.nsf/usagerequest?openform&amp;contactEmail=christian.quadrado@fr.ibm.com&amp;OIDocID=0GLOS-7Y5DGG&amp;CustomerName=Systèmes+Technologiques+dEchange+et+de+Traitement&amp;pcname=Christian+Quadrado')"&gt;submit
+				request to use this reference&lt;/a&gt; enables you to ask the
+				reference primary contact if their client is willing to participate
+				in a specific reference activity. An email will be sent to the
+				reference primary contact with a response back to you to accept or
+				decline your
+				request.&lt;/small&gt;&lt;/p&gt;&lt;p&gt;&lt;small&gt;The &lt;a
+				href=http://w3-01.ibm.com/sales/references/crdb/ibmref.nsf/qanda?openform&amp;contactEmail=christian.quadrado@fr.ibm.com&amp;OIDocID=0GLOS-7Y5DGG&amp;CustomerName=Systèmes+Technologiques+d'Echange+et+de+Traitement&amp;pcname=Christian+Quadrado&amp;websvr=w3-01.ibm.com&gt;ask
+				primary contact a question&lt;/a&gt; function helps users learn more
+				about this reference, eliminating the same question being asked of
+				the reference primary contact multiple times. Use this to ask the
+				primary contact specific questions.
+				&lt;/small&gt;&lt;/p&gt;&lt;p&gt;&lt;small&gt;&lt;a
+				href="#content"&gt;Back to
+				top&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+				&lt;!-- change --&gt;&amp;nbsp;&lt;!-- stop main content --&gt;
+				&lt;!-- /div --&gt;&lt;!-- /div --&gt;&lt;!-- stop content
+				--&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</DisplayHTML>
+			<CRPrintableVersion>http://w3.ibm.com/sales/ssi/ecm/gg/0glos-7y5dgg/nfd/index.html</CRPrintableVersion>
+		</cvi:originalDocument>
+	</atom:content>
+</atom:entry>

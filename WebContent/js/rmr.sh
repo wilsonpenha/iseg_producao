@@ -1,0 +1,23 @@
+
+rm ./propostaVidaIndividual/tab-panel-pack.js
+rm ./propostaVidaIndividual/script-pack.js
+rm ./propostaVidaIndividual/tab-panel-pack.js
+rm ./propostaVidaIndividual/script-pack.js
+rm ./propostaImoveis/tab-panel-pack.js
+rm ./propostaImoveis/script-pack.js
+rm ./propostaImoveis/tab-panel-pack.js
+rm ./propostaImoveis/script-pack.js
+rm ./propostaRiscosDiversos/tab-panel-pack.js
+rm ./propostaRiscosDiversos/hotkeys-pack.js
+rm ./propostaRiscosDiversos/tabpane-pack.js
+rm ./propostaRiscosDiversos/script-pack.js
+rm ./propostaRiscosDiversos/hotkeys-pack.js
+rm ./propostaRiscosDiversos/tab-panel-pack.js
+rm ./propostaRiscosDiversos/script-pack.js
+rm ./propostaRiscosDiversos/tabpane-pack.js
+rm ./wizard/hotkeys-pack.js
+rm ./wizard/script-pack.js
+rm ./wizard/script-pack.js
+rm ./propostaVidaEmpresarial/tab-panel-pack.js
+rm ./propostaVidaEmpresarial/tab-panel-pack.js
+rm ./propostaVidaEmpresarial/script-pack.js

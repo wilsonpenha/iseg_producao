@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="orcamentoSeguro" extends="struts2" namespace="/orcamentoSeguro">
+
+		<action name="displayList" method="lista" class="orcamentoSeguroAction">
+			<result name="input">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="orcamentoSeguroAction">
+			<result name="input">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+		</action>
+
+		<action name="editar" class="orcamentoSeguroAction" method="editar">
+			<result type="chain" name="orcamentoSeguroAuto">
+				<param name="actionName">editar</param>
+				<param name="namespace">/orcamentoSegAuto</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroRiscosDiversos">
+				<param name="actionName">editar</param>
+				<param name="namespace">/orcamentoSeguroRiscosDiversos</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroImoveis">
+				<param name="actionName">editar</param>
+				<param name="namespace">/orcamentoSeguroImoveis</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroEmpresarial">
+				<param name="actionName">editar</param>
+				<param name="namespace">/orcamentoSeguroEmpresarial</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroIndividual">
+				<param name="actionName">editar</param>
+				<param name="namespace">/orcamentoSeguroIndividual</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroTransportes">
+				<param name="actionName">editar</param>
+				<param name="namespace">/orcamentoSeguroTransportes</param>
+			</result>
+			<result name="input">${listPage}</result>
+			<result name="error">${listPage}</result>
+		</action>
+		
+		<action name="propostaRenovacao" class="orcamentoSeguroAction" method="propostaRenovacao">
+			<result type="chain" name="orcamentoSeguroAuto">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSegAuto</param>
+			</result>
+		</action>
+		<action name="excluir" class="orcamentoSeguroAction" method="excluir">
+			<result>/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+		</action>
+
+		<action name="novo" class="orcamentoSeguroAction" method="novo">
+			<result type="chain" name="orcamentoSeguroAuto">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSegAuto</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroRiscosDiversos">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroRiscosDiversos</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroImoveis">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroImoveis</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroEmpresarial">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroEmpresarial</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroIndividual">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroIndividual</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroTransportes">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroTransportes</param>
+			</result>
+			<result type="tiles" name="input">${listPage}</result>
+			<result type="tiles" name="error">${listPage}</result>
+		</action>
+		
+		<action name="gerarPropostaOrcamento" class="orcamentoSeguroAction" method="gerarPropostaOrcamento">
+			<result type="chain" name="orcamentoSeguroAuto">
+				<param name="actionName">gerarPropostaOrcamento</param>
+				<param name="namespace">/orcamentoSegAuto</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroRiscosDiversos">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroRiscosDiversos</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroImoveis">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroImoveis</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroEmpresarial">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroEmpresarial</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroIndividual">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroIndividual</param>
+			</result>
+			<result type="chain" name="orcamentoSeguroTransportes">
+				<param name="actionName">novo</param>
+				<param name="namespace">/orcamentoSeguroTransportes</param>
+			</result>
+			<result type="tiles" name="input">${listPage}</result>
+			<result type="tiles" name="error">${listPage}</result>
+		</action>
+		<action name="pesquisaOrcamentoSeguro" class="orcamentoSeguroAction" method="lista">
+			<result>/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+		</action>
+	</package>
+</struts>

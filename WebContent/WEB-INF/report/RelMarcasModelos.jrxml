@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelMarcaModelo" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="782" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="560"/>
+	<property name="ireport.y" value="318"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<subDataset name="dsProposta">
+		<parameter name="cliente_id" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[SELECT
+	COUNT(id) AS totalPedidos
+	,MAX(data_proposta) AS dtUltimaProposta
+FROM proposta p1 WHERE
+	p1.situacao_operacional = 0
+	AND p1.status_operacional > 0
+	AND p1.cliente_id = $P{cliente_id}
+GROUP BY
+	cliente_id]]>
+		</queryString>
+		<field name="totalpedidos" class="java.lang.Long"/>
+		<field name="dtultimaproposta" class="java.sql.Date"/>
+	</subDataset>
+	<subDataset name="dsFrota">
+		<parameter name="proposta_id" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[SELECT
+	COUNT(pa.id) AS totalVeiculos
+FROM
+	proposta_automovel pa
+WHERE
+	pa.proposta_id = $P{proposta_id}
+GROUP BY
+	pa.proposta_id]]>
+		</queryString>
+		<field name="totalveiculos" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="DATA_PROPOSTA_TERMINO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INICIO_INICIO_VIGENCIA" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_INICIO_VIGENCIA" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RAMO_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[iseg.app.constants.Constants.RAMO_AUTOMOVEL]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SEGURADORA_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRODUTOR_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CLIENTE_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GRUPO_VENDA_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NOME_CORRETORA" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["iSeg"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INICIO_TERMINO_VIGENCIA" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_TERMINO_VIGENCIA" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEM_DIR" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="USUARIO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IMAGEM_FILE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RAMO_NOME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TODOS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SEGURADORA_NOME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TODAS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GRUPO_VENDA_NOME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TODOS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRODUTOR_NOME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TODOS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MARCA_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MODELO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["TODOS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CLIENTE_NOME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TODOS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_INICIO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_TERMINO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_PROPOSTA_INICIO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORA_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new java.lang.Long(8051)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SITUACAO_OPERACIONAL" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDaProposta" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDaTransmissao" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoInicioDaVigencia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoFimDaVigencia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ASSESSORIA" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QUEBRA_CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RAMO_AUTOMOVEL" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[iseg.app.constants.Constants.RAMO_AUTOMOVEL]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QUEBRA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MARCA_NOME" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[""]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+	proposta.id as proposta_id,
+	proposta.numero as localizador,
+	proposta.corretora_id as corretora_id,
+	corretora.nome as corretora_nome,
+	proposta.premio_liquido as premio_liquido,
+	cliente.nome AS cliente_nome,
+	cliente.cpf_ou_cnpj AS cliente_cpf_cnpj,
+	grupoVenda.id as grupoVenda_id,
+	grupoVenda.nome_do_grupo as nome_do_grupo,
+	cliente.id AS cliente_id,
+	cliente.telefone_preferencial,
+	cliente.telefone_celular,
+	COALESCE(fabricante.nome, fabricante2.nome) as fabricanteNome,
+	COALESCE(modelo.descricao, automovel.modelo_nome) as modeloNome,
+	automovel.ano_fabricacao,
+	automovel.ano_modelo,
+	produtor.id AS produtor_id,
+	produtor.nome AS produtor_nome,
+	seguradora.id AS seguradora_id,
+	seguradora.nome AS seguradora_razao_social
+FROM PROPOSTA proposta
+INNER JOIN PESSOA corretora ON proposta.corretora_id = corretora.id
+INNER JOIN CORRETORA dadosCorretora ON dadosCorretora.id = corretora.id
+INNER JOIN PROPOSTA_AUTOMOVEL proposta_automovel ON proposta_automovel.proposta_id = proposta.id
+INNER JOIN AUTOMOVEL automovel ON automovel.id = proposta_automovel.automovel_id
+LEFT JOIN VEICULO_MODELO modelo ON automovel.modelo_veiculo_id = modelo.id
+LEFT JOIN FABRICANTE fabricante ON fabricante.id = modelo.fabricante_id
+LEFT JOIN FABRICANTE fabricante2 ON fabricante2.id = automovel.fabricante_id
+LEFT JOIN RAMO ramo ON proposta.ramo_id = ramo.id
+LEFT JOIN PESSOA cliente ON proposta.cliente_id = cliente.id
+LEFT JOIN PESSOA produtor ON proposta.produtor_id = produtor.id
+LEFT JOIN GRUPO_DE_VENDA grupoVenda ON proposta.grupo_de_venda_id = grupoVenda.id
+LEFT JOIN PESSOA seguradora ON proposta.seguradora_id = seguradora.id
+WHERE   (($P{ASSESSORIA} = '-1' OR proposta.corretora_id in (select corretora_id from corretoras_list where usuario_id = $P{USUARIO_ID}) OR dadosCorretora.assessoria_id = $P{CORRETORAS})) AND
+	(($P{CORRETORA_ID} = '-1') OR proposta.corretora_id = $P{CORRETORA_ID}) AND
+	(to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_PROPOSTA_INICIO} OR proposta.data_proposta >= $P{DATA_PROPOSTA_INICIO}) AND
+	(to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_PROPOSTA_TERMINO} OR proposta.data_proposta <= $P{DATA_PROPOSTA_TERMINO}) AND
+	(to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_INICIO_VIGENCIA}  OR proposta.inicio_vigencia >= $P{INICIO_INICIO_VIGENCIA}) AND
+	(to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_INICIO_VIGENCIA} OR proposta.inicio_vigencia <= $P{FIM_INICIO_VIGENCIA}) AND
+	(to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_TERMINO_VIGENCIA}  OR proposta.termino_vigencia >= $P{INICIO_TERMINO_VIGENCIA}) AND
+	(to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_TERMINO_VIGENCIA} OR proposta.termino_vigencia <= $P{FIM_TERMINO_VIGENCIA}) AND
+	(to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_INICIO} OR proposta.data_transmissao >= $P{DATA_INICIO}) AND
+	(to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_TERMINO} OR proposta.data_transmissao <= $P{DATA_TERMINO}) AND
+	(($P{SEGURADORA_ID} = '-1') OR proposta.seguradora_id = $P{SEGURADORA_ID}) AND
+	(($P{PRODUTOR_ID} = '-1') OR produtor.id = $P{PRODUTOR_ID}) AND
+	(($P{CLIENTE_ID} ='-1' ) OR cliente.id = $P{CLIENTE_ID}) AND
+	(ramo.id = $P{RAMO_AUTOMOVEL}) AND
+	(($P{GRUPO_VENDA_ID} = '-1') OR proposta.grupo_de_venda_id = $P{GRUPO_VENDA_ID}) AND
+	(($P{MARCA_ID} = '-1') OR fabricante.id = $P{MARCA_ID} OR fabricante2.id = $P{MARCA_ID}) AND
+	(($P{MODELO} = 'TODOS') OR modelo.descricao LIKE $P{MODELO}|| '%' OR automovel.modelo_nome LIKE $P{MODELO}|| '%') AND
+	(($P{SITUACAO_OPERACIONAL} = '-1') OR proposta.situacao_operacional = $P{SITUACAO_OPERACIONAL})]]>
+	</queryString>
+	<field name="proposta_id" class="java.lang.Long"/>
+	<field name="localizador" class="java.lang.Long"/>
+	<field name="corretora_id" class="java.lang.Long"/>
+	<field name="corretora_nome" class="java.lang.String"/>
+	<field name="premio_liquido" class="java.math.BigDecimal"/>
+	<field name="cliente_nome" class="java.lang.String"/>
+	<field name="cliente_cpf_cnpj" class="java.lang.String"/>
+	<field name="grupovenda_id" class="java.lang.Long"/>
+	<field name="nome_do_grupo" class="java.lang.String"/>
+	<field name="cliente_id" class="java.lang.Long"/>
+	<field name="telefone_preferencial" class="java.lang.String"/>
+	<field name="telefone_celular" class="java.lang.String"/>
+	<field name="fabricantenome" class="java.lang.String"/>
+	<field name="modelonome" class="java.lang.String"/>
+	<field name="ano_fabricacao" class="java.lang.String"/>
+	<field name="ano_modelo" class="java.lang.String"/>
+	<field name="produtor_id" class="java.lang.Long"/>
+	<field name="produtor_nome" class="java.lang.String"/>
+	<field name="seguradora_id" class="java.lang.Long"/>
+	<field name="seguradora_razao_social" class="java.lang.String"/>
+	<sortField name="corretora_nome"/>
+	<sortField name="nome_do_grupo"/>
+	<sortField name="produtor_nome"/>
+	<sortField name="cliente_nome"/>
+	<sortField name="modelonome"/>
+	<sortField name="seguradora_razao_social"/>
+	<variable name="TOTAL_CLIENTES" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{cliente_id}]]></variableExpression>
+	</variable>
+	<variable name="tituloRelatorio" class="java.lang.String">
+		<variableExpression><![CDATA["RELATÓRIO DE MARCAS E MODELOS"]]></variableExpression>
+		<initialValueExpression><![CDATA["RELATÓRIO DE MARCAS E MODELOS"]]></initialValueExpression>
+	</variable>
+	<variable name="corretora" class="java.lang.String"/>
+	<variable name="periodo" class="java.lang.String" resetType="None">
+		<variableExpression><![CDATA["Transmitidos no período de: "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_INICIO})+" a "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TERMINO})]]></variableExpression>
+		<initialValueExpression><![CDATA["Transmitidos no período de: "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_INICIO})+" a "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TERMINO})]]></initialValueExpression>
+	</variable>
+	<variable name="QUANT_PAGINA" class="java.lang.Integer" incrementType="Page">
+		<variableExpression><![CDATA[$V{PAGE_COUNT}]]></variableExpression>
+	</variable>
+	<variable name="totalCliente_Seguradora" class="java.lang.Integer" resetType="Group" resetGroup="POR_SEGURADORA" calculation="Count">
+		<variableExpression><![CDATA[$F{cliente_id}]]></variableExpression>
+	</variable>
+	<variable name="totalCliente_Produtor" class="java.lang.Integer" resetType="Group" resetGroup="POR_PRODUTOR" calculation="Count">
+		<variableExpression><![CDATA[$F{cliente_id}]]></variableExpression>
+	</variable>
+	<variable name="totalCliente_GrupoDeVenda" class="java.lang.Integer" resetType="Group" resetGroup="POR_GRUPO" calculation="Count">
+		<variableExpression><![CDATA[$F{cliente_id}]]></variableExpression>
+	</variable>
+	<group name="POR_CORRETORA">
+		<groupExpression><![CDATA[$F{corretora_id}]]></groupExpression>
+		<groupHeader>
+			<band height="11" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{ASSESSORIA}.intValue()!=-1 && $P{QUEBRA_CORRETORAS}.intValue() == 1)]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-66" x="0" y="0" width="47" height="10"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Corretora : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-75" x="49" y="0" width="164" height="10"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora_nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-18" x="0" y="10" width="782" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA_CORRETORAS}.intValue()==1)]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_GRUPO">
+		<groupExpression><![CDATA[$F{grupovenda_id}]]></groupExpression>
+		<groupHeader>
+			<band height="11" splitType="Prevent">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_GRUPO_DE_VENDA"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-66" x="1" y="0" width="67" height="10"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Grupo de Venda : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-75" x="68" y="0" width="164" height="10"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nome_do_grupo}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-18" x="0" y="10" width="782" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="11">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_GRUPO_DE_VENDA"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-19" x="0" y="1" width="68" height="10"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-20" x="85" y="1" width="37" height="10"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<text><![CDATA[ cliente(s)]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-19" x="68" y="1" width="17" height="10"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{totalCliente_GrupoDeVenda}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-1" x="0" y="0" width="782" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_SEGURADORA">
+		<groupExpression><![CDATA[$F{seguradora_id}]]></groupExpression>
+		<groupHeader>
+			<band height="11" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_SEGURADORA"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-66" x="0" y="0" width="47" height="10"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Seguradora : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-75" x="48" y="0" width="164" height="10"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{seguradora_razao_social}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-18" x="0" y="10" width="782" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="11" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_SEGURADORA"))]]></printWhenExpression>
+				<line>
+					<reportElement key="line-1" x="0" y="10" width="782" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-19" x="0" y="0" width="68" height="10"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-20" x="85" y="0" width="37" height="10"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<text><![CDATA[ cliente(s)]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-19" x="68" y="0" width="17" height="10"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{totalCliente_Seguradora}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_PRODUTOR">
+		<groupExpression><![CDATA[$F{produtor_id}]]></groupExpression>
+		<groupHeader>
+			<band height="11" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_PRODUTOR"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-66" x="0" y="0" width="47" height="10"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Produtor : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-75" x="48" y="0" width="164" height="10"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{produtor_nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-18" x="0" y="10" width="782" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="11" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_PRODUTOR"))]]></printWhenExpression>
+				<line>
+					<reportElement key="line-1" x="1" y="10" width="782" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-19" x="0" y="0" width="68" height="10"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-20" x="85" y="0" width="37" height="10"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<text><![CDATA[ cliente(s)]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-19" x="68" y="0" width="17" height="10"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{totalCliente_Produtor}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-1" x="1" y="0" width="781" height="100"/>
+				<subreportParameter name="SEGURADORA_NOME">
+					<subreportParameterExpression><![CDATA[$P{SEGURADORA_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDoInicioDaVigencia">
+					<subreportParameterExpression><![CDATA[$P{periodoDoInicioDaVigencia}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MARCA_ID">
+					<subreportParameterExpression><![CDATA[$P{MARCA_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="GRUPO_VENDA_NOME">
+					<subreportParameterExpression><![CDATA[$P{GRUPO_VENDA_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PRODUTOR_NOME">
+					<subreportParameterExpression><![CDATA[$P{PRODUTOR_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_tituloRelatorio">
+					<subreportParameterExpression><![CDATA[$V{tituloRelatorio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MARCA_NOME">
+					<subreportParameterExpression><![CDATA[$P{MARCA_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDaProposta">
+					<subreportParameterExpression><![CDATA[$P{periodoDaProposta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imageFileName">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_FILE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CLIENTE_NOME">
+					<subreportParameterExpression><![CDATA[$P{CLIENTE_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MODELO">
+					<subreportParameterExpression><![CDATA[$P{MODELO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo2">
+					<subreportParameterExpression><![CDATA[$V{periodo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imagemDir">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RAMO_NOME">
+					<subreportParameterExpression><![CDATA[$P{RAMO_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo3">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo1">
+					<subreportParameterExpression><![CDATA[$P{NOME_CORRETORA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDoFimDaVigencia">
+					<subreportParameterExpression><![CDATA[$P{periodoDoFimDaVigencia}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDaTransmissao">
+					<subreportParameterExpression><![CDATA[$P{periodoDaTransmissao}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "cabecalhoPaisagemMarcaModelo.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-5" x="25" y="0" width="145" height="15"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="355" y="0" width="50" height="15"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-13" x="624" y="0" width="159" height="15"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Endereço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-14" x="170" y="0" width="123" height="15"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Marca / Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-15" x="405" y="0" width="51" height="15"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-16" x="456" y="0" width="61" height="15"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Grupo Venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-17" x="517" y="0" width="38" height="15"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Prêmio Líquido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-17" x="555" y="0" width="34" height="15"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Qtd Pedidos]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-2" x="0" y="15" width="782" height="1" forecolor="#000000" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="320" y="0" width="35" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ano / Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="0" width="35" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dt Último Pedido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" x="0" y="0" width="25" height="15"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[# Loc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="0" width="27" height="15"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Frota]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-6" isPrintRepeatedValues="false" x="25" y="0" width="145" height="10"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-7" x="170" y="0" width="123" height="10"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fabricantenome}.concat(" - ").concat($F{modelonome})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-8" isPrintRepeatedValues="false" x="355" y="0" width="50" height="10"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{telefone_preferencial}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-9" isPrintRepeatedValues="false" x="405" y="0" width="51" height="10"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{telefone_celular}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-10" isPrintRepeatedValues="false" x="456" y="0" width="61" height="10"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome_do_grupo}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement isPrintRepeatedValues="false" x="624" y="0" width="159" height="10"/>
+				<subreportParameter name="cliente_id">
+					<subreportParameterExpression><![CDATA[$F{cliente_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "endereco_sub.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="320" y="0" width="35" height="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ano_fabricacao}.concat("/").concat($F{ano_modelo})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-6" isPrintRepeatedValues="false" x="0" y="0" width="25" height="10"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{localizador}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-11" isPrintRepeatedValues="false" x="517" y="0" width="38" height="10"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{premio_liquido}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="555" y="0" width="69" height="10"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dsProposta">
+						<datasetParameter name="cliente_id">
+							<datasetParameterExpression><![CDATA[$F{cliente_id}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="10" width="69">
+						<textField pattern="#,##0" isBlankWhenNull="true">
+							<reportElement mode="Transparent" x="0" y="0" width="34" height="10" forecolor="#000000" backcolor="#FFFFFF"/>
+							<box rightPadding="2"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+								<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Long"><![CDATA[$F{totalpedidos}]]></textFieldExpression>
+						</textField>
+						<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+							<reportElement mode="Transparent" x="34" y="0" width="35" height="10" forecolor="#000000" backcolor="#FFFFFF"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+								<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+							</textElement>
+							<textFieldExpression class="java.util.Date"><![CDATA[$F{dtultimaproposta}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="293" y="0" width="27" height="10"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dsFrota">
+						<datasetParameter name="proposta_id">
+							<datasetParameterExpression><![CDATA[$F{proposta_id}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="10" width="27">
+						<textField pattern="###0" isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="27" height="10">
+								<printWhenExpression><![CDATA[new Boolean($F{totalveiculos}.compareTo(1L)>1)]]></printWhenExpression>
+							</reportElement>
+							<textElement/>
+							<textFieldExpression class="java.lang.Long"><![CDATA[$F{totalveiculos}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-4" x="0" y="0" width="782" height="13"/>
+				<subreportParameter name="USUARIO">
+					<subreportParameterExpression><![CDATA[$P{USUARIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rodapePaisagem.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-79" mode="Opaque" x="305" y="6" width="67" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página: "+$V{PAGE_NUMBER}+"/"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="372" y="6" width="20" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch">
+			<line>
+				<reportElement key="line-1" x="0" y="1" width="782" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement key="staticText-19" x="0" y="2" width="68" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total Geral:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-20" x="85" y="2" width="37" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[ cliente(s)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-19" x="68" y="2" width="17" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{TOTAL_CLIENTES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

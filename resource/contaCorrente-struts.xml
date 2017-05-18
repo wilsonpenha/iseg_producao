@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="contaCorrente" extends="struts2" namespace="/contaCorrente">
+		<action name="displayList" method="lista" class="contaCorrenteAction">
+			
+			<result type="tiles" name="inputpessoafisica">contaCorrente.pessoaFisicaUpdate</result>
+			<result type="tiles" name="nonepessoafisica">contaCorrente.pessoaFisicaInsert</result>
+			<result type="tiles" name="successpessoafisica">contaCorrente.pessoaFisicaDisplayList</result>
+			
+			<result type="tiles" name="nonepessoajuridica">contaCorrente.pessoaJuridicaInsert</result>
+			<result type="tiles" name="inputpessoajuridica">contaCorrente.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="successpessoajuridica">contaCorrente.pessoaJuridicaDisplayList</result>
+			
+			<result type="tiles" name="nonecorretora">contaCorrente.corretoraInsert</result>
+			<result type="tiles" name="inputcorretora">contaCorrente.corretoraUpdate</result>
+			<result type="tiles" name="successcorretora">contaCorrente.corretoraDisplayList</result>
+			
+			<result type="tiles" name="noneprodutor">contaCorrente.produtorInsert</result>
+			<result type="tiles" name="inputprodutor">contaCorrente.produtorUpdate</result>
+			<result type="tiles" name="successprodutor">contaCorrente.produtorDisplayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="contaCorrenteAction">
+			<result type="tiles" name="success">contaCorrente.displayList</result>
+			<result type="tiles" name="error">contaCorrente.displayList</result>
+		</action>
+		
+		<action name="excluir" class="contaCorrenteAction" method="excluir">
+			<result type="tiles" name="successpessoafisica">contaCorrente.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="successpessoajuridica">contaCorrente.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="successprodutor">contaCorrente.produtorDisplayList</result>
+			<result type="tiles" name="successcorretora">contaCorrente.corretoraDisplayList</result>
+			
+			<result type="tiles" name="inputpessoafisica">contaCorrente.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="inputpessoajuridica">contaCorrente.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="inputprodutor">contaCorrente.produtorDisplayList</result>
+			<result type="tiles" name="inputcorretora">contaCorrente.corretoraDisplayList</result>
+
+			<result type="tiles" name="nonepessoafisica">contaCorrente.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="nonepessoajuridica">contaCorrente.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="noneprodutor">contaCorrente.produtorDisplayList</result>
+			<result type="tiles" name="nonecorretora">contaCorrente.corretoraDisplayList</result>
+			
+		</action>
+		
+		<action name="salvarLista" class="contaCorrenteAction" method="salvarLista">
+			<result type="tiles" name="inputpessoafisica">contaCorrente.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="nonepessoafisica">contaCorrente.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="successpessoafisica">contaCorrente.pessoaFisicaDisplayList</result>
+			
+			<result type="tiles" name="inputpessoajuridica">contaCorrente.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="nonepessoajuridica">contaCorrente.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="successpessoajuridica">contaCorrente.pessoaJuridicaDisplayList</result>
+			
+			<result type="tiles" name="inputprodutor">contaCorrente.produtorDisplayList</result>
+			<result type="tiles" name="noneprodutor">contaCorrente.produtorDisplayList</result>
+			<result type="tiles" name="successprodutor">contaCorrente.produtorDisplayList</result>
+			
+			<result type="tiles" name="inputcorretora">contaCorrente.corretoraDisplayList</result>
+			<result type="tiles" name="nonecorretora">contaCorrente.corretoraDisplayList</result>
+			<result type="tiles" name="successcorretora">contaCorrente.corretoraDisplayList</result>
+		</action>
+		
+		<action name="salvarNovo" class="contaCorrenteAction" method="salvarNovo">
+			<result type="tiles" name="inputpessoafisica">contaCorrente.pessoaFisicaInsert</result>
+			<result type="tiles" name="successpessoafisica">contaCorrente.pessoaFisicaInsert</result>
+			<result type="tiles" name="errorpessoafisica">contaCorrente.pessoaFisicaInsert</result>
+			
+			<result type="tiles" name="inputpessoajuridica">contaCorrente.pessoaJuridicaInsert</result>
+			<result type="tiles" name="successpessoajuridica">contaCorrente.pessoaJuridicaInsert</result>
+			<result type="tiles" name="errorpessoajuridica">contaCorrente.pessoaJuridicaInsert</result>
+			
+			<result type="tiles" name="inputprodutor">contaCorrente.produtorInsert</result>
+			<result type="tiles" name="successprodutor">contaCorrente.produtorInsert</result>
+			<result type="tiles" name="errorprodutor">contaCorrente.produtorInsert</result>
+			
+			<result type="tiles" name="inputcorretora">contaCorrente.corretoraInsert</result>
+			<result type="tiles" name="successcorretora">contaCorrente.corretoraInsert</result>
+			<result type="tiles" name="errorcorretora">contaCorrente.corretoraInsert</result>
+		</action>
+
+		<action name="salvarEditar" class="contaCorrenteAction" method="salvarEditar">
+			<result type="tiles" name="inputpessoafisica">contaCorrente.pessoaFisicaUpdate</result>
+			<result type="tiles" name="successpessoafisica">contaCorrente.pessoaFisicaUpdate</result>
+			<result type="tiles" name="errorpessoafisica">contaCorrente.pessoaFisicaUpdate</result>
+			
+			<result type="tiles" name="inputpessoajuridica">contaCorrente.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="successpessoajuridica">contaCorrente.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="errorpessoajuridica">contaCorrente.pessoaJuridicaUpdate</result>
+			
+			<result type="tiles" name="inputprodutor">contaCorrente.produtorUpdate</result>
+			<result type="tiles" name="successprodutor">contaCorrente.produtorUpdate</result>
+			<result type="tiles" name="errorprodutor">contaCorrente.produtorUpdate</result>
+			
+			<result type="tiles" name="inputcorretora">contaCorrente.corretoraUpdate</result>
+			<result type="tiles" name="successcorretora">contaCorrente.corretoraUpdate</result>
+			<result type="tiles" name="errorcorretora">contaCorrente.corretoraUpdate</result>
+		</action>
+
+
+		<action name="novo" class="contaCorrenteAction" method="novo">
+			<result type="tiles" name="successpessoafisica">contaCorrente.pessoaFisicaInsert</result>
+			<result type="tiles" name="successpessoajuridica">contaCorrente.pessoaJuridicaInsert</result>
+			<result type="tiles" name="successprodutor">contaCorrente.produtorInsert</result>
+			<result type="tiles" name="successcorretora">contaCorrente.corretoraInsert</result>
+		</action>
+
+		<action name="editar" class="contaCorrenteAction" method="editar">
+			<result type="tiles" name="success">contaCorrente.update</result>
+			<result type="tiles" name="error">contaCorrente.update</result>
+		
+			<result type="tiles" name="successpessoafisica">contaCorrente.pessoaFisicaUpdate</result>
+			<result type="tiles" name="successoficina">contaCorrente.oficinaUpdate</result>
+			<result type="tiles" name="successpessoajuridica">contaCorrente.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="successprodutor">contaCorrente.produtorUpdate</result>
+			<result type="tiles" name="successcorretora">contaCorrente.corretoraUpdate</result>
+			<result type="tiles" name="successseguradora">contaCorrente.seguradoraUpdate</result>
+			<result type="tiles" name="successvistoriadora">contaCorrente.vistoriadoraDisplayList</result>
+		</action>
+	</package>
+</struts>

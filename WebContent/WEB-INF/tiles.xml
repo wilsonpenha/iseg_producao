@@ -1,0 +1,1461 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!--  -->
+	<!-- Tiles Definition for body.template -->
+
+	<definition name="list.template.definition" template="/WEB-INF/layouts/displayListLayout.jsp">
+		<put-attribute name="navigation" value=""/>
+		<put-attribute name="content-header" value="/WEB-INF/layouts/listHeader.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListDefault.jsp" />
+		<put-attribute name="content-tabs" value="/WEB-INF/layouts/blankContent.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/layouts/blankContent.jsp"/>
+		<put-attribute name="content-footer" value="/WEB-INF/layouts/footer.jsp"/>
+	</definition>
+
+	<definition name="search.template.definition" template="/WEB-INF/layouts/displayListSearchLayout.jsp">
+		<put-attribute name="navigation" value=""/>
+		<put-attribute name="content-header" value="/WEB-INF/layouts/listHeader.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListSearchDefault.jsp" />
+		<put-attribute name="content-tabs" value="/WEB-INF/layouts/blankContent.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/layouts/blankContent.jsp"/>
+		<put-attribute name="content-footer" value="/WEB-INF/layouts/footer.jsp"/>
+	</definition>
+
+	<definition name="listPopup.template.definition" template="/WEB-INF/layouts/displayListLayoutPopup.jsp">
+		<put-attribute name="navigation" value=""/>
+		<put-attribute name="content-header" value="/WEB-INF/layouts/listHeader.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListPopupDefault.jsp" />
+		<put-attribute name="content-tabs" value="/WEB-INF/layouts/blankContent.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/layouts/blankContent.jsp"/>
+		<put-attribute name="content-footer" value="/WEB-INF/layouts/footer.jsp"/>
+	</definition>
+
+	<definition name="edit.template.definition" template="/WEB-INF/layouts/editRecordLayout.jsp">
+		<put-attribute name="navigation" value=""/>
+		<put-attribute name="content-header" value="/WEB-INF/layouts/editHeader.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordDefault.jsp" />
+		<put-attribute name="content-tabs" value="/WEB-INF/layouts/blankContent.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/layouts/blankContent.jsp"/>
+		<put-attribute name="content-footer" value="/WEB-INF/layouts/footer.jsp"/>
+	</definition>
+
+	<definition name="editPopup.template.definition" template="/WEB-INF/layouts/editRecordLayoutPopup.jsp">
+		<put-attribute name="navigation" value=""/>
+		<put-attribute name="content-header" value="/WEB-INF/layouts/editHeader.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordPopupDefault.jsp" />
+		<put-attribute name="content-tabs" value="/WEB-INF/layouts/blankContent.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/layouts/blankContent.jsp"/>
+		<put-attribute name="content-footer" value="/WEB-INF/layouts/footer.jsp"/>
+	</definition>
+	
+	<definition name="editIntegracao.template.definition" template="/WEB-INF/layouts/editRecordLayoutPopup.jsp">
+		<put-attribute name="navigation" value=""/>
+		<put-attribute name="content-header" value="/WEB-INF/layouts/editHeader.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListDefault.jsp" />
+		<put-attribute name="content-tabs" value="/WEB-INF/layouts/blankContent.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/layouts/blankContent.jsp"/>
+		<put-attribute name="content-footer" value="/WEB-INF/layouts/footer.jsp"/>
+	</definition>
+
+	<definition name="frameSet.page" template="/WEB-INF/jsp/homePage.jsp">
+	</definition>
+
+	<definition name="menu.page" template="/WEB-INF/jsp/appMenuControl.jsp">
+	</definition>
+
+	<definition name="home.page" template="/WEB-INF/jsp/home.jsp">
+	</definition>
+
+	<definition name="login.page" template="/WEB-INF/jsp/login.jsp">
+	</definition>
+
+	<!-- Tiles Definition for Proposta Form -->
+	<definition name="propostaWizard.displayList" extends="search.template.definition">
+		<put-attribute name="package.namespace" value="/wizard"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Gerenciamento de Seguros || Proposta Passo-a-passo || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/propostaWizard/displayList.jsp"/>
+	</definition>
+
+	<definition name="proposta.displayList" extends="search.template.definition">
+		<put-attribute name="package.namespace" value="/proposta"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Gerenciamento de Seguros || Proposta de Automóvel || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/displayList.jsp"/>
+	</definition>
+
+	<definition name="proposta.insert" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Gerenciamento de Seguros || Proposta de Automóvel || Inclusão"/>
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="package.namespace" value="/proposta"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/insert.jsp" />
+	</definition>
+
+	<definition name="proposta.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Gerenciamento de Seguros || Proposta de Automóvel || Edição"/>
+		<put-attribute name="package.namespace" value="/proposta"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/proposta/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/update.jsp" />
+	</definition>
+
+	<definition name="proposta.view" extends="edit.template.definition">
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Gerenciamento de Seguros || Proposta de Automóvel || Visualização"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecord2.jsp" />
+		<put-attribute name="package.namespace" value="/proposta"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/view.jsp" />
+	</definition>
+
+	<!-- Tiles Definition for Dominio Form -->
+	<definition name="dominio.displayList" extends="list.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Domínio || Pesquisa"/>
+		<put-attribute name="package.namespace" value="/dominio"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Dominio"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dominio/displayList.jsp"/>
+	</definition>
+
+	<definition name="dominio.insert" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Domínio || Inclusao"/>
+		<put-attribute name="package.namespace" value="/dominio"/>
+		<put-attribute name="title" value="Dominio"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dominio/insert.jsp" />
+	</definition>
+
+	<definition name="dominio.update" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Domínio || Edição"/>
+		<put-attribute name="package.namespace" value="/dominio"/>
+		<put-attribute name="title" value="Dominio"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dominio/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for DominioEsp Form -->
+	
+	<definition name="dominioEsp.displayList" extends="list.template.definition">
+		<put-attribute name="navigation" value="Cadastro || DomínioEsp || Pesquisa"/>
+		<put-attribute name="package.namespace" value="/dominioEsp"/>
+		<put-attribute name="dominioEsp.id" value="id"/>
+		<put-attribute name="title" value="DominioEsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dominioEsp/displayList.jsp"/>
+	</definition>
+	
+	<definition name="dominioEsp.insert" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Cadastro || DomínioEsp || Inclusão"/>
+		<put-attribute name="package.namespace" value="/dominioEsp"/>
+		<put-attribute name="title" value="DominioEsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dominioEsp/insert.jsp" />
+	</definition>
+
+	<definition name="dominioEsp.update" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Cadastro || DomínioEsp || Edição"/>
+		<put-attribute name="package.namespace" value="/dominioEsp"/>
+		<put-attribute name="title" value="DominioEsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dominioEsp/update.jsp" />
+	</definition>
+	
+
+	<!-- Tiles Definition for Automovel Form -->
+	<definition name="automovel.displayList" extends="list.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Automóvel || Pesquisa"/>
+		<put-attribute name="package.namespace" value="/automovel"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Automóvel"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/automovel/displayList.jsp"/>
+	</definition>
+
+	<definition name="automovel.insert" extends="editPopup.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Automóvel || Inclusão"/>
+		<put-attribute name="title" value="Automóvel"/>
+		<put-attribute name="package.namespace" value="/automovel"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/automovel/insert.jsp" />
+	</definition>
+
+	<definition name="automovel.update" extends="editPopup.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Automóvel || Edição"/>
+		<put-attribute name="title" value="Automóvel"/>
+		<put-attribute name="package.namespace" value="/automovel"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/automovel/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/automovel/update.jsp" />
+	</definition>
+
+	<definition name="automovel.view" extends="edit.template.definition">
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Gerenciamento de Seguros || Automóvel || Visualização"/>
+		<put-attribute name="package.namespace" value="/automovel"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/automovel/view.jsp" />
+	</definition>
+	<!-- Tiles Definition for Condutor Form -->
+	<definition name="condutor.displayList" extends="listPopup.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Condutor || Pesquisa"/>
+		<put-attribute name="package.namespace" value="/condutor"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Condutor"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/condutor/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/condutor/displayList.jsp"/>
+	</definition>
+
+	<definition name="condutor.insert" extends="editPopup.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Condutor || Inclusão"/>
+		<put-attribute name="title" value="Condutor"/>
+		<put-attribute name="package.namespace" value="/condutor"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/condutor/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/condutor/insert.jsp" />
+	</definition>
+
+	<definition name="condutor.update" extends="editPopup.template.definition">
+		<put-attribute name="navigation" value="Cadastro || Condutor || Edição"/>
+		<put-attribute name="title" value="Condutor"/>
+		<put-attribute name="package.namespace" value="/condutor"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/condutor/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/condutor/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Uf Form -->
+	<definition name="uf.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/uf"/>
+		<put-attribute name="navigation" value="Cadastro || UF || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Uf"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/uf/displayList.jsp"/>
+	</definition>
+	
+	<definition name="uf.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Uf"/>
+		<put-attribute name="package.namespace" value="/uf"/>
+		<put-attribute name="navigation" value="Cadastro || UF || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/uf/insert.jsp" />
+	</definition>
+
+	<definition name="uf.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Uf"/>
+		<put-attribute name="package.namespace" value="/uf"/>
+		<put-attribute name="navigation" value="Cadastro || UF || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/uf/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Cidade Form -->
+	<definition name="cidade.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/cidade"/>
+		<put-attribute name="navigation" value="Cadastro || Cidade || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Cidade"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/cidade/displayList.jsp"/>
+	</definition>
+
+	<definition name="cidade.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Cidade"/>
+		<put-attribute name="package.namespace" value="/cidade"/>
+		<put-attribute name="navigation" value="Cadastro || Cidade || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/cidade/insert.jsp" />
+	</definition>
+
+	<definition name="cidade.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Cidade"/>
+		<put-attribute name="package.namespace" value="/cidade"/>
+		<put-attribute name="navigation" value="Cadastro || Cidade || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/cidade/update.jsp" />
+	</definition>
+	
+	<definition name="cidade.popup" extends="editPopup.template.definition">
+		<put-attribute name="title" value="Cidade"/>
+		<put-attribute name="package.namespace" value="/cidade"/>
+		<put-attribute name="navigation" value="Cadastro || Cidade || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/cidade/insert.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Bairro Form -->
+	<definition name="bairro.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/bairro"/>
+		<put-attribute name="navigation" value="Cadastro || Bairro || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Bairro"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/bairro/displayList.jsp"/>
+	</definition>
+
+	<definition name="bairro.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Bairro"/>
+		<put-attribute name="package.namespace" value="/bairro"/>
+		<put-attribute name="navigation" value="Cadastro || Bairro || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/bairro/insert.jsp" />
+	</definition>
+
+	<definition name="bairro.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Bairro"/>
+		<put-attribute name="package.namespace" value="/bairro"/>
+		<put-attribute name="navigation" value="Cadastro || Bairro || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/bairro/update.jsp" />
+	</definition>
+	
+	<definition name="bairro.popup" extends="editPopup.template.definition">
+		<put-attribute name="title" value="Bairro"/>
+		<put-attribute name="package.namespace" value="/bairro"/>
+		<put-attribute name="navigation" value="Cadastro || Bairro || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/bairro/insert.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Ramo Form -->
+	<definition name="ramo.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/ramo"/>
+		<put-attribute name="navigation" value="Cadastro || Ramo || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Ramo"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/ramo/displayList.jsp"/>
+	</definition>
+
+	<definition name="ramo.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Ramo"/>
+		<put-attribute name="package.namespace" value="/ramo"/>
+		<put-attribute name="navigation" value="Cadastro || Ramo || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/ramo/insert.jsp" />
+	</definition>
+
+	<definition name="ramo.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Ramo"/>
+		<put-attribute name="package.namespace" value="/ramo"/>
+		<put-attribute name="navigation" value="Cadastro || Ramo || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/ramo/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Endosso Form -->
+	<definition name="endosso.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endosso"/>
+		<put-attribute name="navigation" value="Cadastro || Tipo de Endosso || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Endosso"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endosso/displayList.jsp"/>
+	</definition>
+
+	<definition name="endosso.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Endosso"/>
+		<put-attribute name="package.namespace" value="/endosso"/>
+		<put-attribute name="navigation" value="Cadastro || Tipo de Endosso || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endosso/insert.jsp" />
+	</definition>
+
+	<definition name="endosso.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Endosso"/>
+		<put-attribute name="package.namespace" value="/endosso"/>
+		<put-attribute name="navigation" value="Cadastro || Tipo de Endosso || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endosso/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Vistoriadora Form -->
+	<definition name="vistoriadora.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/vistoriadora"/>
+		<put-attribute name="navigation" value="Cadastro || Vistoriadora || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Vistoriadora"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/vistoriadora/displayList.jsp"/>
+	</definition>
+
+	<definition name="vistoriadora.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Vistoriadora"/>
+		<put-attribute name="package.namespace" value="/vistoriadora"/>
+		<put-attribute name="navigation" value="Cadastro || Vistoriadora || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/vistoriadora/insert.jsp" />
+	</definition>
+
+	<definition name="vistoriadora.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Vistoriadora"/>
+		<put-attribute name="package.namespace" value="/vistoriadora"/>
+		<put-attribute name="navigation" value="Cadastro || Vistoriadora || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/vistoriadora/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/vistoriadora/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Corretora Form -->
+	<definition name="corretora.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/corretora"/>
+		<put-attribute name="navigation" value="Cadastros || Corretora || Pesquisa"/>
+		<put-attribute name="corretora.id" value="id"/>
+		<put-attribute name="title" value="Corretora"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/corretora/displayList.jsp"/>
+	</definition>
+
+	<definition name="corretora.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Corretora"/>
+		<put-attribute name="package.namespace" value="/corretora"/>
+		<put-attribute name="navigation" value="Cadastros || Corretora || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/corretora/insert.jsp" />
+	</definition>
+
+	<definition name="corretora.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Corretora"/>
+		<put-attribute name="package.namespace" value="/corretora"/>
+		<put-attribute name="navigation" value="Cadastros || Corretora || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/corretora/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/corretora/update.jsp" />
+	</definition>
+
+
+	<!-- Tiles Definition for Seguradora Form -->
+	<definition name="seguradora.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/seguradora"/>
+		<put-attribute name="navigation" value="Cadastros || Seguradora || Pesquisa"/>
+		<put-attribute name="seguradora.id" value="id"/>
+		<put-attribute name="title" value="Seguradora"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/seguradora/displayList.jsp"/>
+	</definition>
+
+	<definition name="seguradora.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Seguradora"/>
+		<put-attribute name="package.namespace" value="/seguradora"/>
+		<put-attribute name="navigation" value="Cadastros || Seguradora || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/seguradora/insert.jsp"/>
+	</definition>
+
+	<definition name="seguradora.update" extends="edit.template.definition">
+	 	<put-attribute name="title" value="Seguradora"/>
+		<put-attribute name="package.namespace" value="/seguradora"/>
+		<put-attribute name="navigation" value="Cadastros || Seguradora || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/seguradora/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/seguradora/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Oficina Form -->
+	<definition name="oficina.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/oficina"/>
+		<put-attribute name="navigation" value="Cadastros || Oficina || Pesquisa"/>
+		<put-attribute name="oficina.id" value="id"/>
+		<put-attribute name="title" value="Oficina"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/oficina/displayList.jsp"/>
+	</definition>
+
+	<definition name="oficina.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Oficina"/>
+		<put-attribute name="package.namespace" value="/oficina"/>
+		<put-attribute name="navigation" value="Cadastros || Oficina || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/oficina/insert.jsp"/>
+	</definition>
+
+	<definition name="oficina.update" extends="edit.template.definition">
+	 	<put-attribute name="title" value="Oficina"/>
+		<put-attribute name="package.namespace" value="/oficina"/>
+		<put-attribute name="navigation" value="Cadastros || Oficina || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/oficina/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/oficina/update.jsp"/>
+	</definition>
+	
+	
+	<!-- Tiles Definition for Coberturas Form -->
+	<definition name="coberturas.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/coberturas"/>
+		<put-attribute name="coberturas.id" value="id"/>
+		<put-attribute name="title" value="Coberturas"/>
+		<put-attribute name="navigation" value="Cadastros || Coberturas || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/coberturas/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/coberturas/displayList.jsp"/>
+	</definition>
+
+	<definition name="coberturas.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Coberturas"/>
+		<put-attribute name="package.namespace" value="/coberturas"/>
+		<put-attribute name="navigation" value="Cadastros || Coberturas || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/coberturas/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/coberturas/insert.jsp" />
+	</definition>
+
+	<definition name="coberturas.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Coberturas"/>
+		<put-attribute name="package.namespace" value="/coberturas"/>
+		<put-attribute name="navigation" value="Cadastros || Coberturas || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/coberturas/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/coberturas/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Servicos Form -->
+	<definition name="servicos.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/servicos"/>
+		<put-attribute name="servicos.id" value="id"/>
+		<put-attribute name="title" value="Serviços"/>
+		<put-attribute name="navigation" value="Cadastros || Servicos || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/servicos/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/servicos/displayList.jsp"/>
+	</definition>
+
+	<definition name="servicos.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Serviços"/>
+		<put-attribute name="package.namespace" value="/servicos"/>
+		<put-attribute name="navigation" value="Cadastros || Servicos || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/servicos/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/servicos/insert.jsp" />
+	</definition>
+
+	<definition name="servicos.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Serviços"/>
+		<put-attribute name="package.namespace" value="/servicos"/>
+		<put-attribute name="navigation" value="Cadastros || Servicos || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/servicos/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/servicos/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for Perfil Form -->
+	<definition name="perfil.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/perfil"/>
+		<put-attribute name="perfil.id" value="id"/>
+		<put-attribute name="title" value="Perfil"/>
+		<put-attribute name="navigation" value="Cadastros || Perfil || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/perfil/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/perfil/displayList.jsp"/>
+	</definition>
+
+	<definition name="perfil.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Perfil"/>
+		<put-attribute name="package.namespace" value="/perfil"/>
+		<put-attribute name="navigation" value="Cadastros || Perfil || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/perfil/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/perfil/insert.jsp"/>
+	</definition>
+
+	<definition name="perfil.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Perfil"/>
+		<put-attribute name="package.namespace" value="/perfil"/>
+		<put-attribute name="navigation" value="Cadastros || Perfil || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/perfil/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/perfil/update.jsp"/>
+	</definition>
+	
+	
+		<!-- Tiles Definition for Condicão de Pagamento Form -->
+	<definition name="condicaoPagamento.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/condicaoPagamento"/>
+		<put-attribute name="condicaoPagamento.id" value="id"/>
+		<put-attribute name="title" value="condicaoPagamento"/>
+		<put-attribute name="navigation" value="Cadastros || Condição Pagamento || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/condicaoPagamento/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/condicaoPagamento/displayList.jsp"/>
+	</definition>
+
+	<definition name="condicaoPagamento.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="condicaoPagamento"/>
+		<put-attribute name="package.namespace" value="/condicaoPagamento"/>
+		<put-attribute name="navigation" value="Cadastros || Condição Pagamento || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/condicaoPagamento/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/condicaoPagamento/insert.jsp"/>
+	</definition>
+
+	<definition name="condicaoPagamento.update" extends="edit.template.definition">
+		<put-attribute name="title" value="condicaoPagamento"/>
+		<put-attribute name="package.namespace" value="/condicaoPagamento"/>
+		<put-attribute name="navigation" value="Cadastros || Condição Pagamento || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/condicaoPagamento/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/condicaoPagamento/update.jsp"/>
+	</definition>
+	
+	<!-- Tiles Definition for Endereço Form -->
+	<definition name="endereco.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="endereco.id" value="id"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/displayList.jsp"/>
+	</definition>	
+	<definition name="endereco.pessoaFisicaDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="endereco.id" value="id"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/pessoaFisicaEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/displayList.jsp"/>
+	</definition>
+	<definition name="endereco.pessoaJuridicaDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="endereco.id" value="id"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/pessoaJuridicaEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/displayList.jsp"/>
+	</definition>
+	<definition name="endereco.vistoriadoraDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="endereco.id" value="id"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/vistoriadoraEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/displayList.jsp"/>
+	</definition>
+	<definition name="endereco.oficinaDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="endereco.id" value="id"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/oficinaEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/displayList.jsp"/>
+	</definition>
+	<definition name="endereco.produtorDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="endereco.id" value="id"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/produtorEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/displayList.jsp"/>
+	</definition>
+	<definition name="endereco.corretoraDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="endereco.id" value="id"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/corretoraEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/displayList.jsp"/>
+	</definition>
+
+	<definition name="endereco.insert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>		
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>	
+	<definition name="endereco.pessoaFisicaInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/pessoaFisicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>
+	<definition name="endereco.oficinaInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/oficinaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>
+	<definition name="endereco.pessoaJuridicaInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/pessoaJuridicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>
+	<definition name="endereco.produtorInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/produtorEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>
+	<definition name="endereco.vistoriadoraInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/vistoriadoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>
+	<definition name="endereco.corretoraInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/corretoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>
+	<definition name="endereco.seguradoraInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/seguradoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/insert.jsp"/>
+	</definition>
+
+	<definition name="endereco.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>	
+	<definition name="endereco.pessoaFisicaUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/pessoaFisicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>
+	<definition name="endereco.oficinaUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/oficinaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>		
+	<definition name="endereco.pessoaJuridicaUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/pessoaJuridicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>
+	<definition name="endereco.produtorUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/produtorEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>
+	<definition name="endereco.corretoraUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/corretoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>
+	<definition name="endereco.vistoriadoraUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/vistoriadoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>
+	<definition name="endereco.seguradoraUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Endereço"/>
+		<put-attribute name="package.namespace" value="/endereco"/>
+		<put-attribute name="navigation" value="Cadastros || Endereço || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/endereco/seguradoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/endereco/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Grupo de Venda Form -->
+	<definition name="gerenciamentoPosVenda.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Gerenciamento Pós-Venda"/>
+		<put-attribute name="grupoDeVenda.id" value="id"/>
+		<put-attribute name="package.namespace" value="/grupoDeVenda"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListVazio.jsp" />
+		<put-attribute name="navigation" value="Cadastros || Gerenciamento Pos Venda || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/gerenciamentoPosVenda/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/gerenciamentoPosVenda/displayList.jsp"/>
+	</definition>
+
+	<definition name="grupoDeVenda.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Grupo de Venda"/>
+		<put-attribute name="grupoDeVenda.id" value="id"/>
+		<put-attribute name="package.namespace" value="/grupoDeVenda"/>
+		<put-attribute name="navigation" value="Cadastros || Grupo de Venda || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/grupoDeVenda/displayList.jsp"/>
+	</definition>
+
+	<definition name="grupoDeVenda.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Grupo de Venda"/>
+		<put-attribute name="package.namespace" value="/grupoDeVenda"/>
+		<put-attribute name="navigation" value="Cadastros || Grupo de Venda || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/grupoDeVenda/insert.jsp"/>
+	</definition>
+
+	<definition name="grupoDeVenda.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Grupo de Venda"/>
+		<put-attribute name="package.namespace" value="/grupoDeVenda"/>
+		<put-attribute name="navigation" value="Cadastros || Grupo de Venda || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/grupoDeVenda/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/grupoDeVenda/update.jsp"/>
+	</definition>
+	
+	<!-- Tiles Definition for Banco Form -->
+	<definition name="banco.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/banco"/>
+		<put-attribute name="banco.id" value="id"/>
+		<put-attribute name="title" value="Banco"/>
+		<put-attribute name="navigation" value="Cadastros || Banco || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/banco/displayList.jsp"/>
+	</definition>
+
+	<definition name="banco.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Usuário"/>
+		<put-attribute name="package.namespace" value="/banco"/>
+		<put-attribute name="navigation" value="Cadastros || Banco || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/banco/insert.jsp"/>
+	</definition>
+
+	<definition name="banco.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Banco"/>
+		<put-attribute name="package.namespace" value="/banco"/>
+		<put-attribute name="navigation" value="Cadastros || Banco || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/banco/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Conta Corrente Form -->
+	<definition name="contaCorrente.pessoaFisicaDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="contaCorrente.id" value="id"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/pessoaFisicaEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/displayList.jsp"/>
+	</definition>
+	<definition name="contaCorrente.pessoaJuridicaDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="contaCorrente.id" value="id"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/pessoaJuridicaEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/displayList.jsp"/>
+	</definition>
+	<definition name="contaCorrente.produtorDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="contaCorrente.id" value="id"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/produtorEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/displayList.jsp"/>
+	</definition>
+	<definition name="contaCorrente.corretoraDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="contaCorrente.id" value="id"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/corretoraEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/displayList.jsp"/>
+	</definition>
+
+	<definition name="contaCorrente.pessoaFisicaInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/pessoaFisicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/insert.jsp"/>
+	</definition>
+	<definition name="contaCorrente.pessoaJuridicaInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/pessoaJuridicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/insert.jsp"/>
+	</definition>
+	<definition name="contaCorrente.produtorInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/produtorEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/insert.jsp"/>
+	</definition>
+	<definition name="contaCorrente.corretoraInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/corretoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/insert.jsp"/>
+	</definition>
+	<definition name="contaCorrente.pessoaFisicaUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/pessoaFisicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/update.jsp"/>
+	</definition>
+	<definition name="contaCorrente.pessoaJuridicaUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/pessoaJuridicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/update.jsp"/>
+	</definition>
+	<definition name="contaCorrente.produtorUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/produtorEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/update.jsp"/>
+	</definition>
+	<definition name="contaCorrente.corretoraUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Conta-Corrente"/>
+		<put-attribute name="package.namespace" value="/contaCorrente"/>
+		<put-attribute name="navigation" value="Cadastros || Conta Corrente || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/contaCorrente/corretoraEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/contaCorrente/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Dependentes Form -->
+	<definition name="dependentes.pessoaFisicaDisplayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/dependentes"/>
+		<put-attribute name="dependentes.id" value="id"/>
+		<put-attribute name="title" value="Dependentes"/>
+		<put-attribute name="navigation" value="Cadastros || Dependentes || Pesquisa"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/dependentes/pessoaFisicaEditTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dependentes/displayList.jsp"/>
+	</definition>
+
+	<definition name="dependentes.pessoaFisicaInsert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/dependentes"/>
+		<put-attribute name="title" value="Dependentes"/>
+		<put-attribute name="navigation" value="Cadastros || Dependentes || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/dependentes/pessoaFisicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dependentes/insert.jsp"/>
+	</definition>
+
+	<definition name="dependentes.pessoaFisicaUpdate" extends="edit.template.definition">
+		<put-attribute name="title" value="Dependentes"/>
+		<put-attribute name="package.namespace" value="/dependentes"/>
+		<put-attribute name="navigation" value="Cadastros || Dependentes || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/dependentes/pessoaFisicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/dependentes/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Produtor Form -->
+	<definition name="produtor.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/produtor"/>
+		<put-attribute name="contaCorrente.id" value="id"/>
+		<put-attribute name="title" value="Produtor"/>
+		<put-attribute name="navigation" value="Cadastros || Produtor || Pesquisa"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListProdutor.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/produtor/displayList.jsp"/>
+	</definition>
+
+	<definition name="produtor.insertPF" extends="edit.template.definition">
+		<put-attribute name="title" value="Produtor"/>
+		<put-attribute name="package.namespace" value="/produtor"/>
+		<put-attribute name="navigation" value="Cadastros || Produtor || Inclusão"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordProdutor.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/produtor/insertPF.jsp"/>
+	</definition>
+
+	<definition name="produtor.updatePF" extends="edit.template.definition">
+		<put-attribute name="title" value="Produtor"/>
+		<put-attribute name="package.namespace" value="/produtor"/>
+		<put-attribute name="navigation" value="Cadastros || Produtor || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/produtor/editTabs.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordProdutor.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/produtor/updatePF.jsp"/>
+	</definition>
+
+	<definition name="produtor.insertPJ" extends="edit.template.definition">
+		<put-attribute name="title" value="Produtor"/>
+		<put-attribute name="package.namespace" value="/produtor"/>
+		<put-attribute name="navigation" value="Cadastros || Produtor || Inclusão"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordProdutor.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/produtor/insertPJ.jsp"/>
+	</definition>
+
+	<definition name="produtor.updatePJ" extends="edit.template.definition">
+		<put-attribute name="title" value="Produtor"/>
+		<put-attribute name="package.namespace" value="/produtor"/>
+		<put-attribute name="navigation" value="Cadastros || Produtor || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/produtor/editTabs.jsp"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordProdutor.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/produtor/updatePJ.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Pessoa Form -->
+	<definition name="pessoa.displayList" extends="search.template.definition">
+		<put-attribute name="package.namespace" value="/pessoa"/>
+		<put-attribute name="pessoa.id" value="id"/>
+		<put-attribute name="title" value="Pessoa"/>
+		<put-attribute name="navigation" value="Cadastros || Pessoa || Pesquisa"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListSearch2.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/pessoa/displayList.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Pessoa Física Form -->
+	<definition name="pessoaFisica.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/pessoaFisica"/>
+		<put-attribute name="pessoaFisica.id" value="id"/>
+		<put-attribute name="title" value="Pessoa Física"/>
+		<put-attribute name="navigation" value="Cadastros || Pessoa Física || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/pessoaFisica/displayList.jsp"/>
+	</definition>
+
+	<definition name="pessoaFisica.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Pessoa Física"/>
+		<put-attribute name="package.namespace" value="/pessoaFisica"/>
+		<put-attribute name="navigation" value="Cadastros || Pessoa Física || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/pessoaFisica/insert.jsp"/>
+	</definition>
+
+	<definition name="pessoaFisica.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Pessoa Física"/>
+		<put-attribute name="package.namespace" value="/pessoaFisica"/>
+		<put-attribute name="navigation" value="Cadastros || Pessoa Física || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/pessoaFisica/pessoaFisicaEditTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/pessoaFisica/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for pessoaJuridica Form -->
+	<definition name="pessoaJuridica.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="pessoaJuridica"/>
+		<put-attribute name="contaCorrente.id" value="id"/>
+		<put-attribute name="title" value="Pessoa Jurídica"/>
+		<put-attribute name="navigation" value="Cadastros || Pessoa Jurídica || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/pessoaJuridica/displayList.jsp"/>
+	</definition>
+
+	<definition name="pessoaJuridica.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Pessoa Jurídica"/>
+		<put-attribute name="package.namespace" value="/pessoaJuridica"/>
+		<put-attribute name="navigation" value="Cadastros || Pessoa Jurídica || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/pessoaJuridica/insert.jsp"/>
+	</definition>
+
+	<definition name="pessoaJuridica.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Pessoa Jurídica"/>
+		<put-attribute name="package.namespace" value="/pessoaJuridica"/>
+		<put-attribute name="navigation" value="Cadastros || Pessoa Jurídica || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/pessoaJuridica/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/pessoaJuridica/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Proposta Comissão Form -->
+	<definition name="propostaComissao.displayList" extends="search.template.definition">
+		<put-attribute name="package.namespace" value="/propostaComissao"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Comissão"/>
+		<put-attribute name="navigation" value="Cadastros || Proposta Comissão || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/propostaComissao/displayList.jsp"/>
+	</definition>
+
+	<definition name="propostaComissao.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Comissão"/>
+		<put-attribute name="package.namespace" value="/propostaComissao"/>
+		<put-attribute name="navigation" value="Cadastros || Proposta Comissão || Edição"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecord2.jsp" />
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/propostaComissao/editTabs.jsp"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/propostaComissao/update.jsp"/>
+	</definition>
+	
+	<definition name="proposta.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/proposta"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Relatórios || Proposta"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/relatoriosAction.jsp"/>
+	</definition>
+	
+	<definition name="apoliceParaRenovacao.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/proposta"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Relatórios || Proposta"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/reports/apoliceParaRenovacaoReport.jsp"/>
+	</definition>
+	
+	<definition name="marcaModelo.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/report"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Relatórios || Proposta"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/reports/relatorioMarcaModelo.jsp"/>
+	</definition>
+	
+	<definition name="aniversariante.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/report"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Proposta"/>
+		<put-attribute name="navigation" value="Relatórios || Proposta"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/reports/relatorioAniversariante.jsp"/>
+	</definition>
+
+	<definition name="ranking.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/proposta"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Ranking de Vendas"/>
+		<put-attribute name="navigation" value="Relatórios || Ranking de Vendas"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/relatoriosRanking.jsp"/>
+	</definition>
+
+	<definition name="comissoes.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/propostaComissao"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Comissões"/>
+		<put-attribute name="navigation" value="Relatórios || Comissoes"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/reports/relatorioComissoesAction.jsp"/>
+	</definition>
+	
+	<definition name="comissoesAReceberERecebidas.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/propostaComissao"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Comissões"/>
+		<put-attribute name="navigation" value="Relatórios || Comissoes"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/reports/relatorioComissoesAReceberERecebidasAction.jsp"/>
+	</definition>
+	
+	<definition name="apolice.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/report"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Apólice p/ Baixa"/>
+		<put-attribute name="navigation" value="Relatórios || Apólice p/ Baixa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/reports/apoliceParaBaixaReport.jsp"/>
+	</definition>
+	
+	<definition name="repasse.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/propostaComissao"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Repasse"/>
+		<put-attribute name="navigation" value="Relatórios || Repasse"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/reports/relatorioRepasseAction.jsp"/>
+	</definition>
+
+	<definition name="compMensalProdutor.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/report"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Relatório Comparativo Mensal por Produtor"/>
+		<put-attribute name="navigation" value="Relatórios || Comparativo Mensal por Produtor"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/relatoriosComparativoMensal.jsp"/>
+	</definition>
+
+	<definition name="compMensalCorretora.relatorios" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/report"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Relatório Comparativo Mensal por Corretora"/>
+		<put-attribute name="navigation" value="Relatórios || Comparativo Mensal por Corretora"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/proposta/relatoriosComparativoMensal.jsp"/>
+	</definition>
+
+	<definition name="mostrar.anexo" extends="editPopup.template.definition">
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Anexo"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordAnexo.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/sinistro/mostrarAnexo.jsp"/>
+	</definition>
+
+	<definition name="menu.displayList" extends="search.template.definition">
+		<put-attribute name="package.namespace" value="/menu"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Menu"/>
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Menus || Lista Hiearquica"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/menu/displayList.jsp"/>
+	</definition>
+
+	<definition name="menu.insert" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Menus || Inclusão"/>
+		<put-attribute name="title" value="Menu"/>
+		<put-attribute name="package.namespace" value="/menu"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/menu/insert.jsp" />
+	</definition>
+
+	<definition name="menu.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Menu"/>
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Menus || Edição"/>
+		<put-attribute name="package.namespace" value="/menu"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/menu/update.jsp" />
+	</definition>
+
+	<definition name="menuBotao.insert" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Menus || Inclusão de Botão"/>
+		<put-attribute name="title" value="Menu/Botão"/>
+		<put-attribute name="package.namespace" value="/menu"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/menu/botaoInsert.jsp" />
+	</definition>
+
+	<definition name="menuBotao.update" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Menus || Edição de Botão"/>
+		<put-attribute name="title" value="Menu/Botão"/>
+		<put-attribute name="package.namespace" value="/menu"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/menu/botaoInsert.jsp" />
+	</definition>
+
+	<definition name="privilegio.displayList" extends="search.template.definition">
+		<put-attribute name="package.namespace" value="/privilegio"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Privilégios"/>
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Privilegios || Lista Hiearquica"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/privilegio/displayList.jsp"/>
+	</definition>
+
+	<definition name="privilegio.insert" extends="edit.template.definition">
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Privilegios || Inclusão"/>
+		<put-attribute name="title" value="Menu"/>
+		<put-attribute name="package.namespace" value="/privilegio"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/privilegio/insert.jsp" />
+	</definition>
+
+	<definition name="privilegio.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Privilégios"/>
+		<put-attribute name="navigation" value="Controle de Acesso || Gerenciamento de Privilegios || Edição"/>
+		<put-attribute name="package.namespace" value="/privilegio"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/privilegio/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/privilegio/update.jsp" />
+	</definition>
+
+	<definition name="usuario.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/usuario"/>
+		<put-attribute name="usuario.id" value="id"/>
+		<put-attribute name="title" value="Usuário"/>
+		<put-attribute name="navigation" value="Cadastros || Usuário || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/usuario/displayList.jsp"/>
+	</definition>
+
+	<definition name="usuario.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Usuário"/>
+		<put-attribute name="package.namespace" value="/usuario"/>
+		<put-attribute name="navigation" value="Cadastros || Usuário || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/usuario/insert.jsp"/>
+	</definition>
+
+	<definition name="usuario.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Usuário"/>
+		<put-attribute name="package.namespace" value="/usuario"/>
+		<put-attribute name="navigation" value="Cadastros || Usuário || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/usuario/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for Acao Form -->
+	<definition name="gerenciarCorretora.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/gerenciarCorretora"/>
+		<put-attribute name="navigation" value="Gerenciar Corretora"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Gerenciar Corretora"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/gerenciarCorretora/displayList.jsp"/>
+	</definition>
+
+	<definition name="gerenciarCorretora.insert" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/gerenciarCorretora"/>
+		<put-attribute name="navigation" value="Gerenciar Corretora"/>
+		<put-attribute name="title" value="Gerenciar Corretora"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/gerenciarCorretora/insert.jsp"/>
+	</definition>
+
+	<definition name="gerenciarCorretora.update" extends="edit.template.definition">
+		<put-attribute name="package.namespace" value="/gerenciarCorretora"/>
+		<put-attribute name="navigation" value="Gerenciar Corretora"/>
+		<put-attribute name="title" value="Gerenciar Corretora"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/gerenciarCorretora/update.jsp"/>
+	</definition>
+	
+	<!-- Tiles Definition for QuestionarioPosVenda Form -->
+	<definition name="questionarioPosVenda.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/questionarioPosVenda"/>
+		<put-attribute name="navigation" value="Cadastro || Questionario p/ Pos Venda || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Questionário p/ Pós-Venda"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/questionarioPosVenda/displayList.jsp"/>
+	</definition>
+
+	<definition name="questionarioPosVenda.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Questionário p/ Pós-Venda"/>
+		<put-attribute name="package.namespace" value="/questionarioPosVenda"/>
+		<put-attribute name="navigation" value="Cadastro || Questionario p/ Pos Venda || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/questionarioPosVenda/insert.jsp" />
+	</definition>
+
+	<definition name="questionarioPosVenda.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Questionário p/ Pós-Venda"/>
+		<put-attribute name="package.namespace" value="/questionarioPosVenda"/>
+		<put-attribute name="navigation" value="Cadastro || Questionario p/ Pos Venda || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/questionarioPosVenda/update.jsp" />
+	</definition>
+
+	<!-- Tiles Definition for PosVenda Form -->
+	<definition name="posVenda.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/posVenda"/>
+		<put-attribute name="navigation" value="Cadastro || Pos Venda || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Pós-Venda"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/posVenda/displayList.jsp"/>
+	</definition>
+
+	<definition name="posVenda.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Pós-Venda"/>
+		<put-attribute name="package.namespace" value="/posVenda"/>
+		<put-attribute name="navigation" value="Cadastro || Pos Venda || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/posVenda/insert.jsp" />
+	</definition>
+
+	<definition name="posVenda.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Pós-Venda"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordSomenteSalvar.jsp" />
+		<put-attribute name="package.namespace" value="/posVenda"/>
+		<put-attribute name="navigation" value="Cadastro || Pos Venda || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/posVenda/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for PosVenda Form -->
+	<definition name="protocolo.displayList" extends="list.template.definition">
+		<put-attribute name="package.namespace" value="/protocolo"/>
+		<put-attribute name="navigation" value="Cadastro || Protocolo || Pesquisa"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Pós-Venda"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/protocolo/displayList.jsp"/>
+	</definition>
+
+	<definition name="protocolo.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Pós-Venda"/>
+		<put-attribute name="package.namespace" value="/protocolo"/>
+		<put-attribute name="navigation" value="Cadastro || Protocolo || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/protocolo/insert.jsp" />
+	</definition>
+
+	<definition name="protocolo.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Pós-Venda"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordSomenteSalvar.jsp" />
+		<put-attribute name="package.namespace" value="/protocolo"/>
+		<put-attribute name="navigation" value="Cadastro || Protocolo || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/protocolo/update.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition for SmsManager Form -->
+	<definition name="smsEventos.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Eventos p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsEventos"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListNavegacao.jsp" />
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Lista"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsEventos/displayList.jsp"/>
+	</definition>
+
+	<definition name="smsEventos.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Eventos p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsEventos"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Inclusão"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsEventos/insert.jsp"/>
+	</definition>
+
+	<definition name="smsEventos.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Eventos p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsEventos"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarEditRecordSomenteSalvar.jsp" />
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsEventos/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for SmsManager Form -->
+	<definition name="smsEventosCorretora.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Eventos p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsEventosCorretora"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Lista"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/smsEventosCorretora/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsEventosCorretora/displayList.jsp"/>
+	</definition>
+
+	<definition name="smsEventosCorretora.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Eventos p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsEventosCorretora"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/smsEventosCorretora/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsEventosCorretora/insert.jsp"/>
+	</definition>
+
+	<definition name="smsEventosCorretora.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Eventos p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsEventosCorretora"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/smsEventosCorretora/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsEventosCorretora/update.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for SmsManager Form -->
+	<definition name="smsTelefonesProdutor.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Telefones p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsTelefonesProdutor"/>
+		<put-attribute name="navigation" value="Cadastro || Telefones SMS || Lista"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/smsTelefonesProdutor/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsTelefonesProdutor/displayList.jsp"/>
+	</definition>
+
+	<definition name="smsTelefonesProdutor.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Telefones p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsTelefonesProdutor"/>
+		<put-attribute name="navigation" value="Cadastro || Telefones SMS || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/smsTelefonesProdutor/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsTelefonesProdutor/insert.jsp"/>
+	</definition>
+
+	<definition name="smsTelefonesProdutor.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Telefones p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsTelefonesProdutor"/>
+		<put-attribute name="navigation" value="Cadastro || Telefones SMS || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/smsTelefonesProdutor/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsTelefonesProdutor/update.jsp"/>
+	</definition>
+	
+	<!-- Tiles Definition for Lancamento no Repasse -->
+	<definition name="repasseComissao.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Lançamento no Repasse"/>
+		<put-attribute name="package.namespace" value="/repasseComissao"/>
+		<put-attribute name="navigation" value="Financeiro || Lançamento no Repasse || Inclusão"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListVazio.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/lancamentoRepasse/insert.jsp" />
+	</definition>
+
+	<definition name="repasseComissao.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Lançamento no Repasse"/>
+		<put-attribute name="package.namespace" value="/repasseComissao"/>
+		<put-attribute name="navigation" value="Financeiro || Lançamento no Repasse || Edição"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/lancamentoRepasse/update.jsp" />
+	</definition>
+
+	<!-- Tiles Definition for SmsManager Form -->
+	<definition name="smsConsoleEnvio.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Console p/ envio de SMS"/>
+		<put-attribute name="package.namespace" value="/smsConsoleEnvio"/>
+		<put-attribute name="tool-bar" value="/WEB-INF/layouts/toolBar/toolBarDisplayListVazio.jsp" />
+		<put-attribute name="navigation" value="Utilitários || Console de SMS"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/smsConsoleEnvio/displayList.jsp"/>
+	</definition>
+
+	<!-- Tiles Definition for CorretoraTipoLancamento Form -->
+	<definition name="corretoraTipoLancamento.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Tipo de Lancamento"/>
+		<put-attribute name="package.namespace" value="/corretoraTipoLancamento"/>
+		<put-attribute name="navigation" value="Cadastro || Tipo de Lancamento || Lista"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/corretoraTipoLancamento/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/corretoraTipoLancamento/displayList.jsp"/>
+	</definition>
+
+	<definition name="corretoraTipoLancamento.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Tipo de Lancamento"/>
+		<put-attribute name="package.namespace" value="/corretoraTipoLancamento"/>
+		<put-attribute name="navigation" value="Cadastro || Tipo de Lancamento || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/corretoraTipoLancamento/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/corretoraTipoLancamento/insert.jsp"/>
+	</definition>
+
+	<definition name="corretoraTipoLancamento.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Tipo de Lancamento"/>
+		<put-attribute name="package.namespace" value="/corretoraTipoLancamento"/>
+		<put-attribute name="navigation" value="Cadastro || Tipo de Lancamento || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/corretoraTipoLancamento/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/corretoraTipoLancamento/update.jsp"/>
+	</definition>
+	
+	<!-- Tiles Definition for Orcamento Corretora Form -->
+	<definition name="orcamentoCorretora.displayList" extends="list.template.definition">
+		<put-attribute name="title" value="Configuração do Orçamento"/>
+		<put-attribute name="package.namespace" value="/orcamentoCorretora"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Lista"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/orcamentoCorretora/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/orcamentoCorretora/displayList.jsp"/>
+	</definition>
+
+	<definition name="orcamentoCorretora.insert" extends="edit.template.definition">
+		<put-attribute name="title" value="Configuração do Orçamento"/>
+		<put-attribute name="package.namespace" value="/smsEventosCorretora"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Inclusão"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/orcamentoCorretora/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/orcamentoCorretora/insert.jsp"/>
+	</definition>
+
+	<definition name="orcamentoCorretora.update" extends="edit.template.definition">
+		<put-attribute name="title" value="Configuração do Orçamento"/>
+		<put-attribute name="package.namespace" value="/orcamentoCorretora"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/orcamentoCorretora/editTabs.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/orcamentoCorretora/update.jsp"/>
+	</definition>
+	
+	<definition name="orcamentoCorretora.modeloMansagem" extends="edit.template.definition">
+		<put-attribute name="title" value="Configuração do Orçamento"/>
+		<put-attribute name="package.namespace" value="/orcamentoCorretora"/>
+		<put-attribute name="navigation" value="Cadastro || Eventos SMS || Edição"/>
+		<put-attribute name="content-tabs" value="/WEB-INF/jsp/orcamentoCorretora/editTabsModeloMensagem.jsp" />
+		<put-attribute name="content-main" value="/WEB-INF/jsp/orcamentoCorretora/modeloMensagem.jsp"/>
+	</definition>
+	
+	<definition name="processarIntegracao.displayList" extends="editIntegracao.template.definition">
+		<put-attribute name="package.namespace" value="/processarIntegracao"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Integração"/>
+		<put-attribute name="navigation" value="Integração || Importar Arquivos || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/integracao/displayList.jsp"/>
+	</definition>
+	
+	<definition name="processarIntegracao.integracaoLote" extends="editIntegracao.template.definition">
+		<put-attribute name="package.namespace" value="/processarIntegracao"/>
+		<put-attribute name="campo.id" value="id"/>
+		<put-attribute name="title" value="Integração"/>
+		<put-attribute name="navigation" value="Integração || Importar Arquivos || Pesquisa"/>
+		<put-attribute name="content-main" value="/WEB-INF/jsp/integracao/integracaoLote.jsp"/>
+	</definition>
+
+</tiles-definitions>

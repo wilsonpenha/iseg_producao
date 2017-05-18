@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="pessoa" extends="struts2" namespace="/pessoa">
+
+		<action name="displayList" method="lista" class="pessoaAction">
+			<result>${listPage}</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="pessoaAction">
+			<result name="input">${listResultPage}</result>
+			<result name="success">${listResultPage}</result>
+			<result name="error">${listResultPage}</result>
+		</action>
+
+		<action name="pesquisaPessoa" class="pessoaAction" method="lista">
+			<result>/WEB-INF/jsp/pessoa/displayListResult.jsp</result>
+		</action>
+
+		<action name="editar" class="iseg.app.action.PessoaAction" method="editar">
+			<result type="chain" name="produtor">
+				<param name="actionName">editar</param>
+				<param name="namespace">/produtor</param>
+			</result>
+			<result type="chain" name="pessoaFisica">
+				<param name="actionName">editar</param>
+				<param name="namespace">/pessoaFisica</param>
+			</result>
+			<result type="chain" name="pessoaJuridica">
+				<param name="actionName">editar</param>
+				<param name="namespace">/pessoaJuridica</param>
+			</result>
+			<result type="chain" name="corretora">
+				<param name="actionName">editar</param>
+				<param name="namespace">/corretora</param>
+			</result>
+			<result type="chain" name="seguradora">
+				<param name="actionName">editar</param>
+				<param name="namespace">/seguradora</param>
+			</result>
+			<result type="tiles" name="input">pessoa.update</result>
+			<result type="tiles" name="error">pessoa.update</result>
+		</action>
+
+		<action name="novo" class="pessoaAction" method="novo">
+			<result type="chain" name="pessoaFisica">
+				<param name="actionName">novo</param>
+				<param name="namespace">/pessoaFisica</param>
+			</result>
+			<result type="chain" name="pessoaJuridica">
+				<param name="actionName">novo</param>
+				<param name="namespace">/pessoaJuridica</param>
+			</result>
+			<result type="tiles" name="input">pessoa.update</result>
+			<result type="tiles" name="error">pessoa.update</result>
+		</action>
+
+		<action name="excluir" class="pessoaAction" method="excluir">
+			<result>${listPage}</result>
+			<result name="error">${listPage}</result>
+		</action>
+	</package>
+</struts>

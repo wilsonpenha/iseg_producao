@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="borderoComissao" extends="struts2" namespace="/borderoComissao">
+
+<!-- 		<action name="displayList" method="lista" class="borderoComissaoAction"> -->
+<!-- 			<result>${listPage}</result> -->
+<!-- 		</action> -->
+		
+<!-- 		<action name="lista*" method="{1}" class="borderoComissaoAction"> -->
+<!-- 			<result name="input">${listResultPage}</result> -->
+<!-- 			<result name="success">${listResultPage}</result> -->
+<!-- 			<result name="error">${listResultPage}</result> -->
+<!-- 		</action> -->
+
+		<action name="displayList" method="lista" class="borderoComissaoAction">
+			<result name="success">/WEB-INF/jsp/borderoComissao/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="borderoComissaoAction">
+			<result name="input">/WEB-INF/jsp/borderoComissao/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/borderoComissao/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/displayListResult.jsp</result>
+		</action>
+
+		<action name="salvarEditar" class="borderoComissaoAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/borderoComissao/allTabs.jsp</result>
+			<result name="success">/WEB-INF/jsp/borderoComissao/allTabs.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/allTabs.jsp</result>
+		</action>
+
+		<action name="novo" class="borderoComissaoAction" method="novo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		</action> 
+
+		<action name="editar" class="borderoComissaoAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		</action> 
+
+		<action name="excluir" class="borderoComissaoAction" method="excluir">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluir</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/borderoComissao/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/displayList.jsp</result>
+		</action> 
+
+		<action name="efetivarBaixa" class="borderoComissaoAction" method="efetivarBaixa">
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		    <result name="invalid.token">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		</action> 
+
+		<action name="fecharLote" class="borderoComissaoAction" method="fecharLote">
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		    <result name="invalid.token">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		</action> 
+
+		<action name="gerarLoteEstorno" class="borderoComissaoAction" method="gerarLoteEstorno">
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		    <result name="invalid.token">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		</action> 
+
+		<action name="copiarLote" class="borderoComissaoAction" method="copiarLote">
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		    <result name="invalid.token">/WEB-INF/jsp/borderoComissao/lancaBorderoComissao.jsp</result>
+		</action> 
+
+		<action name="inserirLancamento" class="borderoComissaoAction" method="inserirLancamento">
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+		</action>
+
+		<action name="editarLancamento" class="borderoComissaoAction" method="editarLancamento">
+			<result name="success">/WEB-INF/jsp/borderoComissao/dadosLancamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/dadosLancamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/dadosLancamento.jsp</result>
+		</action>
+
+		<action name="removerLancamento" class="borderoComissaoAction" method="removerLancamento">
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+		</action>
+		
+		<action name="consultarBorderoLancamento" class="borderoComissaoAction" method="consultarBorderoLancamento">
+			<result name="success">/WEB-INF/jsp/borderoComissao/modallinkProposta.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/modallinkProposta.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/modallinkProposta.jsp</result>
+		</action>
+		
+		<action name="editarBorderoLancamento" class="borderoComissaoAction" method="editarBorderoLancamento">
+			<result name="success">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+			<result name="error">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+			<result name="input">/WEB-INF/jsp/borderoComissao/lancamentos.jsp</result>
+		</action>
+		
+		<action name="consultarProposta" class="borderoComissaoAction" method="consultarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">consultarProposta</param>
+			</interceptor-ref>
+		  	<result type="stream" name="success">
+		  		<param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+          	</result>
+		</action>
+	</package>
+</struts>

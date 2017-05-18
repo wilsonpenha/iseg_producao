@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelProducaoRealizado_subreport" pageWidth="154" pageHeight="11" columnWidth="154" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="5.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="INICIO_VIGENCIA" class="java.util.Date"/>
+	<parameter name="IS_FATURA" class="java.lang.Boolean">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_VIGENCIA" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PROPOSTA_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select
+	sum(repasse.valor_comissao) as valor_comissao
+	, sum(repasse.valor_repasse) as valor_repasse
+	, sum(repasse.valor_agenciado) as valor_agenciado
+from
+(
+	select
+		sum(bl.valor_comissao) as valor_comissao
+       		, 0 as valor_repasse
+       		, 0 as valor_agenciado
+        	from
+		bordero_lancamento bl
+	where
+		bl.proposta_id = $P{PROPOSTA_ID}
+		and (
+			false = $P{IS_FATURA}
+			OR (date_part('year',bl.referencia_parcela::date)*100 + date_part('month',bl.referencia_parcela::date))
+			between
+			(date_part('year',$P{INICIO_VIGENCIA}::date)*100 + date_part('month',$P{INICIO_VIGENCIA}::date))
+			and (date_part('year',$P{FIM_VIGENCIA}::date)*100 + date_part('month',$P{FIM_VIGENCIA}::date)))
+	group by
+		bl.proposta_id
+
+union all
+
+	select
+		0 as valor_comissao
+       		, sum(rc.valor_pago) as valor_repasse
+       		, 0 as valor_agenciado
+       	from
+		bordero_lancamento bl
+	inner join repasse_comissao rc on  bl.id = rc.bordero_lancamento_id
+	where
+		bl.proposta_id = $P{PROPOSTA_ID}
+		and rc.comissionado_id is not null
+		and (
+			false = $P{IS_FATURA}
+			OR (date_part('year',bl.referencia_parcela::date)*100 + date_part('month',bl.referencia_parcela::date))
+			between
+			(date_part('year',$P{INICIO_VIGENCIA}::date)*100 + date_part('month',$P{INICIO_VIGENCIA}::date))
+			and (date_part('year',$P{FIM_VIGENCIA}::date)*100 + date_part('month',$P{FIM_VIGENCIA}::date)))
+	group by
+		bl.proposta_id
+
+union all
+
+	select
+		0 as valor_comissao
+       		, 0 as valor_repasse
+       		, sum(rc.valor_pago) as valor_agenciado
+       	from
+		bordero_lancamento bl
+	inner join repasse_comissao rc on bl.id = rc.bordero_lancamento_id
+	where
+		bl.proposta_id = $P{PROPOSTA_ID}
+		and rc.agenciado_id is not null
+		and (
+			false = $P{IS_FATURA}
+			OR (date_part('year',bl.referencia_parcela::date)*100 + date_part('month',bl.referencia_parcela::date))
+			between
+			(date_part('year',$P{INICIO_VIGENCIA}::date)*100 + date_part('month',$P{INICIO_VIGENCIA}::date))
+			and (date_part('year',$P{FIM_VIGENCIA}::date)*100 + date_part('month',$P{FIM_VIGENCIA}::date)))
+	group by
+		bl.proposta_id
+) repasse]]>
+	</queryString>
+	<field name="valor_comissao" class="java.math.BigDecimal"/>
+	<field name="valor_repasse" class="java.math.BigDecimal"/>
+	<field name="valor_agenciado" class="java.math.BigDecimal"/>
+	<variable name="TOTAL_COMISSAO" class="java.math.BigDecimal" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_comissao}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{valor_comissao}]]></initialValueExpression>
+	</variable>
+	<variable name="TOTAL_AGENCIAMENTO" class="java.math.BigDecimal" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_agenciado}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{valor_agenciado}]]></initialValueExpression>
+	</variable>
+	<variable name="TOTAL_REPASSE" class="java.math.BigDecimal" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_repasse}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{valor_repasse}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-8" x="0" y="0" width="50" height="11"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{valor_comissao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-8" x="50" y="0" width="50" height="11"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{valor_repasse}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-8" x="100" y="0" width="54" height="11"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{valor_agenciado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

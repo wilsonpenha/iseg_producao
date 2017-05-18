@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="dominioEsp" extends="struts2" namespace="/dominioEsp">
+		<action name="displayList" method="lista" class="dominioEspAction">
+			<result type="tiles" name="none">dominioEsp.insert</result>
+			<result type="tiles" name="input">dominioEsp.update</result>
+			<result type="tiles" name="success">dominioEsp.displayList</result>
+			<result type="tiles" name="error">dominioEsp.displayList</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="dominioEspAction">
+			<result type="tiles" name="success">dominioEsp.displayList</result>
+			<result type="tiles" name="error">dominioEsp.displayList</result>
+		</action>
+		
+		<action name="excluir" class="dominioEspAction" method="excluir">
+			<result type="tiles" name="success">dominioEsp.displayList</result>
+			<result type="tiles" name="error">dominioEsp.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="dominioEspAction" method="salvarLista">
+			<result type="tiles" name="none">dominioEsp.insert</result>
+			<result type="tiles" name="input">dominioEsp.update</result>
+			<result type="tiles" name="success">dominioEsp.displayList</result>
+			<result type="tiles" name="error">dominioEsp.update</result>
+		</action>
+		
+		<action name="salvarNovo" class="dominioEspAction" method="salvarNovo">
+			<result type="tiles" name="input">dominioEsp.insert</result>
+			<result type="tiles" name="success">dominioEsp.insert</result>
+			<result type="tiles" name="error">dominioEsp.insert</result>
+		</action>
+		
+		<action name="salvarEditar" class="dominioEspAction" method="salvarEditar">
+			<result type="tiles" name="input">dominioEsp.update</result>
+			<result type="tiles" name="success">dominioEsp.update</result>
+			<result type="tiles" name="error">dominioEsp.update</result>
+		</action>
+		
+		<action name="novo" class="dominioEspAction" method="novo">
+			<result type="tiles" name="success">dominioEsp.insert</result>
+			<result type="tiles" name="error">dominioEsp.insert</result>
+		</action>
+		
+		<action name="editar" class="dominioEspAction" method="editar">
+			<result type="tiles" name="success">dominioEsp.update</result>
+			<result type="tiles" name="error">dominioEsp.update</result>
+		</action>
+	</package>
+</struts>

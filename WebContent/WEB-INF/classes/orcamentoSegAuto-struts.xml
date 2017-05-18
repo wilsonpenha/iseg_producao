@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="orcamentoSegAuto" extends="struts2" namespace="/orcamentoSegAuto">
+		
+		<result-types> 
+			<result-type name="myStream"  default="false" class="iseg.utils.CustomStreamResult"/>
+		</result-types>
+		
+		<action name="displayList" method="lista" class="orcamentoSegAutoAction">
+			<result name="success">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="orcamentoSegAutoAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo,lista,next,previous,last</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+			<result name="edicao">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+		</action>
+
+		<action name="editar" class="orcamentoSegAutoAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+		</action> 
+		
+		<action name="checarParcelas" class="orcamentoSegAutoAction" method="checarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">checarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+		</action>
+ 
+		<action name="novo" class="orcamentoSegAutoAction" method="novo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/orcamentoSegAuto.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="orcamentoSegAutoAction" method="excluir">
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+		</action>
+ 
+		<action name="cancelarProposta" class="orcamentoSegAutoAction" method="cancelarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">cancelarProposta</param>
+			</interceptor-ref>
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSeguro/displayList.jsp</result>
+		</action>
+ 
+		<action name="salvarEditar" class="orcamentoSegAutoAction" method="salvarEditar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">salvarEditar</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabPane${currentTab}.jsp</result>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabPane${currentTab}.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/tabPane${currentTab}.jsp</result>
+		</action>
+		
+		<action name="salvarCalculoOrcamentoSegAuto" class="orcamentoSegAutoAction" method="salvarCalculoOrcamentoSegAuto">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">salvarCalculoOrcamentoSegAuto</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabsModalOrcamentoSegAuto.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabsModalOrcamentoSegAuto.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/erro.jsp</result>
+		</action>
+	
+		<action name="calculoSeguroBradesco" class="orcamentoSegAutoAction" method="calculoSeguroBradesco">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">calculoSeguroBradesco</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabsModalOrcamentoSegAuto.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabsModalOrcamentoSegAuto.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaMensagensCalculoOnline.jsp</result>
+		</action>
+
+		<action name="gerarParcelasOrcamentoFranquias" class="orcamentoSegAutoAction" method="gerarParcelasOrcamentoFranquias">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">gerarParcelasOrcamentoFranquias</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/parcelas.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="orcamentoSegAutoAction" method="lista">
+			<result name="success">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSeguro/displayListResult.jsp</result>
+		</action>
+
+		<action name="inserirTabsOrcamentoSegAuto" class="orcamentoSegAutoAction" method="inserirTabsOrcamentoSegAuto">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirTabsOrcamentoSegAuto</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabsModalOrcamentoSegAuto.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabsModalOrcamentoSegAuto.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/tabsModalOrcamentoSegAuto.jsp</result>
+		</action>
+		
+		<action name="inserirOrcamentoCoberturaIseg" class="orcamentoSegAutoAction" method="inserirOrcamentoCoberturaIseg">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirOrcamentoCoberturaIseg</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelCobertura.jsp</result>
+			<result name="error" type="stream">
+				<param name="contentType">text/html</param>
+		     	<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		<action name="inserirOrcamentoServicosIseg" class="orcamentoSegAutoAction" method="inserirOrcamentoServicosIseg">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirOrcamentoServicosIseg</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+			<result name="error" type="stream">
+				<param name="contentType">text/html</param>
+		     	<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="inserirOrcamentoSeguradora" class="orcamentoSegAutoAction" method="inserirOrcamentoSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirOrcamentoSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoSeguradora.jsp</result>
+		</action>
+		
+		<action name="inserirFranquiaOrcamentoSeguradora" class="orcamentoSegAutoAction" method="inserirFranquiaOrcamentoSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirFranquiaOrcamentoSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowFranquiaOrcamentoSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowFranquiaOrcamentoSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/rowFranquiaOrcamentoSeguradora.jsp</result>
+		</action>
+	
+		<action name="removeFranquiaOrcamentoSeguradora" class="orcamentoSegAutoAction" method="removeFranquiaOrcamentoSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removeFranquiaOrcamentoSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+		</action>
+		
+		<action name="removeOrcamentoSeguradora" class="orcamentoSegAutoAction" method="removeOrcamentoSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removeOrcamentoSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+		</action>
+		
+		<action name="fecharOrcamentoSeguradora" class="orcamentoSegAutoAction" method="fecharOrcamentoSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">fecharOrcamentoSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaOrcamentoSeguradora.jsp</result>
+		</action>
+			
+		<action name="inserirCondutor" class="orcamentoSegAutoAction" method="inserirCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaCondutores.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaCondutores.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaCondutores.jsp</result>
+		</action>
+		
+		<action name="editarCondutor" class="orcamentoSegAutoAction" method="editarCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/dadosCondutor.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/dadosCondutor.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/dadosCondutor.jsp</result>
+		</action>
+
+		<action name="excluirCondutor" class="orcamentoSegAutoAction" method="excluirCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaCondutores.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaCondutores.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaCondutores.jsp</result>
+		</action>
+		
+		<action name="pesquisaDadosPessoa" class="orcamentoSegAutoAction" method="pesquisaDadosPessoa">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">pesquisaDadosPessoa</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/dadosCondutor.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/dadosCondutor.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/dadosCondutor.jsp</result>
+		</action>
+		
+		<action name="vistoriadoraPorSeguradora" class="orcamentoSegAutoAction" method="getVistoriadoraBySeguradoraList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getVistoriadoraBySeguradoraList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/comboListVistoriadora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/comboListVistoriadora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/comboListVistoriadora.jsp</result>
+		</action>
+
+		<action name="condPagtoPorSeguradora" class="orcamentoSegAutoAction" method="getCondPagtoPorSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getCondPagtoPorSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/comboListCondPagto.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/comboListCondPagto.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/comboListCondPagto.jsp</result>
+		</action>
+
+		<action name="orcamentoSegAutoModeloVeiculo" class="orcamentoSegAutoAction" method="getModeloVeiculoList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getModeloVeiculoList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/comboListModeloVeiculo.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/comboListModeloVeiculo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/comboListModeloVeiculo.jsp</result>
+		</action>
+
+		<action name="orcamentoSegAutoDadosCliente" class="orcamentoSegAutoAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+		</action>
+
+		<action name="novoDadosClienteForm" class="orcamentoSegAutoAction" method="novoDadosClienteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosClienteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="alterarGrupoVenda" class="orcamentoSegAutoAction" method="alterarGrupoVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/dadosComissaoAPagar.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/dadosComissaoAPagar.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/dadosComissaoAPagar.jsp</result>
+		</action>
+		
+		<action name="inserirCobertura" class="orcamentoSegAutoAction" method="inserirCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelCobertura.jsp</result>
+		</action>
+		
+		<action name="inserirServico" class="orcamentoSegAutoAction" method="inserirServico">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirServico</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+		</action>
+		
+		<action name="inserirVeiculoModelo" class="orcamentoSegAutoAction" method="inserirVeiculoModelo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirVeiculoModelo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/rowAutomovelServico.jsp</result>
+		</action>
+
+		<action name="novoItem" class="orcamentoSegAutoAction" method="novoItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+		</action>
+
+		<action name="editarAutomovel" class="orcamentoSegAutoAction" method="editarAutomovel">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarAutomovel</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+		</action>
+
+		<action name="removerItem" class="orcamentoSegAutoAction" method="removerItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removerItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/tabPane2.jsp</result>
+		</action>
+		
+		<action name="wizardDadosClienteOrcamento" class="orcamentoSegAutoAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="abrirModalCoberturaSeguradora" class="orcamentoSegAutoAction" method="abrirModalCoberturaSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">abrirModalCoberturaSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/formDadosCoberturaSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/formDadosCoberturaSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/formDadosCoberturaSeguradora.jsp</result>
+		</action>
+		
+		<action name="inserirCoberturaSeguradora" class="orcamentoSegAutoAction" method="inserirCoberturaSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCoberturaSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoCobertura.jsp</result>
+		</action>
+		
+		<action name="abrirModalServicoSeguradora" class="orcamentoSegAutoAction" method="abrirModalServicoSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">abrirModalServicoSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/formDadosServicoSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/formDadosServicoSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/formDadosServicoSeguradora.jsp</result>
+		</action>
+		
+		<action name="inserirServicoSeguradora" class="orcamentoSegAutoAction" method="inserirServicoSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirServicoSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoServico.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoServico.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/rowOrcamentoServico.jsp</result>
+		</action>
+		
+		<action name="inserirAnexo" class="orcamentoSegAutoAction" method="inserirAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+		</action>
+
+		<action name="editarAnexo" class="orcamentoSegAutoAction" method="editarAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/dadosAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/dadosAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/dadosAnexo.jsp</result>
+		</action>
+
+		<action name="excluirAnexo" class="orcamentoSegAutoAction" method="excluirAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+		</action>
+
+		<action name="preparaMostrarAnexo" class="orcamentoSegAutoAction" method="preparaMostrarAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">preparaMostrarAnexo</param>
+			</interceptor-ref>
+			<result name="popup" type="tiles">mostrar.anexo</result>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/mostrarAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/mostrarAnexo.jsp</result>
+		</action>
+
+		<action name="mostrarAnexo" class="orcamentoSegAutoAction" method="mostrarAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">mostrarAnexo</param>
+			</interceptor-ref>
+			<result name="success" type="stream">
+				<param name="contentType">${propostaAnexo.contentType}</param>  
+				<param name="inputName">propostaAnexo.anexoStream</param>  
+				<param name="contentDisposition">attachment;filename="${propostaAnexo.nome}"</param> 
+				<param name="bufferSize">1024</param>  
+			</result>
+		</action>
+
+		<action name="mostrarMiniaturaAnexo" class="orcamentoSegAutoAction" method="mostrarAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">mostrarMiniaturaAnexo</param>
+			</interceptor-ref>
+			<result name="success" type="myStream">
+				<param name="contentType">${propostaAnexo.contentType}</param>  
+				<param name="inputName">propostaAnexo.anexoMiniaturaStream</param>  
+				<param name="contentDisposition">${propostaAnexo.nome}</param>  
+				<param name="bufferSize">1024</param>  
+			</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/mostrarAnexo.jsp</result>
+		</action>
+		
+		<action name="mostrarGalleryAnexo" class="orcamentoSegAutoAction" method="mostrarAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">mostrarGalleryAnexo</param>
+			</interceptor-ref>
+			<result name="success" type="myStream">
+				<param name="contentType">${propostaAnexo.contentType}</param>  
+				<param name="inputName">propostaAnexo.anexoGalleryStream</param>  
+				<param name="contentDisposition">${propostaAnexo.nome}</param>  
+				<param name="bufferSize">1024</param>  
+			</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/mostrarAnexo.jsp</result>
+		</action>
+		
+		<action name="carregarAnexos" class="orcamentoSegAutoAction" method="carregarAnexos">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">carregarAnexos</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/listaAnexo.jsp</result>
+		</action>
+		
+		<action name="popupResumoOrcamento" class="orcamentoSegAutoAction" method="popupResumoOrcamento">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">popupResumoOrcamento</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/popupResumoOrcamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/popupResumoOrcamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/popupResumoOrcamento.jsp</result>
+		</action>
+		
+		<action name="gerarPropostaOrcamento" class="orcamentoSegAutoAction" method="gerarPropostaOrcamento">
+			<result type="chain" name="propostaAuto">
+				<param name="actionName">editar</param>
+				<param name="namespace">/wizard</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/erro.jsp</result>
+		</action>
+		
+		<action name="abrirModalGerarProposta" class="orcamentoSegAutoAction" method="abrirModalGerarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">abrirModalGerarProposta</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/resumoOrcamentoAndFranquias.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/resumoOrcamentoAndFranquias.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/resumoOrcamentoAndFranquias.jsp</result>
+		</action>
+		
+		<action name="listaCorretorPorGrupoDeVenda" class="orcamentoSegAutoAction" method="listaCorretorPorGrupoDeVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">listaCorretorPorGrupoDeVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/comboCorretorPorGrupoDeVenda.jsp</result>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/comboCorretorPorGrupoDeVenda.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/comboCorretorPorGrupoDeVenda.jsp</result>
+		</action>
+		
+		<action name="finalizarCalculo" class="orcamentoSegAutoAction" method="finalizarCalculo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">finalizarCalculo</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/orcamentoSegAuto/tabPane${currentTab}.jsp</result>
+			<result name="success">/WEB-INF/jsp/orcamentoSegAuto/tabPane${currentTab}.jsp</result>
+			<result name="error">/WEB-INF/jsp/orcamentoSegAuto/tabPane${currentTab}.jsp</result>
+		</action>
+		
+		<action name="enviarOrcamentoEmail" class="orcamentoSegAutoAction" method="enviarOrcamentoEmail">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">enviarOrcamentoEmail</param>
+			</interceptor-ref>
+			<result type="stream" name="success">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+		    </result>
+		</action>
+		
+		<action name="gerarOrcamento" class="orcamentoSegAutoAction" method="gerarOrcamento">
+			<result type="stream" name="success">
+                <param name="inputName">inputStream</param>
+            </result>
+		</action>
+		
+		<action name="atualizacaoPolling" class="orcamentoSegAutoAction" method="atualizacaoPolling">
+		  <result type="stream">
+		     <param name="contentType">text/html</param>
+		     <param name="inputName">inputStream</param>
+		   </result>
+		</action>
+		
+	</package>
+</struts>

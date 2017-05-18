@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelListagemRenovacoesDetalhado_auto" pageWidth="782" pageHeight="802" columnWidth="782" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="8.0"/>
+	<property name="ireport.x" value="2529"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="proposta_id" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SITUACAO_OPERACIONAL" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+	COALESCE(fabricante.nome, fabricante2.nome) || ' - ' || COALESCE(modelo.descricao, automovel.modelo_nome) AS bemSegurado,
+	automovel.classe_bonus,
+	automovel.nro_chassis,
+	automovel.nro_placa,
+	automovel.ano_fabricacao,
+	automovel.ano_modelo,
+	automovel.codigo_identificacao,
+	(SELECT COUNT(1) FROM PROPOSTA_AUTOMOVEL WHERE  PROPOSTA_AUTOMOVEL.proposta_id = proposta.id) AS qtdItens
+FROM PROPOSTA proposta
+	INNER JOIN PROPOSTA_AUTOMOVEL proposta_automovel ON proposta_automovel.proposta_id = proposta.id
+	INNER JOIN AUTOMOVEL automovel ON automovel.id = proposta_automovel.automovel_id
+	LEFT JOIN VEICULO_MODELO modelo ON automovel.modelo_veiculo_id = modelo.id
+	LEFT JOIN FABRICANTE fabricante ON fabricante.id = modelo.fabricante_id
+	LEFT JOIN FABRICANTE fabricante2 on fabricante2.id = automovel.fabricante_id
+WHERE  proposta.id = $P{proposta_id}
+LIMIT 1]]>
+	</queryString>
+	<field name="bemsegurado" class="java.lang.String"/>
+	<field name="classe_bonus" class="java.lang.String"/>
+	<field name="nro_chassis" class="java.lang.String"/>
+	<field name="nro_placa" class="java.lang.String"/>
+	<field name="ano_fabricacao" class="java.lang.String"/>
+	<field name="ano_modelo" class="java.lang.String"/>
+	<field name="codigo_identificacao" class="java.lang.String"/>
+	<field name="qtditens" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="8" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-1" x="1" y="0" width="36" height="8"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Bônus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-2" x="37" y="0" width="36" height="8"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[C.I.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-3" x="96" y="0" width="36" height="8"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Chassi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-4" x="185" y="0" width="36" height="8"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" x="221" y="0" width="98" height="8"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Ano/Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-6" x="349" y="0" width="290" height="8"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Bem Segurado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" x="319" y="0" width="30" height="8"/>
+				<box leftPadding="0" rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Qtd]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="9" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-2" x="1" y="0" width="36" height="9"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{classe_bonus}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-3" x="37" y="0" width="59" height="9"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{codigo_identificacao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-4" x="96" y="0" width="89" height="9"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nro_chassis}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-5" x="185" y="0" width="36" height="9"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nro_placa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-6" x="221" y="0" width="98" height="9"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[new String($F{ano_fabricacao}).concat("/").concat(new String($F{ano_modelo}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-7" x="349" y="0" width="290" height="9"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{bemsegurado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="319" y="0" width="30" height="9"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{qtditens}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch">
+			<line>
+				<reportElement key="line-1" x="0" y="1" width="782" height="1" forecolor="#000000" backcolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.05" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

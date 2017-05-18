@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="smsEventosCorretora" extends="struts2" namespace="/smsEventosCorretora">
+		<action name="displayList" method="lista" class="smsEventosCorretoraAction">
+			<result type="tiles" name="input">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="success">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="error">smsEventosCorretora.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="smsEventosCorretoraAction">
+			<result type="tiles" name="input">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="success">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="error">smsEventosCorretora.displayList</result>
+		</action>
+		
+		<action name="excluir" class="smsEventosCorretoraAction" method="excluir">
+			<result type="tiles" name="input">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="success">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="error">smsEventosCorretora.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="smsEventosCorretoraAction" method="salvarLista">
+			<result type="tiles" name="input">smsEventosCorretora.insert</result>
+			<result type="tiles" name="success">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="error">smsEventosCorretora.update</result>
+		</action>
+
+		<action name="salvarNovo" class="smsEventosCorretoraAction" method="salvarNovo">
+			<result type="tiles" name="input">smsEventosCorretora.insert</result>
+			<result type="tiles" name="success">smsEventosCorretora.insert</result>
+			<result type="tiles" name="error">smsEventosCorretora.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="smsEventosCorretoraAction" method="salvarEditar">
+			<result type="tiles" name="input">smsEventosCorretora.update</result>
+			<result type="tiles" name="success">smsEventosCorretora.update</result>
+			<result type="tiles" name="error">smsEventosCorretora.update</result>
+		</action>
+
+		<action name="novo" class="smsEventosCorretoraAction" method="novo">
+			<result type="tiles" name="success">smsEventosCorretora.insert</result>
+			<result type="tiles" name="error">smsEventosCorretora.displayList</result>
+		</action>
+
+		<action name="editar" class="smsEventosCorretoraAction" method="editar">
+			<result type="tiles" name="success">smsEventosCorretora.update</result>
+			<result type="tiles" name="input">smsEventosCorretora.displayList</result>
+			<result type="tiles" name="error">smsEventosCorretora.displayList</result>
+		</action>
+	</package>
+</struts>

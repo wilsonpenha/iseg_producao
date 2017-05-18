@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://services.controller.wsat.paol.bradseg.com.br" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="http://vo.model.calculoauto.paol.bradseg.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns3="http://qar.client.model.subscricao.paol.bradseg.com.br" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:ns2="http://vo.model.subscricao.paol.bradseg.com.br" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://services.controller.wsat.paol.bradseg.com.br">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://vo.model.calculoauto.paol.bradseg.com.br">
+<xsd:complexType name="ECalculoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="ECoberturaEndossoVo" type="ns1:ECoberturaEndossoVo" />
+<xsd:element minOccurs="0" name="EDadosApoliceVo" type="ns1:EDadosApoliceVo" />
+<xsd:element minOccurs="0" name="EPagamentoVo" type="ns1:EPagamentoEndossoVo" />
+<xsd:element minOccurs="0" name="EParametroEndossoVo" type="ns1:EParametroEndossoVo" />
+<xsd:element minOccurs="0" name="EPerfilPessoaEndossoVoProprietario" type="ns1:EPerfilPessoaEndossoVo" />
+<xsd:element minOccurs="0" name="EPerfilPessoaEndossoVoSegurado" type="ns1:EPerfilPessoaEndossoVo" />
+<xsd:element minOccurs="0" name="ERenovacaoEndossoVo" type="ns1:ERenovacaoEndossoVo" />
+<xsd:element minOccurs="0" name="ETeleEmpresaEndossoVo" type="ns1:ETeleEmpresaEndossoVo" />
+<xsd:element minOccurs="0" name="EVeiculoEndossoVo" type="ns1:EVeiculoEndossoVo" />
+<xsd:element minOccurs="0" name="cdAgenciaCobranca" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdAgenciaDebito" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdBancoCobranca" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdBancoDebito" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCindMesaNegocio" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdContaDebito" type="xsd:long" />
+<xsd:element minOccurs="0" name="cdEmpresa" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdInspetoria" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdItem" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdModalidade" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdProdutoCliente" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdRegiao" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdRelacaoSeguradoProprietario" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSucursal" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoPagtoCarne" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoPessoaProprietario" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdTipoPessoaSegurado" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdTipoSistema" type="xsd:int" />
+<xsd:element minOccurs="0" name="cnroContrato" type="xsd:string" />
+<xsd:element minOccurs="0" name="dsDocumento" type="xsd:string" />
+<xsd:element minOccurs="0" name="dsEmail" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtEmissao" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtFinalVigencia" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtInicioVigencia" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtInicioVigenciaApolice" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtLeasing" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtProcessamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtSubstituicao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flExigenciaMatricula" type="xsd:string" />
+<xsd:element minOccurs="0" name="flImprimeCCB" type="xsd:string" />
+<xsd:element minOccurs="0" name="flIndiceOCT" type="xsd:string" />
+<xsd:element minOccurs="0" name="flNovaTarifa" type="xsd:string" />
+<xsd:element minOccurs="0" name="flReterDevolucao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flTeleEmpresaFatura" type="xsd:string" />
+<xsd:element minOccurs="0" name="listaClausulas" type="ns1:ArrayOfClausulasEndossoVo" />
+<xsd:element minOccurs="0" name="listaMotivos" type="ns1:ArrayOfEMotivoEndossoVo" />
+<xsd:element minOccurs="0" name="nmOrgaoEmissor" type="xsd:string" />
+<xsd:element minOccurs="0" name="nmProponente" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuBonus" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuCEP" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuControleLeasing" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjCorretor" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjProponente" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuDiaVencimento" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDigitoAgenciaDebito" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDigitoContaDebito" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDocumento" type="xsd:string" />
+<xsd:element minOccurs="0" name="pcComissaoAPP" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcComissaoAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcComissaoRCF" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcDescontoAPP" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcDescontoAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcDescontoRCF" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcFatorAgravo" type="xsd:double" />
+<xsd:element minOccurs="0" name="pctDescontoPromocional" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmPagoTotal" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ERenovacaoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdApoliceAnterior" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdBonusApoliceAnterior" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdChaveIdentificacao" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdCiaRenovacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdColigada" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdItemAnterior" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSucursalAnterior" type="xsd:int" />
+<xsd:element minOccurs="0" name="flComodatoApoliceAnterior" type="xsd:string" />
+<xsd:element minOccurs="0" name="flGrupoBradesco" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuDigitoApoliceAnt" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuSinistros" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EParametroEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCorretor" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoPessoaCorretor" type="xsd:string" />
+<xsd:element minOccurs="0" name="flAdicionalFracionamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCustoApolice" type="xsd:string" />
+<xsd:element minOccurs="0" name="flIOF" type="xsd:string" />
+<xsd:element minOccurs="0" name="flPessoaCorretor" type="xsd:string" />
+<xsd:element minOccurs="0" name="flProRata" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjCorretor" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEMotivoEndossoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="EMotivoEndossoVo" type="ns1:EMotivoEndossoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EMotivoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdMotivo" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ETeleEmpresaEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdAgenciaFilial" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdDepartamento" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdIdentidade" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdParentescoTeleempresa" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSubEstipulante" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoGrupo" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuMatricula" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EPagamentoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdOpcaoPagtoDemais" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdOpcaoPagtoPrim" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDiaVencimento" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuParcelas" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlAdicionalFinal" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlDemaisParcelas" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFatorJuros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlIofFinal" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlPrimeiraParcela" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EDadosApoliceVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCategoriaAuto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdOpcPagto1Parcela" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdOpcPagtoDemaisParcelas" type="xsd:int" />
+<xsd:element minOccurs="0" name="dtFimExtensaoPerimetro" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtFinalExtPerimetroApolice" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtInicioExtPerimetroApolice" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtInicioExtensaoPerimetro" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtInicioVigenciaApolice" type="xsd:string" />
+<xsd:element minOccurs="0" name="isAppInvalidezApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isAppMorteApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isBlindagemApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isCarroceriaApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isCascoApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosCorporaisApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosMateriaisApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosMoraisApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isEquipamentoApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="isGarantiaUnicaApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="isKitGasApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="nuApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuCepApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDiasApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuItemApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="pcAjusteValorVeiculoApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="pcDescontoPromocionalApolice" type="xsd:int" />
+<xsd:element minOccurs="0" name="prmAcessorios" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmApp" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAssistencia" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmBlindagem" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCarroReserva" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCasco" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosCorporais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosMateriais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosMorais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDespesasExtraordinarias" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDiariaParalizacao" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmEquipamentos" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmExtensaoPerimetro" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmExtensaoPerimetroRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmGarantiaUnica" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmPagoApp" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmPagoAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmPagoRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmVidros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlCustoApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquia" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaEquipamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaVidros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlIofApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlTotalAcessorios" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EVeiculoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdAntiFurto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdAplicacaoCargaTransportada" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCarroceria" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCategoriaAuto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCategoriaRcf" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCombustivel" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdFranquia" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdKmRodadoMes" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdPeriodoViagem" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdProduto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSemiReboque" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoAplicacaoVolvo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdUsoVeiculo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculoFipe" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculoTransformado" type="xsd:int" />
+<xsd:element minOccurs="0" name="dtSaidaConcessionaria" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCadastroMotorista" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCarroceriaBasculante" type="xsd:string" />
+<xsd:element minOccurs="0" name="flChassiRemarcado" type="xsd:string" />
+<xsd:element minOccurs="0" name="flComodato" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCursoDirecao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flIdenticar" type="xsd:string" />
+<xsd:element minOccurs="0" name="flPlanoManutencao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flValorMercado" type="xsd:string" />
+<xsd:element minOccurs="0" name="listaAcessorios" type="ns1:ArrayOfEAcessorioEndossoVo" />
+<xsd:element minOccurs="0" name="listaEquipamentos" type="ns1:ArrayOfEEquipamentoEndossoVo" />
+<xsd:element minOccurs="0" name="listaOpcionais" type="ns1:ArrayOfEOpcionalEndossoVo" />
+<xsd:element minOccurs="0" name="nuAnoFabricacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuAnoModelo" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuChassi" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuEixo" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuPassageiros" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuPlaca" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuPortas" type="xsd:int" />
+<xsd:element minOccurs="0" name="pcAjusteValorVeiculo" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlVeiculoFipe" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEAcessorioEndossoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="EAcessorioEndossoVo" type="ns1:EAcessorioEndossoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EAcessorioEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdAcessorio" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlAcessorio" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEOpcionalEndossoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="EOpcionalEndossoVo" type="ns1:EOpcionalEndossoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EOpcionalEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdOpcional" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEEquipamentoEndossoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="EEquipamentoEndossoVo" type="ns1:EEquipamentoEndossoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EEquipamentoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdEquipamento" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlEquipamento" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfClausulasEndossoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ClausulasEndossoVo" type="ns1:ClausulasEndossoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ClausulasEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdClausula" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EPerfilPessoaEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="EEnderecoEndossoCobranca" type="ns1:EEnderecoEndossoVo" />
+<xsd:element minOccurs="0" name="EEnderecoEndossoRisco" type="ns1:EEnderecoEndossoVo" />
+<xsd:element minOccurs="0" name="ETelefoneEndossoCelular" type="ns1:ETelefoneEndossoVo" />
+<xsd:element minOccurs="0" name="ETelefoneEndossoComercial" type="ns1:ETelefoneEndossoVo" />
+<xsd:element minOccurs="0" name="ETelefoneEndossoResidencial" type="ns1:ETelefoneEndossoVo" />
+<xsd:element minOccurs="0" name="cdEstadoCivil" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdFaixaRenda" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdOcupacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSexo" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdTipoPerfil" type="xsd:int" />
+<xsd:element minOccurs="0" name="dtNascimento" type="xsd:string" />
+<xsd:element minOccurs="0" name="flFilhosAte16Anos" type="xsd:string" />
+<xsd:element minOccurs="0" name="flFilhosEntre17e25" type="xsd:string" />
+<xsd:element minOccurs="0" name="flHaMaisVeiculoGaragem" type="xsd:string" />
+<xsd:element minOccurs="0" name="flveiculoPernoiteGaragem" type="xsd:string" />
+<xsd:element minOccurs="0" name="nmPessoa" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpj" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ETelefoneEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdTipoTelefone" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDDD" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuRamal" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuTelefone" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EEnderecoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCEP" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoEndereco" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoLogradouro" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdUF" type="xsd:string" />
+<xsd:element minOccurs="0" name="dsComplemento" type="xsd:string" />
+<xsd:element minOccurs="0" name="nmBairro" type="xsd:string" />
+<xsd:element minOccurs="0" name="nmLogradouro" type="xsd:string" />
+<xsd:element minOccurs="0" name="nmMunicipio" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuLogradouro" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ECoberturaEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdClausulaAssistencia" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdClausulaCarroReserva" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdClausulaVidros" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdExtensaoRCFColaborador" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdRCTR" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdZeroKm" type="xsd:int" />
+<xsd:element minOccurs="0" name="dtFinalExtPerimetro" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtInicioExtPerimetro" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCoberturaSP" type="xsd:string" />
+<xsd:element minOccurs="0" name="flDespesasExtraordinaria" type="xsd:string" />
+<xsd:element minOccurs="0" name="flExtensaoRCFReboque" type="xsd:string" />
+<xsd:element minOccurs="0" name="flExtensaoRCFVeiculo" type="xsd:string" />
+<xsd:element minOccurs="0" name="flRemoveCl67" type="xsd:string" />
+<xsd:element minOccurs="0" name="isAppInvalidez" type="xsd:double" />
+<xsd:element minOccurs="0" name="isAppMorte" type="xsd:double" />
+<xsd:element minOccurs="0" name="isBlindagem" type="xsd:double" />
+<xsd:element minOccurs="0" name="isCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="isCasco" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosCorporais" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosMateriais" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosMorais" type="xsd:double" />
+<xsd:element minOccurs="0" name="isEquipamentos" type="xsd:double" />
+<xsd:element minOccurs="0" name="isGarantiaUnica" type="xsd:double" />
+<xsd:element minOccurs="0" name="isKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="nuDiasDiariaParalisacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDiasExtensaoPerimetro" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlDiariaParalisacao" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CalculoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCindMesaNegocio" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdRegiao" type="xsd:int" />
+<xsd:element minOccurs="0" name="coberturaEndossoVo" type="ns1:CoberturaEndossoVo" />
+<xsd:element minOccurs="0" name="dtBaseCalculo" type="xsd:string" />
+<xsd:element minOccurs="0" name="flAceitacaoRestrita" type="xsd:string" />
+<xsd:element minOccurs="0" name="flReterDevolucao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flSucesso" type="xsd:string" />
+<xsd:element minOccurs="0" name="listaAlertas" type="ns1:ArrayOfMensagemAlertaVo" />
+<xsd:element minOccurs="0" name="listaClausulas" type="ns1:ArrayOfClausulasEndossoVo" />
+<xsd:element minOccurs="0" name="listaParcelamento" type="ns1:ArrayOfParcelamentoEndossoVo" />
+<xsd:element minOccurs="0" name="mensagemErroVo" type="ns1:MensagemErroVo" />
+<xsd:element minOccurs="0" name="parametroEndossoVo" type="ns1:ParametroEndossoVo" />
+<xsd:element minOccurs="0" name="pcDescontoOnline" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcFatorAgravo" type="xsd:double" />
+<xsd:element minOccurs="0" name="veiculoEndossoVo" type="ns1:VeiculoEndossoVo" />
+<xsd:element minOccurs="0" name="vlAjuste" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlCustoApolice" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFatorJuros" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="VeiculoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCategoriaAuto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCategoriaRCF" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculoFipe" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlVeiculoFipe" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="MensagemErroVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdErro" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSQLCode" type="xsd:int" />
+<xsd:element minOccurs="0" name="dsErro" type="xsd:string" />
+<xsd:element minOccurs="0" name="dsPrograma" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfParcelamentoEndossoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ParcelamentoEndossoVo" type="ns1:ParcelamentoEndossoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ParcelamentoEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdPlanoPagamento" type="xsd:int" />
+<xsd:element minOccurs="0" name="dsPlanoPagamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuPrestacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="percAdicionalFrancionamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlAdicionalFracionamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlDemaisParcelas" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFatorJuros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlIOF" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlPremioTotal" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlPrimeiraParcela" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfMensagemAlertaVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="MensagemAlertaVo" type="ns1:MensagemAlertaVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="MensagemAlertaVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdAlerta" type="xsd:int" />
+<xsd:element minOccurs="0" name="dsAlerta" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtCancelamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtLiberacao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flAcatavel" type="xsd:string" />
+<xsd:element minOccurs="0" name="flImpacto" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ParametroEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="dtVersaoDLL" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjCorretor" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuVersaoDLL" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CoberturaEndossoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="isDespesasExtraordinaria" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAcessorios" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmApp" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAppInvalidez" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAppMorte" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAssistencia" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmBlindagem" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCarroReserva" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCasco" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosCorporais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosMateriais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosMorais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDespesasExtraordinarias" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDiariaParalisacao" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmEquipamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmExtensaoPerimetro" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmExtensaoPerimetroRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmGarantiaUnica" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqAcessorios" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqAppEndosso" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqAutoEndosso" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqBlindagem" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqCasco" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDanosCorporais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDanosMateriais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDanosMorais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDespesasExtraordinarias" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDiariaParalisacao" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqEquipamentos" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqGarantiaUnica" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqRcfEndosso" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoApp" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoEndosso" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoTotal" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmTotal" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmTotalEndosso" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmVidros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquia" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaEquipamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaVidros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaVidrosPlus" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ECalculoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="ECoberturaVo" type="ns1:ECoberturaVo" />
+<xsd:element minOccurs="0" name="EParametroVo" type="ns1:EParametroVo" />
+<xsd:element minOccurs="0" name="EPerfilProprietarioVo" type="ns1:EPerfilVo" />
+<xsd:element minOccurs="0" name="EPerfilSeguradoVo" type="ns1:EPerfilVo" />
+<xsd:element minOccurs="0" name="ERenovacaoVo" type="ns1:ERenovacaoVo" />
+<xsd:element minOccurs="0" name="EVeiculoVo" type="ns1:EVeiculoVo" />
+<xsd:element minOccurs="0" name="cdCindMesaNegocio" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdDescRelacaoSeguradoProprietario" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdEmpresa" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdInspetoria" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdModalidade" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdProdutoCliente" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdRelacaoSeguradoProprietario" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSucursal" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoPagtoCarne" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoPessoaProprietario" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdTipoPessoaSegurado" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdTipoSistema" type="xsd:int" />
+<xsd:element minOccurs="0" name="cnroContrato" type="xsd:int" />
+<xsd:element minOccurs="0" name="dtFinalVigencia" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtInicioVigencia" type="xsd:string" />
+<xsd:element minOccurs="0" name="dtProcessamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="flNovaTarifa" type="xsd:string" />
+<xsd:element minOccurs="0" name="flTeleEmpresaFatura" type="xsd:string" />
+<xsd:element minOccurs="0" name="nmProponente" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCEP" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjProponente" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjProprietario" type="xsd:string" />
+<xsd:element minOccurs="0" name="pcComissaoAPP" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcComissaoAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcComissaoRCF" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcDescontoAPP" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcDescontoAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcDescontoRCF" type="xsd:double" />
+<xsd:element minOccurs="0" name="pctDescontoPromocional" type="xsd:double" />
+<xsd:element minOccurs="0" name="residencialVo" type="ns1:ResidencialVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EVeiculoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="ativo" type="xsd:boolean" />
+<xsd:element minOccurs="0" name="cdAntiFurto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdAplicacaoCargaTransportada" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCambio" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCarroceria" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCombustivel" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdFabricante" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdFranquia" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdGrupo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdKmRodadoMes" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdPeriodoViagem" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdProduto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSemiReboque" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoAplicacaoVolvo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoVeiculo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdUsoVeiculo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculoFipe" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculoTransformado" type="xsd:int" />
+<xsd:element minOccurs="0" name="dtSaidaConcessionaria" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCadastroMotorista" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCarroceriaBasculante" type="xsd:string" />
+<xsd:element minOccurs="0" name="flChassiRemarcado" type="xsd:string" />
+<xsd:element minOccurs="0" name="flComodato" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCursoDirecao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flIdenticar" type="xsd:string" />
+<xsd:element minOccurs="0" name="flPlanoManutencao" type="xsd:string" />
+<xsd:element minOccurs="0" name="flValorMercado" type="xsd:string" />
+<xsd:element minOccurs="0" name="listaAcessorios" type="ns1:ArrayOfEAcessorioVo" />
+<xsd:element minOccurs="0" name="listaEquipamentos" type="ns1:ArrayOfEEquipamentoVo" />
+<xsd:element minOccurs="0" name="listaOpcionais" type="ns1:ArrayOfEOpcionalVo" />
+<xsd:element minOccurs="0" name="nmVeiculo" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuAnoFabricacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuAnoModelo" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuChassi" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuEixo" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuPassageiros" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuPlaca" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuPortas" type="xsd:int" />
+<xsd:element minOccurs="0" name="pcAjusteValorVeiculo" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEEquipamentoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="EEquipamentoVo" type="ns1:EEquipamentoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EEquipamentoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdEquipamento" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlEquipamento" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEAcessorioVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="EAcessorioVo" type="ns1:EAcessorioVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EAcessorioVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdAcessorio" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlAcessorio" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEOpcionalVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="EOpcionalVo" type="ns1:EOpcionalVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EOpcionalVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdOpcional" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EParametroVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCorretor" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipoPessoaCorretor" type="xsd:string" />
+<xsd:element minOccurs="0" name="flAdicionalFracionamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCartaoCredito" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCcb" type="xsd:string" />
+<xsd:element minOccurs="0" name="flCustoApolice" type="xsd:string" />
+<xsd:element minOccurs="0" name="flIOF" type="xsd:string" />
+<xsd:element minOccurs="0" name="flPessoaCorretor" type="xsd:string" />
+<xsd:element minOccurs="0" name="flProRata" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjCorretor" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ERenovacaoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdApoliceAnterior" type="xsd:long" />
+<xsd:element minOccurs="0" name="cdBonusApoliceAnterior" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdChaveIdentificacao" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdCiaInterna" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCiaRenovacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdColigada" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdItemAnterior" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdSucursalAnterior" type="xsd:int" />
+<xsd:element minOccurs="0" name="flComodatoApoliceAnterior" type="xsd:string" />
+<xsd:element minOccurs="0" name="flGrupoBradesco" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuDigitoApoliceAnt" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuSinistros" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EPerfilVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdEstadoCivil" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdSexo" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdTipoPerfil" type="xsd:int" />
+<xsd:element minOccurs="0" name="dtNascimento" type="xsd:string" />
+<xsd:element minOccurs="0" name="flFilhosAte16Anos" type="xsd:string" />
+<xsd:element minOccurs="0" name="flFilhosEntre17e25" type="xsd:string" />
+<xsd:element minOccurs="0" name="flHaMaisVeiculoGaragem" type="xsd:string" />
+<xsd:element minOccurs="0" name="flVeiculoPernoiteGaragem" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ResidencialVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="nuApoliceRenovacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuCiaRenovacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuOpcao" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuSucursalRenovacao" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ECoberturaVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdClausulaAssistencia" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdClausulaCarroReserva" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdClausulaVidros" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdExtensaoRCFColaborador" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdRCTR" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdZeroKm" type="xsd:int" />
+<xsd:element minOccurs="0" name="flCoberturaSP" type="xsd:string" />
+<xsd:element minOccurs="0" name="flDespesasExtraordinarias" type="xsd:string" />
+<xsd:element minOccurs="0" name="flExtensaoRCFReboque" type="xsd:string" />
+<xsd:element minOccurs="0" name="flExtensaoRCFVeiculo" type="xsd:string" />
+<xsd:element minOccurs="0" name="isAppInvalidez" type="xsd:double" />
+<xsd:element minOccurs="0" name="isAppMorte" type="xsd:double" />
+<xsd:element minOccurs="0" name="isBlindagem" type="xsd:double" />
+<xsd:element minOccurs="0" name="isCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="isCasco" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosCorporais" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosMateriais" type="xsd:double" />
+<xsd:element minOccurs="0" name="isDanosMorais" type="xsd:double" />
+<xsd:element minOccurs="0" name="isEquipamentos" type="xsd:double" />
+<xsd:element minOccurs="0" name="isGarantiaUnica" type="xsd:double" />
+<xsd:element minOccurs="0" name="isKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="nuDiasDiariaParalisacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="nuDiasExtensaoPerimetro" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlDiariaParalisacao" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CalculoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="buscaCotacaoVo" type="ns1:BuscaCotacaoVo" />
+<xsd:element minOccurs="0" name="cdCindMesaNegocio" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdContexto" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdRegiao" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdRetornoCrivo" type="xsd:string" />
+<xsd:element minOccurs="0" name="coberturaResidencialVo" type="ns1:CoberturaResidencialVo" />
+<xsd:element minOccurs="0" name="coberturaVo" type="ns1:CoberturaVo" />
+<xsd:element minOccurs="0" name="dtBaseCalculo" type="xsd:string" />
+<xsd:element minOccurs="0" name="flAceitacaoRestrita" type="xsd:string" />
+<xsd:element minOccurs="0" name="flSucesso" type="xsd:string" />
+<xsd:element minOccurs="0" name="listaAlertas" type="ns1:ArrayOfMensagemAlertaVo" />
+<xsd:element minOccurs="0" name="listaClausulas" type="ns1:ArrayOfClausulasCalculoVo" />
+<xsd:element minOccurs="0" name="listaCriticaServico" type="ns1:ArrayOfCriticaVo" />
+<xsd:element minOccurs="0" name="listaParcelamento" type="ns1:ArrayOfParcelamentoVo" />
+<xsd:element minOccurs="0" name="listaParcelamentoResidencial" type="ns1:ArrayOfParcelamentoResidencialVo" />
+<xsd:element minOccurs="0" name="mensagemErroVo" type="ns1:ArrayOfMensagemErroVo" />
+<xsd:element minOccurs="0" name="parametroVo" type="ns1:ParametroVo" />
+<xsd:element minOccurs="0" name="pcDescontoOnline" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcFatorAgravo" type="xsd:double" />
+<xsd:element minOccurs="0" name="pctDescontoPromocional" type="xsd:double" />
+<xsd:element minOccurs="0" name="renovacaoVo" type="ns1:RenovacaoVo" />
+<xsd:element minOccurs="0" name="resultadoDescontoVo" type="ns2:ResultadoVo" />
+<xsd:element minOccurs="0" name="veiculoVo" type="ns1:VeiculoVo" />
+<xsd:element minOccurs="0" name="vlCustoApolice" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfMensagemErroVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="MensagemErroVo" type="ns1:MensagemErroVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="VeiculoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="capacidade" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCategoriaAuto" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdCategoriaRCF" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdGrupo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdProcedencia" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdTipo" type="xsd:int" />
+<xsd:element minOccurs="0" name="cdVeiculoFipe" type="xsd:int" />
+<xsd:element minOccurs="0" name="cilindrada" type="xsd:long" />
+<xsd:element minOccurs="0" name="indSituacao" type="xsd:string" />
+<xsd:element minOccurs="0" name="peso" type="xsd:long" />
+<xsd:element minOccurs="0" name="potencia" type="xsd:long" />
+<xsd:element minOccurs="0" name="qtdaOpcional" type="xsd:int" />
+<xsd:element minOccurs="0" name="tpCasco" type="xsd:long" />
+<xsd:element minOccurs="0" name="vlVeiculoFipe" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfParcelamentoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ParcelamentoVo" type="ns1:ParcelamentoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ParcelamentoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdPlanoPagamento" type="xsd:int" />
+<xsd:element minOccurs="0" name="dsPlanoPagamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuPrestacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="percAdicionalFrancionamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlAdicionalFracionamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlDemaisParcelas" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFatorJuros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlIOF" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlPremioTotal" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlPrimeiraParcela" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CoberturaVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="isDespesasExtraordinaria" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAcessorios" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmApp" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAppInvalidez" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAppMorte" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAssistencia" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmBlindagem" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCarroReserva" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmCasco" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosCorporais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosMateriais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDanosMorais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDespesasExtraordinarias" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmDiariaParalisacao" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmEquipamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmExtensaoPerimetro" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmExtensaoPerimetroRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmGarantiaUnica" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqAcessorios" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqAssistencia" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqBlindagem" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqCarroReserva" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqCasco" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDanosCorporais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDanosMateriais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDanosMorais" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDespesasExtraordinarias" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqDiariaParalisacao" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqEquipamentos" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqExtensaoPerimetro" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqExtensaoPerimetroRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqGarantiaUnica" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiqVidros" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoApp" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoAuto" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmLiquidoTotal" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmRcf" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmTotal" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmVidros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquia" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaCarroceria" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaEquipamento" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaKitGas" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaVidros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFranquiaVidrosPlus" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfParcelamentoResidencialVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ParcelamentoResidencialVo" type="ns1:ParcelamentoResidencialVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ParcelamentoResidencialVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdPlanoPagamento" type="xsd:int" />
+<xsd:element minOccurs="0" name="dsPlanoPagamento" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuPrestacao" type="xsd:int" />
+<xsd:element minOccurs="0" name="vlAdicional" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlAdicionalResidencial" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlDemaisParcelas" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlDemaisParcelasResidencial" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlFatorJuros" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlIOFResidencial" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlPrimeiraParcela" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlPrimeiraParcelaResidencial" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfClausulasCalculoVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ClausulasCalculoVo" type="ns1:ClausulasCalculoVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ClausulasCalculoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdClausula" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfCriticaVo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="CriticaVo" type="ns1:CriticaVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CriticaVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="descricao" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="BuscaCotacaoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCorretor" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdItem" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdModalidade" type="xsd:string" />
+<xsd:element minOccurs="0" name="cdSucursal" type="xsd:string" />
+<xsd:element minOccurs="0" name="flHabilitarDesconto" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCotacao" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuCpfCnpjCorretor" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ParametroVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="dtVersaoDLL" type="xsd:string" />
+<xsd:element minOccurs="0" name="nuVersaoDLL" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="RenovacaoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cdCiaInterna" type="xsd:int" />
+<xsd:element minOccurs="0" name="flBonus" type="xsd:int" />
+<xsd:element minOccurs="0" name="pcBonus" type="xsd:double" />
+<xsd:element minOccurs="0" name="pcDescontoFidelidade" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CoberturaResidencialVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="codigoOpcao" type="xsd:int" />
+<xsd:element minOccurs="0" name="lmiIre" type="xsd:double" />
+<xsd:element minOccurs="0" name="lmiPerdaRenda" type="xsd:double" />
+<xsd:element minOccurs="0" name="lmiRcFamiliar" type="xsd:double" />
+<xsd:element minOccurs="0" name="lmiVendAval" type="xsd:double" />
+<xsd:element minOccurs="0" name="prmResidencial" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlrAdicionalFrac" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlrAssistResid" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlrCapitalizacao" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlrDemaisParc" type="xsd:double" />
+<xsd:element minOccurs="0" name="vlrIOF" type="xsd:double" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.controller.wsat.paol.bradseg.com.br">
+<xsd:element name="calcularSeguroEndosso">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" type="ns1:ECalculoEndossoVo" />
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" type="xsd:string" />
+<xsd:element maxOccurs="1" minOccurs="1" name="in2" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="calcularSeguroEndossoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" type="ns1:CalculoEndossoVo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="gerenciadorCalculo">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" type="ns1:ECalculoVo" />
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" type="xsd:string" />
+<xsd:element maxOccurs="1" minOccurs="1" name="in2" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="gerenciadorCalculoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" type="ns1:CalculoVo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://vo.model.subscricao.paol.bradseg.com.br">
+<xsd:complexType name="ResultadoVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="classificacaoSerasa" type="xsd:string" />
+<xsd:element minOccurs="0" name="codCrivo" type="xsd:string" />
+<xsd:element minOccurs="0" name="codRetorno" type="xsd:string" />
+<xsd:element minOccurs="0" name="flDiretor" type="xsd:string" />
+<xsd:element minOccurs="0" name="flSituacao" type="xsd:string" />
+<xsd:element minOccurs="0" name="idOperacaoCrivo" type="xsd:string" />
+<xsd:element minOccurs="0" name="msgRetorno" type="xsd:string" />
+<xsd:element minOccurs="0" name="nomePrincipalCondutor" type="xsd:string" />
+<xsd:element minOccurs="0" name="pctDesconto" type="xsd:string" />
+<xsd:element minOccurs="0" name="pontuacaoCrivo" type="xsd:string" />
+<xsd:element minOccurs="0" name="recusa" type="xsd:string" />
+<xsd:element minOccurs="0" name="retornoQar" type="ns3:RetornoQuestionarioQar" />
+<xsd:element minOccurs="0" name="sucursalOrigem" type="xsd:string" />
+<xsd:element minOccurs="0" name="sucursalProdutora" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://qar.client.model.subscricao.paol.bradseg.com.br">
+<xsd:complexType name="RetornoQuestionarioQar">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="questioanrioEntrada" type="ns3:QuestionarioQarVo" />
+<xsd:element minOccurs="0" name="questionarioSaida" type="ns3:QuestionarioQarVo" />
+<xsd:element minOccurs="0" name="statusQuestionario" type="ns3:StatusQuestionarioQarVo" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="StatusQuestionarioQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="codRetorno" type="xsd:long" />
+<xsd:element minOccurs="0" name="mensagemRetorno" type="xsd:string" />
+<xsd:element minOccurs="0" name="statusCondutorQarVo" type="ns3:StatusCondutorQarVo" />
+<xsd:element minOccurs="0" name="statusEspecieSeguro" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusIndicativoNovaTarifa" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusModalidadeSeguro" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusProprietarioQarVo" type="ns3:StatusProprietarioQarVo" />
+<xsd:element minOccurs="0" name="statusSeguradoCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusSeguradoProprietario" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusSeguradoQarVo" type="ns3:StatusSeguradoQarVo" />
+<xsd:element minOccurs="0" name="statusTipoPerfil" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="StatusProprietarioQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="statusCpfCnpjProprietario" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusNomeProprietario" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusTipoProprietario" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="StatusSeguradoQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="statusCpfCnpjSegurado" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusDataNascimentoSegurado" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusEstadoCivilSegurado" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusNomeSegurado" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusSexoSegurado" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusTipoSegurado" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="StatusCondutorQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="statusAtividadeCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusCepEstudo" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusCepLocalTrabalho" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusCepPernoite" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusCondutorEntre18E25" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusCpfCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusDataNascimentoCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusEstadoCivilCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusGaragemLocalEstudo" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusGaragemLocalTrabalho" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusGaragemPernoite" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusKmMediaMensal" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusLocalEstudoFixo" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusLocalTrabalhoFixo" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusRamoAtividadeCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusSexoCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusUsoVeiculo" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusUtilizacaoEstudo" type="xsd:long" />
+<xsd:element minOccurs="0" name="statusUtilizacaoTrabalho" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="QuestionarioQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="condutorQarVo" type="ns3:CondutorQarVo" />
+<xsd:element minOccurs="0" name="especieSeguro" type="xsd:long" />
+<xsd:element minOccurs="0" name="indicativoNovaTarifa" type="xsd:string" />
+<xsd:element minOccurs="0" name="modalidadeSeguro" type="xsd:string" />
+<xsd:element minOccurs="0" name="proprietarioQarVo" type="ns3:ProprietarioQarVo" />
+<xsd:element minOccurs="0" name="seguradoCondutor" type="xsd:string" />
+<xsd:element minOccurs="0" name="seguradoProprietario" type="xsd:string" />
+<xsd:element minOccurs="0" name="seguradoQarVo" type="ns3:SeguradoQarVo" />
+<xsd:element minOccurs="0" name="tipoPerfil" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ProprietarioQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cpfCnpjProprietario" type="xsd:long" />
+<xsd:element minOccurs="0" name="nomeProprietario" type="xsd:string" />
+<xsd:element minOccurs="0" name="tipoProprietario" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="SeguradoQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="cpfCnpjSegurado" type="xsd:long" />
+<xsd:element minOccurs="0" name="dataNascimentoSegurado" type="xsd:long" />
+<xsd:element minOccurs="0" name="estadoCivilSegurado" type="xsd:string" />
+<xsd:element minOccurs="0" name="nomeSegurado" type="xsd:string" />
+<xsd:element minOccurs="0" name="sexoSegurado" type="xsd:string" />
+<xsd:element minOccurs="0" name="tipoSegurado" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CondutorQarVo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="atividadeCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="cepEstudo" type="xsd:long" />
+<xsd:element minOccurs="0" name="cepLocalTrabalho" type="xsd:long" />
+<xsd:element minOccurs="0" name="cepPernoite" type="xsd:long" />
+<xsd:element minOccurs="0" name="condutorEntre18E25" type="xsd:long" />
+<xsd:element minOccurs="0" name="cpfCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="dataNascimentoCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="estadoCivilCondutor" type="xsd:string" />
+<xsd:element minOccurs="0" name="garagemLocalEstudo" type="xsd:long" />
+<xsd:element minOccurs="0" name="garagemLocalTrabalho" type="xsd:long" />
+<xsd:element minOccurs="0" name="garagemPernoite" type="xsd:long" />
+<xsd:element minOccurs="0" name="kmMediaMensal" type="xsd:long" />
+<xsd:element minOccurs="0" name="localEstudoFixo" type="xsd:long" />
+<xsd:element minOccurs="0" name="localTrabalhoFixo" type="xsd:long" />
+<xsd:element minOccurs="0" name="ramoAtividadeCondutor" type="xsd:long" />
+<xsd:element minOccurs="0" name="sexoCondutor" type="xsd:string" />
+<xsd:element minOccurs="0" name="usoVeiculo" type="xsd:long" />
+<xsd:element minOccurs="0" name="utilizacaoEstudo" type="xsd:long" />
+<xsd:element minOccurs="0" name="utilizacaoTrabalho" type="xsd:long" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="gerenciadorCalculoResponse">
+    <wsdl:part name="parameters" element="tns:gerenciadorCalculoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="gerenciadorCalculoRequest">
+    <wsdl:part name="parameters" element="tns:gerenciadorCalculo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcularSeguroEndossoResponse">
+    <wsdl:part name="parameters" element="tns:calcularSeguroEndossoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcularSeguroEndossoRequest">
+    <wsdl:part name="parameters" element="tns:calcularSeguroEndosso">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BolCalculoAutoPortType">
+    <wsdl:operation name="calcularSeguroEndosso">
+      <wsdl:input name="calcularSeguroEndossoRequest" message="tns:calcularSeguroEndossoRequest">
+    </wsdl:input>
+      <wsdl:output name="calcularSeguroEndossoResponse" message="tns:calcularSeguroEndossoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gerenciadorCalculo">
+      <wsdl:input name="gerenciadorCalculoRequest" message="tns:gerenciadorCalculoRequest">
+    </wsdl:input>
+      <wsdl:output name="gerenciadorCalculoResponse" message="tns:gerenciadorCalculoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BolCalculoAutoHttpBinding" type="tns:BolCalculoAutoPortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="calcularSeguroEndosso">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calcularSeguroEndossoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="calcularSeguroEndossoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gerenciadorCalculo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="gerenciadorCalculoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="gerenciadorCalculoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BolCalculoAuto">
+    <wsdl:port name="BolCalculoAutoHttpPort" binding="tns:BolCalculoAutoHttpBinding">
+      <wsdlsoap:address location="http://web6x.dsv.bradseg.com.br/PAOL-Wsat/services/BolCalculoAuto" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

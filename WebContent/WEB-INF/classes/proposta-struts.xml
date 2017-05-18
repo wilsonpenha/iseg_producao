@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="proposta" extends="struts2" namespace="/proposta">
+
+		<result-types> 
+			<result-type name="myStream"  default="false" class="iseg.utils.CustomStreamResult"/>
+		</result-types>
+
+		<action name="displayList" method="lista" class="propostaAction">
+			<result name="input">${listPage}</result>
+			<result name="success">${listPage}</result>
+			<result name="error">${listPage}</result>
+		</action>
+		
+		<action name="lista*" method="{1}" class="propostaAction">
+			<result name="input">${listResultPage}</result>
+			<result name="success">${listResultPage}</result>
+			<result name="error">${listPage}</result>
+		</action>
+
+		<action name="editar" class="propostaAction" method="editar">
+			<result type="chain" name="propostaAuto">
+				<param name="actionName">editar</param>
+				<param name="namespace">/wizard</param>
+			</result>
+			<result type="chain" name="propostaRiscosDiversos">
+				<param name="actionName">editar</param>
+				<param name="namespace">/propostaRiscosDiversos</param>
+			</result>
+			<result type="chain" name="propostaImoveis">
+				<param name="actionName">editar</param>
+				<param name="namespace">/propostaImoveis</param>
+			</result>
+			<result type="chain" name="propostaImoveisFatura">
+				<param name="actionName">editar</param>
+				<param name="namespace">/propostaImoveisFatura</param>
+			</result>
+			<result type="chain" name="propostaEmpresarial">
+				<param name="actionName">editar</param>
+				<param name="namespace">/propostaEmpresarial</param>
+			</result>
+			<result type="chain" name="propostaIndividual">
+				<param name="actionName">editar</param>
+				<param name="namespace">/propostaIndividual</param>
+			</result>
+			<result type="chain" name="propostaTransportes">
+				<param name="actionName">editar</param>
+				<param name="namespace">/propostaTransportes</param>
+			</result>
+			<result name="input">${listPage}</result>
+			<result name="error">${listPage}</result>
+		</action>
+		
+		<action name="endossoRenovacao" class="propostaAction" method="endosso">
+			<result type="chain" name="propostaAuto">
+				<param name="actionName">endossoRenovacao</param>
+				<param name="namespace">/wizard</param>
+			</result>
+			<result type="chain" name="propostaRiscosDiversos">
+				<param name="actionName">endossoRenovacao</param>
+				<param name="namespace">/propostaRiscosDiversos</param>
+			</result>
+			<result type="chain" name="propostaImoveis">
+				<param name="actionName">endossoRenovacao</param>
+				<param name="namespace">/propostaImoveis</param>
+			</result>
+			<result type="chain" name="propostaImoveisFatura">
+				<param name="actionName">endossoRenovacao</param>
+				<param name="namespace">/propostaImoveisFatura</param>
+			</result>
+			<result type="chain" name="propostaEmpresarial">
+				<param name="actionName">endossoRenovacao</param>
+				<param name="namespace">/propostaEmpresarial</param>
+			</result>
+			<result type="chain" name="propostaIndividual">
+				<param name="actionName">endossoRenovacao</param>
+				<param name="namespace">/propostaIndividual</param>
+			</result>
+			<result type="chain" name="propostaTransportes">
+				<param name="actionName">endossoRenovacao</param>
+				<param name="namespace">/propostaTransportes</param>
+			</result>
+			<result type="tiles" name="input">${listPage}</result>
+			<result type="tiles" name="error">${listPage}</result>
+		</action>
+
+		<action name="excluir" class="propostaAction" method="excluir">
+			<result type="tiles">proposta.displayList</result>
+		</action>
+
+		<action name="processar" class="propostaAction" method="processarProposta">
+			<result type="tiles" name="input">${listPage}</result>
+			<result type="tiles">proposta.view</result>
+		</action>
+
+		<action name="novo" class="propostaAction" method="novo">
+			<result type="chain" name="propostaAuto">
+				<param name="actionName">novo</param>
+				<param name="namespace">/wizard</param>
+			</result>
+			<result type="chain" name="propostaRiscosDiversos">
+				<param name="actionName">novo</param>
+				<param name="namespace">/propostaRiscosDiversos</param>
+			</result>
+			<result type="chain" name="propostaImoveis">
+				<param name="actionName">novo</param>
+				<param name="namespace">/propostaImoveis</param>
+			</result>
+			<result type="chain" name="propostaImoveisFatura">
+				<param name="actionName">novo</param>
+				<param name="namespace">/propostaImoveisFatura</param>
+			</result>
+			<result type="chain" name="propostaEmpresarial">
+				<param name="actionName">novo</param>
+				<param name="namespace">/propostaEmpresarial</param>
+			</result>
+			<result type="chain" name="propostaIndividual">
+				<param name="actionName">novo</param>
+				<param name="namespace">/propostaIndividual</param>
+			</result>
+			<result type="chain" name="propostaTransportes">
+				<param name="actionName">novo</param>
+				<param name="namespace">/propostaTransportes</param>
+			</result>
+			<result type="tiles" name="input">${listPage}</result>
+			<result type="tiles" name="error">${listPage}</result>
+		</action>
+		<action name="pesquisaProposta" class="propostaAction" method="lista">
+			<result>/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+		</action>
+
+		<action name="relatorios" method="relatorio" class="propostaAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">relatorio</param>
+			</interceptor-ref>
+			<result type="tiles" name="apoliceParaRenovacao">apoliceParaRenovacao.relatorios</result>
+			<result type="tiles" name="success">proposta.relatorios</result>
+			<result type="tiles" name="input">proposta.relatorios</result>
+			<result type="tiles" name="error">proposta.relatorios</result>
+		</action>
+
+		<action name="getProposta" class="propostaAction" method="find">
+			<result>/WEB-INF/jsp/sinistro/viewProposta.jsp</result>
+		</action>
+
+		<action name="inserirAnexo" class="propostaAction" method="inserirAnexo">
+			<result name="success">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+		</action>
+
+		<action name="editarAnexo" class="propostaAction" method="editarAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/proposta/dadosAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/dadosAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/dadosAnexo.jsp</result>
+		</action>
+
+		<action name="excluirAnexo" class="propostaAction" method="excluirAnexo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirAnexo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+		</action>
+
+		<action name="preparaMostrarAnexo" class="propostaAction" method="preparaMostrarAnexo">
+			<result name="popup" type="tiles">mostrar.anexo</result>
+			<result name="success">/WEB-INF/jsp/proposta/mostrarAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/mostrarAnexo.jsp</result>
+		</action>
+
+		<action name="mostrarAnexo" class="propostaAction" method="mostrarAnexo">
+			<result name="success" type="stream">
+				<param name="contentType">${propostaAnexo.contentType}</param>  
+				<param name="inputName">propostaAnexo.anexoStream</param>  
+				<param name="contentDisposition">attachment;filename="${propostaAnexo.nome}"</param> 
+				<param name="bufferSize">1024</param>  
+			</result>
+		</action>
+
+		<action name="mostrarMiniaturaAnexo" class="propostaAction" method="mostrarAnexo">
+			<result name="success" type="myStream">
+				<param name="contentType">${propostaAnexo.contentType}</param>  
+				<param name="inputName">propostaAnexo.anexoMiniaturaStream</param>  
+				<param name="contentDisposition">${propostaAnexo.nome}</param>  
+				<param name="bufferSize">1024</param>  
+			</result>
+			<result name="input">/WEB-INF/jsp/proposta/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/mostrarAnexo.jsp</result>
+		</action>
+		
+		<action name="mostrarGalleryAnexo" class="propostaAction" method="mostrarAnexo">
+			<result name="success" type="myStream">
+				<param name="contentType">${propostaAnexo.contentType}</param>  
+				<param name="inputName">propostaAnexo.anexoGalleryStream</param>  
+				<param name="contentDisposition">${propostaAnexo.nome}</param>  
+				<param name="bufferSize">1024</param>  
+			</result>
+			<result name="input">/WEB-INF/jsp/proposta/mostrarAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/mostrarAnexo.jsp</result>
+		</action>
+		
+		<action name="carregarAnexos" class="propostaAction" method="carregarAnexos">
+			<result name="success">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/listaAnexo.jsp</result>
+		</action>
+ 
+		<action name="alterarSeguradora" class="propostaAction" method="alterarSeguradora">
+			<result name="success">/WEB-INF/jsp/proposta/dadosSeguradora.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/dadosSeguradora.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/dadosSeguradora.jsp</result>
+		</action>
+
+	</package>
+</struts>

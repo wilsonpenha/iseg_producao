@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReciboEntregaApolice" printOrder="Horizontal" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="42"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<reportFont name="Normal" isDefault="false" fontName="Arial" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<parameter name="PAGO_RECEBIDO" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{PAGO_RECEBIDO}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRODUTOR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{PRODUTOR}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PROTOCOLO_ID" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT
+	p.id				AS ProtocoloId
+	, i.id				AS ItemId
+	, a.id				AS PropostaId
+	, p.Numero				AS NumeroProtocolo
+          , a.numero				AS Localizador
+	, a.nro_apolice			AS Apolice
+	, a.inicio_vigencia			AS vigenciaInicial
+	, a.termino_vigencia			AS vigenciaFinal
+	, a.data_vencim_1a_parcela		AS VenctoParcela
+	, a.ramo_id			AS Ramo
+	, ramo.sub_ramo_id			AS RamoGrupo
+	, ramo.nome			AS RamoNome
+	, Produtor.nome			AS Produtor
+	, Seguradora.nome			AS Seguradora
+	, Cliente.nome			AS Segurado
+	, Cliente.telefone_alternativo		AS TelefoneAlternativo
+	, Cliente.telefone_preferencial	AS TelefonePreferencial
+	, endereco.logradouro 		AS Logradouro
+	, endereco.cep  			AS Cep
+	, endereco.bairro 			AS Bairro
+	, endereco.cidade 			AS Cidade
+	, endereco.uf 			AS UF
+	, endereco.numero 			AS Numero
+	, endereco.complemento 		AS Complemento
+FROM
+	protocolo p
+	INNER JOIN protocolo_itens i
+		ON i.protocolo_id = p.id
+	INNER JOIN proposta a
+		ON i.proposta_id = a.id
+	INNER JOIN pessoa Cliente
+		ON a.cliente_id = Cliente.id
+	INNER JOIN ramo ramo
+		ON ramo.id = a.ramo_id
+	LEFT JOIN pessoa Seguradora
+		ON a.seguradora_id = Seguradora.id
+	LEFT JOIN pessoa Produtor
+		ON a.produtor_id = Produtor.id
+	LEFT JOIN proposta_endereco endereco
+		ON endereco.id = (select max(id) from proposta_endereco where proposta_id = a.id and correspondencia = 'SIM' and logradouro is not null)
+WHERE
+     	P.id = $P{PROTOCOLO_ID}]]>
+	</queryString>
+	<field name="protocoloid" class="java.lang.Long"/>
+	<field name="itemid" class="java.lang.Long"/>
+	<field name="propostaid" class="java.lang.Long"/>
+	<field name="numeroprotocolo" class="java.math.BigDecimal"/>
+	<field name="localizador" class="java.lang.Long"/>
+	<field name="apolice" class="java.lang.String"/>
+	<field name="vigenciainicial" class="java.sql.Date"/>
+	<field name="vigenciafinal" class="java.sql.Date"/>
+	<field name="venctoparcela" class="java.sql.Date"/>
+	<field name="ramo" class="java.lang.Long"/>
+	<field name="ramogrupo" class="java.lang.Long"/>
+	<field name="ramonome" class="java.lang.String"/>
+	<field name="produtor" class="java.lang.String"/>
+	<field name="seguradora" class="java.lang.String"/>
+	<field name="segurado" class="java.lang.String"/>
+	<field name="telefonealternativo" class="java.lang.String"/>
+	<field name="telefonepreferencial" class="java.lang.String"/>
+	<field name="logradouro" class="java.lang.String"/>
+	<field name="cep" class="java.lang.String"/>
+	<field name="bairro" class="java.lang.String"/>
+	<field name="cidade" class="java.lang.String"/>
+	<field name="uf" class="java.lang.String"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="complemento" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Prevent"/>
+	</title>
+	<pageHeader>
+		<band splitType="Prevent"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Prevent"/>
+	</columnHeader>
+	<detail>
+		<band height="200" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-1" x="0" y="12" width="555" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[RECIBO DE ENTREGA DE APÓLICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-3" x="3" y="36" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Segurado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-6" x="1" y="152" width="189" height="8"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Local/Data  ______________________________,______/______/______]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-13" x="277" y="76" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Vigência:]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-2" mode="Transparent" x="350" y="46" width="187" height="8" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produtor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-19" x="3" y="86" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Vencto. 1ª parcela:]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="0" y="183" width="178" height="8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Emissão: " + (new SimpleDateFormat("dd/MM/yyyy HH:mm")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-15" x="217" y="160" width="200" height="8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Assinatura Segurado / Representante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-17" x="3" y="101" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Observações:]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-25" mode="Transparent" x="77" y="36" width="200" height="8" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{segurado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="76" width="197" height="8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{telefonepreferencial}.trim() == "(__) ____-____" ? $F{telefonealternativo} :
+    $F{telefonepreferencial} + " - " + $F{telefonealternativo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="77" y="86" width="197" height="8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{venctoparcela}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="350" y="36" width="93" height="8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{apolice}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="77" y="46" width="200" height="8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{seguradora}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="350" y="76" width="106" height="8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new SimpleDateFormat("dd/MM/yyyy")).format($F{vigenciainicial}) +
+" a " +
+(new SimpleDateFormat("dd/MM/yyyy")).format($F{vigenciafinal})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-15" x="217" y="168" width="42" height="8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="77" y="56" width="460" height="8">
+					<printWhenExpression><![CDATA[$F{ramo}.equals(new Long(2))]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="PARAMETRO_PROPOSTAID">
+					<subreportParameterExpression><![CDATA[$F{propostaid}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ReciboEntregaApoliceAuto.jasper"]]></subreportExpression>
+			</subreport>
+			<componentElement>
+				<reportElement x="443" y="144" width="109" height="33"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Int2of5" drawText="true" checksumRequired="false">
+					<jr:codeExpression><![CDATA[(new Long(1000000000+($F{itemid}.intValue()))).toString()]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField isBlankWhenNull="true">
+				<reportElement x="473" y="12" width="82" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{numeroprotocolo}.toString() + "/" + $F{itemid}.toString()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-7" x="3" y="66" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-3" x="0" y="196" width="555" height="1" forecolor="#000000"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement key="staticText-8" x="3" y="76" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="277" y="36" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Apólice:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-12" x="277" y="46" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Produtor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-11" x="3" y="46" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Cia. Seguradora:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="217" y="158" width="200" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="77" y="111" width="475" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="77" y="128" width="475" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="260" y="193" width="35" height="7"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="5"/>
+				</textElement>
+				<text><![CDATA[| corte aqui |]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-13" x="277" y="86" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Localizador:]]></text>
+			</staticText>
+			<textField pattern="##########0000" isBlankWhenNull="true">
+				<reportElement x="350" y="86" width="106" height="8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{localizador}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="77" y="66" width="460" height="8"/>
+				<subreportParameter name="proposta_id">
+					<subreportParameterExpression><![CDATA[$F{propostaid}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ReciboEntregaApolice_endereco.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="77" y="56" width="460" height="8">
+					<printWhenExpression><![CDATA[$F{ramogrupo}.equals(new Long(20))]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="proposta_id">
+					<subreportParameterExpression><![CDATA[$F{propostaid}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ReciboEntregaApoliceImovel.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement key="staticText-11" x="3" y="56" width="71" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<text><![CDATA[Objeto Segurado:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="444" y="36" width="111" height="8"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ramonome}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="77" y="56" width="460" height="8">
+					<printWhenExpression><![CDATA[!($F{ramo}.equals(new Long(2)) || $F{ramogrupo}.equals(new Long(20)))]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="proposta_id">
+					<subreportParameterExpression><![CDATA[$F{propostaid}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ReciboEntregaApoliceOutros.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Prevent"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Prevent"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Prevent"/>
+	</summary>
+</jasperReport>

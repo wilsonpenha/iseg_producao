@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="propostaTransportes" extends="struts2" namespace="/propostaTransportes">
+
+		<action name="displayList" method="execute" class="propostaTransportesAction">
+			<result name="success">/WEB-INF/jsp/propostaTransportes/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="propostaTransportesAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo,lista,next,previous,last</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/displayListResult.jsp</result>
+			<result name="edicao">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+		</action>
+
+		<action name="iniciar" class="propostaTransportesAction" method="execute">
+			<result>/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+		</action>
+ 
+		<action name="editar" class="propostaTransportesAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+		</action>
+ 
+		<action name="endossoRenovacao" class="propostaTransportesAction" method="endossoRenovacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">endossoRenovacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+		</action>
+ 
+		<action name="novo" class="propostaTransportesAction" method="novo">
+			<result name="success">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="propostaTransportesAction" method="excluir">
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="cancelarProposta" class="propostaTransportesAction" method="cancelarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">cancelarProposta</param>
+			</interceptor-ref>
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/displayList.jsp</result>
+		</action>
+ 
+		<action name="salvarEditar" class="propostaTransportesAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaTransportes/tabPane${currentTab}.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/tabPane${currentTab}.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/tabPane${currentTab}.jsp</result>
+		</action>
+
+		<action name="gerarParcelas" class="propostaTransportesAction" method="gerarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">gerarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/parcelas.jsp</result>
+		</action>
+
+		<action name="carregarParcelas" class="propostaTransportesAction" method="carregarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">carregarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/parcelas.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="propostaTransportesAction" method="lista">
+			<result name="success">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+
+		<action name="vistoriadoraPorSeguradora" class="propostaTransportesAction" method="getVistoriadoraBySeguradoraList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getVistoriadoraBySeguradoraList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/comboListVistoriadora.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/comboListVistoriadora.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/comboListVistoriadora.jsp</result>
+		</action>
+
+		<action name="condPagtoPorSeguradora" class="propostaTransportesAction" method="getCondPagtoPorSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getCondPagtoPorSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/comboListCondPagto.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/comboListCondPagto.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/comboListCondPagto.jsp</result>
+		</action>
+
+		<action name="propostaTransportesDadosCliente" class="propostaTransportesAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosCliente.jsp</result>
+		</action>
+
+		<action name="propostaTransportesDadosEstipulante" class="propostaTransportesAction" method="getDadosEstipulante">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosEstipulante</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosEstipulante.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/dadosEstipulante.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosEstipulante.jsp</result>
+		</action>
+
+		<action name="efetivarProposta" class="propostaTransportesAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/propostaTransportes.jsp</result>
+		</action>
+
+		<action name="novoDadosClienteForm" class="propostaTransportesAction" method="novoDadosClienteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosClienteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="novoDadosEstipulanteForm" class="propostaTransportesAction" method="novoDadosEstipulanteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosEstipulanteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosEstipulante.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/dadosEstipulante.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosEstipulante.jsp</result>
+		</action>
+		
+		<action name="alterarGrupoVenda" class="propostaTransportesAction" method="alterarGrupoVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/dadosComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosComissao.jsp</result>
+		</action>
+
+		<action name="inserirCobertura" class="propostaTransportesAction" method="inserirCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/rowTransporteCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/rowTransporteCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/rowTransporteCobertura.jsp</result>
+		</action>
+
+		<action name="repassePorParcela" class="propostaTransportesAction" method="repassePorParcela">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">repassePorParcela</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosRepasse.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosRepasse.jsp</result>
+		</action>
+ 
+		<action name="alterarGrupoVenda" class="propostaTransportesAction" method="alterarGrupoVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaTransportes/dadosComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosComissao.jsp</result>
+		</action>
+
+		<action name="alterarGrupoVendaComissao" class="propostaTransportesAction" method="alterarGrupoVendaComissao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVendaComissao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosRepasseComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosRepasseComissao.jsp</result>
+		</action>
+
+		<action name="alterarGrupoDeVendaSemSalvar" class="propostaTransportesAction" method="alterarGrupoDeVendaSemSalvar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoDeVendaSemSalvar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosRepasseComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosRepasseComissao.jsp</result>
+		</action>
+
+		<action name="inserirComissionadoSemSalvar" class="propostaTransportesAction" method="inserirComissionadoSemSalvar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirComissionadoSemSalvar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaTransportes/rowComissionado.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/rowComissionado.jsp</result>
+		</action>
+
+		<action name="salvarRepasse" class="propostaTransportesAction" method="salvarRepasse">
+			<result name="success">/WEB-INF/jsp/propostaTransportes/dadosRepasseComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaTransportes/dadosRepasseComissao.jsp</result>
+		</action>
+	</package>
+</struts>

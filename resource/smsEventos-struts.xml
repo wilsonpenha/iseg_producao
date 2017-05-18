@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="smsEventos" extends="struts2" namespace="/smsEventos">
+		<action name="displayList" method="lista" class="smsEventosAction">
+			<result type="tiles" name="input">smsEventos.displayList</result>
+			<result type="tiles" name="success">smsEventos.displayList</result>
+			<result type="tiles" name="error">smsEventos.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="smsEventosAction">
+			<result type="tiles" name="input">smsEventos.displayList</result>
+			<result type="tiles" name="success">smsEventos.displayList</result>
+			<result type="tiles" name="error">smsEventos.displayList</result>
+		</action>
+		
+		<action name="excluir" class="smsEventosAction" method="excluir">
+			<result type="tiles" name="input">smsEventos.displayList</result>
+			<result type="tiles" name="success">smsEventos.displayList</result>
+			<result type="tiles" name="error">smsEventos.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="smsEventosAction" method="salvarLista">
+			<result type="tiles" name="input">smsEventos.insert</result>
+			<result type="tiles" name="success">smsEventos.displayList</result>
+			<result type="tiles" name="error">smsEventos.update</result>
+		</action>
+
+		<action name="salvarNovo" class="smsEventosAction" method="salvarNovo">
+			<result type="tiles" name="input">smsEventos.insert</result>
+			<result type="tiles" name="success">smsEventos.insert</result>
+			<result type="tiles" name="error">smsEventos.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="smsEventosAction" method="salvarEditar">
+			<result type="tiles" name="input">smsEventos.update</result>
+			<result type="tiles" name="success">smsEventos.update</result>
+			<result type="tiles" name="error">smsEventos.update</result>
+		</action>
+
+		<action name="novo" class="smsEventosAction" method="novo">
+			<result type="tiles" name="success">smsEventos.insert</result>
+			<result type="tiles" name="error">smsEventos.displayList</result>
+		</action>
+
+		<action name="editar" class="smsEventosAction" method="editar">
+			<result type="tiles" name="success">smsEventos.update</result>
+			<result type="tiles" name="input">smsEventos.displayList</result>
+			<result type="tiles" name="error">smsEventos.displayList</result>
+		</action>
+	</package>
+</struts>

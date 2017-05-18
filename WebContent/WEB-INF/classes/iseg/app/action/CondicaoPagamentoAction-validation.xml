@@ -1,0 +1,18 @@
+<!--
+ Description: Project iseg
+ Company....: Atlas
+ Version....: 0.1
+ Last change: 5/29/2008
+-->
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+   "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+   
+<!--  START SNIPPET: CondicaoPagamentoAction - Validators --><validators>
+	<field name="condicaoPagamento.descricao">
+        <field-validator type="required">
+            <message>O campo Descrição é de preenchimento obrigatorio!</message>
+        </field-validator>
+    </field></validators>
+<!--
+ Atlas, 2008
+-->

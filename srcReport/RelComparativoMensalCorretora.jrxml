@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelRankingProdutor" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<style name="Contorno Retângulo">
+		<box>
+			<pen lineWidth="0.5" lineStyle="Solid"/>
+			<topPen lineWidth="0.5" lineStyle="Solid"/>
+			<leftPen lineWidth="0.5" lineStyle="Solid"/>
+			<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+			<rightPen lineWidth="0.5" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="DataReport">
+		<parameter name="CORRETORA_ID" class="java.lang.Long" isForPrompting="false">
+			<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+		</parameter>
+		<parameter name="DATA_INICIO" class="java.util.Date" isForPrompting="false">
+			<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+		</parameter>
+		<parameter name="DATA_TERMINO" class="java.util.Date" isForPrompting="false">
+			<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+	corretora.nome::text As nome
+	, (substring(to_char(inicio_vigencia, 'TMMonth'), 1, 3) || ', ' || date_part('year', inicio_vigencia))::text As mes
+	, SUM(proposta.premio_liquido)::double precision As valor
+	, count(proposta.id) as qtde_docs
+	, sum(proposta.valor_comissao) AS valor_comissao
+	, sum((select sum((comissao/100)*proposta.valor_comissao) from comissionado_proposta where proposta_id=proposta.id)) as previsao_repasse
+	, date_part('year', inicio_vigencia) * 100 + date_part('month', inicio_vigencia)
+FROM
+	PROPOSTA proposta
+	LEFT JOIN GRUPO_DE_VENDA grupov ON proposta.grupo_de_venda_id=grupov.id
+	LEFT JOIN PESSOA seguradora ON proposta.seguradora_id=seguradora.id
+	LEFT JOIN RAMO ramo ON proposta.ramo_id = ramo.id
+	LEFT JOIN PESSOA cliente ON proposta.cliente_id = cliente.id
+	LEFT JOIN PESSOA produtor ON produtor.id=proposta.produtor_id
+	LEFT JOIN PESSOA corretora ON proposta.corretora_id = corretora.id
+WHERE
+	(($P{CORRETORA_ID} = '-1') OR proposta.corretora_id = $P{CORRETORA_ID})
+	AND (to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_INICIO}  OR proposta.inicio_vigencia >= $P{DATA_INICIO})
+	AND (to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_TERMINO} OR proposta.inicio_vigencia <= $P{DATA_TERMINO})
+	AND proposta.status_operacional in (1,2,4,51,6,7,81,9,10)
+GROUP BY
+	corretora.nome
+	, (substring(to_char(inicio_vigencia, 'TMMonth'), 1, 3)  || ', ' || date_part('year', inicio_vigencia))
+	, date_part('year', inicio_vigencia) * 100 + date_part('month', inicio_vigencia)
+ORDER BY
+	corretora.nome
+	, date_part('year', inicio_vigencia) * 100 + date_part('month', inicio_vigencia)
+	, (substring(to_char(inicio_vigencia, 'TMMonth'), 1, 3)  || ', ' || date_part('year', inicio_vigencia))]]>
+		</queryString>
+		<field name="nome" class="java.lang.String"/>
+		<field name="mes" class="java.lang.String"/>
+		<field name="valor" class="java.lang.Double"/>
+		<field name="qtde_docs" class="java.lang.Long"/>
+		<field name="valor_comissao" class="java.lang.Double"/>
+		<field name="previsao_repasse" class="java.lang.Double"/>
+		<field name="?column?" class="java.lang.Double"/>
+		<group name="nome">
+			<groupExpression><![CDATA[$F{nome}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="DATA_INICIO" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_TERMINO" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEM_DIR" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="NOME_CORRETORA" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["iSeg"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IMAGEM_FILE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["logo_iSeg.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORA_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SITUACAO_OPERACIONAL" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SITUACAO_OPERACIONAL_NOME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TODAS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ASSESSORIA" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QUEBRA_CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nome" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="jan" class="java.lang.Double"/>
+	<field name="feb" class="java.lang.Double"/>
+	<field name="mar" class="java.lang.Double"/>
+	<field name="apr" class="java.lang.Double"/>
+	<field name="may" class="java.lang.Double"/>
+	<field name="jun" class="java.lang.Double"/>
+	<field name="jul" class="java.lang.Double"/>
+	<field name="aug" class="java.lang.Double"/>
+	<field name="sep" class="java.lang.Double"/>
+	<field name="oct" class="java.lang.Double"/>
+	<field name="nov" class="java.lang.Double"/>
+	<field name="dec" class="java.lang.Double"/>
+	<sortField name="nome"/>
+	<variable name="total_premio_liquido" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Double(0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_comissao" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Double(0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_repasse" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Double(0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_docs" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Long(0)]]></initialValueExpression>
+	</variable>
+	<variable name="tituloRelatorio" class="java.lang.String">
+		<variableExpression><![CDATA["RELATÓRIO COMPARATIVO MENSAL - POR CORRETORA"]]></variableExpression>
+		<initialValueExpression><![CDATA["RELATÓRIO COMPARATIVO MENSAL - POR CORRETORA"]]></initialValueExpression>
+	</variable>
+	<variable name="corretora" class="java.lang.String">
+		<initialValueExpression><![CDATA["iSeg"]]></initialValueExpression>
+	</variable>
+	<variable name="periodo" class="java.lang.String">
+		<variableExpression><![CDATA["Transmitidos no período de: "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_INICIO})+" a "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TERMINO})]]></variableExpression>
+		<initialValueExpression><![CDATA["Transmitidos no período de: "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_INICIO})+" a "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TERMINO})]]></initialValueExpression>
+	</variable>
+	<variable name="QUANT_PAGINA" class="java.lang.Integer" incrementType="Page" calculation="Count">
+		<variableExpression><![CDATA[$V{PAGE_COUNT}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="37" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="534" height="37"/>
+				<subreportParameter name="SEGURADORA_NOME">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGEM_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_path"/>
+				<subreportParameter name="_tituloRelatorio">
+					<subreportParameterExpression><![CDATA[$V{tituloRelatorio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imagemDir">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_logo"/>
+				<subreportParameter name="NOME_CORRETORA">
+					<subreportParameterExpression><![CDATA[$P{NOME_CORRETORA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imageFileName">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_FILE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGEM_FILE">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_FILE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo1">
+					<subreportParameterExpression><![CDATA[$P{NOME_CORRETORA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "cabecalhoParaGraficos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-4" x="0" y="0" width="535" height="13"/>
+				<subreportParameter name="USUARIO">
+					<subreportParameterExpression><![CDATA[$P{USUARIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rodapeRetrato.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-79" mode="Opaque" x="217" y="6" width="67" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página: "+$V{PAGE_NUMBER}+"/"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement key="textField-80" mode="Opaque" x="284" y="6" width="29" height="11"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{QUANT_PAGINA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="512" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="534" height="51"/>
+				<subreportParameter name="DATA_INICIO">
+					<subreportParameterExpression><![CDATA[$P{DATA_INICIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DATA_TERMINO">
+					<subreportParameterExpression><![CDATA[$P{DATA_TERMINO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SEGURADORA_ID"/>
+				<subreportParameter name="CLIENTE_ID"/>
+				<subreportParameter name="IMAGEM_DIR"/>
+				<subreportParameter name="NOME_CORRETORA"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<subreportParameter name="USUARIO"/>
+				<subreportParameter name="IMAGEM_FILE"/>
+				<subreportParameter name="SEGURADORA_NOME"/>
+				<subreportParameter name="ORDEM"/>
+				<subreportParameter name="CORRETORA_ID">
+					<subreportParameterExpression><![CDATA[$P{CORRETORA_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SITUACAO_OPERACIONAL"/>
+				<subreportParameter name="SITUACAO_OPERACIONAL_NOME"/>
+				<subreportParameter name="CORRETORAS"/>
+				<subreportParameter name="USUARIO_ID"/>
+				<subreportParameter name="ASSESSORIA"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RelComparativoMensalCorretoraPremioLiquido.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="55" width="534" height="55"/>
+				<subreportParameter name="DATA_INICIO">
+					<subreportParameterExpression><![CDATA[$P{DATA_INICIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DATA_TERMINO">
+					<subreportParameterExpression><![CDATA[$P{DATA_TERMINO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SEGURADORA_ID"/>
+				<subreportParameter name="CLIENTE_ID"/>
+				<subreportParameter name="IMAGEM_DIR"/>
+				<subreportParameter name="NOME_CORRETORA"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<subreportParameter name="USUARIO"/>
+				<subreportParameter name="IMAGEM_FILE"/>
+				<subreportParameter name="SEGURADORA_NOME"/>
+				<subreportParameter name="ORDEM"/>
+				<subreportParameter name="CORRETORA_ID">
+					<subreportParameterExpression><![CDATA[$P{CORRETORA_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SITUACAO_OPERACIONAL"/>
+				<subreportParameter name="SITUACAO_OPERACIONAL_NOME"/>
+				<subreportParameter name="CORRETORAS"/>
+				<subreportParameter name="USUARIO_ID"/>
+				<subreportParameter name="ASSESSORIA"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RelComparativoMensalCorretoraComissao.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="114" width="534" height="61"/>
+				<subreportParameter name="DATA_INICIO">
+					<subreportParameterExpression><![CDATA[$P{DATA_INICIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DATA_TERMINO">
+					<subreportParameterExpression><![CDATA[$P{DATA_TERMINO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SEGURADORA_ID"/>
+				<subreportParameter name="CLIENTE_ID"/>
+				<subreportParameter name="IMAGEM_DIR"/>
+				<subreportParameter name="NOME_CORRETORA"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<subreportParameter name="USUARIO"/>
+				<subreportParameter name="IMAGEM_FILE"/>
+				<subreportParameter name="SEGURADORA_NOME"/>
+				<subreportParameter name="ORDEM"/>
+				<subreportParameter name="CORRETORA_ID">
+					<subreportParameterExpression><![CDATA[$P{CORRETORA_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SITUACAO_OPERACIONAL"/>
+				<subreportParameter name="SITUACAO_OPERACIONAL_NOME"/>
+				<subreportParameter name="CORRETORAS"/>
+				<subreportParameter name="USUARIO_ID"/>
+				<subreportParameter name="ASSESSORIA"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RelComparativoMensalCorretoraPrevisaoRepasse.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

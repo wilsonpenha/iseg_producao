@@ -1,0 +1,6 @@
+#
+# Parametros de corretora
+#
+
+idCorretora=7040
+jndiName=jdbc/g8

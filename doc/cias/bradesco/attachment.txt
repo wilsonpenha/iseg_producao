@@ -1,0 +1,122 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:gerenciadorCalculo xmlns="http://vo.model.calculoauto.paol.bradseg.com.br" xmlns:ns2="http://services.controller.wsat.paol.bradseg.com.br" xmlns:ns3="http://vo.model.subscricao.paol.bradseg.com.br">
+         <ns2:in0>
+            <residencialVo>
+               <nuOpcao>8</nuOpcao>
+               <nuCiaRenovacao>511</nuCiaRenovacao>
+               <nuSucursalRenovacao>1</nuSucursalRenovacao>
+               <nuApoliceRenovacao>123456</nuApoliceRenovacao>
+            </residencialVo>
+
+            <ECoberturaVo>
+               <cdClausulaAssistencia>63</cdClausulaAssistencia>
+               <cdClausulaCarroReserva>85</cdClausulaCarroReserva>
+               <cdClausulaVidros>24</cdClausulaVidros>
+               <cdZeroKm>6</cdZeroKm>
+               <flDespesasExtraordinarias>N</flDespesasExtraordinarias>
+               <isAppInvalidez>12500.0</isAppInvalidez>
+               <isAppMorte>12500.0</isAppMorte>
+               <isDanosCorporais>50000.0</isDanosCorporais>
+               <isDanosMateriais>50000.0</isDanosMateriais>
+               <isDanosMorais>30000.0</isDanosMorais>
+               <flCoberturaSP>S</flCoberturaSP>
+            </ECoberturaVo>
+
+            <EParametroVo>
+               <cdCorretor>CÓDIGO CPD BRADESCO DO CORRETOR</cdCorretor>
+               <flAdicionalFracionamento>S</flAdicionalFracionamento>
+               <flCcb>S</flCcb>
+               <flCustoApolice>S</flCustoApolice>
+               <flIOF>S</flIOF>
+               <flProRata>N</flProRata>
+               <nuCpfCnpjCorretor>CNPJ DO CORRETOR</nuCpfCnpjCorretor>
+            </EParametroVo>
+
+            <ERenovacaoVo>
+               <cdBonusApoliceAnterior>3</cdBonusApoliceAnterior>
+               <cdCiaRenovacao>511</cdCiaRenovacao>
+               <flComodatoApoliceAnterior>N</flComodatoApoliceAnterior>
+               <nuSinistros>1</nuSinistros>
+            </ERenovacaoVo>
+
+            <EPerfilProprietarioVo>
+               <cdEstadoCivil>C</cdEstadoCivil>
+               <cdSexo>M</cdSexo>
+               <cdTipoPerfil>2</cdTipoPerfil>
+               <dtNascimento>30071967</dtNascimento>
+               <flFilhosAte16Anos>N</flFilhosAte16Anos>
+               <flFilhosEntre17e25>N</flFilhosEntre17e25>
+               <flHaMaisVeiculoGaragem>S</flHaMaisVeiculoGaragem>
+               <flVeiculoPernoiteGaragem>S</flVeiculoPernoiteGaragem>
+            </EPerfilProprietarioVo>
+
+            <EPerfilSeguradoVo>
+               <cdEstadoCivil>C</cdEstadoCivil>
+               <cdSexo>F</cdSexo>
+               <cdTipoPerfil>1</cdTipoPerfil>
+               <dtNascimento>19091977</dtNascimento>
+               <flFilhosAte16Anos>S</flFilhosAte16Anos>
+               <flFilhosEntre17e25>S</flFilhosEntre17e25>
+               <flHaMaisVeiculoGaragem>S</flHaMaisVeiculoGaragem>
+               <flVeiculoPernoiteGaragem>S</flVeiculoPernoiteGaragem>
+            </EPerfilSeguradoVo>
+
+            <EVeiculoVo>
+               <cdAntiFurto>128</cdAntiFurto>
+
+               <listaOpcionais>
+                  <EOpcionalVo>
+                     <nmDescricao>Cambio automatico</nmDescricao>
+                     <cdOpcional>10</cdOpcional>
+                  </EOpcionalVo>
+               </listaOpcionais>
+               
+               <cdCombustivel>7</cdCombustivel>
+               <cdFranquia>22</cdFranquia>
+               <cdProduto>1</cdProduto>
+               <cdUsoVeiculo>44</cdUsoVeiculo>
+               <cdVeiculo>6623</cdVeiculo>
+               <dtSaidaConcessionaria>01052012</dtSaidaConcessionaria>
+               <flChassiRemarcado>N</flChassiRemarcado>
+               <flComodato>N</flComodato>
+               <flIdenticar>N</flIdenticar>
+               <flValorMercado>S</flValorMercado>
+               <nuAnoFabricacao>2012</nuAnoFabricacao>
+               <nuAnoModelo>2012</nuAnoModelo>
+               <nuChassi>3N1AB61D28L602368</nuChassi>
+               <nuEixo>2</nuEixo>
+               <nuPassageiros>5</nuPassageiros>
+               <nuPlaca>CFM1967</nuPlaca>
+               <nuPortas>4</nuPortas>
+               <pcAjusteValorVeiculo>100</pcAjusteValorVeiculo>
+            </EVeiculoVo>
+
+            <cdEmpresa>0000</cdEmpresa>
+            <cnroContrato>0000000000</cnroContrato>
+            <cdInspetoria>18</cdInspetoria>
+            <cdModalidade>R</cdModalidade>
+            <cdProdutoCliente>9</cdProdutoCliente>
+            <cdRelacaoSeguradoProprietario>2</cdRelacaoSeguradoProprietario>
+            <cdSucursal>1</cdSucursal>
+            <cdTipoPessoaProprietario>F</cdTipoPessoaProprietario>
+            <cdTipoPessoaSegurado>F</cdTipoPessoaSegurado>
+            <cdTipoSistema>1</cdTipoSistema>
+            <dtFinalVigencia>01062013</dtFinalVigencia>
+            <dtInicioVigencia>01062012</dtInicioVigencia>
+            <dtProcessamento>01062012</dtProcessamento>
+            <flAutoResidencial>S</flAutoResidencial>
+            <flNovaTarifa>S</flNovaTarifa>
+            <nmProponente>NOME DO SEGURADO</nmProponente>
+            <nuCEP>20230050</nuCEP>
+            <nuCpfCnpjProponente>CPF DO SEGURADO</nuCpfCnpjProponente>
+            <nuCpfCnpjProprietario>CPF DO PROPRIETÁRIO</nuCpfCnpjProprietario>
+            <pcDescontoAPP>0.0</pcDescontoAPP>
+            <pcDescontoAuto>0.0</pcDescontoAuto>
+            <pcDescontoRCF>0.0</pcDescontoRCF>
+         </ns2:in0>
+         <ns2:in1>85839442704</ns2:in1>
+         <ns2:in2>654321</ns2:in2>
+      </ns2:gerenciadorCalculo>
+   </soap:Body>
+</soap:Envelope>

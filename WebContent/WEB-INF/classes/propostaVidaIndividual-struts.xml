@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="propostaIndividual" extends="struts2" namespace="/propostaIndividual">
+
+		<action name="displayList" method="execute" class="propostaVidaIndividualAction">
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="propostaVidaIndividualAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo,lista,next,previous,last</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/displayListResult.jsp</result>
+			<result name="edicao">/WEB-INF/jsp/propostaVidaIndividual/propostaImoveis.jsp</result>
+		</action>
+
+		<action name="iniciar" class="propostaVidaIndividualAction" method="execute">
+			<result>/WEB-INF/jsp/propostaVidaIndividual/propostaImoveis.jsp</result>
+		</action>
+ 
+		<action name="editar" class="propostaVidaIndividualAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+		</action>
+ 
+		<action name="endossoRenovacao" class="propostaVidaIndividualAction" method="endossoRenovacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">endossoRenovacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+		</action>
+ 
+		<action name="novo" class="propostaVidaIndividualAction" method="novo">
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="propostaVidaIndividualAction" method="excluir">
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="cancelarProposta" class="propostaVidaIndividualAction" method="cancelarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">cancelarProposta</param>
+			</interceptor-ref>
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="salvarEditar" class="propostaVidaIndividualAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/tabPane${currentTab}.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/tabPane${currentTab}.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/tabPane${currentTab}.jsp</result>
+		</action>
+
+		<action name="gerarParcelas" class="iseg.app.action.PropostaImoveisAction" method="gerarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">gerarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="propostaVidaIndividualAction" method="lista">
+			<result name="success">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+		</action>
+
+		<action name="vistoriadoraPorSeguradora" class="propostaVidaIndividualAction" method="getVistoriadoraBySeguradoraList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getVistoriadoraBySeguradoraList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/comboListVistoriadora.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/comboListVistoriadora.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/comboListVistoriadora.jsp</result>
+		</action>
+
+		<action name="condPagtoPorSeguradora" class="propostaVidaIndividualAction" method="getCondPagtoPorSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getCondPagtoPorSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/comboListCondPagto.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/comboListCondPagto.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/comboListCondPagto.jsp</result>
+		</action>
+
+		<action name="propostaIndividualDadosCliente" class="propostaVidaIndividualAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/dadosCliente.jsp</result>
+		</action>
+
+		<action name="propostaIndividualDadosSegurado" class="propostaVidaIndividualAction" method="getDadosSegurado">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/dadosSeguradoCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/dadosSeguradoCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/dadosSeguradoCliente.jsp</result>
+		</action>
+
+		<action name="efetivarProposta" class="propostaVidaIndividualAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/propostaVidaIndividual.jsp</result>
+		</action>
+
+		<action name="novoDadosClienteForm" class="propostaVidaIndividualAction" method="novoDadosClienteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosClienteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="alterarGrupoVenda" class="propostaVidaIndividualAction" method="alterarGrupoVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/dadosComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/dadosComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/dadosComissao.jsp</result>
+		</action>
+
+		<action name="inserirCobertura" class="propostaVidaIndividualAction" method="inserirCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/rowSeguradoCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/rowSeguradoCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/rowSeguradoCobertura.jsp</result>
+		</action>
+
+		<action name="inserirBeneficiario" class="propostaVidaIndividualAction" method="inserirBeneficiario">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirBeneficiario</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/listaBeneficiarios.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/listaBeneficiarios.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/listaBeneficiarios.jsp</result>
+		</action>
+
+		<action name="editarBeneficiario" class="propostaVidaIndividualAction" method="editarBeneficiario">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarBeneficiario</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/dadosBeneficiario.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/dadosBeneficiario.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/dadosBeneficiario.jsp</result>
+		</action>
+
+		<action name="excluirBeneficiario" class="propostaVidaIndividualAction" method="excluirBeneficiario">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirBeneficiario</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaIndividual/listaBeneficiarios.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaIndividual/listaBeneficiarios.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaIndividual/listaBeneficiarios.jsp</result>
+		</action>
+
+	</package>
+</struts>

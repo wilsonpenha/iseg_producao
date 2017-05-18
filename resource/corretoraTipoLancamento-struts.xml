@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="corretoraTipoLancamento" extends="struts2" namespace="/corretoraTipoLancamento">
+		<action name="displayList" method="lista" class="corretoraTipoLancamentoAction">
+			<result type="tiles" name="input">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="success">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="corretoraTipoLancamentoAction">
+			<result type="tiles" name="input">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="success">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.displayList</result>
+		</action>
+		
+		<action name="excluir" class="corretoraTipoLancamentoAction" method="excluir">
+			<result type="tiles" name="input">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="success">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="corretoraTipoLancamentoAction" method="salvarLista">
+			<result type="tiles" name="input">corretoraTipoLancamento.insert</result>
+			<result type="tiles" name="success">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.update</result>
+		</action>
+
+		<action name="salvarNovo" class="corretoraTipoLancamentoAction" method="salvarNovo">
+			<result type="tiles" name="input">corretoraTipoLancamento.insert</result>
+			<result type="tiles" name="success">corretoraTipoLancamento.insert</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="corretoraTipoLancamentoAction" method="salvarEditar">
+			<result type="tiles" name="input">corretoraTipoLancamento.update</result>
+			<result type="tiles" name="success">corretoraTipoLancamento.update</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.update</result>
+		</action>
+
+		<action name="novo" class="corretoraTipoLancamentoAction" method="novo">
+			<result type="tiles" name="success">corretoraTipoLancamento.insert</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.displayList</result>
+		</action>
+
+		<action name="editar" class="corretoraTipoLancamentoAction" method="editar">
+			<result type="tiles" name="success">corretoraTipoLancamento.update</result>
+			<result type="tiles" name="input">corretoraTipoLancamento.displayList</result>
+			<result type="tiles" name="error">corretoraTipoLancamento.displayList</result>
+		</action>
+	</package>
+</struts>

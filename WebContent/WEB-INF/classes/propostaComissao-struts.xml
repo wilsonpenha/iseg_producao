@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="propostaComissao" extends="struts2" namespace="/propostaComissao">
+
+		<action name="editar" class="propostaComissaoAction" method="editar">
+			<result type="tiles">propostaComissao.update</result>
+		</action>
+
+		<action name="gerarComissoes" class="propostaComissaoAction" method="gerarComissoes">
+			<result>/WEB-INF/jsp/propostaComissao/comissoes.jsp</result>
+		</action>
+
+		<action name="relatorioComissoes" method="relatorio" class="propostaComissaoAction">
+		    <result type="tiles" name="success">comissoes.relatorios</result>
+		    <result type="tiles" name="input">comissoes.relatorios</result>
+			<result type="tiles" name="error">comissoes.relatorios</result>
+		</action>
+		
+		<action name="comissoesAReceberERecebidas" method="relatorio" class="propostaComissaoAction">
+		    <result type="tiles" name="success">comissoesAReceberERecebidas.relatorios</result>
+		    <result type="tiles" name="input">comissoesAReceberERecebidas.relatorios</result>
+			<result type="tiles" name="error">comissoesAReceberERecebidas.relatorios</result>
+		</action>		
+	</package>
+</struts>

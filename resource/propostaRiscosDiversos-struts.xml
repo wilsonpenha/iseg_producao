@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="propostaRiscosDiversos" extends="struts2" namespace="/propostaRiscosDiversos">
+
+		<action name="displayList" method="execute" class="propostaRiscosDiversosAction">
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="propostaRiscosDiversosAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo,lista,next,previous,last</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/displayListResult.jsp</result>
+			<result name="edicao">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+		</action>
+
+		<action name="iniciar" class="propostaRiscosDiversosAction" method="execute">
+			<result>/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+		</action>
+ 
+		<action name="editar" class="propostaRiscosDiversosAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+		</action>
+ 
+		<action name="endossoRenovacao" class="propostaRiscosDiversosAction" method="endossoRenovacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">endossoRenovacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+		</action>
+ 
+		<action name="novo" class="propostaRiscosDiversosAction" method="novo">
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="propostaRiscosDiversosAction" method="excluir">
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="cancelarProposta" class="propostaRiscosDiversosAction" method="cancelarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">cancelarProposta</param>
+			</interceptor-ref>
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/displayList.jsp</result>
+		</action>
+ 
+		<action name="salvarEditar" class="propostaRiscosDiversosAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/allForms.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/allForms.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/allForms.jsp</result>
+		</action>
+
+		<action name="gerarParcelas" class="propostaRiscosDiversosAction" method="gerarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">gerarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="propostaRiscosDiversosAction" method="lista">
+			<result name="success">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+
+		<action name="vistoriadoraPorSeguradora" class="propostaRiscosDiversosAction" method="getVistoriadoraBySeguradoraList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getVistoriadoraBySeguradoraList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/comboListVistoriadora.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/comboListVistoriadora.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/comboListVistoriadora.jsp</result>
+		</action>
+
+		<action name="condPagtoPorSeguradora" class="propostaRiscosDiversosAction" method="getCondPagtoPorSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getCondPagtoPorSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/comboListCondPagto.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/comboListCondPagto.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/comboListCondPagto.jsp</result>
+		</action>
+
+		<action name="propostaRiscosDiversosModeloVeiculo" class="propostaRiscosDiversosAction" method="getModeloVeiculoList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getModeloVeiculoList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/comboListModeloVeiculo.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/comboListModeloVeiculo.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/comboListModeloVeiculo.jsp</result>
+		</action>
+
+		<action name="propostaRiscosDiversosDadosCliente" class="propostaRiscosDiversosAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/dadosCliente.jsp</result>
+		</action>
+
+		<action name="efetivarProposta" class="propostaRiscosDiversosAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/propostaRiscosDiversos.jsp</result>
+		</action>
+
+		<action name="novoDadosClienteForm" class="propostaRiscosDiversosAction" method="novoDadosClienteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosClienteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="alterarGrupoVenda" class="propostaRiscosDiversosAction" method="alterarGrupoVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/dadosComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/dadosComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/dadosComissao.jsp</result>
+		</action>
+
+		<action name="inserirRiscoCobertura" class="propostaRiscosDiversosAction" method="inserirRiscoCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirRiscoCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/listaRiscoCoberturas.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/listaRiscoCoberturas.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/listaRiscoCoberturas.jsp</result>
+		</action>
+
+		<action name="editarRiscoCobertura" class="propostaRiscosDiversosAction" method="editarRiscoCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarRiscoCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/dadosRiscoCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/dadosRiscoCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/dadosRiscoCobertura.jsp</result>
+		</action>
+
+		<action name="excluirRiscoCobertura" class="propostaRiscosDiversosAction" method="excluirRiscoCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirRiscoCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/listaRiscoCoberturas.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/listaRiscoCoberturas.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/listaRiscoCoberturas.jsp</result>
+		</action>
+
+		<action name="inserirCobertura" class="propostaRiscosDiversosAction" method="inserirCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/rowRiscoCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/rowRiscoCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/rowRiscoCobertura.jsp</result>
+		</action>
+
+		<action name="novoItem" class="propostaRiscosDiversosAction" method="novoItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+		</action>
+
+		<action name="editarRisco" class="propostaRiscosDiversosAction" method="editarRisco">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarRisco</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+		</action>
+
+		<action name="removerItem" class="propostaRiscosDiversosAction" method="removerItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removerItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaRiscosDiversos/tabPane1.jsp</result>
+		</action>
+	</package>
+</struts>

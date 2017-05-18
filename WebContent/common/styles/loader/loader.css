@@ -1,0 +1,33 @@
+div#pageloader {
+	width: 150px;
+	height: 70px;
+	background: Window url('loader.gif') center no-repeat;
+	background-color: #FFFFFF;
+	border: 2px solid black;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -35px;
+	margin-left: -75px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.pageloader {
+	width: 150px;
+	height: 70px;
+	background: Window url('loader.gif') center no-repeat;
+	background-color: #FFFFFF;
+	border: 2px solid black;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -35px;
+	margin-left: -75px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}

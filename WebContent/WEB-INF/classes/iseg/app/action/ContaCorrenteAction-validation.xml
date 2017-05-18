@@ -1,0 +1,23 @@
+<!--
+ Description: Project iseg
+ Company....: Atlas
+ Version....: 0.1
+ Last change: 6/24/2008
+-->
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+   
+<!--  START SNIPPET: ContaCorrenteAction - Validators --><validators>    <field name="contaCorrente.banco.id">        <field-validator type="required">            <message>O campo Banco Id é de preenchimento obrigatório!</message>        </field-validator>    </field>    <field name="contaCorrente.codigoAgencia">        <field-validator type="required">            <message>O campo Código da Agencia é de preenchimento obrigatório!</message>        </field-validator>    </field>    <field name="contaCorrente.contaCorrente">        <field-validator type="required">            <message>O campo Conta Corrente é de preenchimento obrigatório!</message>        </field-validator>    </field>
+    <field name="contaCorrente.pessoa.id">
+    	<field-validator type="required">
+    		<message>O Campo Pessoa é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+</validators>
+
+
+
+<!--
+ Atlas, 2008
+-->

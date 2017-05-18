@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="endereco" extends="struts2" namespace="/endereco">
+		<action name="displayList" method="lista" class="enderecoAction">
+			
+			<result type="tiles" name="inputpessoafisica">endereco.pessoaFisicaUpdate</result>
+			<result type="tiles" name="nonepessoafisica">endereco.pessoaFisicaInsert</result>
+			<result type="tiles" name="successpessoafisica">endereco.pessoaFisicaDisplayList</result>
+			
+			<result type="tiles" name="inputoficina">endereco.oficinaUpdate</result>
+			<result type="tiles" name="noneoficina">endereco.oficinaInsert</result>
+			<result type="tiles" name="successoficina">endereco.oficinaDisplayList</result>
+			
+			<result type="tiles" name="nonepessoajuridica">endereco.pessoaJuridicaInsert</result>
+			<result type="tiles" name="inputpessoajuridica">endereco.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="successpessoajuridica">endereco.pessoaJuridicaDisplayList</result>
+			
+			<result type="tiles" name="nonecorretora">endereco.corretoraInsert</result>
+			<result type="tiles" name="inputcorretora">endereco.corretoraUpdate</result>
+			<result type="tiles" name="successcorretora">endereco.corretoraDisplayList</result>
+			
+			
+			<result type="tiles" name="noneseguradora">endereco.corretoraInsert</result>
+			<result type="tiles" name="inputseguradora">endereco.corretoraUpdate</result>
+			<result type="tiles" name="successeguradora">endereco.corretoraDisplayList</result>
+			
+			<result type="tiles" name="noneprodutor">endereco.produtorInsert</result>
+			<result type="tiles" name="inputprodutor">endereco.produtorUpdate</result>
+			<result type="tiles" name="successprodutor">endereco.produtorDisplayList</result>
+			
+			<result type="tiles" name="nonevistoriadora">endereco.vistoriadoraInsert</result>
+			<result type="tiles" name="inputvistoriadora">endereco.vistoriadoraUpdate</result>
+			<result type="tiles" name="successvistoriadora">endereco.vistoriadoraDisplayList</result>
+			
+			<result type="tiles" name="none">endereco.insert</result>
+			<result type="tiles" name="input">endereco.update</result>
+			<result type="tiles" name="success">endereco.displayList</result>
+			<result type="tiles" name="error">endereco.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="enderecoAction">
+			<result type="tiles" name="success">endereco.displayList</result>
+			<result type="tiles" name="error">endereco.displayList</result>
+		</action>
+		
+		<action name="excluir" class="enderecoAction" method="excluir">
+			<result type="tiles" name="success">endereco.displayList</result>
+			<result type="tiles" name="error">endereco.displayList</result>
+
+			<result type="tiles" name="successpessoafisica">endereco.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="successpessoajuridica">endereco.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="successprodutor">endereco.produtorDisplayList</result>
+			<result type="tiles" name="successcorretora">endereco.corretoraDisplayList</result>
+			<result type="tiles" name="successseguradora">endereco.seguradoraDisplayList</result>
+			<result type="tiles" name="successoficina">endereco.oficinaDisplayList</result>
+			<result type="tiles" name="successvistoriadora">endereco.vistoriadoraDisplayList</result>
+			
+			<result type="tiles" name="inputpessoafisica">endereco.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="inputpessoajuridica">endereco.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="inputprodutor">endereco.produtorDisplayList</result>
+			<result type="tiles" name="inputcorretora">endereco.corretoraDisplayList</result>
+			<result type="tiles" name="inputseguradora">endereco.seguradoraDisplayList</result>
+			<result type="tiles" name="inputoficina">endereco.oficinaDisplayList</result>
+			<result type="tiles" name="inputvistoriadora">endereco.vistoriadoraUpdate</result>
+
+			<result type="tiles" name="nonepessoafisica">endereco.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="nonepessoajuridica">endereco.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="noneprodutor">endereco.produtorDisplayList</result>
+			<result type="tiles" name="nonecorretora">endereco.corretoraDisplayList</result>
+			<result type="tiles" name="noneseguradora">endereco.seguradoraDisplayList</result>
+			<result type="tiles" name="noneoficina">endereco.oficinaDisplayList</result>
+			<result type="tiles" name="nonevistoriadora">endereco.vistoriadoraInsert</result>
+			
+		</action>
+		
+		<action name="salvarLista" class="enderecoAction" method="salvarLista">
+			<result type="tiles" name="none">endereco.insert</result>
+			<result type="tiles" name="input">endereco.update</result>
+			<result type="tiles" name="success">endereco.displayList</result>
+			
+			<result type="tiles" name="inputpessoafisica">endereco.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="nonepessoafisica">endereco.pessoaFisicaDisplayList</result>
+			<result type="tiles" name="successpessoafisica">endereco.pessoaFisicaDisplayList</result>
+			
+			<result type="tiles" name="inputoficina">endereco.oficinaDisplayList</result>
+			<result type="tiles" name="noneoficina">endereco.oficinaDisplayList</result>
+			<result type="tiles" name="successoficina">endereco.oficinaDisplayList</result>
+			
+			<result type="tiles" name="inputpessoajuridica">endereco.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="nonepessoajuridica">endereco.pessoaJuridicaDisplayList</result>
+			<result type="tiles" name="successpessoajuridica">endereco.pessoaJuridicaDisplayList</result>
+			
+			<result type="tiles" name="inputprodutor">endereco.produtorDisplayList</result>
+			<result type="tiles" name="noneprodutor">endereco.produtorDisplayList</result>
+			<result type="tiles" name="successprodutor">endereco.produtorDisplayList</result>
+			
+			<result type="tiles" name="inputcorretora">endereco.corretoraDisplayList</result>
+			<result type="tiles" name="nonecorretora">endereco.corretoraDisplayList</result>
+			<result type="tiles" name="successcorretora">endereco.corretoraDisplayList</result>
+			
+			<result type="tiles" name="inputseguradora">endereco.corretoraDisplayList</result>
+			<result type="tiles" name="noneseguradora">endereco.corretoraDisplayList</result>
+			<result type="tiles" name="successeguradora">endereco.corretoraDisplayList</result>
+
+			<result type="tiles" name="nonevistoriadora">endereco.vistoriadoraInsert</result>
+			<result type="tiles" name="inputvistoriadora">endereco.vistoriadoraUpdate</result>
+			<result type="tiles" name="successvistoriadora">endereco.vistoriadoraDisplayList</result>
+			
+		</action>
+		
+		<action name="salvarNovo" class="enderecoAction" method="salvarNovo">
+			<result type="tiles" name="input">endereco.insert</result>
+			<result type="tiles" name="success">endereco.insert</result>
+			<result type="tiles" name="error">endereco.insert</result>
+			
+			<result type="tiles" name="inputpessoafisica">endereco.pessoaFisicaInsert</result>
+			<result type="tiles" name="successpessoafisica">endereco.pessoaFisicaInsert</result>
+			<result type="tiles" name="errorpessoafisica">endereco.pessoaFisicaInsert</result>
+			
+			<result type="tiles" name="inputoficina">endereco.oficinaInsert</result>
+			<result type="tiles" name="successoficina">endereco.oficinaInsert</result>
+			<result type="tiles" name="erroroficina">endereco.oficinaInsert</result>
+			
+			<result type="tiles" name="inputpessoajuridica">endereco.pessoaJuridicaInsert</result>
+			<result type="tiles" name="successpessoajuridica">endereco.pessoaJuridicaInsert</result>
+			<result type="tiles" name="errorpessoajuridica">endereco.pessoaJuridicaInsert</result>
+			
+			<result type="tiles" name="inputprodutor">endereco.produtorInsert</result>
+			<result type="tiles" name="successprodutor">endereco.produtorInsert</result>
+			<result type="tiles" name="errorprodutor">endereco.produtorInsert</result>
+			
+			<result type="tiles" name="inputcorretora">endereco.corretoraInsert</result>
+			<result type="tiles" name="successcorretora">endereco.corretoraInsert</result>
+			<result type="tiles" name="errorcorretora">endereco.corretoraInsert</result>
+			
+			<result type="tiles" name="inputseguradora">endereco.seguradoraInsert</result>
+			<result type="tiles" name="successeguradora">endereco.seguradoraInsert</result>
+			<result type="tiles" name="errorseguradora">endereco.seguradoraInsert</result>
+
+			<result type="tiles" name="nonevistoriadora">endereco.vistoriadoraInsert</result>
+			<result type="tiles" name="inputvistoriadora">endereco.vistoriadoraUpdate</result>
+			<result type="tiles" name="successvistoriadora">endereco.vistoriadoraDisplayList</result>
+		</action>
+
+		<action name="salvarEditar" class="enderecoAction" method="salvarEditar">
+			<result type="tiles" name="input">endereco.update</result>
+			<result type="tiles" name="success">endereco.update</result>
+			<result type="tiles" name="error">endereco.update</result>
+			
+			<result type="tiles" name="inputpessoafisica">endereco.pessoaFisicaUpdate</result>
+			<result type="tiles" name="successpessoafisica">endereco.pessoaFisicaUpdate</result>
+			<result type="tiles" name="errorpessoafisica">endereco.pessoaFisicaUpdate</result>
+			
+			<result type="tiles" name="inputoficina">endereco.oficinaUpdate</result>
+			<result type="tiles" name="successoficina">endereco.oficinaUpdate</result>
+			<result type="tiles" name="erroroficina">endereco.oficinaUpdate</result>
+			
+			<result type="tiles" name="inputpessoajuridica">endereco.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="successpessoajuridica">endereco.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="errorpessoajuridica">endereco.pessoaJuridicaUpdate</result>
+			
+			<result type="tiles" name="inputprodutor">endereco.produtorUpdate</result>
+			<result type="tiles" name="successprodutor">endereco.produtorUpdate</result>
+			<result type="tiles" name="errorprodutor">endereco.produtorUpdate</result>
+			
+			<result type="tiles" name="inputcorretora">endereco.corretoraUpdate</result>
+			<result type="tiles" name="successcorretora">endereco.corretoraUpdate</result>
+			<result type="tiles" name="errorcorretora">endereco.corretoraUpdate</result>
+			
+			<result type="tiles" name="inputseguradora">endereco.seguradoraUpdate</result>
+			<result type="tiles" name="successseguradora">endereco.seguradoraUpdate</result>
+			<result type="tiles" name="errorseguradora">endereco.seguradoraUpdate</result>
+
+			<result type="tiles" name="nonevistoriadora">endereco.vistoriadoraInsert</result>
+			<result type="tiles" name="inputvistoriadora">endereco.vistoriadoraUpdate</result>
+			<result type="tiles" name="successvistoriadora">endereco.vistoriadoraDisplayList</result>
+		</action>
+
+
+		<action name="novo" class="enderecoAction" method="novo">
+			<result type="tiles" name="success">endereco.insert</result>
+			<result type="tiles" name="error">endereco.insert</result>
+
+			<result type="tiles" name="successpessoafisica">endereco.pessoaFisicaInsert</result>
+			<result type="tiles" name="successoficina">endereco.oficinaInsert</result>
+			<result type="tiles" name="successpessoajuridica">endereco.pessoaJuridicaInsert</result>
+			<result type="tiles" name="successprodutor">endereco.produtorInsert</result>
+			<result type="tiles" name="successcorretora">endereco.corretoraInsert</result>
+			<result type="tiles" name="successseguradora">endereco.seguradoraInsert</result>
+			<result type="tiles" name="successvistoriadora">endereco.vistoriadoraDisplayList</result>
+		</action>
+
+		<action name="editar" class="enderecoAction" method="editar">
+			<result type="tiles" name="success">endereco.update</result>
+			<result type="tiles" name="error">endereco.update</result>
+		
+			<result type="tiles" name="successpessoafisica">endereco.pessoaFisicaUpdate</result>
+			<result type="tiles" name="successoficina">endereco.oficinaUpdate</result>
+			<result type="tiles" name="successpessoajuridica">endereco.pessoaJuridicaUpdate</result>
+			<result type="tiles" name="successprodutor">endereco.produtorUpdate</result>
+			<result type="tiles" name="successcorretora">endereco.corretoraUpdate</result>
+			<result type="tiles" name="successseguradora">endereco.seguradoraUpdate</result>
+			<result type="tiles" name="successvistoriadora">endereco.vistoriadoraDisplayList</result>
+		</action>
+
+		<action name="buscaCep" class="enderecoAction" method="buscaCep">
+			<result name="success">/WEB-INF/jsp/endereco/busca_cep.jsp</result>
+		</action>
+
+	</package>
+</struts>

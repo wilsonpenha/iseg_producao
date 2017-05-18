@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="protocolo" extends="struts2" namespace="/protocolo">
+		<action name="displayList" method="lista" class="iseg.app.action.ProtocoloAction">
+			<result>/WEB-INF/jsp/protocolo/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="iseg.app.action.ProtocoloAction">
+			<result name="success">/WEB-INF/jsp/protocolo/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/protocolo/displayList.jsp</result>
+		</action>
+		
+		<action name="excluir" class="iseg.app.action.ProtocoloAction" method="excluir">
+			<result name="success">/WEB-INF/jsp/protocolo/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/protocolo/displayList.jsp</result>
+		</action>
+		
+		<action name="salvarLista" class="iseg.app.action.ProtocoloAction" method="salvarLista">
+			<result name="input">/WEB-INF/jsp/protocolo/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/protocolo/displayList.jsp</result>
+			<result type="tiles" name="error">protocolo.update</result>
+		</action>
+
+		<action name="salvarNovo" class="iseg.app.action.ProtocoloAction" method="salvarNovo">
+			<result type="tiles" name="input">protocolo.insert</result>
+			<result type="tiles" name="success">protocolo.insert</result>
+			<result type="tiles" name="error">protocolo.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="iseg.app.action.ProtocoloAction" method="salvarEditar">
+			<result type="tiles" name="input">protocolo.update</result>
+			<result type="tiles" name="success">protocolo.update</result>
+			<result type="tiles" name="error">protocolo.update</result>
+		</action>
+
+		<action name="novo" class="iseg.app.action.ProtocoloAction" method="novo">
+			<result type="tiles" name="success">protocolo.insert</result>
+			<result type="tiles" name="error">protocolo.insert</result>
+		</action>
+
+		<action name="pesquisarPropostas" class="iseg.app.action.ProtocoloAction" method="pesquisarPropostas">
+			<result name="success">/WEB-INF/jsp/protocolo/listaPropostas.jsp</result>
+			<result name="error">/WEB-INF/jsp/protocolo/listaPropostas.jsp</result>
+		</action>
+
+		<action name="editar" class="iseg.app.action.ProtocoloAction" method="editar">
+			<result type="tiles" name="success">protocolo.update</result>
+			<result name="error">/WEB-INF/jsp/protocolo/displayList.jsp</result>
+		</action>
+
+		<action name="removerItemProtocolo" class="iseg.app.action.ProtocoloAction" method="removerItemProtocolo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removerItemProtocolo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/protocolo/rowProtocoloItem.jsp</result>
+			<result name="error">/WEB-INF/jsp/protocolo/rowProtocoloItem.jsp</result>
+		</action>
+
+		<action name="inserirItensProposta" class="iseg.app.action.ProtocoloAction" method="inserirItensProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirItensProposta</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/protocolo/rowProtocoloItem.jsp</result>
+			<result name="error">/WEB-INF/jsp/protocolo/rowProtocoloItem.jsp</result>
+		</action>
+		
+	</package>
+</struts>

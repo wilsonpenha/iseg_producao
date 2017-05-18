@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="posVenda" extends="struts2" namespace="/posVenda">
+		<action name="displayList" method="lista" class="propostaAction">
+			<result>/WEB-INF/jsp/posVenda/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="posVendaAction">
+			<result name="success">/WEB-INF/jsp/posVenda/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/posVenda/displayList.jsp</result>
+		</action>
+		
+		<action name="excluir" class="posVendaAction" method="excluir">
+			<result name="success">/WEB-INF/jsp/posVenda/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/posVenda/displayList.jsp</result>
+		</action>
+		
+		<action name="salvarLista" class="posVendaAction" method="salvarLista">
+			<result name="input">/WEB-INF/jsp/posVenda/displayList.jsp</result>
+			<result name="success">/WEB-INF/jsp/posVenda/displayList.jsp</result>
+			<result type="tiles" name="error">posVenda.update</result>
+		</action>
+
+		<action name="salvarNovo" class="posVendaAction" method="salvarNovo">
+			<result type="tiles" name="input">posVenda.insert</result>
+			<result type="tiles" name="success">posVenda.insert</result>
+			<result type="tiles" name="error">posVenda.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="posVendaAction" method="salvarEditar">
+			<result type="tiles" name="input">posVenda.update</result>
+			<result type="tiles" name="success">posVenda.update</result>
+			<result type="tiles" name="error">posVenda.update</result>
+		</action>
+
+		<action name="novo" class="posVendaAction" method="novo">
+			<result type="tiles" name="success">posVenda.insert</result>
+			<result type="tiles" name="error">posVenda.insert</result>
+		</action>
+
+		<action name="editar" class="posVendaAction" method="editar">
+			<result type="tiles" name="success">posVenda.update</result>
+			<result name="error">/WEB-INF/jsp/posVenda/displayList.jsp</result>
+		</action>
+
+		<action name="inserirPendencia" class="posVendaAction" method="inserirPendencia">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirPendencia</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/posVenda/rowPendenciaPosVenda.jsp</result>
+			<result name="input">/WEB-INF/jsp/posVenda/rowPendenciaPosVenda.jsp</result>
+			<result name="error">/WEB-INF/jsp/posVenda/rowPendenciaPosVenda.jsp</result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="smsTelefonesProdutor" extends="struts2" namespace="/smsTelefonesProdutor">
+		<action name="displayList" method="lista" class="smsTelefonesProdutorAction">
+			<result type="tiles" name="input">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="success">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="smsTelefonesProdutorAction">
+			<result type="tiles" name="input">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="success">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.displayList</result>
+		</action>
+		
+		<action name="excluir" class="smsTelefonesProdutorAction" method="excluir">
+			<result type="tiles" name="input">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="success">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="smsTelefonesProdutorAction" method="salvarLista">
+			<result type="tiles" name="input">smsTelefonesProdutor.insert</result>
+			<result type="tiles" name="success">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.update</result>
+		</action>
+
+		<action name="salvarNovo" class="smsTelefonesProdutorAction" method="salvarNovo">
+			<result type="tiles" name="input">smsTelefonesProdutor.insert</result>
+			<result type="tiles" name="success">smsTelefonesProdutor.insert</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="smsTelefonesProdutorAction" method="salvarEditar">
+			<result type="tiles" name="input">smsTelefonesProdutor.update</result>
+			<result type="tiles" name="success">smsTelefonesProdutor.update</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.update</result>
+		</action>
+
+		<action name="novo" class="smsTelefonesProdutorAction" method="novo">
+			<result type="tiles" name="success">smsTelefonesProdutor.insert</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.displayList</result>
+		</action>
+
+		<action name="editar" class="smsTelefonesProdutorAction" method="editar">
+			<result type="tiles" name="success">smsTelefonesProdutor.update</result>
+			<result type="tiles" name="input">smsTelefonesProdutor.displayList</result>
+			<result type="tiles" name="error">smsTelefonesProdutor.displayList</result>
+		</action>
+	</package>
+</struts>

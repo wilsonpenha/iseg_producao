@@ -1,0 +1,3321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE java-wsdl-mapping PUBLIC "-//IBM Corporation, Inc.//DTD J2EE JAX-RPC mapping 1.0//EN" "http://www.ibm.com/webservices/dtd/j2ee_jaxrpc_mapping_1_0.dtd">
+
+   <java-wsdl-mapping id="JavaWSDLMapping_1337120062478">
+      <package-mapping id="PackageMapping_1337120062478">
+         <package-type>br.com.bradseg.paol.calculoauto.model.vo</package-type>
+         <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+      </package-mapping>
+      <package-mapping id="PackageMapping_1337120062479">
+         <package-type>br.com.bradseg.paol.subscricao.model.vo</package-type>
+         <namespaceURI>http://vo.model.subscricao.paol.bradseg.com.br</namespaceURI>
+      </package-mapping>
+      <package-mapping id="PackageMapping_1337120062480">
+         <package-type>br.com.bradseg.paol.wsat.controller.services</package-type>
+         <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+      </package-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062479">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.VeiculoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062479">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>VeiculoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062480">
+            <java-variable-name>cdCategoriaAuto</java-variable-name>
+            <xml-element-name>cdCategoriaAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062481">
+            <java-variable-name>cdCategoriaRCF</java-variable-name>
+            <xml-element-name>cdCategoriaRCF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062482">
+            <java-variable-name>cdVeiculoFipe</java-variable-name>
+            <xml-element-name>cdVeiculoFipe</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062483">
+            <java-variable-name>vlVeiculoFipe</java-variable-name>
+            <xml-element-name>vlVeiculoFipe</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062480">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ECoberturaEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062480">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ECoberturaEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062484">
+            <java-variable-name>cdClausulaAssistencia</java-variable-name>
+            <xml-element-name>cdClausulaAssistencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062485">
+            <java-variable-name>cdClausulaCarroReserva</java-variable-name>
+            <xml-element-name>cdClausulaCarroReserva</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062486">
+            <java-variable-name>cdClausulaVidros</java-variable-name>
+            <xml-element-name>cdClausulaVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062487">
+            <java-variable-name>cdExtensaoRCFColaborador</java-variable-name>
+            <xml-element-name>cdExtensaoRCFColaborador</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062488">
+            <java-variable-name>cdRCTR</java-variable-name>
+            <xml-element-name>cdRCTR</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062489">
+            <java-variable-name>cdZeroKm</java-variable-name>
+            <xml-element-name>cdZeroKm</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062490">
+            <java-variable-name>dtFinalExtPerimetro</java-variable-name>
+            <xml-element-name>dtFinalExtPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062491">
+            <java-variable-name>dtInicioExtPerimetro</java-variable-name>
+            <xml-element-name>dtInicioExtPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062492">
+            <java-variable-name>flCoberturaSP</java-variable-name>
+            <xml-element-name>flCoberturaSP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062493">
+            <java-variable-name>flDespesasExtraordinaria</java-variable-name>
+            <xml-element-name>flDespesasExtraordinaria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062494">
+            <java-variable-name>flExtensaoRCFReboque</java-variable-name>
+            <xml-element-name>flExtensaoRCFReboque</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062495">
+            <java-variable-name>flExtensaoRCFVeiculo</java-variable-name>
+            <xml-element-name>flExtensaoRCFVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062496">
+            <java-variable-name>flRemoveCl67</java-variable-name>
+            <xml-element-name>flRemoveCl67</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062497">
+            <java-variable-name>isAppInvalidez</java-variable-name>
+            <xml-element-name>isAppInvalidez</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062498">
+            <java-variable-name>isAppMorte</java-variable-name>
+            <xml-element-name>isAppMorte</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062499">
+            <java-variable-name>isBlindagem</java-variable-name>
+            <xml-element-name>isBlindagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062500">
+            <java-variable-name>isCarroceria</java-variable-name>
+            <xml-element-name>isCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062501">
+            <java-variable-name>isCasco</java-variable-name>
+            <xml-element-name>isCasco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062502">
+            <java-variable-name>isDanosCorporais</java-variable-name>
+            <xml-element-name>isDanosCorporais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062503">
+            <java-variable-name>isDanosMateriais</java-variable-name>
+            <xml-element-name>isDanosMateriais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062504">
+            <java-variable-name>isDanosMorais</java-variable-name>
+            <xml-element-name>isDanosMorais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062505">
+            <java-variable-name>isEquipamentos</java-variable-name>
+            <xml-element-name>isEquipamentos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062506">
+            <java-variable-name>isGarantiaUnica</java-variable-name>
+            <xml-element-name>isGarantiaUnica</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062507">
+            <java-variable-name>isKitGas</java-variable-name>
+            <xml-element-name>isKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062508">
+            <java-variable-name>nuDiasDiariaParalisacao</java-variable-name>
+            <xml-element-name>nuDiasDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062509">
+            <java-variable-name>nuDiasExtensaoPerimetro</java-variable-name>
+            <xml-element-name>nuDiasExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062510">
+            <java-variable-name>vlDiariaParalisacao</java-variable-name>
+            <xml-element-name>vlDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062481">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.CoberturaEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062481">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>CoberturaEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062511">
+            <java-variable-name>isDespesasExtraordinaria</java-variable-name>
+            <xml-element-name>isDespesasExtraordinaria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062512">
+            <java-variable-name>prmAcessorios</java-variable-name>
+            <xml-element-name>prmAcessorios</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062513">
+            <java-variable-name>prmApp</java-variable-name>
+            <xml-element-name>prmApp</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062514">
+            <java-variable-name>prmAppInvalidez</java-variable-name>
+            <xml-element-name>prmAppInvalidez</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062515">
+            <java-variable-name>prmAppMorte</java-variable-name>
+            <xml-element-name>prmAppMorte</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062516">
+            <java-variable-name>prmAssistencia</java-variable-name>
+            <xml-element-name>prmAssistencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062517">
+            <java-variable-name>prmAuto</java-variable-name>
+            <xml-element-name>prmAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062518">
+            <java-variable-name>prmBlindagem</java-variable-name>
+            <xml-element-name>prmBlindagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062519">
+            <java-variable-name>prmCarroReserva</java-variable-name>
+            <xml-element-name>prmCarroReserva</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062520">
+            <java-variable-name>prmCarroceria</java-variable-name>
+            <xml-element-name>prmCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062521">
+            <java-variable-name>prmCasco</java-variable-name>
+            <xml-element-name>prmCasco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062522">
+            <java-variable-name>prmDanosCorporais</java-variable-name>
+            <xml-element-name>prmDanosCorporais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062523">
+            <java-variable-name>prmDanosMateriais</java-variable-name>
+            <xml-element-name>prmDanosMateriais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062524">
+            <java-variable-name>prmDanosMorais</java-variable-name>
+            <xml-element-name>prmDanosMorais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062525">
+            <java-variable-name>prmDespesasExtraordinarias</java-variable-name>
+            <xml-element-name>prmDespesasExtraordinarias</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062526">
+            <java-variable-name>prmDiariaParalisacao</java-variable-name>
+            <xml-element-name>prmDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062527">
+            <java-variable-name>prmEquipamento</java-variable-name>
+            <xml-element-name>prmEquipamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062528">
+            <java-variable-name>prmExtensaoPerimetro</java-variable-name>
+            <xml-element-name>prmExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062529">
+            <java-variable-name>prmExtensaoPerimetroRcf</java-variable-name>
+            <xml-element-name>prmExtensaoPerimetroRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062530">
+            <java-variable-name>prmGarantiaUnica</java-variable-name>
+            <xml-element-name>prmGarantiaUnica</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062531">
+            <java-variable-name>prmKitGas</java-variable-name>
+            <xml-element-name>prmKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062532">
+            <java-variable-name>prmLiqAcessorios</java-variable-name>
+            <xml-element-name>prmLiqAcessorios</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062533">
+            <java-variable-name>prmLiqAppEndosso</java-variable-name>
+            <xml-element-name>prmLiqAppEndosso</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062534">
+            <java-variable-name>prmLiqAutoEndosso</java-variable-name>
+            <xml-element-name>prmLiqAutoEndosso</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062535">
+            <java-variable-name>prmLiqBlindagem</java-variable-name>
+            <xml-element-name>prmLiqBlindagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062536">
+            <java-variable-name>prmLiqCasco</java-variable-name>
+            <xml-element-name>prmLiqCasco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062537">
+            <java-variable-name>prmLiqDanosCorporais</java-variable-name>
+            <xml-element-name>prmLiqDanosCorporais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062538">
+            <java-variable-name>prmLiqDanosMateriais</java-variable-name>
+            <xml-element-name>prmLiqDanosMateriais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062539">
+            <java-variable-name>prmLiqDanosMorais</java-variable-name>
+            <xml-element-name>prmLiqDanosMorais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062540">
+            <java-variable-name>prmLiqDespesasExtraordinarias</java-variable-name>
+            <xml-element-name>prmLiqDespesasExtraordinarias</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062541">
+            <java-variable-name>prmLiqDiariaParalisacao</java-variable-name>
+            <xml-element-name>prmLiqDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062542">
+            <java-variable-name>prmLiqEquipamentos</java-variable-name>
+            <xml-element-name>prmLiqEquipamentos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062543">
+            <java-variable-name>prmLiqGarantiaUnica</java-variable-name>
+            <xml-element-name>prmLiqGarantiaUnica</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062544">
+            <java-variable-name>prmLiqKitGas</java-variable-name>
+            <xml-element-name>prmLiqKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062545">
+            <java-variable-name>prmLiqRcfEndosso</java-variable-name>
+            <xml-element-name>prmLiqRcfEndosso</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062546">
+            <java-variable-name>prmLiquidoApp</java-variable-name>
+            <xml-element-name>prmLiquidoApp</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062547">
+            <java-variable-name>prmLiquidoAuto</java-variable-name>
+            <xml-element-name>prmLiquidoAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062548">
+            <java-variable-name>prmLiquidoCarroceria</java-variable-name>
+            <xml-element-name>prmLiquidoCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062549">
+            <java-variable-name>prmLiquidoEndosso</java-variable-name>
+            <xml-element-name>prmLiquidoEndosso</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062550">
+            <java-variable-name>prmLiquidoRcf</java-variable-name>
+            <xml-element-name>prmLiquidoRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062551">
+            <java-variable-name>prmLiquidoTotal</java-variable-name>
+            <xml-element-name>prmLiquidoTotal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062552">
+            <java-variable-name>prmRcf</java-variable-name>
+            <xml-element-name>prmRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062553">
+            <java-variable-name>prmTotal</java-variable-name>
+            <xml-element-name>prmTotal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062554">
+            <java-variable-name>prmTotalEndosso</java-variable-name>
+            <xml-element-name>prmTotalEndosso</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062555">
+            <java-variable-name>prmVidros</java-variable-name>
+            <xml-element-name>prmVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062556">
+            <java-variable-name>vlFranquia</java-variable-name>
+            <xml-element-name>vlFranquia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062557">
+            <java-variable-name>vlFranquiaCarroceria</java-variable-name>
+            <xml-element-name>vlFranquiaCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062558">
+            <java-variable-name>vlFranquiaEquipamento</java-variable-name>
+            <xml-element-name>vlFranquiaEquipamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062559">
+            <java-variable-name>vlFranquiaKitGas</java-variable-name>
+            <xml-element-name>vlFranquiaKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062560">
+            <java-variable-name>vlFranquiaVidros</java-variable-name>
+            <xml-element-name>vlFranquiaVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062561">
+            <java-variable-name>vlFranquiaVidrosPlus</java-variable-name>
+            <xml-element-name>vlFranquiaVidrosPlus</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062483">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfParcelamentoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062483">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfParcelamentoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062562">
+            <java-variable-name>parcelamentoVo</java-variable-name>
+            <xml-element-name>ParcelamentoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062484">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.CoberturaVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062484">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>CoberturaVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062563">
+            <java-variable-name>isDespesasExtraordinaria</java-variable-name>
+            <xml-element-name>isDespesasExtraordinaria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062564">
+            <java-variable-name>prmAcessorios</java-variable-name>
+            <xml-element-name>prmAcessorios</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062565">
+            <java-variable-name>prmApp</java-variable-name>
+            <xml-element-name>prmApp</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062566">
+            <java-variable-name>prmAppInvalidez</java-variable-name>
+            <xml-element-name>prmAppInvalidez</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062567">
+            <java-variable-name>prmAppMorte</java-variable-name>
+            <xml-element-name>prmAppMorte</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062568">
+            <java-variable-name>prmAssistencia</java-variable-name>
+            <xml-element-name>prmAssistencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062569">
+            <java-variable-name>prmAuto</java-variable-name>
+            <xml-element-name>prmAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062570">
+            <java-variable-name>prmBlindagem</java-variable-name>
+            <xml-element-name>prmBlindagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062571">
+            <java-variable-name>prmCarroReserva</java-variable-name>
+            <xml-element-name>prmCarroReserva</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062572">
+            <java-variable-name>prmCarroceria</java-variable-name>
+            <xml-element-name>prmCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062573">
+            <java-variable-name>prmCasco</java-variable-name>
+            <xml-element-name>prmCasco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062574">
+            <java-variable-name>prmDanosCorporais</java-variable-name>
+            <xml-element-name>prmDanosCorporais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062575">
+            <java-variable-name>prmDanosMateriais</java-variable-name>
+            <xml-element-name>prmDanosMateriais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062576">
+            <java-variable-name>prmDanosMorais</java-variable-name>
+            <xml-element-name>prmDanosMorais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062577">
+            <java-variable-name>prmDespesasExtraordinarias</java-variable-name>
+            <xml-element-name>prmDespesasExtraordinarias</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062578">
+            <java-variable-name>prmDiariaParalisacao</java-variable-name>
+            <xml-element-name>prmDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062579">
+            <java-variable-name>prmEquipamento</java-variable-name>
+            <xml-element-name>prmEquipamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062580">
+            <java-variable-name>prmExtensaoPerimetro</java-variable-name>
+            <xml-element-name>prmExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062581">
+            <java-variable-name>prmExtensaoPerimetroRcf</java-variable-name>
+            <xml-element-name>prmExtensaoPerimetroRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062582">
+            <java-variable-name>prmGarantiaUnica</java-variable-name>
+            <xml-element-name>prmGarantiaUnica</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062583">
+            <java-variable-name>prmKitGas</java-variable-name>
+            <xml-element-name>prmKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062584">
+            <java-variable-name>prmLiqAcessorios</java-variable-name>
+            <xml-element-name>prmLiqAcessorios</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062585">
+            <java-variable-name>prmLiqAssistencia</java-variable-name>
+            <xml-element-name>prmLiqAssistencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062586">
+            <java-variable-name>prmLiqBlindagem</java-variable-name>
+            <xml-element-name>prmLiqBlindagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062587">
+            <java-variable-name>prmLiqCarroReserva</java-variable-name>
+            <xml-element-name>prmLiqCarroReserva</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062588">
+            <java-variable-name>prmLiqCasco</java-variable-name>
+            <xml-element-name>prmLiqCasco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062589">
+            <java-variable-name>prmLiqDanosCorporais</java-variable-name>
+            <xml-element-name>prmLiqDanosCorporais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062590">
+            <java-variable-name>prmLiqDanosMateriais</java-variable-name>
+            <xml-element-name>prmLiqDanosMateriais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062591">
+            <java-variable-name>prmLiqDanosMorais</java-variable-name>
+            <xml-element-name>prmLiqDanosMorais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062592">
+            <java-variable-name>prmLiqDespesasExtraordinarias</java-variable-name>
+            <xml-element-name>prmLiqDespesasExtraordinarias</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062593">
+            <java-variable-name>prmLiqDiariaParalisacao</java-variable-name>
+            <xml-element-name>prmLiqDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062594">
+            <java-variable-name>prmLiqEquipamentos</java-variable-name>
+            <xml-element-name>prmLiqEquipamentos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062595">
+            <java-variable-name>prmLiqExtensaoPerimetro</java-variable-name>
+            <xml-element-name>prmLiqExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062596">
+            <java-variable-name>prmLiqExtensaoPerimetroRcf</java-variable-name>
+            <xml-element-name>prmLiqExtensaoPerimetroRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062597">
+            <java-variable-name>prmLiqGarantiaUnica</java-variable-name>
+            <xml-element-name>prmLiqGarantiaUnica</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062598">
+            <java-variable-name>prmLiqKitGas</java-variable-name>
+            <xml-element-name>prmLiqKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062599">
+            <java-variable-name>prmLiqVidros</java-variable-name>
+            <xml-element-name>prmLiqVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062600">
+            <java-variable-name>prmLiquidoApp</java-variable-name>
+            <xml-element-name>prmLiquidoApp</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062601">
+            <java-variable-name>prmLiquidoAuto</java-variable-name>
+            <xml-element-name>prmLiquidoAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062602">
+            <java-variable-name>prmLiquidoCarroceria</java-variable-name>
+            <xml-element-name>prmLiquidoCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062603">
+            <java-variable-name>prmLiquidoRcf</java-variable-name>
+            <xml-element-name>prmLiquidoRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062604">
+            <java-variable-name>prmLiquidoTotal</java-variable-name>
+            <xml-element-name>prmLiquidoTotal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062605">
+            <java-variable-name>prmRcf</java-variable-name>
+            <xml-element-name>prmRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062606">
+            <java-variable-name>prmTotal</java-variable-name>
+            <xml-element-name>prmTotal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062607">
+            <java-variable-name>prmVidros</java-variable-name>
+            <xml-element-name>prmVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062608">
+            <java-variable-name>vlFranquia</java-variable-name>
+            <xml-element-name>vlFranquia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062609">
+            <java-variable-name>vlFranquiaCarroceria</java-variable-name>
+            <xml-element-name>vlFranquiaCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062610">
+            <java-variable-name>vlFranquiaEquipamento</java-variable-name>
+            <xml-element-name>vlFranquiaEquipamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062611">
+            <java-variable-name>vlFranquiaKitGas</java-variable-name>
+            <xml-element-name>vlFranquiaKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062612">
+            <java-variable-name>vlFranquiaVidros</java-variable-name>
+            <xml-element-name>vlFranquiaVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062613">
+            <java-variable-name>vlFranquiaVidrosPlus</java-variable-name>
+            <xml-element-name>vlFranquiaVidrosPlus</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062486">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EOpcionalVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062486">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EOpcionalVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062614">
+            <java-variable-name>cdOpcional</java-variable-name>
+            <xml-element-name>cdOpcional</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062487">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfEOpcionalEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062487">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfEOpcionalEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062615">
+            <java-variable-name>EOpcionalEndossoVo</java-variable-name>
+            <xml-element-name>EOpcionalEndossoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062488">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.MensagemAlertaVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062488">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>MensagemAlertaVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062616">
+            <java-variable-name>cdAlerta</java-variable-name>
+            <xml-element-name>cdAlerta</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062617">
+            <java-variable-name>dsAlerta</java-variable-name>
+            <xml-element-name>dsAlerta</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062618">
+            <java-variable-name>dtCancelamento</java-variable-name>
+            <xml-element-name>dtCancelamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062619">
+            <java-variable-name>dtLiberacao</java-variable-name>
+            <xml-element-name>dtLiberacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062620">
+            <java-variable-name>flAcatavel</java-variable-name>
+            <xml-element-name>flAcatavel</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062621">
+            <java-variable-name>flImpacto</java-variable-name>
+            <xml-element-name>flImpacto</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062489">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.VeiculoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062489">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>VeiculoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062622">
+            <java-variable-name>cdCategoriaAuto</java-variable-name>
+            <xml-element-name>cdCategoriaAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062623">
+            <java-variable-name>cdCategoriaRCF</java-variable-name>
+            <xml-element-name>cdCategoriaRCF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062624">
+            <java-variable-name>cdVeiculoFipe</java-variable-name>
+            <xml-element-name>cdVeiculoFipe</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062625">
+            <java-variable-name>vlVeiculoFipe</java-variable-name>
+            <xml-element-name>vlVeiculoFipe</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062490">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EPerfilVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062490">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EPerfilVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062626">
+            <java-variable-name>cdEstadoCivil</java-variable-name>
+            <xml-element-name>cdEstadoCivil</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062627">
+            <java-variable-name>cdSexo</java-variable-name>
+            <xml-element-name>cdSexo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062628">
+            <java-variable-name>cdTipoPerfil</java-variable-name>
+            <xml-element-name>cdTipoPerfil</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062629">
+            <java-variable-name>dtNascimento</java-variable-name>
+            <xml-element-name>dtNascimento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062630">
+            <java-variable-name>flFilhosAte16Anos</java-variable-name>
+            <xml-element-name>flFilhosAte16Anos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062631">
+            <java-variable-name>flFilhosEntre17E25</java-variable-name>
+            <xml-element-name>flFilhosEntre17e25</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062632">
+            <java-variable-name>flHaMaisVeiculoGaragem</java-variable-name>
+            <xml-element-name>flHaMaisVeiculoGaragem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062633">
+            <java-variable-name>flVeiculoPernoiteGaragem</java-variable-name>
+            <xml-element-name>flVeiculoPernoiteGaragem</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062491">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ECalculoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062491">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ECalculoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062634">
+            <java-variable-name>ECoberturaVo</java-variable-name>
+            <xml-element-name>ECoberturaVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062635">
+            <java-variable-name>EParametroVo</java-variable-name>
+            <xml-element-name>EParametroVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062636">
+            <java-variable-name>EPerfilProprietarioVo</java-variable-name>
+            <xml-element-name>EPerfilProprietarioVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062637">
+            <java-variable-name>EPerfilSeguradoVo</java-variable-name>
+            <xml-element-name>EPerfilSeguradoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062638">
+            <java-variable-name>ERenovacaoVo</java-variable-name>
+            <xml-element-name>ERenovacaoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062639">
+            <java-variable-name>EVeiculoVo</java-variable-name>
+            <xml-element-name>EVeiculoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062640">
+            <java-variable-name>cdCindMesaNegocio</java-variable-name>
+            <xml-element-name>cdCindMesaNegocio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062641">
+            <java-variable-name>cdDescRelacaoSeguradoProprietario</java-variable-name>
+            <xml-element-name>cdDescRelacaoSeguradoProprietario</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062642">
+            <java-variable-name>cdEmpresa</java-variable-name>
+            <xml-element-name>cdEmpresa</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062643">
+            <java-variable-name>cdInspetoria</java-variable-name>
+            <xml-element-name>cdInspetoria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062644">
+            <java-variable-name>cdModalidade</java-variable-name>
+            <xml-element-name>cdModalidade</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062645">
+            <java-variable-name>cdProdutoCliente</java-variable-name>
+            <xml-element-name>cdProdutoCliente</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062646">
+            <java-variable-name>cdRelacaoSeguradoProprietario</java-variable-name>
+            <xml-element-name>cdRelacaoSeguradoProprietario</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062647">
+            <java-variable-name>cdSucursal</java-variable-name>
+            <xml-element-name>cdSucursal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062648">
+            <java-variable-name>cdTipoPagtoCarne</java-variable-name>
+            <xml-element-name>cdTipoPagtoCarne</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062649">
+            <java-variable-name>cdTipoPessoaProprietario</java-variable-name>
+            <xml-element-name>cdTipoPessoaProprietario</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062650">
+            <java-variable-name>cdTipoPessoaSegurado</java-variable-name>
+            <xml-element-name>cdTipoPessoaSegurado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062651">
+            <java-variable-name>cdTipoSistema</java-variable-name>
+            <xml-element-name>cdTipoSistema</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062652">
+            <java-variable-name>cnroContrato</java-variable-name>
+            <xml-element-name>cnroContrato</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062653">
+            <java-variable-name>dtFinalVigencia</java-variable-name>
+            <xml-element-name>dtFinalVigencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062654">
+            <java-variable-name>dtInicioVigencia</java-variable-name>
+            <xml-element-name>dtInicioVigencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062655">
+            <java-variable-name>dtProcessamento</java-variable-name>
+            <xml-element-name>dtProcessamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062656">
+            <java-variable-name>flNovaTarifa</java-variable-name>
+            <xml-element-name>flNovaTarifa</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062657">
+            <java-variable-name>flTeleEmpresaFatura</java-variable-name>
+            <xml-element-name>flTeleEmpresaFatura</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062658">
+            <java-variable-name>nmProponente</java-variable-name>
+            <xml-element-name>nmProponente</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062659">
+            <java-variable-name>nuCEP</java-variable-name>
+            <xml-element-name>nuCEP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062660">
+            <java-variable-name>nuCpfCnpjProponente</java-variable-name>
+            <xml-element-name>nuCpfCnpjProponente</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062661">
+            <java-variable-name>nuCpfCnpjProprietario</java-variable-name>
+            <xml-element-name>nuCpfCnpjProprietario</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062662">
+            <java-variable-name>pcComissaoAPP</java-variable-name>
+            <xml-element-name>pcComissaoAPP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062663">
+            <java-variable-name>pcComissaoAuto</java-variable-name>
+            <xml-element-name>pcComissaoAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062664">
+            <java-variable-name>pcComissaoRCF</java-variable-name>
+            <xml-element-name>pcComissaoRCF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062665">
+            <java-variable-name>pcDescontoAPP</java-variable-name>
+            <xml-element-name>pcDescontoAPP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062666">
+            <java-variable-name>pcDescontoAuto</java-variable-name>
+            <xml-element-name>pcDescontoAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062667">
+            <java-variable-name>pcDescontoRCF</java-variable-name>
+            <xml-element-name>pcDescontoRCF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062668">
+            <java-variable-name>pctDescontoPromocional</java-variable-name>
+            <xml-element-name>pctDescontoPromocional</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062669">
+            <java-variable-name>residencialVo</java-variable-name>
+            <xml-element-name>residencialVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062492">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ECalculoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062492">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ECalculoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062670">
+            <java-variable-name>ECoberturaEndossoVo</java-variable-name>
+            <xml-element-name>ECoberturaEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062671">
+            <java-variable-name>EDadosApoliceVo</java-variable-name>
+            <xml-element-name>EDadosApoliceVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062672">
+            <java-variable-name>EPagamentoVo</java-variable-name>
+            <xml-element-name>EPagamentoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062673">
+            <java-variable-name>EParametroEndossoVo</java-variable-name>
+            <xml-element-name>EParametroEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062674">
+            <java-variable-name>EPerfilPessoaEndossoVoProprietario</java-variable-name>
+            <xml-element-name>EPerfilPessoaEndossoVoProprietario</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062675">
+            <java-variable-name>EPerfilPessoaEndossoVoSegurado</java-variable-name>
+            <xml-element-name>EPerfilPessoaEndossoVoSegurado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062676">
+            <java-variable-name>ERenovacaoEndossoVo</java-variable-name>
+            <xml-element-name>ERenovacaoEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062677">
+            <java-variable-name>ETeleEmpresaEndossoVo</java-variable-name>
+            <xml-element-name>ETeleEmpresaEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062678">
+            <java-variable-name>EVeiculoEndossoVo</java-variable-name>
+            <xml-element-name>EVeiculoEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062679">
+            <java-variable-name>cdAgenciaCobranca</java-variable-name>
+            <xml-element-name>cdAgenciaCobranca</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062680">
+            <java-variable-name>cdAgenciaDebito</java-variable-name>
+            <xml-element-name>cdAgenciaDebito</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062681">
+            <java-variable-name>cdApolice</java-variable-name>
+            <xml-element-name>cdApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062682">
+            <java-variable-name>cdBancoCobranca</java-variable-name>
+            <xml-element-name>cdBancoCobranca</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062683">
+            <java-variable-name>cdBancoDebito</java-variable-name>
+            <xml-element-name>cdBancoDebito</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062684">
+            <java-variable-name>cdCindMesaNegocio</java-variable-name>
+            <xml-element-name>cdCindMesaNegocio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062685">
+            <java-variable-name>cdContaDebito</java-variable-name>
+            <xml-element-name>cdContaDebito</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062686">
+            <java-variable-name>cdEmpresa</java-variable-name>
+            <xml-element-name>cdEmpresa</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062687">
+            <java-variable-name>cdInspetoria</java-variable-name>
+            <xml-element-name>cdInspetoria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062688">
+            <java-variable-name>cdItem</java-variable-name>
+            <xml-element-name>cdItem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062689">
+            <java-variable-name>cdModalidade</java-variable-name>
+            <xml-element-name>cdModalidade</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062690">
+            <java-variable-name>cdProdutoCliente</java-variable-name>
+            <xml-element-name>cdProdutoCliente</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062691">
+            <java-variable-name>cdRegiao</java-variable-name>
+            <xml-element-name>cdRegiao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062692">
+            <java-variable-name>cdRelacaoSeguradoProprietario</java-variable-name>
+            <xml-element-name>cdRelacaoSeguradoProprietario</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062693">
+            <java-variable-name>cdSucursal</java-variable-name>
+            <xml-element-name>cdSucursal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062694">
+            <java-variable-name>cdTipoPagtoCarne</java-variable-name>
+            <xml-element-name>cdTipoPagtoCarne</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062695">
+            <java-variable-name>cdTipoPessoaProprietario</java-variable-name>
+            <xml-element-name>cdTipoPessoaProprietario</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062696">
+            <java-variable-name>cdTipoPessoaSegurado</java-variable-name>
+            <xml-element-name>cdTipoPessoaSegurado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062697">
+            <java-variable-name>cdTipoSistema</java-variable-name>
+            <xml-element-name>cdTipoSistema</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062698">
+            <java-variable-name>cnroContrato</java-variable-name>
+            <xml-element-name>cnroContrato</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062699">
+            <java-variable-name>dsDocumento</java-variable-name>
+            <xml-element-name>dsDocumento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062700">
+            <java-variable-name>dsEmail</java-variable-name>
+            <xml-element-name>dsEmail</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062701">
+            <java-variable-name>dtEmissao</java-variable-name>
+            <xml-element-name>dtEmissao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062702">
+            <java-variable-name>dtFinalVigencia</java-variable-name>
+            <xml-element-name>dtFinalVigencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062703">
+            <java-variable-name>dtInicioVigencia</java-variable-name>
+            <xml-element-name>dtInicioVigencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062704">
+            <java-variable-name>dtInicioVigenciaApolice</java-variable-name>
+            <xml-element-name>dtInicioVigenciaApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062705">
+            <java-variable-name>dtLeasing</java-variable-name>
+            <xml-element-name>dtLeasing</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062706">
+            <java-variable-name>dtProcessamento</java-variable-name>
+            <xml-element-name>dtProcessamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062707">
+            <java-variable-name>dtSubstituicao</java-variable-name>
+            <xml-element-name>dtSubstituicao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062708">
+            <java-variable-name>flExigenciaMatricula</java-variable-name>
+            <xml-element-name>flExigenciaMatricula</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062709">
+            <java-variable-name>flImprimeCCB</java-variable-name>
+            <xml-element-name>flImprimeCCB</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062710">
+            <java-variable-name>flIndiceOCT</java-variable-name>
+            <xml-element-name>flIndiceOCT</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062711">
+            <java-variable-name>flNovaTarifa</java-variable-name>
+            <xml-element-name>flNovaTarifa</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062712">
+            <java-variable-name>flReterDevolucao</java-variable-name>
+            <xml-element-name>flReterDevolucao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062713">
+            <java-variable-name>flTeleEmpresaFatura</java-variable-name>
+            <xml-element-name>flTeleEmpresaFatura</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062714">
+            <java-variable-name>listaClausulas</java-variable-name>
+            <xml-element-name>listaClausulas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062715">
+            <java-variable-name>listaMotivos</java-variable-name>
+            <xml-element-name>listaMotivos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062716">
+            <java-variable-name>nmOrgaoEmissor</java-variable-name>
+            <xml-element-name>nmOrgaoEmissor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062717">
+            <java-variable-name>nmProponente</java-variable-name>
+            <xml-element-name>nmProponente</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062718">
+            <java-variable-name>nuBonus</java-variable-name>
+            <xml-element-name>nuBonus</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062719">
+            <java-variable-name>nuCEP</java-variable-name>
+            <xml-element-name>nuCEP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062720">
+            <java-variable-name>nuControleLeasing</java-variable-name>
+            <xml-element-name>nuControleLeasing</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062721">
+            <java-variable-name>nuCpfCnpjCorretor</java-variable-name>
+            <xml-element-name>nuCpfCnpjCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062722">
+            <java-variable-name>nuCpfCnpjProponente</java-variable-name>
+            <xml-element-name>nuCpfCnpjProponente</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062723">
+            <java-variable-name>nuDiaVencimento</java-variable-name>
+            <xml-element-name>nuDiaVencimento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062724">
+            <java-variable-name>nuDigitoAgenciaDebito</java-variable-name>
+            <xml-element-name>nuDigitoAgenciaDebito</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062725">
+            <java-variable-name>nuDigitoContaDebito</java-variable-name>
+            <xml-element-name>nuDigitoContaDebito</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062726">
+            <java-variable-name>nuDocumento</java-variable-name>
+            <xml-element-name>nuDocumento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062727">
+            <java-variable-name>pcComissaoAPP</java-variable-name>
+            <xml-element-name>pcComissaoAPP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062728">
+            <java-variable-name>pcComissaoAuto</java-variable-name>
+            <xml-element-name>pcComissaoAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062729">
+            <java-variable-name>pcComissaoRCF</java-variable-name>
+            <xml-element-name>pcComissaoRCF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062730">
+            <java-variable-name>pcDescontoAPP</java-variable-name>
+            <xml-element-name>pcDescontoAPP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062731">
+            <java-variable-name>pcDescontoAuto</java-variable-name>
+            <xml-element-name>pcDescontoAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062732">
+            <java-variable-name>pcDescontoRCF</java-variable-name>
+            <xml-element-name>pcDescontoRCF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062733">
+            <java-variable-name>pcFatorAgravo</java-variable-name>
+            <xml-element-name>pcFatorAgravo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062734">
+            <java-variable-name>pctDescontoPromocional</java-variable-name>
+            <xml-element-name>pctDescontoPromocional</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062735">
+            <java-variable-name>prmPagoTotal</java-variable-name>
+            <xml-element-name>prmPagoTotal</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062497">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.BuscaCotacaoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062497">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>BuscaCotacaoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062736">
+            <java-variable-name>cdCorretor</java-variable-name>
+            <xml-element-name>cdCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062737">
+            <java-variable-name>cdItem</java-variable-name>
+            <xml-element-name>cdItem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062738">
+            <java-variable-name>cdModalidade</java-variable-name>
+            <xml-element-name>cdModalidade</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062739">
+            <java-variable-name>cdSucursal</java-variable-name>
+            <xml-element-name>cdSucursal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062740">
+            <java-variable-name>nuCotacao</java-variable-name>
+            <xml-element-name>nuCotacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062741">
+            <java-variable-name>nuCpfCnpjCorretor</java-variable-name>
+            <xml-element-name>nuCpfCnpjCorretor</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062498">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParcelamentoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062498">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParcelamentoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062742">
+            <java-variable-name>cdPlanoPagamento</java-variable-name>
+            <xml-element-name>cdPlanoPagamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062743">
+            <java-variable-name>dsPlanoPagamento</java-variable-name>
+            <xml-element-name>dsPlanoPagamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062744">
+            <java-variable-name>nuPrestacao</java-variable-name>
+            <xml-element-name>nuPrestacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062745">
+            <java-variable-name>percAdicionalFrancionamento</java-variable-name>
+            <xml-element-name>percAdicionalFrancionamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062746">
+            <java-variable-name>vlAdicionalFracionamento</java-variable-name>
+            <xml-element-name>vlAdicionalFracionamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062747">
+            <java-variable-name>vlDemaisParcelas</java-variable-name>
+            <xml-element-name>vlDemaisParcelas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062748">
+            <java-variable-name>vlFatorJuros</java-variable-name>
+            <xml-element-name>vlFatorJuros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062749">
+            <java-variable-name>vlIOF</java-variable-name>
+            <xml-element-name>vlIOF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062750">
+            <java-variable-name>vlPremioTotal</java-variable-name>
+            <xml-element-name>vlPremioTotal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062751">
+            <java-variable-name>vlPrimeiraParcela</java-variable-name>
+            <xml-element-name>vlPrimeiraParcela</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062499">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EDadosApoliceVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062499">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EDadosApoliceVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062752">
+            <java-variable-name>cdCategoriaAuto</java-variable-name>
+            <xml-element-name>cdCategoriaAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062753">
+            <java-variable-name>cdOpcPagto1Parcela</java-variable-name>
+            <xml-element-name>cdOpcPagto1Parcela</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062754">
+            <java-variable-name>cdOpcPagtoDemaisParcelas</java-variable-name>
+            <xml-element-name>cdOpcPagtoDemaisParcelas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062755">
+            <java-variable-name>dtFimExtensaoPerimetro</java-variable-name>
+            <xml-element-name>dtFimExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062756">
+            <java-variable-name>dtFinalExtPerimetroApolice</java-variable-name>
+            <xml-element-name>dtFinalExtPerimetroApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062757">
+            <java-variable-name>dtInicioExtPerimetroApolice</java-variable-name>
+            <xml-element-name>dtInicioExtPerimetroApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062758">
+            <java-variable-name>dtInicioExtensaoPerimetro</java-variable-name>
+            <xml-element-name>dtInicioExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062759">
+            <java-variable-name>dtInicioVigenciaApolice</java-variable-name>
+            <xml-element-name>dtInicioVigenciaApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062760">
+            <java-variable-name>isAppInvalidezApolice</java-variable-name>
+            <xml-element-name>isAppInvalidezApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062761">
+            <java-variable-name>isAppMorteApolice</java-variable-name>
+            <xml-element-name>isAppMorteApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062762">
+            <java-variable-name>isBlindagemApolice</java-variable-name>
+            <xml-element-name>isBlindagemApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062763">
+            <java-variable-name>isCarroceriaApolice</java-variable-name>
+            <xml-element-name>isCarroceriaApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062764">
+            <java-variable-name>isCascoApolice</java-variable-name>
+            <xml-element-name>isCascoApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062765">
+            <java-variable-name>isDanosCorporaisApolice</java-variable-name>
+            <xml-element-name>isDanosCorporaisApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062766">
+            <java-variable-name>isDanosMateriaisApolice</java-variable-name>
+            <xml-element-name>isDanosMateriaisApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062767">
+            <java-variable-name>isDanosMoraisApolice</java-variable-name>
+            <xml-element-name>isDanosMoraisApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062768">
+            <java-variable-name>isEquipamentoApolice</java-variable-name>
+            <xml-element-name>isEquipamentoApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062769">
+            <java-variable-name>isGarantiaUnicaApolice</java-variable-name>
+            <xml-element-name>isGarantiaUnicaApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062770">
+            <java-variable-name>isKitGasApolice</java-variable-name>
+            <xml-element-name>isKitGasApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062771">
+            <java-variable-name>nuApolice</java-variable-name>
+            <xml-element-name>nuApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062772">
+            <java-variable-name>nuCepApolice</java-variable-name>
+            <xml-element-name>nuCepApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062773">
+            <java-variable-name>nuDiasApolice</java-variable-name>
+            <xml-element-name>nuDiasApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062774">
+            <java-variable-name>nuItemApolice</java-variable-name>
+            <xml-element-name>nuItemApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062775">
+            <java-variable-name>pcAjusteValorVeiculoApolice</java-variable-name>
+            <xml-element-name>pcAjusteValorVeiculoApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062776">
+            <java-variable-name>pcDescontoPromocionalApolice</java-variable-name>
+            <xml-element-name>pcDescontoPromocionalApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062777">
+            <java-variable-name>prmAcessorios</java-variable-name>
+            <xml-element-name>prmAcessorios</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062778">
+            <java-variable-name>prmApp</java-variable-name>
+            <xml-element-name>prmApp</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062779">
+            <java-variable-name>prmAssistencia</java-variable-name>
+            <xml-element-name>prmAssistencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062780">
+            <java-variable-name>prmBlindagem</java-variable-name>
+            <xml-element-name>prmBlindagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062781">
+            <java-variable-name>prmCarroReserva</java-variable-name>
+            <xml-element-name>prmCarroReserva</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062782">
+            <java-variable-name>prmCarroceria</java-variable-name>
+            <xml-element-name>prmCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062783">
+            <java-variable-name>prmCasco</java-variable-name>
+            <xml-element-name>prmCasco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062784">
+            <java-variable-name>prmDanosCorporais</java-variable-name>
+            <xml-element-name>prmDanosCorporais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062785">
+            <java-variable-name>prmDanosMateriais</java-variable-name>
+            <xml-element-name>prmDanosMateriais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062786">
+            <java-variable-name>prmDanosMorais</java-variable-name>
+            <xml-element-name>prmDanosMorais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062787">
+            <java-variable-name>prmDespesasExtraordinarias</java-variable-name>
+            <xml-element-name>prmDespesasExtraordinarias</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062788">
+            <java-variable-name>prmDiariaParalizacao</java-variable-name>
+            <xml-element-name>prmDiariaParalizacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062789">
+            <java-variable-name>prmEquipamentos</java-variable-name>
+            <xml-element-name>prmEquipamentos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062790">
+            <java-variable-name>prmExtensaoPerimetro</java-variable-name>
+            <xml-element-name>prmExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062791">
+            <java-variable-name>prmExtensaoPerimetroRcf</java-variable-name>
+            <xml-element-name>prmExtensaoPerimetroRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062792">
+            <java-variable-name>prmGarantiaUnica</java-variable-name>
+            <xml-element-name>prmGarantiaUnica</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062793">
+            <java-variable-name>prmKitGas</java-variable-name>
+            <xml-element-name>prmKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062794">
+            <java-variable-name>prmPagoApp</java-variable-name>
+            <xml-element-name>prmPagoApp</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062795">
+            <java-variable-name>prmPagoAuto</java-variable-name>
+            <xml-element-name>prmPagoAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062796">
+            <java-variable-name>prmPagoRcf</java-variable-name>
+            <xml-element-name>prmPagoRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062797">
+            <java-variable-name>prmVidros</java-variable-name>
+            <xml-element-name>prmVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062798">
+            <java-variable-name>vlCustoApolice</java-variable-name>
+            <xml-element-name>vlCustoApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062799">
+            <java-variable-name>vlFranquia</java-variable-name>
+            <xml-element-name>vlFranquia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062800">
+            <java-variable-name>vlFranquiaCarroceria</java-variable-name>
+            <xml-element-name>vlFranquiaCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062801">
+            <java-variable-name>vlFranquiaEquipamento</java-variable-name>
+            <xml-element-name>vlFranquiaEquipamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062802">
+            <java-variable-name>vlFranquiaKitGas</java-variable-name>
+            <xml-element-name>vlFranquiaKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062803">
+            <java-variable-name>vlFranquiaVidros</java-variable-name>
+            <xml-element-name>vlFranquiaVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062804">
+            <java-variable-name>vlIofApolice</java-variable-name>
+            <xml-element-name>vlIofApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062805">
+            <java-variable-name>vlTotalAcessorios</java-variable-name>
+            <xml-element-name>vlTotalAcessorios</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062522">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EPerfilPessoaEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062522">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EPerfilPessoaEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062806">
+            <java-variable-name>EEnderecoEndossoCobranca</java-variable-name>
+            <xml-element-name>EEnderecoEndossoCobranca</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062807">
+            <java-variable-name>EEnderecoEndossoRisco</java-variable-name>
+            <xml-element-name>EEnderecoEndossoRisco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062808">
+            <java-variable-name>ETelefoneEndossoCelular</java-variable-name>
+            <xml-element-name>ETelefoneEndossoCelular</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062809">
+            <java-variable-name>ETelefoneEndossoComercial</java-variable-name>
+            <xml-element-name>ETelefoneEndossoComercial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062810">
+            <java-variable-name>ETelefoneEndossoResidencial</java-variable-name>
+            <xml-element-name>ETelefoneEndossoResidencial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062811">
+            <java-variable-name>cdEstadoCivil</java-variable-name>
+            <xml-element-name>cdEstadoCivil</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062812">
+            <java-variable-name>cdFaixaRenda</java-variable-name>
+            <xml-element-name>cdFaixaRenda</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062813">
+            <java-variable-name>cdOcupacao</java-variable-name>
+            <xml-element-name>cdOcupacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062814">
+            <java-variable-name>cdSexo</java-variable-name>
+            <xml-element-name>cdSexo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062815">
+            <java-variable-name>cdTipoPerfil</java-variable-name>
+            <xml-element-name>cdTipoPerfil</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062816">
+            <java-variable-name>dtNascimento</java-variable-name>
+            <xml-element-name>dtNascimento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062817">
+            <java-variable-name>flFilhosAte16Anos</java-variable-name>
+            <xml-element-name>flFilhosAte16Anos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062818">
+            <java-variable-name>flFilhosEntre17E25</java-variable-name>
+            <xml-element-name>flFilhosEntre17e25</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062819">
+            <java-variable-name>flHaMaisVeiculoGaragem</java-variable-name>
+            <xml-element-name>flHaMaisVeiculoGaragem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062820">
+            <java-variable-name>flveiculoPernoiteGaragem</java-variable-name>
+            <xml-element-name>flveiculoPernoiteGaragem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062821">
+            <java-variable-name>nmPessoa</java-variable-name>
+            <xml-element-name>nmPessoa</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062822">
+            <java-variable-name>nuCpfCnpj</java-variable-name>
+            <xml-element-name>nuCpfCnpj</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062524">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParcelamentoResidencialVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062524">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParcelamentoResidencialVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062525">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfEOpcionalVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062525">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfEOpcionalVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062823">
+            <java-variable-name>EOpcionalVo</java-variable-name>
+            <xml-element-name>EOpcionalVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062526">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ClausulasEndossoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062526">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ClausulasEndossoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062527">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfMensagemErroVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062527">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfMensagemErroVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062824">
+            <java-variable-name>mensagemErroVo</java-variable-name>
+            <xml-element-name>MensagemErroVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062528">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EOpcionalEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062528">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EOpcionalEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062825">
+            <java-variable-name>cdOpcional</java-variable-name>
+            <xml-element-name>cdOpcional</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062529">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.CoberturaResidencialVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062529">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>CoberturaResidencialVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062826">
+            <java-variable-name>codigoOpcao</java-variable-name>
+            <xml-element-name>codigoOpcao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062827">
+            <java-variable-name>lmiIre</java-variable-name>
+            <xml-element-name>lmiIre</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062828">
+            <java-variable-name>lmiPerdaRenda</java-variable-name>
+            <xml-element-name>lmiPerdaRenda</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062829">
+            <java-variable-name>lmiRcFamiliar</java-variable-name>
+            <xml-element-name>lmiRcFamiliar</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062830">
+            <java-variable-name>lmiVendAval</java-variable-name>
+            <xml-element-name>lmiVendAval</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062831">
+            <java-variable-name>prmResidencial</java-variable-name>
+            <xml-element-name>prmResidencial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062832">
+            <java-variable-name>vlrAssistResid</java-variable-name>
+            <xml-element-name>vlrAssistResid</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062833">
+            <java-variable-name>vlrCapitalizacao</java-variable-name>
+            <xml-element-name>vlrCapitalizacao</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062530">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParametroEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062530">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParametroEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062834">
+            <java-variable-name>dtVersaoDLL</java-variable-name>
+            <xml-element-name>dtVersaoDLL</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062835">
+            <java-variable-name>nuCpfCnpjCorretor</java-variable-name>
+            <xml-element-name>nuCpfCnpjCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062836">
+            <java-variable-name>nuVersaoDLL</java-variable-name>
+            <xml-element-name>nuVersaoDLL</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062531">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EOpcionalVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062531">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EOpcionalVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062532">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ETelefoneEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062532">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ETelefoneEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062837">
+            <java-variable-name>cdTipoTelefone</java-variable-name>
+            <xml-element-name>cdTipoTelefone</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062838">
+            <java-variable-name>nuDDD</java-variable-name>
+            <xml-element-name>nuDDD</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062839">
+            <java-variable-name>nuRamal</java-variable-name>
+            <xml-element-name>nuRamal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062840">
+            <java-variable-name>nuTelefone</java-variable-name>
+            <xml-element-name>nuTelefone</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062533">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EAcessorioEndossoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062533">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EAcessorioEndossoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062534">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ECoberturaVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062534">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ECoberturaVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062841">
+            <java-variable-name>cdClausulaAssistencia</java-variable-name>
+            <xml-element-name>cdClausulaAssistencia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062842">
+            <java-variable-name>cdClausulaCarroReserva</java-variable-name>
+            <xml-element-name>cdClausulaCarroReserva</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062843">
+            <java-variable-name>cdClausulaVidros</java-variable-name>
+            <xml-element-name>cdClausulaVidros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062844">
+            <java-variable-name>cdExtensaoRCFColaborador</java-variable-name>
+            <xml-element-name>cdExtensaoRCFColaborador</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062845">
+            <java-variable-name>cdRCTR</java-variable-name>
+            <xml-element-name>cdRCTR</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062846">
+            <java-variable-name>cdZeroKm</java-variable-name>
+            <xml-element-name>cdZeroKm</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062847">
+            <java-variable-name>flCoberturaSP</java-variable-name>
+            <xml-element-name>flCoberturaSP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062848">
+            <java-variable-name>flDespesasExtraordinarias</java-variable-name>
+            <xml-element-name>flDespesasExtraordinarias</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062849">
+            <java-variable-name>flExtensaoRCFReboque</java-variable-name>
+            <xml-element-name>flExtensaoRCFReboque</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062850">
+            <java-variable-name>flExtensaoRCFVeiculo</java-variable-name>
+            <xml-element-name>flExtensaoRCFVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062851">
+            <java-variable-name>isAppInvalidez</java-variable-name>
+            <xml-element-name>isAppInvalidez</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062852">
+            <java-variable-name>isAppMorte</java-variable-name>
+            <xml-element-name>isAppMorte</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062853">
+            <java-variable-name>isBlindagem</java-variable-name>
+            <xml-element-name>isBlindagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062854">
+            <java-variable-name>isCarroceria</java-variable-name>
+            <xml-element-name>isCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062855">
+            <java-variable-name>isCasco</java-variable-name>
+            <xml-element-name>isCasco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062856">
+            <java-variable-name>isDanosCorporais</java-variable-name>
+            <xml-element-name>isDanosCorporais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062857">
+            <java-variable-name>isDanosMateriais</java-variable-name>
+            <xml-element-name>isDanosMateriais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062858">
+            <java-variable-name>isDanosMorais</java-variable-name>
+            <xml-element-name>isDanosMorais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062859">
+            <java-variable-name>isEquipamentos</java-variable-name>
+            <xml-element-name>isEquipamentos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062860">
+            <java-variable-name>isGarantiaUnica</java-variable-name>
+            <xml-element-name>isGarantiaUnica</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062861">
+            <java-variable-name>isKitGas</java-variable-name>
+            <xml-element-name>isKitGas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062862">
+            <java-variable-name>nuDiasDiariaParalisacao</java-variable-name>
+            <xml-element-name>nuDiasDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062863">
+            <java-variable-name>nuDiasExtensaoPerimetro</java-variable-name>
+            <xml-element-name>nuDiasExtensaoPerimetro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062864">
+            <java-variable-name>vlDiariaParalisacao</java-variable-name>
+            <xml-element-name>vlDiariaParalisacao</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062535">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.MensagemErroVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062535">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>MensagemErroVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062536">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EEnderecoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062536">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EEnderecoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062865">
+            <java-variable-name>cdCEP</java-variable-name>
+            <xml-element-name>cdCEP</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062866">
+            <java-variable-name>cdTipoEndereco</java-variable-name>
+            <xml-element-name>cdTipoEndereco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062867">
+            <java-variable-name>cdTipoLogradouro</java-variable-name>
+            <xml-element-name>cdTipoLogradouro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062868">
+            <java-variable-name>cdUF</java-variable-name>
+            <xml-element-name>cdUF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062869">
+            <java-variable-name>dsComplemento</java-variable-name>
+            <xml-element-name>dsComplemento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062870">
+            <java-variable-name>nmBairro</java-variable-name>
+            <xml-element-name>nmBairro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062871">
+            <java-variable-name>nmLogradouro</java-variable-name>
+            <xml-element-name>nmLogradouro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062872">
+            <java-variable-name>nmMunicipio</java-variable-name>
+            <xml-element-name>nmMunicipio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062873">
+            <java-variable-name>nuLogradouro</java-variable-name>
+            <xml-element-name>nuLogradouro</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062537">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EParametroEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062537">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EParametroEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062874">
+            <java-variable-name>cdCorretor</java-variable-name>
+            <xml-element-name>cdCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062875">
+            <java-variable-name>cdTipoPessoaCorretor</java-variable-name>
+            <xml-element-name>cdTipoPessoaCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062876">
+            <java-variable-name>flAdicionalFracionamento</java-variable-name>
+            <xml-element-name>flAdicionalFracionamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062877">
+            <java-variable-name>flCustoApolice</java-variable-name>
+            <xml-element-name>flCustoApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062878">
+            <java-variable-name>flIOF</java-variable-name>
+            <xml-element-name>flIOF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062879">
+            <java-variable-name>flPessoaCorretor</java-variable-name>
+            <xml-element-name>flPessoaCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062880">
+            <java-variable-name>flProRata</java-variable-name>
+            <xml-element-name>flProRata</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062881">
+            <java-variable-name>nuCpfCnpjCorretor</java-variable-name>
+            <xml-element-name>nuCpfCnpjCorretor</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062538">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.MensagemErroVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062538">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>MensagemErroVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062882">
+            <java-variable-name>cdErro</java-variable-name>
+            <xml-element-name>cdErro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062883">
+            <java-variable-name>cdSQLCode</java-variable-name>
+            <xml-element-name>cdSQLCode</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062884">
+            <java-variable-name>dsErro</java-variable-name>
+            <xml-element-name>dsErro</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062885">
+            <java-variable-name>dsPrograma</java-variable-name>
+            <xml-element-name>dsPrograma</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062539">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ResidencialVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062539">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ResidencialVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062886">
+            <java-variable-name>nuApoliceRenovacao</java-variable-name>
+            <xml-element-name>nuApoliceRenovacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062887">
+            <java-variable-name>nuCiaRenovacao</java-variable-name>
+            <xml-element-name>nuCiaRenovacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062888">
+            <java-variable-name>nuOpcao</java-variable-name>
+            <xml-element-name>nuOpcao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062889">
+            <java-variable-name>nuSucursalRenovacao</java-variable-name>
+            <xml-element-name>nuSucursalRenovacao</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062540">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EMotivoEndossoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062540">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EMotivoEndossoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062541">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EOpcionalEndossoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062541">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EOpcionalEndossoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062542">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfEAcessorioVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062542">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfEAcessorioVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062890">
+            <java-variable-name>EAcessorioVo</java-variable-name>
+            <xml-element-name>EAcessorioVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062543">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParametroVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062543">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParametroVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062891">
+            <java-variable-name>dtVersaoDLL</java-variable-name>
+            <xml-element-name>dtVersaoDLL</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062892">
+            <java-variable-name>nuVersaoDLL</java-variable-name>
+            <xml-element-name>nuVersaoDLL</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062544">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.CalculoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062544">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>CalculoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062893">
+            <java-variable-name>buscaCotacaoVo</java-variable-name>
+            <xml-element-name>buscaCotacaoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062894">
+            <java-variable-name>cdCindMesaNegocio</java-variable-name>
+            <xml-element-name>cdCindMesaNegocio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062895">
+            <java-variable-name>cdContexto</java-variable-name>
+            <xml-element-name>cdContexto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062896">
+            <java-variable-name>cdRegiao</java-variable-name>
+            <xml-element-name>cdRegiao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062897">
+            <java-variable-name>cdRetornoCrivo</java-variable-name>
+            <xml-element-name>cdRetornoCrivo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062898">
+            <java-variable-name>coberturaResidencialVo</java-variable-name>
+            <xml-element-name>coberturaResidencialVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062899">
+            <java-variable-name>coberturaVo</java-variable-name>
+            <xml-element-name>coberturaVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062900">
+            <java-variable-name>dtBaseCalculo</java-variable-name>
+            <xml-element-name>dtBaseCalculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062901">
+            <java-variable-name>flAceitacaoRestrita</java-variable-name>
+            <xml-element-name>flAceitacaoRestrita</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062902">
+            <java-variable-name>flSucesso</java-variable-name>
+            <xml-element-name>flSucesso</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062903">
+            <java-variable-name>listaAlertas</java-variable-name>
+            <xml-element-name>listaAlertas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062904">
+            <java-variable-name>listaClausulas</java-variable-name>
+            <xml-element-name>listaClausulas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062905">
+            <java-variable-name>listaCriticaServico</java-variable-name>
+            <xml-element-name>listaCriticaServico</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062906">
+            <java-variable-name>listaParcelamento</java-variable-name>
+            <xml-element-name>listaParcelamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062907">
+            <java-variable-name>listaParcelamentoResidencial</java-variable-name>
+            <xml-element-name>listaParcelamentoResidencial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062908">
+            <java-variable-name>mensagemErroVo</java-variable-name>
+            <xml-element-name>mensagemErroVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062909">
+            <java-variable-name>parametroVo</java-variable-name>
+            <xml-element-name>parametroVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062910">
+            <java-variable-name>pcDescontoOnline</java-variable-name>
+            <xml-element-name>pcDescontoOnline</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062911">
+            <java-variable-name>pcFatorAgravo</java-variable-name>
+            <xml-element-name>pcFatorAgravo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062912">
+            <java-variable-name>pctDescontoPromocional</java-variable-name>
+            <xml-element-name>pctDescontoPromocional</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062913">
+            <java-variable-name>renovacaoVo</java-variable-name>
+            <xml-element-name>renovacaoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062914">
+            <java-variable-name>resultadoDescontoVo</java-variable-name>
+            <xml-element-name>resultadoDescontoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062915">
+            <java-variable-name>veiculoVo</java-variable-name>
+            <xml-element-name>veiculoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062916">
+            <java-variable-name>vlCustoApolice</java-variable-name>
+            <xml-element-name>vlCustoApolice</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062545">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EEquipamentoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062545">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EEquipamentoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062917">
+            <java-variable-name>cdEquipamento</java-variable-name>
+            <xml-element-name>cdEquipamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062918">
+            <java-variable-name>vlEquipamento</java-variable-name>
+            <xml-element-name>vlEquipamento</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062546">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EEquipamentoEndossoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062546">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EEquipamentoEndossoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062547">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParcelamentoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062547">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParcelamentoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062919">
+            <java-variable-name>cdPlanoPagamento</java-variable-name>
+            <xml-element-name>cdPlanoPagamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062920">
+            <java-variable-name>dsPlanoPagamento</java-variable-name>
+            <xml-element-name>dsPlanoPagamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062921">
+            <java-variable-name>nuPrestacao</java-variable-name>
+            <xml-element-name>nuPrestacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062922">
+            <java-variable-name>percAdicionalFrancionamento</java-variable-name>
+            <xml-element-name>percAdicionalFrancionamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062923">
+            <java-variable-name>vlAdicionalFracionamento</java-variable-name>
+            <xml-element-name>vlAdicionalFracionamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062924">
+            <java-variable-name>vlDemaisParcelas</java-variable-name>
+            <xml-element-name>vlDemaisParcelas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062925">
+            <java-variable-name>vlFatorJuros</java-variable-name>
+            <xml-element-name>vlFatorJuros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062926">
+            <java-variable-name>vlIOF</java-variable-name>
+            <xml-element-name>vlIOF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062927">
+            <java-variable-name>vlPremioTotal</java-variable-name>
+            <xml-element-name>vlPremioTotal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062928">
+            <java-variable-name>vlPrimeiraParcela</java-variable-name>
+            <xml-element-name>vlPrimeiraParcela</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062548">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfClausulasEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062548">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfClausulasEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062929">
+            <java-variable-name>clausulasEndossoVo</java-variable-name>
+            <xml-element-name>ClausulasEndossoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062549">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfEEquipamentoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062549">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfEEquipamentoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062930">
+            <java-variable-name>EEquipamentoVo</java-variable-name>
+            <xml-element-name>EEquipamentoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062550">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EAcessorioVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062550">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EAcessorioVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062931">
+            <java-variable-name>cdAcessorio</java-variable-name>
+            <xml-element-name>cdAcessorio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062932">
+            <java-variable-name>vlAcessorio</java-variable-name>
+            <xml-element-name>vlAcessorio</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062551">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EEquipamentoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062551">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EEquipamentoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062552">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParcelamentoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062552">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParcelamentoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062553">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EAcessorioEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062553">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EAcessorioEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062933">
+            <java-variable-name>cdAcessorio</java-variable-name>
+            <xml-element-name>cdAcessorio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062934">
+            <java-variable-name>vlAcessorio</java-variable-name>
+            <xml-element-name>vlAcessorio</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062554">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EParametroVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062554">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EParametroVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062935">
+            <java-variable-name>cdBandeiraCartaoCredito</java-variable-name>
+            <xml-element-name>cdBandeiraCartaoCredito</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062936">
+            <java-variable-name>cdCorretor</java-variable-name>
+            <xml-element-name>cdCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062937">
+            <java-variable-name>cdTipoPessoaCorretor</java-variable-name>
+            <xml-element-name>cdTipoPessoaCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062938">
+            <java-variable-name>flAdicionalFracionamento</java-variable-name>
+            <xml-element-name>flAdicionalFracionamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062939">
+            <java-variable-name>flCartaoCredito</java-variable-name>
+            <xml-element-name>flCartaoCredito</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062940">
+            <java-variable-name>flCcb</java-variable-name>
+            <xml-element-name>flCcb</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062941">
+            <java-variable-name>flCustoApolice</java-variable-name>
+            <xml-element-name>flCustoApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062942">
+            <java-variable-name>flIOF</java-variable-name>
+            <xml-element-name>flIOF</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062943">
+            <java-variable-name>flPessoaCorretor</java-variable-name>
+            <xml-element-name>flPessoaCorretor</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062944">
+            <java-variable-name>flProRata</java-variable-name>
+            <xml-element-name>flProRata</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062945">
+            <java-variable-name>nuCpfCnpjCorretor</java-variable-name>
+            <xml-element-name>nuCpfCnpjCorretor</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062555">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfEEquipamentoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062555">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfEEquipamentoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062946">
+            <java-variable-name>EEquipamentoEndossoVo</java-variable-name>
+            <xml-element-name>EEquipamentoEndossoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062556">
+         <class-type>java.lang.Double</class-type>
+         <root-type-qname id="RootTypeQname_1337120062556">
+            <namespaceURI>http://schemas.xmlsoap.org/soap/encoding/</namespaceURI>
+            <localpart>double</localpart>
+         </root-type-qname>
+         <qname-scope>simpleType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062557">
+         <class-type>java.lang.String</class-type>
+         <root-type-qname id="RootTypeQname_1337120062557">
+            <namespaceURI>http://www.w3.org/2001/XMLSchema</namespaceURI>
+            <localpart>string</localpart>
+         </root-type-qname>
+         <qname-scope>simpleType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062558">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.RenovacaoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062558">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>RenovacaoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062947">
+            <java-variable-name>cdCiaInterna</java-variable-name>
+            <xml-element-name>cdCiaInterna</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062948">
+            <java-variable-name>flBonus</java-variable-name>
+            <xml-element-name>flBonus</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062949">
+            <java-variable-name>pcBonus</java-variable-name>
+            <xml-element-name>pcBonus</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062950">
+            <java-variable-name>pcDescontoFidelidade</java-variable-name>
+            <xml-element-name>pcDescontoFidelidade</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062559">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfParcelamentoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062559">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfParcelamentoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062951">
+            <java-variable-name>parcelamentoEndossoVo</java-variable-name>
+            <xml-element-name>ParcelamentoEndossoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062560">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EVeiculoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062560">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EVeiculoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062952">
+            <java-variable-name>cdAntiFurto</java-variable-name>
+            <xml-element-name>cdAntiFurto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062953">
+            <java-variable-name>cdAplicacaoCargaTransportada</java-variable-name>
+            <xml-element-name>cdAplicacaoCargaTransportada</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062954">
+            <java-variable-name>cdCarroceria</java-variable-name>
+            <xml-element-name>cdCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062955">
+            <java-variable-name>cdCategoriaAuto</java-variable-name>
+            <xml-element-name>cdCategoriaAuto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062956">
+            <java-variable-name>cdCategoriaRcf</java-variable-name>
+            <xml-element-name>cdCategoriaRcf</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062957">
+            <java-variable-name>cdCombustivel</java-variable-name>
+            <xml-element-name>cdCombustivel</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062958">
+            <java-variable-name>cdFranquia</java-variable-name>
+            <xml-element-name>cdFranquia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062959">
+            <java-variable-name>cdKmRodadoMes</java-variable-name>
+            <xml-element-name>cdKmRodadoMes</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062960">
+            <java-variable-name>cdPeriodoViagem</java-variable-name>
+            <xml-element-name>cdPeriodoViagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062961">
+            <java-variable-name>cdProduto</java-variable-name>
+            <xml-element-name>cdProduto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062962">
+            <java-variable-name>cdSemiReboque</java-variable-name>
+            <xml-element-name>cdSemiReboque</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062963">
+            <java-variable-name>cdTipoAplicacaoVolvo</java-variable-name>
+            <xml-element-name>cdTipoAplicacaoVolvo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062964">
+            <java-variable-name>cdUsoVeiculo</java-variable-name>
+            <xml-element-name>cdUsoVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062965">
+            <java-variable-name>cdVeiculo</java-variable-name>
+            <xml-element-name>cdVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062966">
+            <java-variable-name>cdVeiculoFipe</java-variable-name>
+            <xml-element-name>cdVeiculoFipe</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062967">
+            <java-variable-name>cdVeiculoTransformado</java-variable-name>
+            <xml-element-name>cdVeiculoTransformado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062968">
+            <java-variable-name>dtSaidaConcessionaria</java-variable-name>
+            <xml-element-name>dtSaidaConcessionaria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062969">
+            <java-variable-name>flCadastroMotorista</java-variable-name>
+            <xml-element-name>flCadastroMotorista</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062970">
+            <java-variable-name>flCarroceriaBasculante</java-variable-name>
+            <xml-element-name>flCarroceriaBasculante</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062971">
+            <java-variable-name>flChassiRemarcado</java-variable-name>
+            <xml-element-name>flChassiRemarcado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062972">
+            <java-variable-name>flComodato</java-variable-name>
+            <xml-element-name>flComodato</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062973">
+            <java-variable-name>flCursoDirecao</java-variable-name>
+            <xml-element-name>flCursoDirecao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062974">
+            <java-variable-name>flIdenticar</java-variable-name>
+            <xml-element-name>flIdenticar</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062975">
+            <java-variable-name>flPlanoManutencao</java-variable-name>
+            <xml-element-name>flPlanoManutencao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062976">
+            <java-variable-name>flValorMercado</java-variable-name>
+            <xml-element-name>flValorMercado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062977">
+            <java-variable-name>listaAcessorios</java-variable-name>
+            <xml-element-name>listaAcessorios</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062978">
+            <java-variable-name>listaEquipamentos</java-variable-name>
+            <xml-element-name>listaEquipamentos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062979">
+            <java-variable-name>listaOpcionais</java-variable-name>
+            <xml-element-name>listaOpcionais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062980">
+            <java-variable-name>nuAnoFabricacao</java-variable-name>
+            <xml-element-name>nuAnoFabricacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062981">
+            <java-variable-name>nuAnoModelo</java-variable-name>
+            <xml-element-name>nuAnoModelo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062982">
+            <java-variable-name>nuChassi</java-variable-name>
+            <xml-element-name>nuChassi</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062983">
+            <java-variable-name>nuEixo</java-variable-name>
+            <xml-element-name>nuEixo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062984">
+            <java-variable-name>nuPassageiros</java-variable-name>
+            <xml-element-name>nuPassageiros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062985">
+            <java-variable-name>nuPlaca</java-variable-name>
+            <xml-element-name>nuPlaca</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062986">
+            <java-variable-name>nuPortas</java-variable-name>
+            <xml-element-name>nuPortas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062987">
+            <java-variable-name>pcAjusteValorVeiculo</java-variable-name>
+            <xml-element-name>pcAjusteValorVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062988">
+            <java-variable-name>vlVeiculoFipe</java-variable-name>
+            <xml-element-name>vlVeiculoFipe</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062561">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParcelamentoResidencialVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062561">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParcelamentoResidencialVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120062989">
+            <java-variable-name>cdPlanoPagamento</java-variable-name>
+            <xml-element-name>cdPlanoPagamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062990">
+            <java-variable-name>dsPlanoPagamento</java-variable-name>
+            <xml-element-name>dsPlanoPagamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062991">
+            <java-variable-name>nuPrestacao</java-variable-name>
+            <xml-element-name>nuPrestacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062992">
+            <java-variable-name>vlAdicional</java-variable-name>
+            <xml-element-name>vlAdicional</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062993">
+            <java-variable-name>vlAdicionalResidencial</java-variable-name>
+            <xml-element-name>vlAdicionalResidencial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062994">
+            <java-variable-name>vlDemaisParcelas</java-variable-name>
+            <xml-element-name>vlDemaisParcelas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062995">
+            <java-variable-name>vlDemaisParcelasResidencial</java-variable-name>
+            <xml-element-name>vlDemaisParcelasResidencial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062996">
+            <java-variable-name>vlFatorJuros</java-variable-name>
+            <xml-element-name>vlFatorJuros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062997">
+            <java-variable-name>vlIOFResidencial</java-variable-name>
+            <xml-element-name>vlIOFResidencial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062998">
+            <java-variable-name>vlPrimeiraParcela</java-variable-name>
+            <xml-element-name>vlPrimeiraParcela</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120062999">
+            <java-variable-name>vlPrimeiraParcelaResidencial</java-variable-name>
+            <xml-element-name>vlPrimeiraParcelaResidencial</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062562">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ClausulasEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062562">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ClausulasEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063000">
+            <java-variable-name>cdClausula</java-variable-name>
+            <xml-element-name>cdClausula</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062563">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EAcessorioVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062563">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EAcessorioVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062564">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EEquipamentoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062564">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EEquipamentoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063001">
+            <java-variable-name>cdEquipamento</java-variable-name>
+            <xml-element-name>cdEquipamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063002">
+            <java-variable-name>vlEquipamento</java-variable-name>
+            <xml-element-name>vlEquipamento</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062565">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.CalculoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062565">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>CalculoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063003">
+            <java-variable-name>cdCindMesaNegocio</java-variable-name>
+            <xml-element-name>cdCindMesaNegocio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063004">
+            <java-variable-name>cdRegiao</java-variable-name>
+            <xml-element-name>cdRegiao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063005">
+            <java-variable-name>coberturaEndossoVo</java-variable-name>
+            <xml-element-name>coberturaEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063006">
+            <java-variable-name>dtBaseCalculo</java-variable-name>
+            <xml-element-name>dtBaseCalculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063007">
+            <java-variable-name>flAceitacaoRestrita</java-variable-name>
+            <xml-element-name>flAceitacaoRestrita</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063008">
+            <java-variable-name>flReterDevolucao</java-variable-name>
+            <xml-element-name>flReterDevolucao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063009">
+            <java-variable-name>flSucesso</java-variable-name>
+            <xml-element-name>flSucesso</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063010">
+            <java-variable-name>listaAlertas</java-variable-name>
+            <xml-element-name>listaAlertas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063011">
+            <java-variable-name>listaClausulas</java-variable-name>
+            <xml-element-name>listaClausulas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063012">
+            <java-variable-name>listaParcelamento</java-variable-name>
+            <xml-element-name>listaParcelamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063013">
+            <java-variable-name>mensagemErroVo</java-variable-name>
+            <xml-element-name>mensagemErroVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063014">
+            <java-variable-name>parametroEndossoVo</java-variable-name>
+            <xml-element-name>parametroEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063015">
+            <java-variable-name>pcDescontoOnline</java-variable-name>
+            <xml-element-name>pcDescontoOnline</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063016">
+            <java-variable-name>pcFatorAgravo</java-variable-name>
+            <xml-element-name>pcFatorAgravo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063017">
+            <java-variable-name>veiculoEndossoVo</java-variable-name>
+            <xml-element-name>veiculoEndossoVo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063018">
+            <java-variable-name>vlAjuste</java-variable-name>
+            <xml-element-name>vlAjuste</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063019">
+            <java-variable-name>vlCustoApolice</java-variable-name>
+            <xml-element-name>vlCustoApolice</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063020">
+            <java-variable-name>vlFatorJuros</java-variable-name>
+            <xml-element-name>vlFatorJuros</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062566">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EPagamentoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062566">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EPagamentoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063021">
+            <java-variable-name>cdOpcaoPagtoDemais</java-variable-name>
+            <xml-element-name>cdOpcaoPagtoDemais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063022">
+            <java-variable-name>cdOpcaoPagtoPrim</java-variable-name>
+            <xml-element-name>cdOpcaoPagtoPrim</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063023">
+            <java-variable-name>nuDiaVencimento</java-variable-name>
+            <xml-element-name>nuDiaVencimento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063024">
+            <java-variable-name>nuParcelas</java-variable-name>
+            <xml-element-name>nuParcelas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063025">
+            <java-variable-name>vlAdicionalFinal</java-variable-name>
+            <xml-element-name>vlAdicionalFinal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063026">
+            <java-variable-name>vlDemaisParcelas</java-variable-name>
+            <xml-element-name>vlDemaisParcelas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063027">
+            <java-variable-name>vlFatorJuros</java-variable-name>
+            <xml-element-name>vlFatorJuros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063028">
+            <java-variable-name>vlIofFinal</java-variable-name>
+            <xml-element-name>vlIofFinal</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063029">
+            <java-variable-name>vlPrimeiraParcela</java-variable-name>
+            <xml-element-name>vlPrimeiraParcela</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062567">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfEAcessorioEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062567">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfEAcessorioEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063030">
+            <java-variable-name>EAcessorioEndossoVo</java-variable-name>
+            <xml-element-name>EAcessorioEndossoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062568">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ETeleEmpresaEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062568">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ETeleEmpresaEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063031">
+            <java-variable-name>cdAgenciaFilial</java-variable-name>
+            <xml-element-name>cdAgenciaFilial</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063032">
+            <java-variable-name>cdDepartamento</java-variable-name>
+            <xml-element-name>cdDepartamento</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063033">
+            <java-variable-name>cdIdentidade</java-variable-name>
+            <xml-element-name>cdIdentidade</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063034">
+            <java-variable-name>cdParentescoTeleempresa</java-variable-name>
+            <xml-element-name>cdParentescoTeleempresa</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063035">
+            <java-variable-name>cdSubEstipulante</java-variable-name>
+            <xml-element-name>cdSubEstipulante</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063036">
+            <java-variable-name>cdTipoGrupo</java-variable-name>
+            <xml-element-name>cdTipoGrupo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063037">
+            <java-variable-name>nuMatricula</java-variable-name>
+            <xml-element-name>nuMatricula</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062569">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfParcelamentoResidencialVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062569">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfParcelamentoResidencialVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063038">
+            <java-variable-name>parcelamentoResidencialVo</java-variable-name>
+            <xml-element-name>ParcelamentoResidencialVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062570">
+         <class-type>java.lang.Long</class-type>
+         <root-type-qname id="RootTypeQname_1337120062570">
+            <namespaceURI>http://schemas.xmlsoap.org/soap/encoding/</namespaceURI>
+            <localpart>long</localpart>
+         </root-type-qname>
+         <qname-scope>simpleType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062571">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ERenovacaoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062571">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ERenovacaoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063039">
+            <java-variable-name>cdApoliceAnterior</java-variable-name>
+            <xml-element-name>cdApoliceAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063040">
+            <java-variable-name>cdBonusApoliceAnterior</java-variable-name>
+            <xml-element-name>cdBonusApoliceAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063041">
+            <java-variable-name>cdChaveIdentificacao</java-variable-name>
+            <xml-element-name>cdChaveIdentificacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063042">
+            <java-variable-name>cdCiaRenovacao</java-variable-name>
+            <xml-element-name>cdCiaRenovacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063043">
+            <java-variable-name>cdColigada</java-variable-name>
+            <xml-element-name>cdColigada</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063044">
+            <java-variable-name>cdItemAnterior</java-variable-name>
+            <xml-element-name>cdItemAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063045">
+            <java-variable-name>cdSucursalAnterior</java-variable-name>
+            <xml-element-name>cdSucursalAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063046">
+            <java-variable-name>flComodatoApoliceAnterior</java-variable-name>
+            <xml-element-name>flComodatoApoliceAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063047">
+            <java-variable-name>flGrupoBradesco</java-variable-name>
+            <xml-element-name>flGrupoBradesco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063048">
+            <java-variable-name>nuDigitoApoliceAnt</java-variable-name>
+            <xml-element-name>nuDigitoApoliceAnt</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063049">
+            <java-variable-name>nuSinistros</java-variable-name>
+            <xml-element-name>nuSinistros</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062572">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.CriticaVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062572">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>CriticaVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063050">
+            <java-variable-name>descricao</java-variable-name>
+            <xml-element-name>descricao</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062573">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ERenovacaoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062573">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ERenovacaoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063051">
+            <java-variable-name>cdApoliceAnterior</java-variable-name>
+            <xml-element-name>cdApoliceAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063052">
+            <java-variable-name>cdBonusApoliceAnterior</java-variable-name>
+            <xml-element-name>cdBonusApoliceAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063053">
+            <java-variable-name>cdChaveIdentificacao</java-variable-name>
+            <xml-element-name>cdChaveIdentificacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063054">
+            <java-variable-name>cdCiaInterna</java-variable-name>
+            <xml-element-name>cdCiaInterna</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063055">
+            <java-variable-name>cdCiaRenovacao</java-variable-name>
+            <xml-element-name>cdCiaRenovacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063056">
+            <java-variable-name>cdColigada</java-variable-name>
+            <xml-element-name>cdColigada</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063057">
+            <java-variable-name>cdItemAnterior</java-variable-name>
+            <xml-element-name>cdItemAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063058">
+            <java-variable-name>cdSucursalAnterior</java-variable-name>
+            <xml-element-name>cdSucursalAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063059">
+            <java-variable-name>flComodatoApoliceAnterior</java-variable-name>
+            <xml-element-name>flComodatoApoliceAnterior</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063060">
+            <java-variable-name>flGrupoBradesco</java-variable-name>
+            <xml-element-name>flGrupoBradesco</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063061">
+            <java-variable-name>nuDigitoApoliceAnt</java-variable-name>
+            <xml-element-name>nuDigitoApoliceAnt</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063062">
+            <java-variable-name>nuSinistros</java-variable-name>
+            <xml-element-name>nuSinistros</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062574">
+         <class-type>br.com.bradseg.paol.subscricao.model.vo.ResultadoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062574">
+            <namespaceURI>http://vo.model.subscricao.paol.bradseg.com.br</namespaceURI>
+            <localpart>ResultadoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063063">
+            <java-variable-name>classificacaoSerasa</java-variable-name>
+            <xml-element-name>classificacaoSerasa</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063064">
+            <java-variable-name>codCrivo</java-variable-name>
+            <xml-element-name>codCrivo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063065">
+            <java-variable-name>codRetorno</java-variable-name>
+            <xml-element-name>codRetorno</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063066">
+            <java-variable-name>contexto</java-variable-name>
+            <xml-element-name>contexto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063067">
+            <java-variable-name>fatDesconto</java-variable-name>
+            <xml-element-name>fatDesconto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063068">
+            <java-variable-name>idOperacaoCrivo</java-variable-name>
+            <xml-element-name>idOperacaoCrivo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063069">
+            <java-variable-name>msgRetorno</java-variable-name>
+            <xml-element-name>msgRetorno</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063070">
+            <java-variable-name>pctDesconto</java-variable-name>
+            <xml-element-name>pctDesconto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063071">
+            <java-variable-name>pontuacaoCrivo</java-variable-name>
+            <xml-element-name>pontuacaoCrivo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063072">
+            <java-variable-name>recusa</java-variable-name>
+            <xml-element-name>recusa</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062575">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EVeiculoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062575">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EVeiculoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063073">
+            <java-variable-name>cdAntiFurto</java-variable-name>
+            <xml-element-name>cdAntiFurto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063074">
+            <java-variable-name>cdAplicacaoCargaTransportada</java-variable-name>
+            <xml-element-name>cdAplicacaoCargaTransportada</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063075">
+            <java-variable-name>cdCambio</java-variable-name>
+            <xml-element-name>cdCambio</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063076">
+            <java-variable-name>cdCarroceria</java-variable-name>
+            <xml-element-name>cdCarroceria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063077">
+            <java-variable-name>cdCombustivel</java-variable-name>
+            <xml-element-name>cdCombustivel</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063078">
+            <java-variable-name>cdFabricante</java-variable-name>
+            <xml-element-name>cdFabricante</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063079">
+            <java-variable-name>cdFranquia</java-variable-name>
+            <xml-element-name>cdFranquia</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063080">
+            <java-variable-name>cdGrupo</java-variable-name>
+            <xml-element-name>cdGrupo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063081">
+            <java-variable-name>cdKmRodadoMes</java-variable-name>
+            <xml-element-name>cdKmRodadoMes</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063082">
+            <java-variable-name>cdPeriodoViagem</java-variable-name>
+            <xml-element-name>cdPeriodoViagem</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063083">
+            <java-variable-name>cdProduto</java-variable-name>
+            <xml-element-name>cdProduto</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063084">
+            <java-variable-name>cdSemiReboque</java-variable-name>
+            <xml-element-name>cdSemiReboque</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063085">
+            <java-variable-name>cdTipoAplicacaoVolvo</java-variable-name>
+            <xml-element-name>cdTipoAplicacaoVolvo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063086">
+            <java-variable-name>cdTipoVeiculo</java-variable-name>
+            <xml-element-name>cdTipoVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063087">
+            <java-variable-name>cdUsoVeiculo</java-variable-name>
+            <xml-element-name>cdUsoVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063088">
+            <java-variable-name>cdVeiculo</java-variable-name>
+            <xml-element-name>cdVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063089">
+            <java-variable-name>cdVeiculoFipe</java-variable-name>
+            <xml-element-name>cdVeiculoFipe</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063090">
+            <java-variable-name>cdVeiculoTransformado</java-variable-name>
+            <xml-element-name>cdVeiculoTransformado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063091">
+            <java-variable-name>dtSaidaConcessionaria</java-variable-name>
+            <xml-element-name>dtSaidaConcessionaria</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063092">
+            <java-variable-name>flCadastroMotorista</java-variable-name>
+            <xml-element-name>flCadastroMotorista</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063093">
+            <java-variable-name>flCarroceriaBasculante</java-variable-name>
+            <xml-element-name>flCarroceriaBasculante</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063094">
+            <java-variable-name>flChassiRemarcado</java-variable-name>
+            <xml-element-name>flChassiRemarcado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063095">
+            <java-variable-name>flComodato</java-variable-name>
+            <xml-element-name>flComodato</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063096">
+            <java-variable-name>flCursoDirecao</java-variable-name>
+            <xml-element-name>flCursoDirecao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063097">
+            <java-variable-name>flIdenticar</java-variable-name>
+            <xml-element-name>flIdenticar</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063098">
+            <java-variable-name>flPlanoManutencao</java-variable-name>
+            <xml-element-name>flPlanoManutencao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063099">
+            <java-variable-name>flValorMercado</java-variable-name>
+            <xml-element-name>flValorMercado</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063100">
+            <java-variable-name>listaAcessorios</java-variable-name>
+            <xml-element-name>listaAcessorios</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063101">
+            <java-variable-name>listaEquipamentos</java-variable-name>
+            <xml-element-name>listaEquipamentos</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063102">
+            <java-variable-name>listaOpcionais</java-variable-name>
+            <xml-element-name>listaOpcionais</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063103">
+            <java-variable-name>nmVeiculo</java-variable-name>
+            <xml-element-name>nmVeiculo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063104">
+            <java-variable-name>nuAnoFabricacao</java-variable-name>
+            <xml-element-name>nuAnoFabricacao</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063105">
+            <java-variable-name>nuAnoModelo</java-variable-name>
+            <xml-element-name>nuAnoModelo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063106">
+            <java-variable-name>nuChassi</java-variable-name>
+            <xml-element-name>nuChassi</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063107">
+            <java-variable-name>nuEixo</java-variable-name>
+            <xml-element-name>nuEixo</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063108">
+            <java-variable-name>nuPassageiros</java-variable-name>
+            <xml-element-name>nuPassageiros</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063109">
+            <java-variable-name>nuPlaca</java-variable-name>
+            <xml-element-name>nuPlaca</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063110">
+            <java-variable-name>nuPortas</java-variable-name>
+            <xml-element-name>nuPortas</xml-element-name>
+         </variable-mapping>
+         <variable-mapping id="VariableMapping_1337120063111">
+            <java-variable-name>pcAjusteValorVeiculo</java-variable-name>
+            <xml-element-name>pcAjusteValorVeiculo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062577">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfClausulasCalculoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062577">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfClausulasCalculoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063112">
+            <java-variable-name>clausulasCalculoVo</java-variable-name>
+            <xml-element-name>ClausulasCalculoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062578">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfEMotivoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062578">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfEMotivoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063113">
+            <java-variable-name>EMotivoEndossoVo</java-variable-name>
+            <xml-element-name>EMotivoEndossoVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062579">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.CriticaVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062579">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>CriticaVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062580">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.MensagemAlertaVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062580">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>MensagemAlertaVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062581">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ClausulasCalculoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062581">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ClausulasCalculoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062582">
+         <class-type>java.lang.Integer</class-type>
+         <root-type-qname id="RootTypeQname_1337120062582">
+            <namespaceURI>http://schemas.xmlsoap.org/soap/encoding/</namespaceURI>
+            <localpart>int</localpart>
+         </root-type-qname>
+         <qname-scope>simpleType</qname-scope>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062583">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfCriticaVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062583">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfCriticaVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063114">
+            <java-variable-name>criticaVo</java-variable-name>
+            <xml-element-name>CriticaVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062584">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ClausulasCalculoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062584">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ClausulasCalculoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063115">
+            <java-variable-name>cdClausula</java-variable-name>
+            <xml-element-name>cdClausula</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062585">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.EMotivoEndossoVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062585">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>EMotivoEndossoVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063116">
+            <java-variable-name>cdMotivo</java-variable-name>
+            <xml-element-name>cdMotivo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062586">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ArrayOfMensagemAlertaVo</class-type>
+         <root-type-qname id="RootTypeQname_1337120062586">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ArrayOfMensagemAlertaVo</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+         <variable-mapping id="VariableMapping_1337120063117">
+            <java-variable-name>mensagemAlertaVo</java-variable-name>
+            <xml-element-name>MensagemAlertaVo</xml-element-name>
+         </variable-mapping>
+      </java-xml-type-mapping>
+      <java-xml-type-mapping id="JavaXMLTypeMapping_1337120062587">
+         <class-type>br.com.bradseg.paol.calculoauto.model.vo.ParcelamentoEndossoVo[]</class-type>
+         <root-type-qname id="RootTypeQname_1337120062587">
+            <namespaceURI>http://vo.model.calculoauto.paol.bradseg.com.br</namespaceURI>
+            <localpart>ParcelamentoEndossoVo[unbounded]</localpart>
+         </root-type-qname>
+         <qname-scope>complexType</qname-scope>
+      </java-xml-type-mapping>
+      <service-interface-mapping id="ServiceInterfaceMapping_1337120062581">
+         <service-interface>br.com.bradseg.paol.wsat.controller.services.BolCalculoAuto</service-interface>
+         <wsdl-service-name id="WSDLServiceName_1337120062581">
+            <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+            <localpart>BolCalculoAuto</localpart>
+         </wsdl-service-name>
+         <port-mapping id="PortMapping_1337120062581">
+            <port-name>BolCalculoAutoHttpPort</port-name>
+            <java-port-name>BolCalculoAutoHttpPort</java-port-name>
+         </port-mapping>
+      </service-interface-mapping>
+      <service-endpoint-interface-mapping id="ServiceEndpointInterfaceMapping_1337120062581">
+         <service-endpoint-interface>br.com.bradseg.paol.wsat.controller.services.BolCalculoAutoPortType</service-endpoint-interface>
+         <wsdl-port-type id="WSDLPortType_1337120062581">
+            <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+            <localpart>BolCalculoAutoPortType</localpart>
+         </wsdl-port-type>
+         <wsdl-binding id="WSDLBinding_1337120062582">
+            <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+            <localpart>BolCalculoAutoHttpBinding</localpart>
+         </wsdl-binding>
+         <service-endpoint-method-mapping id="ServiceEndpointMethodMapping_1337120062582">
+            <java-method-name>calcularSeguroEndosso</java-method-name>
+            <wsdl-operation>calcularSeguroEndosso</wsdl-operation>
+            <wrapped-element></wrapped-element>
+            <method-param-parts-mapping id="MethodParamPartsMapping_1337120062583">
+               <param-position>0</param-position>
+               <param-type>br.com.bradseg.paol.calculoauto.model.vo.ECalculoEndossoVo</param-type>
+               <wsdl-message-mapping id="WSDLMessageMapping_1337120062584">
+                  <wsdl-message id="WSDLMessage_1337120062584">
+                     <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                     <localpart>calcularSeguroEndossoRequest</localpart>
+                  </wsdl-message>
+                  <wsdl-message-part-name>in0</wsdl-message-part-name>
+                  <parameter-mode>IN</parameter-mode>
+               </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping id="MethodParamPartsMapping_1337120062584">
+               <param-position>1</param-position>
+               <param-type>java.lang.String</param-type>
+               <wsdl-message-mapping id="WSDLMessageMapping_1337120062585">
+                  <wsdl-message id="WSDLMessage_1337120062585">
+                     <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                     <localpart>calcularSeguroEndossoRequest</localpart>
+                  </wsdl-message>
+                  <wsdl-message-part-name>in1</wsdl-message-part-name>
+                  <parameter-mode>IN</parameter-mode>
+               </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping id="MethodParamPartsMapping_1337120062585">
+               <param-position>2</param-position>
+               <param-type>java.lang.String</param-type>
+               <wsdl-message-mapping id="WSDLMessageMapping_1337120062586">
+                  <wsdl-message id="WSDLMessage_1337120062586">
+                     <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                     <localpart>calcularSeguroEndossoRequest</localpart>
+                  </wsdl-message>
+                  <wsdl-message-part-name>in2</wsdl-message-part-name>
+                  <parameter-mode>IN</parameter-mode>
+               </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping id="WSDLReturnValueMapping_1337120062584">
+               <method-return-value>br.com.bradseg.paol.calculoauto.model.vo.CalculoEndossoVo</method-return-value>
+               <wsdl-message id="WSDLMessage_1337120062587">
+                  <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                  <localpart>calcularSeguroEndossoResponse</localpart>
+               </wsdl-message>
+               <wsdl-message-part-name>out</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+         </service-endpoint-method-mapping>
+         <service-endpoint-method-mapping id="ServiceEndpointMethodMapping_1337120062584">
+            <java-method-name>gerenciadorCalculo</java-method-name>
+            <wsdl-operation>gerenciadorCalculo</wsdl-operation>
+            <wrapped-element></wrapped-element>
+            <method-param-parts-mapping id="MethodParamPartsMapping_1337120062586">
+               <param-position>0</param-position>
+               <param-type>br.com.bradseg.paol.calculoauto.model.vo.ECalculoVo</param-type>
+               <wsdl-message-mapping id="WSDLMessageMapping_1337120062587">
+                  <wsdl-message id="WSDLMessage_1337120062588">
+                     <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                     <localpart>gerenciadorCalculoRequest</localpart>
+                  </wsdl-message>
+                  <wsdl-message-part-name>in0</wsdl-message-part-name>
+                  <parameter-mode>IN</parameter-mode>
+               </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping id="MethodParamPartsMapping_1337120062587">
+               <param-position>1</param-position>
+               <param-type>java.lang.String</param-type>
+               <wsdl-message-mapping id="WSDLMessageMapping_1337120062588">
+                  <wsdl-message id="WSDLMessage_1337120062589">
+                     <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                     <localpart>gerenciadorCalculoRequest</localpart>
+                  </wsdl-message>
+                  <wsdl-message-part-name>in1</wsdl-message-part-name>
+                  <parameter-mode>IN</parameter-mode>
+               </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping id="MethodParamPartsMapping_1337120062588">
+               <param-position>2</param-position>
+               <param-type>java.lang.String</param-type>
+               <wsdl-message-mapping id="WSDLMessageMapping_1337120062589">
+                  <wsdl-message id="WSDLMessage_1337120062590">
+                     <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                     <localpart>gerenciadorCalculoRequest</localpart>
+                  </wsdl-message>
+                  <wsdl-message-part-name>in2</wsdl-message-part-name>
+                  <parameter-mode>IN</parameter-mode>
+               </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping id="WSDLReturnValueMapping_1337120062585">
+               <method-return-value>br.com.bradseg.paol.calculoauto.model.vo.CalculoVo</method-return-value>
+               <wsdl-message id="WSDLMessage_1337120062591">
+                  <namespaceURI>http://services.controller.wsat.paol.bradseg.com.br</namespaceURI>
+                  <localpart>gerenciadorCalculoResponse</localpart>
+               </wsdl-message>
+               <wsdl-message-part-name>out</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+         </service-endpoint-method-mapping>
+      </service-endpoint-interface-mapping>
+   </java-wsdl-mapping>

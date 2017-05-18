@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="uf" extends="struts2" namespace="/uf">
+		<action name="displayList" method="lista" class="ufAction">
+			<result type="tiles" name="success">uf.displayList</result>
+			<result type="tiles" name="error">uf.displayList</result>
+		</action>
+		<!--action name="relatorios" method="relatorio" class="ufAction">
+		    <result type="tiles" name="success">uf.relatorios</result>
+		</action-->
+
+		<action name="lista*" method="{1}" class="ufAction">
+			<result type="tiles" name="success">uf.displayList</result>
+			<result type="tiles" name="error">uf.displayList</result>
+		</action>
+		
+		<action name="excluir" class="ufAction" method="excluir">
+			<result type="tiles" name="success">uf.displayList</result>
+			<result type="tiles" name="error">uf.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="ufAction" method="salvarLista">
+			<result type="tiles" name="input">uf.displayList</result>
+			<result type="tiles" name="success">uf.displayList</result>
+			<result type="tiles" name="error">uf.update</result>
+		</action>
+		<action name="salvarNovo" class="ufAction" method="salvarNovo">
+			<result type="tiles" name="input">uf.insert</result>
+			<result type="tiles" name="success">uf.insert</result>
+			<result type="tiles" name="error">uf.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="ufAction" method="salvarEditar">
+			<result type="tiles" name="input">uf.update</result>
+			<result type="tiles" name="success">uf.update</result>
+			<result type="tiles" name="error">uf.update</result>
+		</action>
+
+		<action name="novo" class="ufAction" method="novo">
+			<result type="tiles" name="success">uf.insert</result>
+			<result type="tiles" name="error">uf.insert</result>
+		</action>
+
+		<action name="editar" class="ufAction" method="editar">
+			<result type="tiles" name="success">uf.update</result>
+			<result type="tiles" name="error">uf.update</result>
+		</action>
+	</package>
+</struts>

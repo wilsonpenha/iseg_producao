@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="vistoriadora" extends="struts2" namespace="/vistoriadora">
+		<action name="displayList" method="lista" class="vistoriadoraAction">
+			<result type="tiles" name="success">vistoriadora.displayList</result>
+			<result type="tiles" name="error">vistoriadora.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="vistoriadoraAction">
+			<result type="tiles" name="success">vistoriadora.displayList</result>
+			<result type="tiles" name="error">vistoriadora.displayList</result>
+		</action>
+		
+		<action name="excluir" class="vistoriadoraAction" method="excluir">
+			<result type="tiles" name="success">vistoriadora.displayList</result>
+			<result type="tiles" name="error">vistoriadora.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="vistoriadoraAction" method="salvarLista">
+			<result type="tiles" name="input">vistoriadora.displayList</result>
+			<result type="tiles" name="success">vistoriadora.displayList</result>
+			<result type="tiles" name="error">vistoriadora.update</result>
+		</action>
+		<action name="salvarNovo" class="vistoriadoraAction" method="salvarNovo">
+			<result type="tiles" name="input">vistoriadora.insert</result>
+			<result type="tiles" name="success">vistoriadora.insert</result>
+			<result type="tiles" name="error">vistoriadora.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="vistoriadoraAction" method="salvarEditar">
+			<result type="tiles" name="input">vistoriadora.update</result>
+			<result type="tiles" name="success">vistoriadora.update</result>
+			<result type="tiles" name="error">vistoriadora.update</result>
+		</action>
+
+		<action name="novo" class="vistoriadoraAction" method="novo">
+			<result type="tiles" name="success">vistoriadora.insert</result>
+			<result type="tiles" name="error">vistoriadora.insert</result>
+		</action>
+
+		<action name="editar" class="vistoriadoraAction" method="editar">
+			<result type="tiles" name="success">vistoriadora.update</result>
+			<result type="tiles" name="error">vistoriadora.update</result>
+		</action>
+	</package>
+</struts>

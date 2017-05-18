@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="endosso" extends="struts2" namespace="/endosso">
+		<action name="displayList" method="lista" class="endossoAction">
+			<result type="tiles" name="success">endosso.displayList</result>
+			<result type="tiles" name="error">endosso.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="endossoAction">
+			<result type="tiles" name="success">endosso.displayList</result>
+			<result type="tiles" name="error">endosso.displayList</result>
+		</action>
+		
+		<action name="excluir" class="endossoAction" method="excluir">
+			<result type="tiles" name="success">endosso.displayList</result>
+			<result type="tiles" name="error">endosso.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="endossoAction" method="salvarLista">
+			<result type="tiles" name="input">endosso.displayList</result>
+			<result type="tiles" name="success">endosso.displayList</result>
+			<result type="tiles" name="error">endosso.update</result>
+		</action>
+
+		<action name="salvarNovo" class="endossoAction" method="salvarNovo">
+			<result type="tiles" name="input">endosso.insert</result>
+			<result type="tiles" name="success">endosso.insert</result>
+			<result type="tiles" name="error">endosso.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="endossoAction" method="salvarEditar">
+			<result type="tiles" name="input">endosso.update</result>
+			<result type="tiles" name="success">endosso.update</result>
+			<result type="tiles" name="error">endosso.update</result>
+		</action>
+
+		<action name="novo" class="endossoAction" method="novo">
+			<result type="tiles" name="success">endosso.insert</result>
+			<result type="tiles" name="error">endosso.insert</result>
+		</action>
+
+		<action name="editar" class="endossoAction" method="editar">
+			<result type="tiles" name="success">endosso.update</result>
+			<result type="tiles" name="error">endosso.update</result>
+		</action>
+	</package>
+</struts>

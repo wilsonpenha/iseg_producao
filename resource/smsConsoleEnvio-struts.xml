@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="smsConsoleEnvio" extends="struts2" namespace="/smsConsoleEnvio">
+		<action name="displayList" class="smsConsoleEnvioAction">
+			<result type="tiles" name="input">smsConsoleEnvio.displayList</result>
+			<result type="tiles" name="success">smsConsoleEnvio.displayList</result>
+			<result type="tiles" name="error">smsConsoleEnvio.displayList</result>
+		</action>
+		<action name="enviar" method="enviar" class="smsConsoleEnvioAction">
+			<result name="input">/WEB-INF/jsp/blank.jsp</result>
+			<result name="success">/WEB-INF/jsp/blank.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="endereco_sub" pageWidth="240" pageHeight="595" whenNoDataType="AllSectionsNoDetail" columnWidth="240" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<reportFont name="Normal" isDefault="false" fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<parameter name="cliente_id" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	endereco.logradouro,
+	endereco.numero,
+	endereco.bairro,
+	endereco.cidade,
+	endereco.uf,
+	endereco.cep
+FROM ENDERECO endereco
+WHERE
+	(endereco.pessoa_id = $P{cliente_id})
+	AND endereco.cep IS NOT NULL
+LIMIT 1]]>
+	</queryString>
+	<field name="logradouro" class="java.lang.String"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="bairro" class="java.lang.String"/>
+	<field name="cidade" class="java.lang.String"/>
+	<field name="uf" class="java.lang.String"/>
+	<field name="cep" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-39" x="0" y="0" width="240" height="8"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[(($F{logradouro} == null || $F{logradouro}.equals("")) ? "" : $F{logradouro})+
+(($F{numero} == null || $F{numero}.equals("")) ? "" : ", "+$F{numero})+
+(($F{bairro} == null || $F{bairro}.equals("")) ? "" : ", "+$F{bairro})+
+(($F{cep} == null || $F{cep}.equals("")) ? "" : ", CEP - "+$F{cep})+
+(($F{cidade} == null || $F{cidade}.equals("")) ? "" : ", "+$F{cidade})+
+(($F{uf} == null || $F{uf}.equals("")) ? "" : ", "+$F{uf})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="comissionadoProposta" extends="struts2" namespace="/comissionadoProposta">
+
+		<action name="editar" class="comissionadoPropostaAction" method="editar">
+			<result type="tiles">comissionadoProposta.update</result>
+		</action>
+
+		<action name="carregarComissionados" class="comissionadoPropostaAction" method="carregarComissionados">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">carregarComissionados</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosComissao.jsp</result>
+		</action>
+
+		<action name="inserirComissionado" class="comissionadoPropostaAction" method="inserirComissionado">
+			<result name="success">/WEB-INF/jsp/propostaWizard/listaComissionados.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/listaComissionados.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/listaComissionados.jsp</result>
+		</action>
+
+		<action name="removerComissionado" class="comissionadoPropostaAction" method="removerComissionado">
+			<result name="success">/WEB-INF/jsp/propostaWizard/listaComissionados.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/listaComissionados.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/listaComissionados.jsp</result>
+		</action>
+
+		<action name="editarComissionado" class="comissionadoPropostaAction" method="editarComissionado">
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosComissionados.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosComissionados.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosComissionados.jsp</result>
+		</action>
+
+		<action name="carregarComissionados" class="comissionadoPropostaAction" method="carregarComissionadosAgenciamento">
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosComissao.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosComissao.jsp</result>
+		</action>
+
+		<action name="inserirComissionadoAgenciamento" class="comissionadoPropostaAction" method="inserirComissionadoAgenciamento">
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/listaComissionadosAgenciamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/listaComissionadosAgenciamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/listaComissionadosAgenciamento.jsp</result>
+		</action>
+
+		<action name="removerComissionadoAgenciamento" class="comissionadoPropostaAction" method="removerComissionadoAgenciamento">
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/listaComissionadosAgenciamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/listaComissionadosAgenciamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/listaComissionadosAgenciamento.jsp</result>
+		</action>
+
+		<action name="editarComissionadoAgenciamento" class="comissionadoPropostaAction" method="editarComissionadoAgenciamento">
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosComissionadosAgenciamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosComissionadosAgenciamento.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosComissionadosAgenciamento.jsp</result>
+		</action>
+	</package>
+</struts>

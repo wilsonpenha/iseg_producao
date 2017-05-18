@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="condutor" extends="struts2" namespace="/condutor">
+		<action name="displayList" method="lista" class="condutorAction">
+			<result type="tiles" name="success">condutor.displayList</result>
+			<result type="tiles" name="error">condutor.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="condutorAction">
+			<result type="tiles" name="success">condutor.displayList</result>
+			<result type="tiles" name="error">condutor.displayList</result>
+		</action>
+
+		<action name="excluir" class="condutorAction" method="excluir">
+			<result type="tiles" name="success">condutor.displayList</result>
+			<result type="tiles" name="error">condutor.displayList</result>
+		</action>
+ 
+		<action name="salvarLista" class="condutorAction" method="salvarLista">
+			<result type="tiles" name="input">condutor.displayList</result>
+			<result type="tiles" name="success">condutor.displayList</result>
+			<result type="tiles" name="error">condutor.update</result>
+		</action>
+
+		<action name="salvarNovo" class="condutorAction" method="salvarNovo">
+			<result type="tiles" name="input">condutor.insert</result>
+			<result type="tiles" name="success">condutor.insert</result>
+			<result type="tiles" name="error">condutor.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="condutorAction" method="salvarEditar">
+			<result type="tiles" name="input">condutor.update</result>
+			<result type="tiles" name="success">condutor.update</result>
+			<result type="tiles" name="error">condutor.update</result>
+		</action>
+
+		<action name="novo" class="condutorAction" method="novo">
+			<result type="tiles" name="success">condutor.insert</result>
+			<result type="tiles" name="error">condutor.insert</result>
+		</action>
+
+		<action name="editar" class="condutorAction" method="editar">
+			<result type="tiles" name="success">condutor.update</result>
+			<result type="tiles" name="error">condutor.update</result>
+		</action>
+	</package>
+</struts>

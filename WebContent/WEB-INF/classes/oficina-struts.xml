@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="oficina" extends="struts2" namespace="/oficina">
+		<action name="displayList" method="lista" class="oficinaAction">
+			<result type="tiles" name="success">oficina.displayList</result>
+			<result type="tiles" name="error">oficina.displayList</result>
+			<result type="tiles" name="none">oficina.insert</result>
+			<result type="tiles" name="noneoficina">oficina.insert</result>
+			<result type="tiles" name="input">oficina.update</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="oficinaAction">
+			<result type="tiles" name="success">oficina.displayList</result>
+			<result type="tiles" name="error">oficina.displayList</result>
+			
+		</action>
+		
+		<action name="excluir" class="oficinaAction" method="excluir">
+			<result type="tiles" name="success">oficina.displayList</result>
+			<result type="tiles" name="error">oficina.displayList</result>
+			<result type="tiles" name="none">oficina.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="oficinaAction" method="salvarLista">
+			<result type="tiles" name="none">oficina.insert</result>
+			<result type="tiles" name="input">oficina.update</result>
+			<result type="tiles" name="success">oficina.displayList</result>
+			<result type="tiles" name="error">oficina.update</result>
+			<result type="tiles" name="errorInsert">oficina.insert</result>
+		</action>
+		<action name="salvarNovo" class="oficinaAction" method="salvarNovo">
+			<result type="tiles" name="input">oficina.insert</result>
+			<result type="tiles" name="success">oficina.insert</result>
+			<result type="tiles" name="error">oficina.insert</result>
+			<result type="tiles" name="errorInsert">oficina.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="oficinaAction" method="salvarEditar">
+			<result type="tiles" name="input">oficina.update</result>
+			<result type="tiles" name="success">oficina.update</result>
+			<result type="tiles" name="error">oficina.update</result>
+			<result type="tiles" name="errorInsert">oficina.insert</result>
+		</action>
+
+		<action name="novo" class="oficinaAction" method="novo">
+			<result type="tiles" name="success">oficina.insert</result>
+			<result type="tiles" name="error">oficina.insert</result>
+		</action>
+
+		<action name="editar" class="oficinaAction" method="editar">
+			<result type="tiles" name="success">oficina.update</result>
+			<result type="tiles" name="error">oficina.update</result>
+		</action>
+	</package>
+</struts>
+

@@ -1,0 +1,74 @@
+
+#tooltip.pretty {
+	font-family: Arial;
+	border: none;
+	width: 210px;
+	padding:20px;
+	height: 135px;
+	opacity: 0.8;
+	/*background: url('images/shadow.png');*/
+}
+#tooltip.pretty h3 {
+	margin-bottom: 0.75em;
+	font-size: 10px;
+	width: 250px;
+	text-align: left;
+}
+#tooltip.pretty div { width: 250px; text-align: left; }
+
+#tooltip.fancy {
+	/*background:  url('images/shadow2.png') no-repeat top left;*/
+    text-align: left;
+	/*padding-top: 5em;*/
+	width: 400px;
+	/*height: 200px;*/
+	border: none; 
+}
+#tooltip.fancy.viewport-right {
+	/*background: url('images/shadow2-reverse.png') no-repeat top left;*/
+}
+
+#tooltip.fancy.viewport-bottom {
+	/*background: url('images/shadow2-bottom.png') no-repeat top left;*/
+	padding-top: 1.5em;
+	height: 215px;
+	top: 15px; 
+}
+
+#tooltip.fancy.viewport-bottom-right {
+	/*background: url('images/shadow2-bottom-right.png') no-repeat top left;*/
+	padding-top: 1.5em;
+	height: 215px;
+	top: 15px; 
+}
+
+#extended { margin: 2em 0; }
+#extended label { text-decoration: underline; }
+#tooltip.right { width: 250px; }
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: #eee;
+	padding: 5px;
+	opacity: 0.85;
+}
+#tooltip h3, #tooltip div { margin: 0; }
+
+.tooltipCellLabel{
+	padding:0px;
+	padding-top: 3px;
+	height: 14px;
+	font-weight: normal;
+	border: 0px none;
+	vertical-align: top;
+	text-align: right;
+}
+
+.tooltipCellContent{
+	padding:0px;
+	padding-top: 3px;
+	padding-left: 3px;
+	height: 14px;
+	font-weight: bold;	
+}

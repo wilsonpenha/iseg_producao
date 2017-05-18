@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelExtratoRepasse" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="INICIO_DATA_LANCAMENTO" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_DATA_LANCAMENTO" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INICIO_DATA_PAGAMENTO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_DATA_PAGAMENTO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RAMO_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SEGURADORA_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRODUTOR_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CLIENTE_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GRUPO_VENDA_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NOME_CORRETORA" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["iSeg"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEM_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Gustavo\\Projetos\\workspace\\isegJPA\\WebContent\\common\\images\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IMAGEM_FILE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["pina.jpg"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RAMO_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SEGURADORA_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CLIENTE_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="PRODUTOR_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="GRUPO_VENDA_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SITUACAO_COMISSAO" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Integer(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMPRIMIR_RECIBO" class="java.lang.Boolean" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Boolean(false)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORA_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QUEBRA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoPagamento" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoLancamento" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDaProposta" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDaTransmissao" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoInicioDaVigencia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoFimDaVigencia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ASSESSORIA" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QUEBRA_CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	proposta.corretora_id as corretora_id,
+	corretora.nome as corretora_nome,
+	seguradora.id as seguradora_id,
+	grupoVenda.NOME_DO_GRUPO,
+	repasse.nro_da_parcela AS nro_da_parcela,
+	repasse.data_pagamento AS data_pagamento,
+	repasse.data_lancamento AS data_lancamento,
+	repasse.data_lancamento AS data_extrato,
+	repasse.situacao AS situacao,
+	produtor.nome AS produtor_nome,
+	ramo.id	AS ramo_id,
+	ramo.nome AS ramo_nome,
+	pessoa_juridica.razao_social AS seguradora_razao_social,
+	cliente.nome AS cliente_nome,
+	proposta.numero AS proposta_numero,
+	proposta.nro_apolice AS numero_apolice,
+	proposta.inicio_vigencia AS inicio_vigencia,
+	proposta.termino_vigencia AS termino_vigencia,
+	proposta.qtde_parcelas AS qtde_parcelas,
+	proposta.parc_receber_comissao AS parcelas_comissao,
+	proposta.valor_comissao AS valor_comissao,
+	comissionado.comissao AS perc_comissao,
+	NULL AS agenciado_comissao,
+	NULL as comissionado_nome,
+	NULL as agenciado_nome,
+	NULL AS referencia_parcela,
+	repasse.valor_pago AS valor_repasse,
+	repasse.valor_base as valor_base,
+	repasse.percentual_repasse as percentual_repasse,
+	proposta.is_fatura as is_pagto_via_fatura
+FROM
+	comissionado_proposta comissionado
+	INNER JOIN repasse_comissao repasse ON comissionado.id = repasse.comissionado_id
+	INNER JOIN proposta proposta ON comissionado.proposta_id = proposta.id
+	INNER JOIN pessoa produtor ON comissionado.pessoa_id = produtor.id
+	INNER JOIN ramo ramo ON proposta.ramo_id = ramo.id
+	INNER JOIN pessoa_juridica pessoa_juridica ON proposta.seguradora_id = pessoa_juridica.id
+	INNER JOIN pessoa cliente ON proposta.cliente_id = cliente.id
+	INNER JOIN seguradora seguradora ON pessoa_juridica.id = seguradora.id
+	INNER JOIN GRUPO_DE_VENDA grupoVenda ON proposta.grupo_de_venda_id = grupoVenda.id
+	LEFT JOIN PESSOA corretora ON proposta.corretora_id = corretora.id
+WHERE
+	(proposta.is_fatura = false) and
+	(($P{CORRETORAS} = '-1') OR (proposta.corretora_id in (select corretora_id from corretoras_list where usuario_id = $P{USUARIO_ID}))) AND
+	(($P{CORRETORA_ID} = '-1') OR (proposta.corretora_id = $P{CORRETORA_ID})) AND
+	(($P{SITUACAO_COMISSAO} = 0) OR (to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_DATA_LANCAMENTO}) OR (repasse.data_lancamento >= $P{INICIO_DATA_LANCAMENTO})) AND
+	((to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_DATA_LANCAMENTO}) OR (repasse.data_lancamento <= $P{FIM_DATA_LANCAMENTO})) AND
+	((to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_DATA_PAGAMENTO}) OR (repasse.data_pagamento >= $P{INICIO_DATA_PAGAMENTO})) AND
+	((to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_DATA_PAGAMENTO}) OR (repasse.data_pagamento <= $P{FIM_DATA_PAGAMENTO})) AND
+	(($P{SEGURADORA_ID} = '-1') OR (proposta.seguradora_id = $P{SEGURADORA_ID})) AND
+	(($P{RAMO_ID}  = '-1') OR (ramo.id = $P{RAMO_ID})) AND
+	(($P{PRODUTOR_ID} = '-1') OR (produtor.id = $P{PRODUTOR_ID})) AND
+	(($P{CLIENTE_ID} ='-1' ) OR (cliente.id = $P{CLIENTE_ID})) AND
+	(($P{SITUACAO_COMISSAO} = '-1') OR (repasse.situacao = $P{SITUACAO_COMISSAO})) AND
+	(($P{GRUPO_VENDA_ID} = '-1') OR (proposta.grupo_de_venda_id = $P{GRUPO_VENDA_ID}))
+UNION ALL
+SELECT
+	proposta.corretora_id as corretora_id,
+	corretora.nome as corretora_nome,
+	seguradora.id as seguradora_id,
+	grupoVenda.NOME_DO_GRUPO,
+	repasse.nro_da_parcela AS nro_da_parcela,
+	repasse.data_pagamento AS data_pagamento,
+	repasse.data_lancamento AS data_lancamento,
+	repasse.data_lancamento AS data_extrato,
+	repasse.situacao AS situacao,
+	CASE
+		WHEN repasse.comissionado_id IS NOT NULL THEN prod_comissionado.nome
+		WHEN repasse.agenciado_id IS NOT NULL THEN prod_agenciado.nome
+		ELSE 'Indefinido'
+	END AS produtor_nome,
+	ramo.id	AS ramo_id,
+	ramo.nome AS ramo_nome,
+	pessoa_juridica.razao_social AS seguradora_razao_social,
+	cliente.nome AS cliente_nome,
+	proposta.numero AS proposta_numero,
+	proposta.nro_apolice AS numero_apolice,
+	proposta.inicio_vigencia AS inicio_vigencia,
+	proposta.termino_vigencia AS termino_vigencia,
+	proposta.qtde_parcelas AS qtde_parcelas,
+	proposta.parc_receber_comissao AS parcelas_comissao,
+	proposta.valor_comissao AS valor_comissao,
+	comissionado.comissao AS comissionado_comissao,
+	agenciado.comissao AS agenciado_comissao,
+	prod_comissionado.nome as comissionado_nome,
+	prod_agenciado.nome as agenciado_nome,
+	repasse.referencia_parcela AS referencia_parcela,
+	repasse.valor_pago AS valor_repasse,
+	repasse.valor_base as valor_base,
+	repasse.percentual_repasse as percentual_repasse,
+	proposta.is_fatura as is_pagto_via_fatura
+FROM
+     repasse_comissao repasse
+     LEFT OUTER JOIN comissionado_proposta comissionado ON comissionado.id = repasse.comissionado_id
+     LEFT OUTER JOIN comissionado_agenciamento agenciado ON agenciado.id = repasse.agenciado_id
+     LEFT OUTER JOIN proposta proposta ON comissionado.proposta_id = proposta.id or agenciado.proposta_id = proposta.id
+     LEFT OUTER JOIN pessoa prod_comissionado ON comissionado.pessoa_id = prod_comissionado.id
+     LEFT OUTER JOIN pessoa prod_agenciado ON agenciado.pessoa_id = prod_agenciado.id
+     INNER JOIN ramo ramo ON proposta.ramo_id = ramo.id
+     INNER JOIN pessoa_juridica pessoa_juridica ON proposta.seguradora_id = pessoa_juridica.id
+     INNER JOIN pessoa cliente ON proposta.cliente_id = cliente.id
+     INNER JOIN seguradora seguradora ON pessoa_juridica.id = seguradora.id
+     INNER JOIN GRUPO_DE_VENDA grupoVenda ON proposta.grupo_de_venda_id = grupoVenda.id
+     LEFT JOIN PESSOA corretora ON proposta.corretora_id = corretora.id
+WHERE
+	(proposta.is_fatura = true) AND
+	(($P{CORRETORAS} = '-1') OR (proposta.corretora_id in (select corretora_id from corretoras_list where usuario_id = $P{USUARIO_ID}))) AND
+	(($P{CORRETORA_ID} = '-1') OR (proposta.corretora_id = $P{CORRETORA_ID})) AND
+	(($P{SITUACAO_COMISSAO} = 0) OR (to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_DATA_LANCAMENTO}) OR (repasse.data_lancamento >= $P{INICIO_DATA_LANCAMENTO})) AND
+	((to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_DATA_LANCAMENTO}) OR (repasse.data_lancamento <= $P{FIM_DATA_LANCAMENTO})) AND
+	((to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_DATA_PAGAMENTO}) OR (repasse.data_pagamento >= $P{INICIO_DATA_PAGAMENTO})) AND
+	((to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_DATA_PAGAMENTO}) OR (repasse.data_pagamento <= $P{FIM_DATA_PAGAMENTO})) AND
+	(($P{SEGURADORA_ID} = '-1') OR (proposta.seguradora_id = $P{SEGURADORA_ID})) AND
+	(($P{RAMO_ID}  = '-1') OR (ramo.id = $P{RAMO_ID})) AND
+	(($P{PRODUTOR_ID} = '-1') OR (prod_comissionado.id = $P{PRODUTOR_ID}) OR (prod_agenciado.id = $P{PRODUTOR_ID})) AND
+	(($P{CLIENTE_ID} ='-1' ) OR (cliente.id = $P{CLIENTE_ID})) AND
+	(($P{SITUACAO_COMISSAO} = '-1') OR (repasse.situacao = $P{SITUACAO_COMISSAO})) AND
+	(($P{GRUPO_VENDA_ID} = '-1') OR (proposta.grupo_de_venda_id = $P{GRUPO_VENDA_ID}))
+UNION ALL
+SELECT
+	proposta.corretora_id as corretora_id,
+	corretora.nome as corretora_nome,
+	seguradora.id as seguradora_id,
+	grupoVenda.NOME_DO_GRUPO,
+	repasse.nro_da_parcela AS nro_da_parcela,
+	repasse.data_pagamento AS data_pagamento,
+	repasse.data_lancamento AS data_lancamento,
+	repasse.data_lancamento AS data_extrato,
+	repasse.situacao AS situacao,
+	prod_pessoa.nome AS produtor_nome,
+	ramo.id	AS ramo_id,
+	ramo.nome AS ramo_nome,
+	pessoa_juridica.razao_social AS seguradora_razao_social,
+	repasse.descricao AS cliente_nome,
+	proposta.numero AS proposta_numero,
+	proposta.nro_apolice AS numero_apolice,
+	proposta.inicio_vigencia AS inicio_vigencia,
+	proposta.termino_vigencia AS termino_vigencia,
+	proposta.qtde_parcelas AS qtde_parcelas,
+	proposta.parc_receber_comissao AS parcelas_comissao,
+	proposta.valor_comissao AS valor_comissao,
+	comissionado.comissao AS comissionado_comissao,
+	agenciado.comissao AS agenciado_comissao,
+	prod_comissionado.nome as comissionado_nome,
+	prod_agenciado.nome as agenciado_nome,
+	repasse.referencia_parcela AS referencia_parcela,
+	repasse.valor_pago AS valor_repasse,
+	repasse.valor_base as valor_base,
+	repasse.percentual_repasse as percentual_repasse,
+	proposta.is_fatura as is_pagto_via_fatura
+FROM
+     repasse_comissao repasse
+     LEFT OUTER JOIN comissionado_proposta comissionado ON comissionado.id = repasse.comissionado_id
+     LEFT OUTER JOIN comissionado_agenciamento agenciado ON agenciado.id = repasse.agenciado_id
+     LEFT OUTER JOIN proposta proposta ON comissionado.proposta_id = proposta.id or agenciado.proposta_id = proposta.id
+     LEFT OUTER JOIN pessoa prod_comissionado ON comissionado.pessoa_id = prod_comissionado.id
+     LEFT OUTER JOIN pessoa prod_agenciado ON agenciado.pessoa_id = prod_agenciado.id
+     LEFT OUTER JOIN produtor produtor ON produtor.id = repasse.produtor_id
+     LEFT OUTER JOIN pessoa prod_pessoa ON produtor.id = prod_pessoa.id
+     LEFT OUTER JOIN ramo ramo ON proposta.ramo_id = ramo.id
+     LEFT OUTER JOIN pessoa_juridica pessoa_juridica ON proposta.seguradora_id = pessoa_juridica.id
+     LEFT OUTER JOIN pessoa cliente ON proposta.cliente_id = cliente.id
+     LEFT OUTER JOIN seguradora seguradora ON pessoa_juridica.id = seguradora.id
+     LEFT OUTER JOIN GRUPO_DE_VENDA grupoVenda ON proposta.grupo_de_venda_id = grupoVenda.id
+     LEFT JOIN PESSOA corretora ON proposta.corretora_id = corretora.id
+WHERE     (repasse.situacao < 4) AND
+	(repasse.origem_lancamento = 1) AND
+	(($P{CORRETORAS} = '-1') OR (repasse.corretora_id in (select corretora_id from corretoras_list where usuario_id = $P{USUARIO_ID}))) AND
+	(($P{CORRETORA_ID} = '-1') OR (repasse.corretora_id = $P{CORRETORA_ID})) AND
+	(($P{SITUACAO_COMISSAO} = '0') OR (to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_DATA_LANCAMENTO}) OR (repasse.data_lancamento >= $P{INICIO_DATA_LANCAMENTO})) AND
+	((to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_DATA_LANCAMENTO}) OR (repasse.data_lancamento <= $P{FIM_DATA_LANCAMENTO})) AND
+	((to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_DATA_PAGAMENTO}) OR (repasse.data_pagamento >= $P{INICIO_DATA_PAGAMENTO})) AND
+	((to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_DATA_PAGAMENTO}) OR (repasse.data_pagamento <= $P{FIM_DATA_PAGAMENTO})) AND
+	(($P{PRODUTOR_ID} = '-1') OR (produtor.id = $P{PRODUTOR_ID})) AND
+	(($P{SITUACAO_COMISSAO} = '-1') OR (repasse.situacao = $P{SITUACAO_COMISSAO}))]]>
+	</queryString>
+	<field name="corretora_id" class="java.lang.Long"/>
+	<field name="corretora_nome" class="java.lang.String"/>
+	<field name="seguradora_id" class="java.lang.Long"/>
+	<field name="nome_do_grupo" class="java.lang.String"/>
+	<field name="nro_da_parcela" class="java.lang.Integer"/>
+	<field name="data_pagamento" class="java.sql.Date"/>
+	<field name="data_lancamento" class="java.sql.Date"/>
+	<field name="data_extrato" class="java.sql.Date"/>
+	<field name="situacao" class="java.lang.Integer"/>
+	<field name="produtor_nome" class="java.lang.String"/>
+	<field name="ramo_id" class="java.lang.Long"/>
+	<field name="ramo_nome" class="java.lang.String"/>
+	<field name="seguradora_razao_social" class="java.lang.String"/>
+	<field name="cliente_nome" class="java.lang.String"/>
+	<field name="proposta_numero" class="java.lang.Long"/>
+	<field name="numero_apolice" class="java.lang.String"/>
+	<field name="inicio_vigencia" class="java.sql.Date"/>
+	<field name="termino_vigencia" class="java.sql.Date"/>
+	<field name="qtde_parcelas" class="java.lang.Long"/>
+	<field name="parcelas_comissao" class="java.lang.Long"/>
+	<field name="valor_comissao" class="java.math.BigDecimal"/>
+	<field name="perc_comissao" class="java.lang.Double"/>
+	<field name="agenciado_comissao" class="java.lang.Double"/>
+	<field name="comissionado_nome" class="java.lang.String"/>
+	<field name="agenciado_nome" class="java.lang.String"/>
+	<field name="referencia_parcela" class="java.sql.Date"/>
+	<field name="valor_repasse" class="java.lang.Double"/>
+	<field name="valor_base" class="java.lang.Double"/>
+	<field name="percentual_repasse" class="java.lang.Double"/>
+	<field name="is_pagto_via_fatura" class="java.lang.Boolean"/>
+	<sortField name="corretora_nome"/>
+	<sortField name="cliente_nome"/>
+	<sortField name="proposta_numero"/>
+	<sortField name="data_lancamento"/>
+	<sortField name="data_pagamento"/>
+	<sortField name="produtor_nome"/>
+	<sortField name="seguradora_razao_social"/>
+	<sortField name="ramo_nome"/>
+	<sortField name="nome_do_grupo"/>
+	<variable name="tituloRelatorio" class="java.lang.String">
+		<variableExpression><![CDATA["RELATÓRIO DE REPASSE DE COMISSÕES"]]></variableExpression>
+		<initialValueExpression><![CDATA["RELATÓRIO DE REPASSE DE COMISSÕES"]]></initialValueExpression>
+	</variable>
+	<variable name="corretora" class="java.lang.String"/>
+	<variable name="periodo" class="java.lang.String" resetType="None"/>
+	<variable name="QUANT_PAGINA" class="java.lang.Integer" incrementType="Page" calculation="Count">
+		<variableExpression><![CDATA[$V{PAGE_COUNT}]]></variableExpression>
+	</variable>
+	<variable name="totalRepassePorProdutor" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_PRODUTOR" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_repasse}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalPagoPorProdutor" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_PRODUTOR" calculation="Sum">
+		<variableExpression><![CDATA[$F{situacao}.intValue()==2 ? new BigDecimal($F{valor_repasse}.toString()) : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalBasePorProdutor" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_PRODUTOR" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_base}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalRepassePorSeguradora" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_SEGURADORA" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_repasse}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalPagoPorSeguradora" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_SEGURADORA" calculation="Sum">
+		<variableExpression><![CDATA[$F{situacao}.intValue()==2 ? new BigDecimal($F{valor_repasse}.toString()) : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalBasePorSeguradora" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_SEGURADORA" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_base}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalRepassePorRamo" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_RAMO" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_repasse}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalPagoPorRamo" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_RAMO" calculation="Sum">
+		<variableExpression><![CDATA[$F{situacao}.intValue()==2 ? new BigDecimal($F{valor_repasse}.toString()) : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalBasePorRamo" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_RAMO" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_base}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalRepassePorGrupoDeVenda" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_GRUPO_DE_VENDA" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_repasse}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalPagoPorGrupoDeVenda" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_GRUPO_DE_VENDA" calculation="Sum">
+		<variableExpression><![CDATA[$F{situacao}.intValue()==2 ? new BigDecimal($F{valor_repasse}.toString()) : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalBasePorGrupoDeVenda" class="java.math.BigDecimal" resetType="Group" resetGroup="POR_GRUPO_DE_VENDA" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_base}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="periodoPagamento" class="java.lang.String">
+		<variableExpression><![CDATA[$P{INICIO_DATA_PAGAMENTO} + " a " + $P{FIM_DATA_PAGAMENTO}]]></variableExpression>
+	</variable>
+	<variable name="totalRepasseGeral" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_repasse}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalPagoGeral" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{situacao}.intValue()==2 ? new BigDecimal($F{valor_repasse}.toString()) : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="totalBaseGeral" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{valor_base}.toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<group name="POR_CORRETORA">
+		<groupExpression><![CDATA[$F{corretora_id}]]></groupExpression>
+		<groupHeader>
+			<band height="14" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{ASSESSORIA}.intValue()!=-1 && $P{QUEBRA_CORRETORAS}.intValue() == 1)]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-66" x="1" y="2" width="47" height="11"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Corretora : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-75" x="49" y="2" width="164" height="11"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora_nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-18" x="0" y="13" width="782" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA_CORRETORAS}.intValue()==1)]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_SEGURADORA" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{seguradora_id}]]></groupExpression>
+		<groupHeader>
+			<band height="10" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_SEGURADORA"))]]></printWhenExpression>
+				<line>
+					<reportElement key="line-6" x="0" y="9" width="535" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-41" mode="Transparent" x="0" y="0" width="47" height="8"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Seguradora : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-41" mode="Transparent" x="47" y="0" width="312" height="8"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{seguradora_razao_social}+($V{POR_SEGURADORA_COUNT}.intValue() > 0 ? " (continuação)" : "")]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="38" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_SEGURADORA"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-62" mode="Transparent" x="345" y="11" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-57" mode="Transparent" x="418" y="11" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorSeguradora}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-63" mode="Transparent" x="345" y="20" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total pago:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-58" mode="Transparent" x="418" y="20" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalPagoPorSeguradora}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-64" mode="Transparent" x="345" y="29" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total em aberto:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-59" mode="Transparent" x="418" y="29" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorSeguradora}.subtract($V{totalPagoPorSeguradora})]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-16" x="0" y="1" width="535" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-68" mode="Transparent" x="345" y="2" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total do valor base:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-63" mode="Transparent" x="418" y="2" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalBasePorSeguradora}]]></textFieldExpression>
+				</textField>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement key="textField-60" mode="Transparent" x="49" y="2" width="26" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{POR_SEGURADORA_COUNT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-65" mode="Transparent" x="1" y="2" width="48" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Quantidade:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_GRUPO_DE_VENDA" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{nome_do_grupo}]]></groupExpression>
+		<groupHeader>
+			<band height="10" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_GRUPO_DE_VENDA"))]]></printWhenExpression>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-39" mode="Transparent" x="63" y="0" width="296" height="8"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nome_do_grupo}+($V{POR_GRUPO_DE_VENDA_COUNT}.intValue() > 0 ? " (continuação)" : "")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-43" mode="Transparent" x="0" y="0" width="63" height="8"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Grupo de Venda : ]]></text>
+				</staticText>
+				<line>
+					<reportElement key="line-4" x="0" y="9" width="535" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="38" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_GRUPO_DE_VENDA"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-59" mode="Transparent" x="345" y="11" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-54" mode="Transparent" x="418" y="11" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorGrupoDeVenda}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-60" mode="Transparent" x="345" y="20" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total pago:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-55" mode="Transparent" x="418" y="20" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalPagoPorGrupoDeVenda}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-61" mode="Transparent" x="345" y="29" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total em aberto:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-56" mode="Transparent" x="418" y="29" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorGrupoDeVenda}.subtract($V{totalPagoPorGrupoDeVenda})]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-18" x="0" y="1" width="535" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-67" mode="Transparent" x="345" y="2" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total do valor base:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-62" mode="Transparent" x="418" y="2" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalBasePorGrupoDeVenda}]]></textFieldExpression>
+				</textField>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement key="textField-60" mode="Transparent" x="49" y="3" width="26" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{POR_GRUPO_DE_VENDA_COUNT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-65" mode="Transparent" x="1" y="3" width="48" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Quantidade:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_RAMO" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{ramo_nome}]]></groupExpression>
+		<groupHeader>
+			<band height="10" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_RAMO"))]]></printWhenExpression>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-38" mode="Transparent" x="26" y="0" width="333" height="8"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ramo_nome}+($V{POR_RAMO_COUNT}.intValue() > 0 ? " (continuação)" : "")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-44" mode="Transparent" x="0" y="0" width="26" height="8"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Ramo : ]]></text>
+				</staticText>
+				<line>
+					<reportElement key="line-3" x="0" y="9" width="535" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="38" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_RAMO"))]]></printWhenExpression>
+				<line>
+					<reportElement key="line-13" x="0" y="1" width="535" height="1" forecolor="#000000"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-56" mode="Transparent" x="345" y="11" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-51" mode="Transparent" x="418" y="11" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorRamo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-57" mode="Transparent" x="345" y="20" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total pago:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-52" mode="Transparent" x="418" y="20" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalPagoPorRamo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-58" mode="Transparent" x="345" y="29" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total em aberto:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-53" mode="Transparent" x="418" y="29" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorRamo}.subtract($V{totalPagoPorRamo})]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-61" mode="Transparent" x="418" y="2" width="50" height="9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalBasePorRamo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-66" mode="Transparent" x="345" y="2" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total do valor base:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-65" mode="Transparent" x="1" y="2" width="48" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Quantidade:]]></text>
+				</staticText>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement key="textField-60" mode="Transparent" x="49" y="2" width="26" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{POR_RAMO_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_PRODUTOR" isStartNewPage="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{produtor_nome}]]></groupExpression>
+		<groupHeader>
+			<band height="10" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_PRODUTOR"))]]></printWhenExpression>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement key="textField" mode="Transparent" x="37" y="0" width="318" height="8"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{produtor_nome}+($V{POR_PRODUTOR_COUNT}.intValue() > 0 ? " (continuação)" : "")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-55" mode="Transparent" x="0" y="0" width="37" height="8"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Produtor:]]></text>
+				</staticText>
+				<line>
+					<reportElement key="line-5" x="0" y="9" width="535" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="43" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_PRODUTOR"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText" mode="Transparent" x="345" y="11" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField" mode="Transparent" x="418" y="11" width="50" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorProdutor}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText" mode="Transparent" x="345" y="20" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total pago:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField" mode="Transparent" x="418" y="20" width="50" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalPagoPorProdutor}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText" mode="Transparent" x="345" y="29" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total em aberto:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField" mode="Transparent" x="418" y="29" width="50" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepassePorProdutor}.subtract($V{totalPagoPorProdutor})]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-6" x="0" y="1" width="535" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<subreport isUsingCache="true">
+					<reportElement key="subreport-3" x="1" y="40" width="440" height="3">
+						<printWhenExpression><![CDATA[$P{IMPRIMIR_RECIBO}]]></printWhenExpression>
+					</reportElement>
+					<subreportParameter name="PAGO_RECEBIDO">
+						<subreportParameterExpression><![CDATA[$V{totalRepassePorProdutor}.doubleValue()>=0.0 ? "RECEBIDO" : "PAGO"]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="PRODUTOR">
+						<subreportParameterExpression><![CDATA[$F{produtor_nome}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ReciboRepasse.jasper"]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement key="staticText-65" mode="Transparent" x="345" y="2" width="73" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Total do valor base:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement key="textField-60" mode="Transparent" x="418" y="2" width="50" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalBasePorProdutor}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-65" mode="Transparent" x="0" y="2" width="48" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Quantidade:]]></text>
+				</staticText>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement key="textField-60" mode="Transparent" x="48" y="2" width="26" height="9"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{POR_PRODUTOR_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-1" x="1" y="0" width="534" height="100"/>
+				<subreportParameter name="SEGURADORA_NOME">
+					<subreportParameterExpression><![CDATA[$P{SEGURADORA_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDoInicioDaVigencia">
+					<subreportParameterExpression><![CDATA[$P{periodoDoInicioDaVigencia}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SITUACAO_COMISSAO">
+					<subreportParameterExpression><![CDATA[$P{SITUACAO_COMISSAO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="GRUPO_VENDA_NOME">
+					<subreportParameterExpression><![CDATA[$P{GRUPO_VENDA_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PRODUTOR_NOME">
+					<subreportParameterExpression><![CDATA[$P{PRODUTOR_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDoLancamento">
+					<subreportParameterExpression><![CDATA[$P{periodoDoLancamento}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_tituloRelatorio">
+					<subreportParameterExpression><![CDATA[$V{tituloRelatorio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDaProposta">
+					<subreportParameterExpression><![CDATA[$P{periodoDaProposta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imageFileName">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_FILE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CLIENTE_NOME">
+					<subreportParameterExpression><![CDATA[$P{CLIENTE_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo2">
+					<subreportParameterExpression><![CDATA[$V{periodo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RAMO_NOME">
+					<subreportParameterExpression><![CDATA[$P{RAMO_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imagemDir">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo3">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo1">
+					<subreportParameterExpression><![CDATA[$P{NOME_CORRETORA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDoPagamento">
+					<subreportParameterExpression><![CDATA[$P{periodoDoPagamento}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDoFimDaVigencia">
+					<subreportParameterExpression><![CDATA[$P{periodoDoFimDaVigencia}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDaTransmissao">
+					<subreportParameterExpression><![CDATA[$P{periodoDaTransmissao}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "cabecalhoRepasseComissaoRetrato.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement key="line-15" x="0" y="19" width="535" height="1" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement key="staticText-8" x="248" y="1" width="46" height="18"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Ramo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="35" y="1" width="88" height="18"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Segurado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-11" x="123" y="1" width="43" height="18"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Início da
+Vigência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-13" x="0" y="1" width="35" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Número
+Apólice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-16" x="166" y="1" width="41" height="18"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data Extrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-17" x="294" y="1" width="62" height="18"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Seguradora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-18" x="383" y="1" width="46" height="18"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Valor Base]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-19" x="451" y="1" width="37" height="18"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Repasse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-51" x="356" y="1" width="27" height="18"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Parc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-52" x="429" y="1" width="22" height="18"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-53" x="488" y="1" width="8" height="18"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-54" x="496" y="1" width="39" height="18"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data
+Pagto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-16" x="207" y="1" width="41" height="18"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data
+Lançto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="8" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-6" x="0" y="0" width="35" height="8"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{numero_apolice}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-7" x="35" y="0" width="88" height="8"/>
+				<box leftPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-8" x="123" y="0" width="43" height="8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{inicio_vigencia}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-11" x="207" y="0" width="41" height="8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{data_lancamento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-12" x="248" y="0" width="46" height="8"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ramo_nome}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-13" x="294" y="0" width="62" height="8"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{seguradora_razao_social}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-9" x="383" y="0" width="46" height="8"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_base}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-15" x="451" y="0" width="37" height="8"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_repasse}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-47" x="356" y="0" width="27" height="8"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{is_pagto_via_fatura} == null || !$F{is_pagto_via_fatura}) ? $F{nro_da_parcela}.intValue()+"/"+$F{parcelas_comissao} : new SimpleDateFormat("MM/yyyy").format($F{referencia_parcela})]]></textFieldExpression>
+			</textField>
+			<textField pattern="##0.0" isBlankWhenNull="true">
+				<reportElement key="textField-48" stretchType="RelativeToTallestObject" x="429" y="0" width="22" height="8"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ramo_id}.intValue() != 5 ? $F{perc_comissao} : $F{perc_comissao}==null ? $F{agenciado_comissao} : $F{perc_comissao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField-49" x="488" y="0" width="8" height="8"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{situacao}.intValue()==0 ? "A PAGAR" : $F{situacao}.intValue()==2 ? "QUITADO" : ""]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-50" x="496" y="0" width="39" height="8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{data_pagamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-11" x="166" y="0" width="41" height="8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{data_extrato}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-4" x="0" y="0" width="535" height="13"/>
+				<subreportParameter name="USUARIO">
+					<subreportParameterExpression><![CDATA[$P{USUARIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rodapeRetrato.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-79" mode="Opaque" x="217" y="6" width="67" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página: "+$V{PAGE_NUMBER}+"/"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement key="textField-80" mode="Opaque" x="284" y="6" width="29" height="11"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{QUANT_PAGINA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="37" splitType="Stretch">
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-57" mode="Transparent" x="419" y="10" width="50" height="9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepasseGeral}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-62" mode="Transparent" x="313" y="10" width="106" height="9"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total geral:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-59" mode="Transparent" x="419" y="28" width="50" height="9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalRepasseGeral}.subtract($V{totalPagoGeral})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-63" mode="Transparent" x="313" y="19" width="106" height="9"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total geral pago:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-64" mode="Transparent" x="313" y="28" width="106" height="9"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total geral em aberto:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-58" mode="Transparent" x="419" y="19" width="50" height="9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalPagoGeral}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-68" mode="Transparent" x="313" y="1" width="106" height="9"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total geral do valor base:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-63" mode="Transparent" x="419" y="1" width="50" height="9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{totalBaseGeral}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line-16" x="0" y="0" width="535" height="1" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

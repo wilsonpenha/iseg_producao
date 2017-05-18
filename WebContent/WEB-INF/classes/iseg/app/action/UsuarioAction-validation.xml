@@ -1,0 +1,22 @@
+<!--
+ Description: Project iseg
+ Company....: Atlas
+ Version....: 0.1
+ Last change: 6/24/2008
+-->
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+   
+<!--  START SNIPPET: UsuarioAction - Validators --><validators>     <field name="usuario.nomeLogin">        <field-validator type="required">            <message>O campo Nome de Login é de preenchimento obrigatorio!</message>        </field-validator>    </field>    <field name="usuario.senha">        <field-validator type="required">            <message>O campo Senha é de preenchimento obrigatorio!</message>        </field-validator>    </field>    <field name="usuario.privilegio.id">        <field-validator type="required">            <message>O campo Privilegio é de preenchimento obrigatorio!</message>        </field-validator>    </field>    <field name="usuario.status">        <field-validator type="required">            <message>O campo Status é de preenchimento obrigatorio!</message>        </field-validator>    </field>
+    <field name="usuario.corretora.id">
+        <field-validator type="required">
+            <message>O campo Corretora é de preenchimento obrigatorio!</message>
+        </field-validator>
+    </field></validators>
+
+
+
+<!--
+ Atlas, 2008
+-->

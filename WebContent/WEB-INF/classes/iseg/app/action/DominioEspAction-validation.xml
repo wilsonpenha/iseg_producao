@@ -1,0 +1,27 @@
+<!--
+ Description: Project iseg
+ Company....: Atlas
+ Version....: 0.1
+ Last change: 5/29/2008
+-->
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+   "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+   
+<!--  START SNIPPET: DominioEspAction - Validators --><validators>
+ <field name="dominioEsp.dominio.id">
+ 	<field-validator type="required">
+ 		<message>O campo Dominio é de preenchimento obrigatório</message>
+ 	</field-validator>
+ </field>
+ 
+ <field name="dominioEsp.valor">
+ 	<field-validator type="required">
+ 		<message>O campo Valor é de preenchimento obrigatório</message>
+ 	</field-validator>
+ </field></validators>
+
+
+
+<!--
+ Atlas, 2008
+-->

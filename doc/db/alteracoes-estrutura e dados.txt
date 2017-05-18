@@ -1,0 +1,21 @@
+# Autor      : Luiz Romero
+# Data       : 05/01/2012
+# Descritivo : criaçao do campo email na tabela usuario,
+#            : aplicar esta alteração em todos os bancos de dados em uso.
+#            : 192.168.0.4 -> trial, iseg, iseg_consolidado
+#            : www.kitcorretor.com.br -> trial, iseg
+ALTER TABLE Usuario ADD COLUMN email varchar(255);
+
+
+# Autor      : Wilson - exemplo de como anotar alterações, novas alterações devem ser inseridas no topo desta lista usando este template. 
+# Data       : 28/12/2011
+# Descritivo : criaçao do campo role_id na tabela usuario,
+#            : criaçao do campo alias na tabela qualquer, etc., etc
+#            : aplicar esta alteração em todos os bancos de dados em uso.
+#            : 192.168.0.4 -> trial, iseg, iseg_consolidado
+#            : www.kitcorretor.com.br -> trial, iseg
+
+ALTER TABLE usuario ADD COLUMN role_id bigint;
+UPDATE usuario set role_id=1;
+
+# Fim da alteração - 28/12/2011

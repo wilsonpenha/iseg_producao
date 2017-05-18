@@ -1,0 +1,120 @@
+
+* {
+  font-family: verdana, sans-serif;
+  font-size: 11px;
+}
+
+.wButton_width {
+ width: auto;
+}
+
+a.wButtonLink, a.wButtonLink:active, a.wButtonLink:hover, a.wButtonLink:visited, a.wButtonLink:link {
+ text-decoration: none;
+}
+
+a.wButtonLink_hover, a.wButtonLink_hover:active, a.wButtonLink_hover:hover, a.wButtonLink_hover:visited, a.wButtonLink_hover:link {
+ text-decoration: none;
+}
+
+a.wButtonLink_active, a.wButtonLink_active:active, a.wButtonLink_active:hover, a.wButtonLink_active:visited, a.wButtonLink_active:link {
+ text-decoration: none;
+}
+
+a.wButtonLink .wButton, .wButton {
+ border-collapse: collapse;
+ font-family: tahoma, arial, helvetica, sans-serif;
+ font-size: 8pt;
+ color: #1b4106;
+ font-weight: bold;
+ CURSOR: pointer;
+}
+
+a.wButtonLink table.wButton .wButton_left, table.wButton .wButton_left {
+ width: 10px;
+ height: 28px;
+ background: url(wizardFinal/buttonLeft.normal.png) no-repeat center right;
+ text-align: right;
+ vertical-align: top;
+}
+
+a.wButtonLink table.wButton .wButton_text, table.wButton .wButton_text {
+ background: url(wizardFinal/buttonBody.normal.png) repeat-x center;
+ text-align: center;
+ height: 28px;
+ font-family: tahoma, arial, helvetica, sans-serif;
+ font-size: 8pt;
+ font-weight: bold;
+ text-align: center;
+}
+
+a.wButtonLink table.wButton .wButton_right, table.wButton .wButton_right {
+ width: 10px;
+ height: 28px;
+ background: url(wizardFinal/buttonRight.normal.png) no-repeat center left;
+}
+
+a.wButtonLink_hover .wButton, .wButton_hover {
+ border-collapse: collapse;
+ text-align: center;
+ font-family: tahoma, arial, helvetica, sans-serif;
+ font-size: 8pt;
+ height: 28px;
+ color: #1b4106;
+ font-weight: bold;
+ CURSOR: pointer;
+}
+
+a.wButtonLink_hover table.wButton .wButton_left, table.wButton_hover .wButton_left {
+ background: url(wizardFinal/buttonLeft.rollover.png) no-repeat center right;
+ width: 10px;
+ height: 28px;
+}
+
+a.wButtonLink_hover table.wButton .wButton_text, table.wButton_hover .wButton_text {
+ text-align: center;
+ height: 28px;
+ background: url(wizardFinal/buttonBody.rollover.png) repeat-x center center;
+ font-family: tahoma, arial, helvetica, sans-serif;
+ font-size: 8pt;
+ font-weight: bold;
+ text-align: center;
+}
+
+a.wButtonLink_hover table.wButton .wButton_right, table.wButton_hover .wButton_right {
+ background: url(wizardFinal/buttonRight.rollover.png) no-repeat center left;
+ width: 10px;
+ height: 28px;
+}
+
+a.wButtonLink_active .wButton, .wButton_active {
+ border-collapse: collapse;
+ text-align: center;
+ font-family: tahoma, arial, helvetica, sans-serif;
+ font-size: 8pt;
+ color: #eaf7e4;
+ font-weight: bold;
+ CURSOR: pointer;
+}
+
+a.wButtonLink_active table.wButton .wButton_left, .wButton_active .wButton_left {
+ background: url(wizardFinal/buttonLeft.pressed.png) no-repeat center right;
+ width: 10px;
+ height: 28px;
+}
+
+a.wButtonLink_active table.wButton .wButton_text, table.wButton_active .wButton_text {
+ text-align: center;
+ height: 28px;
+ background: url(wizardFinal/buttonBody.pressed.png) repeat-x center center;
+ font-family: tahoma, arial, helvetica, sans-serif;
+ font-size: 8pt;
+ font-weight: bold;
+ text-align: center;
+}
+
+a.wButtonLink_active table.wButton .wButton_right, table.wButton_active .wButton_right {
+ background: url(wizardFinal/buttonRight.pressed.png) no-repeat center left;
+ width: 10px;
+ height: 28px;
+}
+

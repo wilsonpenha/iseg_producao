@@ -1,0 +1,374 @@
+/*
+ *************************************************************************
+ * The contents of this file are subject to the Openbravo  Public  License
+ * Version  1.0  (the  "License"),  being   the  Mozilla   Public  License
+ * Version 1.1  with a permitted attribution clause; you may not  use this
+ * file except in compliance with the License. You  may  obtain  a copy of
+ * the License at http://www.openbravo.com/legal/license.html 
+ * Software distributed under the License  is  distributed  on  an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific  language  governing  rights  and  limitations
+ * under the License. 
+ * The Original Code is Openbravo ERP. 
+ * The Initial Developer of the Original Code is Openbravo SL 
+ * All portions are Copyright (C) 2007 Openbravo SL 
+ * All Rights Reserved. 
+ * Contributor(s):  ______________________________________.
+ ************************************************************************
+*/
+
+
+.Main_Client_TableEdition {
+  border: 0px none;
+  background-color : #E8E8E8;
+  width: 100%;
+}
+
+.Main_Client_TableRelation {
+  border: 0px none;
+  margin-top: 1px;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-bottom: 1px;
+  background-color : #E8E8E8;
+  border-collapse: collapse;
+}
+
+td.TableEdition_OneCell_width {
+  width: 98%;
+  vertical-align: top;
+}
+
+td.TableEdition_TwoCells_width {
+  width: 290px;
+  vertical-align: top;
+}
+
+td.TableEdition_ThreeCells_width {
+  width: 435x;
+  vertical-align: top;
+
+}
+
+.TitleCell {
+  border: 0px none;
+  vertical-align: middle;
+  text-align: right;
+  text-indent:3px;
+  border-collapse: collapse;
+  padding-top:5px;
+  padding-right:4px;
+}
+
+.ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: left;
+  padding-top:3px;
+  border-collapse: collapse;
+}
+
+.ReadOnly_Text_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: left;
+  text-indent:3px;
+  border-collapse: collapse;
+  padding-top:5px;
+  padding-right:4px;
+}
+
+.Combo_ContentCell {
+  border: 0px none;
+  vertical-align: bottom;
+  text-align: left;
+  padding-top:3px;
+  padding-right:2px;
+  padding-bottom:1px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.TextBox_ContentCell {
+  border: 0px none;
+  vertical-align: bottom;
+  text-align: left;
+  padding-top:3px;
+  padding-right:2px;
+  padding-bottom:1px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.TextBox_ReadOnly_ContentCell {
+  border: 0px none;
+  vertical-align: bottom;
+  text-align: left;
+  padding-top:5px;
+  padding-bottom:1px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.TextArea_ContentCell {
+  border: 0px none;
+  vertical-align: bottom;
+  text-align: left;
+  padding-top:3px;
+  padding-bottom:3px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.List_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: left;
+  padding-top:3px;
+  padding-bottom:3px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+td.List_Button_ContentCell {
+  vertical-align: middle;
+}
+
+.Dimension_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: left;
+  padding-top:3px;
+  padding-bottom:3px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+td.DimensionLRArrows_ContentCell {
+  border: 0px none;
+  vertical-align: middle;
+  text-align: -moz-center;
+  _text-align: center;
+  padding-top:3px;
+  padding-bottom:3px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+td.DimensionUDArrows_ContentCell {
+  vertical-align: middle;
+}
+
+.FieldButton_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: left;
+  padding-top:0px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.TextBox_btn_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: left;
+  padding-top:0px;
+  border-collapse: collapse;
+}
+
+.Radio_Check_ContentCell {
+  border: 0px none;
+  vertical-align: bottom;
+  text-align: left;
+  padding-top: 5px;
+  _padding-top: 1px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.Button_LeftAlign_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: left;
+  padding-left: 6px;
+  padding-top:3px;
+  _padding-top: 1px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.Button_CenterAlign_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: -moz-center;
+  _text-align: center;
+  padding-top:3px;
+  _padding-top: 1px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.Button_RightAlign_ContentCell {
+  border: 0px none;
+  vertical-align: top;
+  text-align: -moz-right;
+  _text-align: right;
+  padding-right: 6px;
+  padding-top:3px;
+  _padding-top: 1px;
+  border-collapse: collapse;
+  height: 25px;
+}
+
+.NoTitleContentCell {
+  vertical-align: middle;
+  text-align: -moz-center;
+  _text-align: center;
+  border-style:none;
+  text-indent:3px;
+  padding-top:1px;
+  padding-bottom:1px;
+}
+
+.SmallButton {
+  vertical-align: middle;
+  text-align: center;
+  text-ident: 0px;
+}
+
+.BigButton {
+  vertical-align: middle;
+  text-align: center;
+  text-ident: 0px;
+}
+
+.addButton {
+	border: 1px solid #2E599A;
+	color: #FFFFFF;
+	background-color: #29C0DF;
+	font-weight:bold;
+	cursor: pointer;
+}
+
+.addButton2 {
+	border: 1px;
+	background-color: #2E599A;
+	border-color: #2985BA;
+	color: #2985BA;
+	font-weight:bold;
+	cursor: pointer;
+}
+
+/* CSS para Se��es */
+
+td.Section {
+	color:#FFFFFF;
+	background: url(td.section.png) repeat-x;
+	background-color:#6FAA46;
+	text-align:center;
+	font-size:8pt;
+	font-weight:bold;
+	cursor: pointer;
+}
+
+td.Section {
+	color:#FFFFFF;
+	background: url(td.section.png) repeat-x;
+	background-color:#6FAA46;
+	text-align:center;
+	font-size:8pt;
+	font-weight:bold;
+	cursor: pointer;
+}
+
+div.section {
+	padding-bottom: 20px;
+	border-bottom: 16px solid;
+	border-bottom-color:#6FAA46;
+}
+
+/* CSS para SubSe��es */
+
+table.SubSection {
+	border-collapse: collapse;
+	width: 100%;
+	color:#FFFFFF;
+	vertical-align:middle;
+	text-align:center;
+	font-size:8pt;
+	font-weight:bold;
+	border-spacing: 0px 0px;
+    border-bottom: 3px solid;
+	border-bottom-color:#6FAA46;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+table.SubSection tr {
+	height:20px;
+}
+
+td.TextSubSection {
+	width:20%;
+	background-color:#6FAA46;
+}
+
+/* CSS para Lista de Itens */
+
+table.listItens {
+	width: 100%;
+	cellpadding: 2px;
+	border-spacing: 3px;
+	font-size: 8pt;
+	text-indent: 5px;
+	margin-bottom: 15px;
+	empty-cells: show;
+}
+
+table.listItens tr {
+	height: 16px;
+	font-weight:normal;
+}
+
+table.listItens td {
+	background-color:#D8D8D8;
+	border: 1px  solid #8B8B8B;
+}
+
+table.listItens td.element {
+	border: 0px;
+	text-indent: 0px;
+	text-align: center;
+}
+
+table.listItens td.small_image {
+	width:3%;
+	text-indent: 0px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.listItens tr.listItensHeader {
+	text-indent: 0px;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight:bold;
+}
+
+table.listItens tr.empty {
+	text-align: center;
+	font-style: italic;
+	background-color:#D8D8D8;
+	border: 1px  solid #8B8B8B;
+}
+
+table.listItens tr.listItensHeader td {
+	background-color: #8B8B8B;
+}
+
+.errorMessage {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:normal;
+	color: #FF0000;
+}

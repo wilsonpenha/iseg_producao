@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="propostaEmpresarial" extends="struts2" namespace="/propostaEmpresarial">
+
+		<action name="displayList" method="execute" class="propostaVidaEmpresarialAction">
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="propostaVidaEmpresarialAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo,lista,next,previous,last</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/displayListResult.jsp</result>
+			<result name="edicao">/WEB-INF/jsp/propostaVidaEmpresarial/propostaImoveis.jsp</result>
+		</action>
+
+		<action name="iniciar" class="propostaVidaEmpresarialAction" method="execute">
+			<result>/WEB-INF/jsp/propostaVidaEmpresarial/propostaImoveis.jsp</result>
+		</action>
+ 
+		<action name="editar" class="propostaVidaEmpresarialAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+		</action>
+ 
+		<action name="repassePorParcela" class="propostaVidaEmpresarialAction" method="repassePorParcela">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">repassePorParcela</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasse.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasse.jsp</result>
+		</action>
+ 
+		<action name="endossoRenovacao" class="propostaVidaEmpresarialAction" method="endossoRenovacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">endossoRenovacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+		</action>
+ 
+		<action name="novo" class="propostaVidaEmpresarialAction" method="novo">
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="propostaVidaEmpresarialAction" method="excluir">
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="cancelarProposta" class="propostaVidaEmpresarialAction" method="cancelarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">cancelarProposta</param>
+			</interceptor-ref>
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="salvarEditar" class="propostaVidaEmpresarialAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane${currentTab}.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane${currentTab}.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane${currentTab}.jsp</result>
+		</action>
+
+		<action name="gerarParcelas" class="propostaVidaEmpresarialAction" method="gerarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">gerarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/parcelas.jsp</result>
+		</action>
+
+		<action name="carregarParcelas" class="propostaVidaEmpresarialAction" method="carregarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">carregarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/parcelas.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="propostaVidaEmpresarialAction" method="lista">
+			<result name="success">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+		</action>
+
+		<action name="vistoriadoraPorSeguradora" class="propostaVidaEmpresarialAction" method="getVistoriadoraBySeguradoraList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getVistoriadoraBySeguradoraList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/comboListVistoriadora.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/comboListVistoriadora.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/comboListVistoriadora.jsp</result>
+		</action>
+
+		<action name="condPagtoPorSeguradora" class="propostaVidaEmpresarialAction" method="getCondPagtoPorSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getCondPagtoPorSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/comboListCondPagto.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/comboListCondPagto.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/comboListCondPagto.jsp</result>
+		</action>
+
+		<action name="propostaEmpresarialDadosCliente" class="propostaVidaEmpresarialAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosCliente.jsp</result>
+		</action>
+
+		<action name="propostaEmpresarialDadosEstipulante" class="propostaVidaEmpresarialAction" method="getDadosEstipulante">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosEstipulante</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosEstipulante.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosEstipulante.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosEstipulante.jsp</result>
+		</action>
+
+		<action name="propostaEmpresarialDadosSegurado" class="propostaVidaEmpresarialAction" method="getDadosSegurado">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosSeguradoCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosSeguradoCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosSeguradoCliente.jsp</result>
+		</action>
+
+		<action name="efetivarProposta" class="propostaVidaEmpresarialAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/propostaVidaEmpresarial.jsp</result>
+		</action>
+
+		<action name="novoDadosClienteForm" class="propostaVidaEmpresarialAction" method="novoDadosClienteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosClienteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="novoDadosEstipulanteForm" class="propostaVidaEmpresarialAction" method="novoDadosEstipulanteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosEstipulanteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosEstipulante.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosEstipulante.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosEstipulante.jsp</result>
+		</action>
+		
+		<action name="alterarGrupoVendaComissao" class="propostaVidaEmpresarialAction" method="alterarGrupoVendaComissao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVendaComissao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseComissao.jsp</result>
+		</action>
+
+		<action name="alterarGrupoVendaAgenciamento" class="propostaVidaEmpresarialAction" method="alterarGrupoVendaAgenciamento">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVendaAgenciamento</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseAgenciamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseAgenciamento.jsp</result>
+		</action>
+
+		<action name="inserirCobertura" class="propostaVidaEmpresarialAction" method="inserirCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/rowSeguradoCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/rowSeguradoCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/rowSeguradoCobertura.jsp</result>
+		</action>
+
+		<action name="novoSegurado" class="propostaVidaEmpresarialAction" method="novoSegurado">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoSegurado</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+		</action>
+
+		<action name="editarSegurado" class="propostaVidaEmpresarialAction" method="editarSegurado">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarSegurado</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+		</action>
+
+		<action name="removerSegurado" class="propostaVidaEmpresarialAction" method="removerSegurado">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removerSegurado</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/tabPane1.jsp</result>
+		</action>
+
+		<action name="inserirBeneficiario" class="propostaVidaEmpresarialAction" method="inserirBeneficiario">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirBeneficiario</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/listaBeneficiarios.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/listaBeneficiarios.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/listaBeneficiarios.jsp</result>
+		</action>
+
+		<action name="editarBeneficiario" class="propostaVidaEmpresarialAction" method="editarBeneficiario">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarBeneficiario</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosBeneficiario.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/dadosBeneficiario.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosBeneficiario.jsp</result>
+		</action>
+
+		<action name="excluirBeneficiario" class="propostaVidaEmpresarialAction" method="excluirBeneficiario">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirBeneficiario</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/listaBeneficiarios.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaVidaEmpresarial/listaBeneficiarios.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/listaBeneficiarios.jsp</result>
+		</action>
+
+		<action name="alterarGrupoDeVendaSemSalvar" class="propostaVidaEmpresarialAction" method="alterarGrupoDeVendaSemSalvar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoDeVendaSemSalvar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseComissao.jsp</result>
+		</action>
+
+		<action name="inserirComissionadoSemSalvar" class="propostaVidaEmpresarialAction" method="inserirComissionadoSemSalvar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirComissionadoSemSalvar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/rowComissionado.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/rowComissionado.jsp</result>
+		</action>
+
+		<action name="inserirComissionadoAgenciamentoSemSalvar" class="propostaVidaEmpresarialAction" method="inserirComissionadoAgenciamentoSemSalvar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirComissionadoAgenciamentoSemSalvar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/rowComissionadoAgenciamento.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/rowComissionadoAgenciamento.jsp</result>
+		</action>
+
+		<action name="salvarRepasse" class="propostaVidaEmpresarialAction" method="salvarRepasse">
+			<result name="success">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseComissao.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaVidaEmpresarial/dadosRepasseComissao.jsp</result>
+		</action>
+	</package>
+</struts>

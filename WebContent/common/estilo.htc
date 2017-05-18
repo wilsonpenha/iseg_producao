@@ -1,0 +1,34 @@
+<scriptlet />
+
+<PUBLIC:HTC>
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="Hilite()" />
+<PUBLIC:ATTACH EVENT="onmouseout"  ONEVENT="Restore()" />
+<PUBLIC:ATTACH EVENT="onclick"  ONEVENT="Click()" />
+
+<SCRIPT LANGUAGE="JScript">
+var normalClass;
+
+function Hilite(){
+	if (event.srcElement == element){
+		normalClass = className;
+		className = "BotaoMenu";
+	}
+}
+
+function Restore(){
+	if (event.srcElement == element)
+		className = normalClass;
+}
+
+function Click(){
+	if (event.srcElement == element){
+		className = "BotaoMenu";
+		if (event.srcElement.action){
+			eval(event.srcElement.action);
+		} else {
+			return false;
+		}
+	}
+}
+</SCRIPT>
+</PUBLIC:HTC>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="usuario" extends="struts2" namespace="/usuario">
+		<action name="displayList" method="lista" class="usuarioAction">
+			<result type="tiles" name="none">usuario.insert</result>
+			<result type="tiles" name="input">usuario.update</result>
+			<result type="tiles" name="success">usuario.displayList</result>
+			<result type="tiles" name="error">usuario.displayList</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="usuarioAction">
+			<result type="tiles">usuario.displayList</result>
+			<result type="tiles" name="error">usuario.displayList</result>
+		</action>
+		
+		<action name="excluir" class="usuarioAction" method="excluir">
+			<result type="tiles">usuario.displayList</result>
+			<result type="tiles" name="error">usuario.displayList</result>
+		</action>
+		
+		<action name="salvarLista" class="usuarioAction" method="salvarLista">
+			<result type="tiles" name="none">usuario.insert</result>
+			<result type="tiles" name="input">usuario.update</result>
+			<result type="tiles" name="success">usuario.displayList</result>
+			<result type="tiles" name="error">usuario.update</result>
+		</action>
+		
+		<action name="salvarNovo" class="usuarioAction" method="salvarNovo">
+			<result type="tiles" name="input">usuario.insert</result>
+			<result type="tiles" name="success">usuario.insert</result>
+			<result type="tiles" name="error">usuario.insert</result>
+		</action>
+
+		<action name="salvarEditar" class="usuarioAction" method="salvarEditar">
+			<result type="tiles" name="input">usuario.update</result>
+			<result type="tiles" name="success">usuario.update</result>
+			<result type="tiles" name="error">usuario.update</result>
+		</action>
+
+		<action name="novo" class="usuarioAction" method="novo">
+			<result type="tiles" name="success">usuario.insert</result>
+			<result type="tiles" name="error">usuario.insert</result>
+		</action>
+
+		<action name="editar" class="usuarioAction" method="editar">
+			<result type="tiles" name="success">usuario.update</result>
+			<result type="tiles" name="error">usuario.displayList</result>
+		</action>
+	</package>
+</struts>

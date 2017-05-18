@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="wizard" extends="struts2" namespace="/wizard">
+
+		<action name="displayList" method="execute" class="propostaWizardAction">
+			<result name="success">/WEB-INF/jsp/propostaWizard/displayList.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/displayList.jsp</result>
+		</action>
+
+		<action name="lista*" method="{1}" class="propostaWizardAction">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo,lista,next,previous,last</param>
+			</interceptor-ref>
+			<result name="input">/WEB-INF/jsp/propostaWizard/displayListResult.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaWizard/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/displayListResult.jsp</result>
+			<result name="edicao">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+		</action>
+
+		<action name="iniciar" class="propostaWizardAction" method="execute">
+			<result>/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+		</action>
+ 
+		<action name="editar" class="propostaWizardAction" method="editar">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editar</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+		</action> 
+		
+		<action name="endossoRenovacao" class="propostaWizardAction" method="endossoRenovacao">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">endossoRenovacao</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+		</action>
+ 
+		<action name="checarParcelas" class="propostaWizardAction" method="checarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">checarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+		</action>
+ 
+		<action name="novo" class="propostaWizardAction" method="novo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+		</action>
+ 
+		<action name="excluir" class="propostaWizardAction" method="excluir">
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="cancelarProposta" class="propostaWizardAction" method="cancelarProposta">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">cancelarProposta</param>
+			</interceptor-ref>
+			<result type="chain" name="success">
+				<param name="actionName">displayList</param>
+				<param name="namespace">/proposta</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayList.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayList.jsp</result>
+		</action>
+ 
+		<action name="salvarEditar" class="propostaWizardAction" method="salvarEditar">
+			<result name="input">/WEB-INF/jsp/propostaWizard/tabPane${currentTab}.jsp</result>
+			<result name="success">/WEB-INF/jsp/propostaWizard/tabPane${currentTab}.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/tabPane${currentTab}.jsp</result>
+		</action>
+
+		<action name="efetivarProposta" class="propostaWizardAction" method="salvarEditar">
+			<result name="success">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/propostaWizard.jsp</result>
+		</action>
+
+		<action name="gerarParcelas" class="propostaWizardAction" method="gerarParcelas">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">gerarParcelas</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/parcelas.jsp</result>
+		</action>
+
+		<action name="pesquisaProposta" class="propostaWizardAction" method="lista">
+			<result name="success">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="input">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/proposta/displayListResult.jsp</result>
+		</action>
+
+		<action name="inserirCondutor" class="propostaWizardAction" method="inserirCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/listaCondutores.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/listaCondutores.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/listaCondutores.jsp</result>
+		</action>
+
+		<action name="editarCondutor" class="propostaWizardAction" method="editarCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosCondutor.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosCondutor.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosCondutor.jsp</result>
+		</action>
+
+		<action name="excluirCondutor" class="propostaWizardAction" method="excluirCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/listaCondutores.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/listaCondutores.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/listaCondutores.jsp</result>
+		</action>
+
+		<action name="vistoriadoraPorSeguradora" class="propostaWizardAction" method="getVistoriadoraBySeguradoraList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getVistoriadoraBySeguradoraList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/comboListVistoriadora.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/comboListVistoriadora.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/comboListVistoriadora.jsp</result>
+		</action>
+
+		<action name="condPagtoPorSeguradora" class="propostaWizardAction" method="getCondPagtoPorSeguradora">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getCondPagtoPorSeguradora</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/comboListCondPagto.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/comboListCondPagto.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/comboListCondPagto.jsp</result>
+		</action>
+
+		<action name="wizardModeloVeiculo" class="propostaWizardAction" method="getModeloVeiculoList">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getModeloVeiculoList</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/comboListModeloVeiculo.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/comboListModeloVeiculo.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/comboListModeloVeiculo.jsp</result>
+		</action>
+
+		<action name="wizardDadosCliente" class="propostaWizardAction" method="getDadosCliente">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">getDadosCliente</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosCliente.jsp</result>
+		</action>
+
+		<action name="novoDadosClienteForm" class="propostaWizardAction" method="novoDadosClienteForm">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoDadosClienteForm</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosCliente.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosCliente.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosCliente.jsp</result>
+		</action>
+		
+		<action name="alterarGrupoVenda" class="propostaWizardAction" method="alterarGrupoVenda">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">alterarGrupoVenda</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosComissaoAPagar.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosComissaoAPagar.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosComissaoAPagar.jsp</result>
+		</action>
+		
+		<action name="inserirCobertura" class="propostaWizardAction" method="inserirCobertura">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCobertura</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/rowAutomovelCobertura.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/rowAutomovelCobertura.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/rowAutomovelCobertura.jsp</result>
+		</action>
+		
+		<action name="inserirServico" class="propostaWizardAction" method="inserirServico">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirServico</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/rowAutomovelServico.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/rowAutomovelServico.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/rowAutomovelServico.jsp</result>
+		</action>
+		
+		<action name="inserirVeiculoModelo" class="propostaWizardAction" method="inserirVeiculoModelo">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirVeiculoModelo</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/rowAutomovelServico.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/rowAutomovelServico.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/rowAutomovelServico.jsp</result>
+		</action>
+
+		<action name="novoItem" class="propostaWizardAction" method="novoItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">novoItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+		</action>
+
+		<action name="editarAutomovel" class="propostaWizardAction" method="editarAutomovel">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarAutomovel</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+		</action>
+
+		<action name="removerItem" class="propostaWizardAction" method="removerItem">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">removerItem</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/tabPane2.jsp</result>
+		</action>
+		
+		<action name="listarAutomoveis" class="propostaWizardAction" method="listarAutomoveis">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">listarAutomoveis</param>
+			</interceptor-ref> 
+			<result name="success">/WEB-INF/jsp/propostaWizard/listaAutomoveis.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/listaAutomoveis.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/listaAutomoveis.jsp</result>
+		</action>
+		
+		<action name="consultaRenavan" class="propostaWizardAction" method="consultaRenavan">
+			<result name="success">/WEB-INF/jsp/propostaWizard/renavanFrameset.jsp</result>
+		</action>
+		<action name="formConsulta" class="propostaWizardAction">
+			<result name="success">/WEB-INF/jsp/propostaWizard/consultaRenavan.jsp</result>
+		</action>
+		<action name="formBotao" class="propostaWizardAction">
+			<result name="success">/WEB-INF/jsp/propostaWizard/formBotao.jsp</result>
+		</action>
+		
+		<action name="pesquisaDadosPessoa" class="propostaWizardAction" method="pesquisaDadosPessoa">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">pesquisaDadosPessoa</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosCondutorPerfil.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosCondutorPerfil.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosCondutorPerfil.jsp</result>
+		</action>
+		<action name="editarCondutorPerfil" class="propostaWizardAction" method="editarCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">editarCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/dadosCondutorPerfil.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/dadosCondutorPerfil.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/dadosCondutorPerfil.jsp</result>
+		</action>
+		<action name="inserirCondutorPerfil" class="propostaWizardAction" method="inserirCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">inserirCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/listaCondutoresPerfil.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/listaCondutoresPerfil.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/listaCondutoresPerfil.jsp</result>
+		</action>
+		<action name="excluirCondutorPerfil" class="propostaWizardAction" method="excluirCondutor">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">excluirCondutor</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/listaCondutoresPerfil.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/listaCondutoresPerfil.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/listaCondutoresPerfil.jsp</result>
+		</action>
+		<action name="consultarAutomovel" class="propostaWizardAction" method="consultarAutomovel">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">consultarAutomovel</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/propostaWizard/modalAutomovelDadosCompl.jsp</result>
+			<result name="input">/WEB-INF/jsp/propostaWizard/modalAutomovelDadosCompl.jsp</result>
+			<result name="error">/WEB-INF/jsp/propostaWizard/modalAutomovelDadosCompl.jsp</result>
+		</action>
+		<action name="salvarDetalhesAutomovel" class="propostaWizardAction" method="salvarDetalhesAutomovel">
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">salvarDetalhesAutomovel</param>
+			</interceptor-ref>
+			<result type="stream" name="success">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+		    </result>
+		</action>
+	</package>
+</struts>

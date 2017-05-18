@@ -1,0 +1,47 @@
+<!--
+ Description: Project iseg
+ Company....: Atlas
+ Version....: 0.1
+ Last change: 5/29/2008
+-->
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+   "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+   
+<!--  START SNIPPET: EnderecoAction - Validators --><validators>
+    <field name="endereco.bairro">
+        <field-validator type="required">
+            <message>O campo Bairro é de preenchimento obrigatorio!</message>
+        </field-validator>
+    </field>
+    <field name="endereco.tipoEndereco">
+        <field-validator type="required">
+            <message>O campo Tipo de Endereco é de preenchimento obrigatório!</message>
+        </field-validator>
+    </field>
+    <field name="endereco.uf">
+    	<field-validator type="required">
+    		<message>O campo UF é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    <field name="endereco.cidade">
+    	<field-validator type="required">
+    		<message>O campo Cidade é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    <field name="endereco.cep.valor">
+    	<field-validator type="required">
+    		<message>O campo Cep é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+    <field name="endereco.numero">
+    	<field-validator type="required">
+    		<message>O campo Número é de preenchimento obrigatório</message>
+    	</field-validator>
+    </field>
+</validators>
+
+
+
+<!--
+ Atlas, 2008
+-->

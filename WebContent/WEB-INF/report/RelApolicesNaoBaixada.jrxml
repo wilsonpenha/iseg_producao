@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelPropostaSemApolices" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="782" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="24"/>
+	<property name="ireport.y" value="326"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="DATA_INICIO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_TERMINO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_PROPOSTA_INICIO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_PROPOSTA_TERMINO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INICIO_INICIO_VIGENCIA" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_INICIO_VIGENCIA" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INICIO_TERMINO_VIGENCIA" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIM_TERMINO_VIGENCIA" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RAMO_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SEGURADORA_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRODUTOR_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CLIENTE_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GRUPO_VENDA_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NOME_CORRETORA" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["iSeg"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="NUMERORELATORIO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IMAGEM_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEM_FILE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["pina.jpg"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GRUPO_VENDA_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RAMO_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SEGURADORA_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CLIENTE_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="PRODUTOR_NOME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CORRETORA_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new java.lang.Long(374250)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QUEBRA" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SITUACAO_OPERACIONAL" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDaProposta" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDaTransmissao" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoInicioDaVigencia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="periodoDoFimDaVigencia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Nenhum período informado."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ASSESSORIA" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QUEBRA_CORRETORAS" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.lang.Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_LANCAMENTO_APOLICE_INICIO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_LANCAMENTO_APOLICE_FIM" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_BAIXA_APOLICE_INICIO" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_BAIXA_APOLICE_FIM" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ST_BAIXA_APOLICE" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Integer("-1").intValue()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ST_NRO_APOLICE" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Integer("-1").intValue()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO_LANCTO_APOLICE_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO_BAIXA_APOLICE_ID" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(-1)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	proposta.numero AS proposta_numero,
+	proposta.nro_proposta_seg AS proposta_numero_seguradora,
+	proposta.inicio_vigencia AS inicio_vigencia,
+	proposta.termino_vigencia AS termino_vigencia,
+	cliente.nome AS cliente_nome,
+	case when proposta.status_operacional in (0,1,2,4)
+		then 'A'
+		else 'E'
+	end AS inApoliceEndosso,
+	case when proposta.status_operacional in (0,1,2,4)
+		then proposta.nro_apolice
+		else proposta.nro_endosso
+	end AS nroApolice,
+	case when proposta.status_operacional in (0,1,2,4)
+		then proposta.data_emissao_apolice
+		else proposta.data_endosso
+	end AS dtEmissaoApolice,
+	proposta.seguradora_id AS seguradora_id,
+	case when proposta.status_operacional in (0,1,2,4)
+		then proposta.data_lancto_apolice
+		else data_lancto_endosso
+	end AS dtLancamentoApolice,
+	case when proposta.status_operacional in (0,1,2,4)
+		then proposta.data_baixa_apolice
+		else data_baixa_endosso
+	end AS dtBaixaApolice,
+	case when proposta.status_operacional in (0,1,2,4)
+		then proposta.data_receb_apolice
+		else data_receb_endosso
+	end AS dtRecebimentoApolice,
+	seguradoraPJ.razao_social AS seguradora_razao_social,
+	proposta.corretora_id as corretora_id,
+	corretora.nome as corretora_nome,
+	ramo.nome AS ramo_nome,
+	produtor.nome AS produtor_nome
+FROM PROPOSTA proposta
+	LEFT JOIN SEGURADORA seguradora ON seguradora.id = proposta.seguradora_id
+	LEFT JOIN PESSOA cliente ON cliente.id = proposta.cliente_id
+	LEFT JOIN PESSOA_JURIDICA seguradoraPJ ON seguradora.id = seguradoraPJ.id
+	LEFT JOIN RAMO ramo ON ramo.id = proposta.ramo_id
+	LEFT JOIN pessoa produtor ON proposta.produtor_id = produtor.id
+	LEFT JOIN PESSOA corretora ON proposta.corretora_id = corretora.id
+   	     JOIN CORRETORA dadosCorretora ON dadosCorretora.id = corretora.id
+WHERE
+	(($P{ASSESSORIA} = '-1' OR proposta.corretora_id in (select corretora_id from corretoras_list where usuario_id = $P{USUARIO_ID}) OR dadosCorretora.assessoria_id = $P{CORRETORAS})) AND
+	(($P{CORRETORA_ID} = '-1') OR proposta.corretora_id = $P{CORRETORA_ID}) AND
+	(proposta.situacao_operacional in (0,2,3) AND proposta.status_operacional in (0,1,2,4,5,51,6,7,8,81,9,10)) AND
+	(($P{PRODUTOR_ID} = '-1') OR produtor.id = $P{PRODUTOR_ID}) AND
+	(($P{RAMO_ID}  = '-1') OR ramo.id = $P{RAMO_ID}) AND
+	(($P{CLIENTE_ID} ='-1' ) OR cliente.id = $P{CLIENTE_ID}) AND
+	(($P{SEGURADORA_ID} = '-1') OR proposta.seguradora_id = $P{SEGURADORA_ID}) AND
+	(($P{SITUACAO_OPERACIONAL} = '-1') OR proposta.situacao_operacional = $P{SITUACAO_OPERACIONAL}) AND
+	(to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_PROPOSTA_INICIO} OR proposta.data_proposta >= $P{DATA_PROPOSTA_INICIO}) AND
+	(to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_PROPOSTA_TERMINO} OR proposta.data_proposta <= $P{DATA_PROPOSTA_TERMINO}) AND
+	(to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_INICIO_VIGENCIA}  OR proposta.inicio_vigencia >= $P{INICIO_INICIO_VIGENCIA}) AND
+	(to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_INICIO_VIGENCIA} OR proposta.inicio_vigencia <= $P{FIM_INICIO_VIGENCIA}) AND
+	(to_date('1900-01-01','YYYY-MM-DD') = $P{INICIO_TERMINO_VIGENCIA}  OR proposta.termino_vigencia >= $P{INICIO_TERMINO_VIGENCIA}) AND
+	(to_date('2900-01-01','YYYY-MM-DD') = $P{FIM_TERMINO_VIGENCIA} OR proposta.termino_vigencia <= $P{FIM_TERMINO_VIGENCIA}) AND
+	(
+		($P{USUARIO_LANCTO_APOLICE_ID} = -1 OR $P{USUARIO_LANCTO_APOLICE_ID} = proposta.usuario_lancto_apolice_id) OR
+		($P{USUARIO_BAIXA_APOLICE_ID} = -1 OR $P{USUARIO_BAIXA_APOLICE_ID} = proposta.usuario_baixa_apolice_id) OR
+		($P{USUARIO_LANCTO_APOLICE_ID} = -1 OR $P{USUARIO_LANCTO_APOLICE_ID} = proposta.usuario_lancto_endosso_id) OR
+		($P{USUARIO_BAIXA_APOLICE_ID} = -1 OR $P{USUARIO_BAIXA_APOLICE_ID} = proposta.usuario_baixa_endosso_id)
+	) AND
+(
+	(proposta.status_operacional in (0,1,2,4) AND
+		(
+			($P{ST_NRO_APOLICE} = '-1')
+			OR
+			($P{ST_NRO_APOLICE} = '0' AND (proposta.nro_apolice IS NOT NULL AND proposta.nro_apolice <> ''))
+			OR
+			($P{ST_NRO_APOLICE} = '1' AND (proposta.nro_apolice IS NULL OR proposta.nro_apolice = ''))
+		) AND
+		(
+			($P{ST_BAIXA_APOLICE} = '-1')
+			OR
+			($P{ST_BAIXA_APOLICE} = '0' AND (proposta.data_baixa_apolice IS NOT NULL))
+			OR
+			($P{ST_BAIXA_APOLICE} = '1' AND (proposta.data_baixa_apolice IS NULL))
+		) AND
+		(to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_LANCAMENTO_APOLICE_INICIO} OR proposta.data_lancto_apolice >= $P{DATA_LANCAMENTO_APOLICE_INICIO}) AND
+		(to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_LANCAMENTO_APOLICE_FIM} OR proposta.data_lancto_apolice <= $P{DATA_LANCAMENTO_APOLICE_FIM}) AND
+		(to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_BAIXA_APOLICE_INICIO} OR proposta.data_baixa_apolice >= $P{DATA_BAIXA_APOLICE_INICIO}) AND
+		(to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_BAIXA_APOLICE_FIM} OR proposta.data_baixa_apolice <= $P{DATA_BAIXA_APOLICE_FIM})
+	) OR
+	(proposta.status_operacional in (5,6,7,8,81,9,10) AND
+		(
+			($P{ST_NRO_APOLICE} = '-1')
+			OR
+			($P{ST_NRO_APOLICE} = '0' AND (proposta.nro_endosso IS NOT NULL AND proposta.nro_endosso <> ''))
+			OR
+			($P{ST_NRO_APOLICE} = '1' AND (proposta.nro_endosso IS NULL OR proposta.nro_endosso = ''))
+		) AND
+		(
+			($P{ST_BAIXA_APOLICE} = '-1')
+			OR
+			($P{ST_BAIXA_APOLICE} = '0' AND (proposta.data_baixa_endosso IS NOT NULL))
+			OR
+			($P{ST_BAIXA_APOLICE} = '1' AND (proposta.data_baixa_endosso IS NULL))
+		) AND
+		(to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_LANCAMENTO_APOLICE_INICIO} OR proposta.data_lancto_endosso >= $P{DATA_LANCAMENTO_APOLICE_INICIO}) AND
+		(to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_LANCAMENTO_APOLICE_FIM} OR proposta.data_lancto_endosso <= $P{DATA_LANCAMENTO_APOLICE_FIM}) AND
+		(to_date('1900-01-01','YYYY-MM-DD') = $P{DATA_BAIXA_APOLICE_INICIO} OR proposta.data_baixa_endosso >= $P{DATA_BAIXA_APOLICE_INICIO}) AND
+		(to_date('2900-01-01','YYYY-MM-DD') = $P{DATA_BAIXA_APOLICE_FIM} OR proposta.data_baixa_endosso <= $P{DATA_BAIXA_APOLICE_FIM})
+	)
+)]]>
+	</queryString>
+	<field name="termino_vigencia" class="java.sql.Date"/>
+	<field name="corretora_id" class="java.lang.Long"/>
+	<field name="seguradora_id" class="java.lang.Long"/>
+	<field name="cliente_nome" class="java.lang.String"/>
+	<field name="dtemissaoapolice" class="java.sql.Date"/>
+	<field name="corretora_nome" class="java.lang.String"/>
+	<field name="inapoliceendosso" class="java.lang.String"/>
+	<field name="nroapolice" class="java.lang.String"/>
+	<field name="seguradora_razao_social" class="java.lang.String"/>
+	<field name="ramo_nome" class="java.lang.String"/>
+	<field name="dtlancamentoapolice" class="java.sql.Timestamp"/>
+	<field name="inicio_vigencia" class="java.sql.Date"/>
+	<field name="dtrecebimentoapolice" class="java.sql.Timestamp"/>
+	<field name="proposta_numero" class="java.lang.Long"/>
+	<field name="proposta_numero_seguradora" class="java.lang.String"/>
+	<field name="dtbaixaapolice" class="java.sql.Timestamp"/>
+	<field name="produtor_nome" class="java.lang.String"/>
+	<sortField name="corretora_nome"/>
+	<sortField name="inicio_vigencia"/>
+	<sortField name="cliente_nome"/>
+	<sortField name="proposta_numero"/>
+	<sortField name="termino_vigencia"/>
+	<sortField name="seguradora_razao_social"/>
+	<sortField name="ramo_nome"/>
+	<sortField name="produtor_nome"/>
+	<variable name="total_pedidos" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{proposta_numero}]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="tituloRelatorio" class="java.lang.String">
+		<variableExpression><![CDATA["RELATÓRIO DE BAIXA DE APÓLICE/ENDOSSO"]]></variableExpression>
+		<initialValueExpression><![CDATA["RELATÓRIO DE BAIXA DE APÓLICE/ENDOSSO"]]></initialValueExpression>
+	</variable>
+	<variable name="corretora" class="java.lang.String">
+		<initialValueExpression><![CDATA["iSeg"]]></initialValueExpression>
+	</variable>
+	<variable name="periodo" class="java.lang.String">
+		<variableExpression><![CDATA["Transmitidos no período de: "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_INICIO})+" a "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TERMINO})]]></variableExpression>
+		<initialValueExpression><![CDATA["Transmitidos no período de: "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_INICIO})+" a "+new SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TERMINO})]]></initialValueExpression>
+	</variable>
+	<variable name="QUANT_PAGINA" class="java.lang.Integer" incrementType="Page" calculation="Count">
+		<variableExpression><![CDATA[$V{PAGE_COUNT}]]></variableExpression>
+	</variable>
+	<group name="POR_CORRETORA">
+		<groupExpression><![CDATA[$F{corretora_id}]]></groupExpression>
+		<groupHeader>
+			<band height="14" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{ASSESSORIA}.intValue()!=-1 && $P{QUEBRA_CORRETORAS}.intValue() == 1)]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-66" x="1" y="2" width="47" height="11"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Corretora : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-75" x="49" y="2" width="164" height="11"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{corretora_nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-18" x="0" y="13" width="782" height="1" forecolor="#000000"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA_CORRETORAS}.intValue()==1)]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="POR_SEGURADORA">
+		<groupExpression><![CDATA[$F{seguradora_id}]]></groupExpression>
+		<groupHeader>
+			<band height="12" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_SEGURADORA"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-41" x="1" y="1" width="47" height="11"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Seguradora : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-41" x="49" y="1" width="164" height="11"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{seguradora_razao_social}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-5" x="0" y="11" width="782" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<group name="POR_RAMO">
+		<groupExpression><![CDATA[$F{ramo_nome}]]></groupExpression>
+		<groupHeader>
+			<band height="12" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_RAMO"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-44" x="1" y="1" width="26" height="11"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Ramo : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-38" x="28" y="1" width="164" height="11"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ramo_nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-8" x="0" y="11" width="782" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<group name="POR_PRODUTOR" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{produtor_nome}]]></groupExpression>
+		<groupHeader>
+			<band height="12" splitType="Stretch">
+				<printWhenExpression><![CDATA[new Boolean($P{QUEBRA}.equals("POR_PRODUTOR"))]]></printWhenExpression>
+				<staticText>
+					<reportElement key="staticText-44" x="1" y="1" width="36" height="11"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Produtor : ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-38" x="38" y="1" width="164" height="11"/>
+					<box>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{produtor_nome}.concat(($V{POR_PRODUTOR_COUNT}.intValue() > 0 ) ? " . . . (continuação)" : "")]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-8" x="0" y="11" width="782" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-1" x="1" y="0" width="781" height="94"/>
+				<subreportParameter name="SITUACAO_PROPOSTA">
+					<subreportParameterExpression><![CDATA[$P{SITUACAO_OPERACIONAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoLanctoApolice">
+					<subreportParameterExpression><![CDATA[(($P{DATA_LANCAMENTO_APOLICE_INICIO}.equals(new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime()))) ? "" : (new SimpleDateFormat("dd/MM/yyyy")).format($P{DATA_LANCAMENTO_APOLICE_INICIO})) +
+" - " +
+(($P{DATA_LANCAMENTO_APOLICE_FIM}.equals(new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime()))) ? "" : (new SimpleDateFormat("dd/MM/yyyy")).format($P{DATA_LANCAMENTO_APOLICE_FIM}))]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SEGURADORA_NOME">
+					<subreportParameterExpression><![CDATA[$P{SEGURADORA_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDoInicioDaVigencia">
+					<subreportParameterExpression><![CDATA[$P{periodoDoInicioDaVigencia}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="GRUPO_VENDA_NOME">
+					<subreportParameterExpression><![CDATA[$P{GRUPO_VENDA_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PRODUTOR_NOME">
+					<subreportParameterExpression><![CDATA[$P{PRODUTOR_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="baixaApolice">
+					<subreportParameterExpression><![CDATA[($P{ST_BAIXA_APOLICE}.equals(new Integer(-1))) ? "Todas" : (($P{ST_BAIXA_APOLICE}.equals(new Integer(0))) ? "Baixadas" : "Não baixadas")]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="numeracaoApolice">
+					<subreportParameterExpression><![CDATA[($P{ST_NRO_APOLICE}.equals(new Integer(-1))) ? "Todas" : (($P{ST_NRO_APOLICE}.equals(new Integer(0))) ? "Informada" : "Não informada")]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_tituloRelatorio">
+					<subreportParameterExpression><![CDATA[$V{tituloRelatorio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDaProposta">
+					<subreportParameterExpression><![CDATA[$P{periodoDaProposta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imageFileName">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_FILE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CLIENTE_NOME">
+					<subreportParameterExpression><![CDATA[$P{CLIENTE_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo2">
+					<subreportParameterExpression><![CDATA[$V{periodo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RAMO_NOME">
+					<subreportParameterExpression><![CDATA[$P{RAMO_NOME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo3">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_imagemDir">
+					<subreportParameterExpression><![CDATA[$P{IMAGEM_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="_titulo1">
+					<subreportParameterExpression><![CDATA[$P{NOME_CORRETORA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodoDataBaixa">
+					<subreportParameterExpression><![CDATA[(($P{DATA_BAIXA_APOLICE_INICIO}.equals(new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/1900")).getTime()))) ? "" : (new SimpleDateFormat("dd/MM/yyyy")).format($P{DATA_BAIXA_APOLICE_INICIO})) +
+" - " +
+(($P{DATA_BAIXA_APOLICE_FIM}.equals(new java.util.Date(((new SimpleDateFormat("dd/MM/yyyy")).parse("01/01/2900")).getTime()))) ? "" : (new SimpleDateFormat("dd/MM/yyyy")).format($P{DATA_BAIXA_APOLICE_FIM}))]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "cabecalhoPaisagemBaixaApolice.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-5" x="54" y="0" width="43" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Localizador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" x="382" y="0" width="103" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Vigência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-8" x="97" y="0" width="210" height="22"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Segurado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="485" y="0" width="60" height="22"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data Emissão]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-2" x="0" y="22" width="782" height="1"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-57" x="317" y="0" width="65" height="22"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Apólice / Endosso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-58" x="605" y="0" width="177" height="22"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Seguradora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" x="0" y="0" width="54" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data
+Lançamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="545" y="0" width="60" height="22"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data Baixa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" x="307" y="0" width="10" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[T]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-5" x="54" y="0" width="43" height="10"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{proposta_numero}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-7" x="97" y="0" width="210" height="10"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-9" x="605" y="0" width="177" height="10"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{seguradora_razao_social}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-55" x="382" y="0" width="103" height="10"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{inicio_vigencia} != null && $F{termino_vigencia} != null ?
+	new SimpleDateFormat("dd/MM/yyyy").format($F{inicio_vigencia})+" à "+new SimpleDateFormat("dd/MM/yyyy").format($F{termino_vigencia}) :
+	""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-57" x="485" y="0" width="60" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($F{dtemissaoapolice})]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-58" x="317" y="0" width="65" height="10"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nroapolice}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-55" x="0" y="0" width="54" height="10"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dtlancamentoapolice} != null ?
+	new SimpleDateFormat("dd/MM/yyyy").format($F{dtlancamentoapolice}) : ""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-55" x="545" y="0" width="60" height="10"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dtbaixaapolice} != null ?
+	new SimpleDateFormat("dd/MM/yyyy").format($F{dtbaixaapolice}) : ""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-7" x="307" y="0" width="10" height="10"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{inapoliceendosso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-4" x="0" y="0" width="782" height="13"/>
+				<subreportParameter name="USUARIO">
+					<subreportParameterExpression><![CDATA[$P{USUARIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rodapePaisagem.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-79" mode="Opaque" x="305" y="6" width="67" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página: "+$V{PAGE_NUMBER}+"/"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement key="textField-80" mode="Opaque" x="372" y="6" width="29" height="11"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{QUANT_PAGINA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Prevent">
+			<line>
+				<reportElement key="line-3" x="1" y="1" width="782" height="1"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-32" x="0" y="3" width="40" height="11"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total Geral :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-29" x="41" y="3" width="18" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{total_pedidos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-33" x="59" y="3" width="40" height="11"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Pedido(s)]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
